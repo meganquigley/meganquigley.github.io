@@ -15,3 +15,5 @@
 @media(max-width:760px){.opening-equation{gap:6px}.collection-home .not-equal{width:calc(200px - var(--intro-reveal,0)*160px)}}
 
 .collection-home .opening-equation .not-equal{display:flex;align-items:center;justify-content:center;letter-spacing:0}.opening-equation .equation-word{overflow:visible;white-space:nowrap}
+
+.collection-home.has-scrolled .opening-scroll-cue,.collection-home.has-scrolled .intro-copy .scroll-cue{display:none}
