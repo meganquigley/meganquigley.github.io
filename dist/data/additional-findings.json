@@ -1,11 +1,11 @@
 {
   "retailer_access": {
-    "value": 45,
+    "value": 40,
     "unit": "percent",
     "period": "FY2022",
     "geography": "50 states and DC",
     "denominator": "estimated WIC-eligible families",
-    "definition": "No WIC retailer within one driving mile urban or ten miles rural, based on census-tract proxy analysis",
+    "definition": "No WIC retailer within one driving mile urban or ten miles rural, based on population-weighted census-tract centers; eligibility proxy: families below 185% of poverty with children under five",
     "source": "https://fns-prod.azureedge.us/research/wic/participant-access-vendors/part1",
     "limitations": "Not actual household travel; separate from CY2023 participation rates"
   },

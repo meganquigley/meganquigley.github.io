@@ -23,7 +23,11 @@
   ],
   "initial_egg_selection": "white",
   "source_snapshot": "2026-09",
-  "dialogue": "dialogue.json",
-  "route": "route.json",
-  "chapters": 15
+  "chapters": 13,
+  "birth_transition": "part-4",
+  "merged_balance_anchor": {
+    "part-9": "part-8"
+  },
+  "narration": "Single captions attached to actions and evidence; no dialogue bubbles",
+  "retailer_access": "additional-findings.json"
 }
