@@ -3,7 +3,7 @@ const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)], D
 if(!D)return;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)'), body=document.body;
 body.classList.add('enhanced');
-let reading=reduced.matches||(innerHeight<650||(innerWidth<=700&&innerHeight<740))||new URLSearchParams(location.search).get('motion')==='off', counts=false, revealed=false, stateTouched=false, lastPhase={};
+let reading=reduced.matches||new URLSearchParams(location.search).get('motion')==='off', counts=false, revealed=false, stateTouched=false, lastPhase={};
 const fmt=n=>Math.round(n).toLocaleString('en-US');
 const foodRules=[
  'Milk: approved low-fat (1%) or nonfat milk for this four-year-old, in a permitted container size. It must be on the issued food balance.',
@@ -55,5 +55,6 @@ let scheduled=false;function update(){scheduled=false;const vh=innerHeight, max=
  if(reading)return;$$('.scene').forEach(s=>{const r=s.getBoundingClientRect();const total=r.height-vh;const progress=Math.max(0,Math.min(.999,(-r.top+vh*.1)/Math.max(1,total)));const phase=Math.floor(progress*+s.dataset.steps);setPhase(s,phase)});}
 function setReading(on){reading=on;body.classList.toggle('reading',on);$('#reading-mode').setAttribute('aria-pressed',on);$('#reading-mode').textContent=on?'Use scrolling effects':'Read without scrolling effects';lastPhase={};$$('.scene').forEach(s=>setPhase(s,on?+s.dataset.steps-1:0));if(on)reveal(true);update();}
 $('#reading-mode').addEventListener('click',()=>setReading(!reading));reduced.addEventListener('change',e=>{if(e.matches)setReading(true)});setReading(reading);
-addEventListener('scroll',()=>{if(!scheduled){scheduled=true;requestAnimationFrame(update)}},{passive:true});addEventListener('resize',()=>{if((innerHeight<650||(innerWidth<=700&&innerHeight<740))&&!reading)setReading(true);else update();});update();
+document.fonts.ready.then(()=>{const el=document.getElementById(location.hash.slice(1));if(el)el.scrollIntoView({behavior:'instant',block:'start'});update();});addEventListener('hashchange',()=>{const el=document.getElementById(location.hash.slice(1));if(el)el.scrollIntoView({behavior:'instant',block:'start'});update();});
+addEventListener('scroll',()=>{if(!scheduled){scheduled=true;requestAnimationFrame(update)}},{passive:true});addEventListener('resize',update);update();
 })();
