@@ -1,0 +1,31 @@
+const figure = '<svg viewBox="0 0 32 64" aria-hidden="true"><circle cx="16" cy="9" r="6"/><path d="M10 20h12a5 5 0 0 1 5 5v16h-5v20h-5V43h-2v18h-5V41H5V25a5 5 0 0 1 5-5Z"/></svg>';
+const people=document.querySelector('#people');
+const state={revealed:false,scale:'10',age:0};
+const rates=[82.3,67.4,52.5,45.2,26.9];
+function setScale(scale){
+ if(!['10','100','1000','national'].includes(String(scale)))throw new Error('Choose 10, 100, 1000, or national.');
+ scale=String(scale);state.scale=scale;state.revealed=true;
+ document.querySelector('#scale-heading').textContent=scale==='national'?'Across the country, millions qualify. Who participates?':Number(scale).toLocaleString('en-US')+' people qualify. How many participate?';
+ document.querySelector('#guess-controls').hidden=true;document.querySelector('#answer').hidden=false;
+ const n=scale==='national'?1000:Number(scale), reached=Math.round(n*.561);
+ people.className='people '+(n===10?'ten':n===100?'hundred':'thousand');
+ people.innerHTML=Array.from({length:n},(_,i)=>'<span class="person '+(i>=reached?'missing':'reached')+'">'+figure+'</span>').join('');
+ document.querySelector('.experiment').classList.toggle('national',scale==='national');
+ const titles={'10':'About 4 in 10 eligible people did not participate.','100':'About 44 in 100 eligible people did not participate.','1000':'About 439 in 1,000 eligible people did not participate.','national':'5.2 million eligible people did not participate in WIC.'};
+ const notes={'10':'Illustration rounded to whole people. Exact estimated share not participating: 43.9%.','100':'Illustration rounded to whole people. Exact estimated share not participating: 43.9%.','1000':'Illustration rounded to whole people. Exact estimated share not participating: 43.9%.','national':'1,000 symbols represent all 11.83 million estimated eligible people. Each symbol represents about 11,829 people; shares rounded.'};
+ const detail=scale==='national'?'An estimated 11.83 million people qualified; 6.63 million participated. The difference is 5.20 million in an average month of 2023—not people denied benefits.':'56.1% participated. 43.9% did not. The figures illustrate rounded shares.';
+ document.querySelector('#answer-title').textContent=titles[scale];document.querySelector('#answer-detail').textContent=detail;document.querySelector('#scale-note').textContent=notes[scale];
+ document.querySelectorAll('[data-scale]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.scale===scale)));
+ document.querySelector('#live-result').textContent=titles[scale]+' '+detail;
+ return {...state,coveragePercent:56.1,estimatedNonparticipants:5197906};
+}
+function setAge(age){if(!Number.isInteger(age)||age<0||age>4)throw new Error('Age must be an integer from 0 through 4.');state.age=age;const r=rates[age];document.querySelector('#age-percent').innerHTML=r+'<span>%</span>';document.querySelector('#age-description').textContent=age===0?'of eligible infants participated.':'of eligible '+age+'-year-olds participated.';document.querySelector('#age-fill').style.width=r+'%';document.querySelector('#age-bar').setAttribute('aria-label',r+' percent of eligible '+(age===0?'infants':age+'-year-olds')+' participated');document.querySelector('#age-insight').textContent=age===4?'Nearly 3 in 4 eligible 4-year-olds were not participating. This comparison alone does not tell us why.':age===0?'For eligible 4-year-olds, the figure was 26.9%. Try “Age 4.”':'The share participating was lower in each older age group. These are different groups, not a measured dropout sequence.';document.querySelectorAll('[data-age]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.age)===age)));document.querySelector('#live-result').textContent=r+' percent of eligible '+(age===0?'infants':age+'-year-olds')+' participated.';return {age,coveragePercent:r};}
+document.querySelector('#guess').addEventListener('input',e=>{document.querySelector('#guess-value').textContent=e.target.value+' out of 10';});
+document.querySelector('#reveal').addEventListener('click',()=>{setScale('10');document.querySelector('[data-scale="10"]').focus({preventScroll:true});});
+document.querySelectorAll('[data-scale]').forEach(b=>b.addEventListener('click',()=>setScale(b.dataset.scale)));
+document.querySelectorAll('[data-age]').forEach(b=>b.addEventListener('click',()=>setAge(Number(b.dataset.age))));
+document.querySelector('#reset').addEventListener('click',()=>{state.revealed=false;state.scale='10';document.querySelector('#scale-heading').textContent='10 people qualify. How many participate?';people.className='people ten';people.innerHTML=Array.from({length:10},()=>'<span class="person neutral">'+figure+'</span>').join('');document.querySelector('.experiment').classList.remove('national');document.querySelector('#guess-controls').hidden=false;document.querySelector('#answer').hidden=true;document.querySelector('#live-result').textContent='Guess reset.';document.querySelector('#guess').focus();});
+function openSource(hash){if(!/^#source-[a-z-]+$/.test(hash))return;const t=document.querySelector(hash);if(t){t.closest('details').open=true;t.setAttribute('tabindex','-1');requestAnimationFrame(()=>{t.scrollIntoView();t.focus({preventScroll:true});});}}
+document.querySelectorAll('a[href^="#source-"]').forEach(a=>a.addEventListener('click',()=>openSource(a.getAttribute('href'))));openSource(location.hash);
+const mc=document.modelContext;
+if(mc?.registerTool){const life=new AbortController();window.addEventListener('pagehide',()=>life.abort(),{once:true});for(const tool of [{name:'show_wic_scale',description:'Reveal WIC participation and change the visible population scale. Does not change data or submit anything.',inputSchema:{type:'object',properties:{scale:{type:'string',enum:['10','100','1000','national']}},required:['scale'],additionalProperties:false},annotations:{readOnlyHint:false},execute:input=>setScale(input?.scale)},{name:'show_wic_age',description:'Select an age group in the visible WIC coverage comparison.',inputSchema:{type:'object',properties:{age:{type:'integer',minimum:0,maximum:4}},required:['age'],additionalProperties:false},annotations:{readOnlyHint:false},execute:input=>setAge(input?.age)}]){try{Promise.resolve(mc.registerTool(tool,{signal:life.signal})).catch(()=>{});}catch{}}}

@@ -1,0 +1,29 @@
+{
+  "timeline": [
+    "pregnancy",
+    "enrollment",
+    "birth",
+    "early_infant_shopping",
+    "checkout",
+    "kitchen",
+    "benefit_use",
+    "renewal",
+    "preschool"
+  ],
+  "illustrative": true,
+  "shopping_package": "postpartum_fully_breastfeeding",
+  "shopping_item_order": [
+    "milk",
+    "eggs",
+    "bread",
+    "peanut_butter",
+    "apples",
+    "peas",
+    "soap"
+  ],
+  "initial_egg_selection": "white",
+  "source_snapshot": "2026-09",
+  "dialogue": "dialogue.json",
+  "route": "route.json",
+  "chapters": 15
+}

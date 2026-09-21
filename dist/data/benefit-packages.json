@@ -1,0 +1,43 @@
+{
+  "pregnancy": {
+    "label": "During pregnancy",
+    "milk_gallons": 4.5,
+    "eggs_dozen": 1,
+    "cheese_oz": 16,
+    "yogurt_oz": 32,
+    "cereal_oz": 36,
+    "grains_oz": 48,
+    "fish_oz": 10,
+    "peanut_or_beans_containers": 1,
+    "additional_dry_beans_containers": 1,
+    "produce_dollars": 51
+  },
+  "child": {
+    "label": "Child age 2\u20134",
+    "milk_gallons": 3,
+    "eggs_dozen": 1,
+    "cheese_oz": 16,
+    "yogurt_oz": 32,
+    "cereal_oz": 36,
+    "grains_oz": 24,
+    "fish_oz": 6,
+    "peanut_or_beans_containers": 1,
+    "produce_dollars": 29
+  },
+  "source": "https://docs.wic.ca.gov/Flyers/Home/YourWicFoods/YourWICFoods-EN.pdf",
+  "snapshot": "September 2026",
+  "limitations": "Published example packages, not individual entitlements; no-juice option. Alternatives replace foods, not add to them.",
+  "postpartum_fully_breastfeeding": {
+    "label": "Fully breastfeeding postpartum, no juice",
+    "milk_gallons": 4,
+    "eggs_dozen": 2,
+    "cheese_oz": 32,
+    "yogurt_oz": 64,
+    "cereal_oz": 36,
+    "grains_oz": 48,
+    "fish_oz": 20,
+    "peanut_or_beans_containers": 1,
+    "additional_dry_beans_containers": 1,
+    "produce_dollars": 55
+  }
+}

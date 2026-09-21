@@ -1,0 +1,23 @@
+{
+  "retailer_access": {
+    "value": 45,
+    "unit": "percent",
+    "period": "FY2022",
+    "geography": "50 states and DC",
+    "denominator": "estimated WIC-eligible families",
+    "definition": "No WIC retailer within one driving mile urban or ten miles rural, based on census-tract proxy analysis",
+    "source": "https://fns-prod.azureedge.us/research/wic/participant-access-vendors/part1",
+    "limitations": "Not actual household travel; separate from CY2023 participation rates"
+  },
+  "state_contrast": {
+    "states": [
+      "CA",
+      "LA"
+    ],
+    "difference_percentage_points": 31.1,
+    "period": "CY2023 average month",
+    "denominator": "all estimated eligible people in each state",
+    "source": "https://fns-prod.azureedge.us/sites/default/files/resource-files/wic-eer2023-report.pdf",
+    "limitations": "Descriptive difference, not causal estimate of state administration."
+  }
+}

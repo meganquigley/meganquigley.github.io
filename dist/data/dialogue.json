@@ -1,0 +1,332 @@
+[
+  {
+    "chapter": 1,
+    "era": "During pregnancy",
+    "dialogue": [
+      {
+        "speaker": "Nurse \u00b7 Prenatal clinic",
+        "text": "Hi, I\u2019m calling from your prenatal clinic. WIC may help pay for groceries during your pregnancy."
+      },
+      {
+        "speaker": "Mom",
+        "text": "If I qualify, am I already signed up?"
+      },
+      {
+        "speaker": "Nurse \u00b7 Prenatal clinic",
+        "text": "No. You still need to enroll with WIC."
+      },
+      {
+        "speaker": "Mom",
+        "text": "Okay. What do I need to do?"
+      }
+    ]
+  },
+  {
+    "chapter": 2,
+    "era": "During pregnancy \u00b7 applying",
+    "dialogue": [
+      {
+        "speaker": "Mom",
+        "text": "Who do I contact first?"
+      },
+      {
+        "speaker": "WIC staff",
+        "text": "Contact your local WIC office. We\u2019ll explain the appointment and what information to provide."
+      },
+      {
+        "speaker": "Mom",
+        "text": "So this is more than filling out a form."
+      },
+      {
+        "speaker": "WIC staff",
+        "text": "Yes. We review eligibility and complete a nutrition assessment before issuing benefits."
+      }
+    ]
+  },
+  {
+    "chapter": 3,
+    "era": "During pregnancy \u00b7 assessment",
+    "dialogue": [
+      {
+        "speaker": "Mom",
+        "text": "I already have Medi-Cal. Does that count?"
+      },
+      {
+        "speaker": "WIC staff",
+        "text": "That can establish income eligibility. We still need to complete your WIC assessment."
+      },
+      {
+        "speaker": "Mom",
+        "text": "Being connected to one program doesn\u2019t automatically connect me to this one."
+      }
+    ]
+  },
+  {
+    "chapter": 4,
+    "era": "After birth \u00b7 early infancy",
+    "dialogue": [
+      {
+        "speaker": "Mom",
+        "text": "My baby is here. Do my benefits stay the same?"
+      },
+      {
+        "speaker": "WIC staff",
+        "text": "Your package changes after birth and depends on your feeding circumstances."
+      },
+      {
+        "speaker": "Mom",
+        "text": "In this example, I\u2019m fully breastfeeding. I\u2019ll check the updated food balance before shopping."
+      }
+    ]
+  },
+  {
+    "chapter": 5,
+    "era": "Early infancy \u00b7 finding a store",
+    "dialogue": [
+      {
+        "speaker": "Mom",
+        "text": "Can I use it at my usual store?"
+      },
+      {
+        "speaker": "WIC app \u00b7 store finder",
+        "text": "Check for a WIC-authorized store. This Smart & Final is listed by California."
+      },
+      {
+        "speaker": "Mom",
+        "text": "This example route is 2.7 miles. The starting point is illustrative\u2014not a real participant\u2019s home."
+      },
+      {
+        "speaker": "Research context",
+        "text": "A card does not guarantee a nearby store. This national finding is separate from our example route."
+      }
+    ]
+  },
+  {
+    "chapter": 6,
+    "era": "Early infancy \u00b7 inside the store",
+    "dialogue": [
+      {
+        "speaker": "Mom \u00b7 thinking",
+        "text": "Let\u2019s start with milk. Which kind matches my balance?"
+      },
+      {
+        "speaker": "WIC app",
+        "text": "For this package: approved 1% low-fat or nonfat milk. There are 4 gallons available."
+      },
+      {
+        "speaker": "Mom \u00b7 thinking",
+        "text": "White eggs or brown eggs? They look so similar."
+      },
+      {
+        "speaker": "WIC app",
+        "text": "Check the approved type and size. The right product matters as well as the food category."
+      },
+      {
+        "speaker": "Mom \u00b7 thinking",
+        "text": "Bread, peanut butter, apples, peas. One item at a time."
+      },
+      {
+        "speaker": "Mom \u00b7 thinking",
+        "text": "And dish soap. That will be on my part of the bill."
+      }
+    ]
+  },
+  {
+    "chapter": 7,
+    "era": "Early infancy \u00b7 checkout",
+    "dialogue": [
+      {
+        "speaker": "Cashier \u00b7 illustrative",
+        "text": "WIC covered these foods. The dish soap is $3.49."
+      },
+      {
+        "speaker": "Mom",
+        "text": "The groceries haven\u2019t changed. But I pay $3.49 instead of $22.63."
+      },
+      {
+        "speaker": "Mom",
+        "text": "What would that add up to?"
+      },
+      {
+        "speaker": "Illustrative calculation",
+        "text": "One purchase like this each month would mean $229.68 less household spending over a year."
+      }
+    ]
+  },
+  {
+    "chapter": 8,
+    "era": "Early infancy \u00b7 back in the kitchen",
+    "dialogue": [
+      {
+        "speaker": "Mom",
+        "text": "These are the groceries from this trip."
+      },
+      {
+        "speaker": "Mom",
+        "text": "WIC paid for the foods with blue labels. I paid for the soap."
+      },
+      {
+        "speaker": "Mom",
+        "text": "There are other groceries at home already. This trip didn\u2019t buy them."
+      },
+      {
+        "speaker": "WIC balance",
+        "text": "The full package contains more than this purchase. Unused allowances stay on the balance\u2014not in the cabinet."
+      }
+    ]
+  },
+  {
+    "chapter": 9,
+    "era": "Early infancy \u00b7 this benefit period",
+    "dialogue": [
+      {
+        "speaker": "Mom",
+        "text": "I bought these groceries. What\u2019s still available?"
+      },
+      {
+        "speaker": "WIC balance",
+        "text": "3 gallons of milk. 1 dozen eggs. 28 ounces of whole grains. $49.12 for produce."
+      },
+      {
+        "speaker": "Mom",
+        "text": "And the foods I haven\u2019t bought yet are still on the balance."
+      },
+      {
+        "speaker": "WIC balance",
+        "text": "Use benefits within their issue period. Check the first and last day to use them."
+      }
+    ]
+  },
+  {
+    "chapter": 10,
+    "era": "Research pause \u00b7 benefit use",
+    "dialogue": [
+      {
+        "speaker": "Mom",
+        "text": "Does everyone use everything they receive?"
+      },
+      {
+        "speaker": "Research context",
+        "text": "This study measured how much of each food category people used during a certification period."
+      },
+      {
+        "speaker": "Research context",
+        "text": "69.6% of periods with produce benefits reached at least 70% use. That does not mean 69.6% of all produce dollars were used."
+      },
+      {
+        "speaker": "Mom",
+        "text": "So getting the benefit and using it are different things."
+      }
+    ]
+  },
+  {
+    "chapter": 11,
+    "era": "Infancy \u2192 renewal \u2192 preschool",
+    "dialogue": [
+      {
+        "speaker": "Mom",
+        "text": "There\u2019s another appointment. Is this the same as renewing?"
+      },
+      {
+        "speaker": "WIC staff",
+        "text": "A mid-certification assessment is different from renewal. We\u2019ll tell you what information needs updating."
+      },
+      {
+        "speaker": "Mom",
+        "text": "Now she\u2019s one. Her package changes again."
+      },
+      {
+        "speaker": "Mom",
+        "text": "At two, we\u2019re still buying groceries\u2014and keeping up with WIC."
+      },
+      {
+        "speaker": "Illustrative calculation",
+        "text": "Across 48 monthly purchases, this fixed basket would cost the household $918.72 more without WIC."
+      }
+    ]
+  },
+  {
+    "chapter": 12,
+    "era": "Research pause \u00b7 national reach",
+    "dialogue": [
+      {
+        "speaker": "Mom",
+        "text": "How many eligible families are missing this support?"
+      },
+      {
+        "speaker": "Research context",
+        "text": "WIC reached 56.1% of all eligible people in an average month in 2023."
+      },
+      {
+        "speaker": "Research context",
+        "text": "It reached 82.3% of eligible infants, but only 26.9% of eligible four-year-olds."
+      },
+      {
+        "speaker": "Research context",
+        "text": "These are different age groups. The chart does not measure this family leaving WIC."
+      }
+    ]
+  },
+  {
+    "chapter": 13,
+    "era": "Research pause \u00b7 states",
+    "dialogue": [
+      {
+        "speaker": "Mom",
+        "text": "Would this look different in another state?"
+      },
+      {
+        "speaker": "Research context",
+        "text": "California reached 72.4% of eligible people. Louisiana reached 41.3%\u2014a 31.1-percentage-point gap."
+      },
+      {
+        "speaker": "Research context",
+        "text": "Vermont\u2019s estimate is 79.6%, but its interval is wide: 65.1%\u201394.2%."
+      },
+      {
+        "speaker": "Research context",
+        "text": "The ranking doesn\u2019t tell us why. Store access, referrals and logistics need their own evidence."
+      }
+    ]
+  },
+  {
+    "chapter": 14,
+    "era": "Research pause \u00b7 diet quality",
+    "dialogue": [
+      {
+        "speaker": "Mom",
+        "text": "Does staying connected make a difference beyond the grocery bill?"
+      },
+      {
+        "speaker": "Research context",
+        "text": "A study found a 3.6-point lower diet-quality score among children participating only in their first year."
+      },
+      {
+        "speaker": "Research context",
+        "text": "Higher scores mean better diet quality. This was an adjusted, observational comparison\u2014not proof of cause and effect."
+      }
+    ]
+  },
+  {
+    "chapter": 15,
+    "era": "What can change",
+    "dialogue": [
+      {
+        "speaker": "Mom",
+        "text": "Could getting this help take less work?"
+      },
+      {
+        "speaker": "Research context",
+        "text": "Electronic benefits replaced paper vouchers. A national study associated that change with increased child participation."
+      },
+      {
+        "speaker": "Research context",
+        "text": "Better referrals and easier renewal are operational changes to evaluate\u2014not effects measured by that electronic-benefit study."
+      },
+      {
+        "speaker": "Mom",
+        "text": "The list comes back next week. I need the support to keep working, too."
+      }
+    ]
+  }
+]
