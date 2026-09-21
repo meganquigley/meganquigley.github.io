@@ -48,3 +48,46 @@ h2{letter-spacing:-.025em}.misconception{transform:none}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 html{scroll-behavior:auto;scroll-padding-top:0}.notebook-story .stage{scroll-margin-top:0}
 .food-0{--packed-x:28%;--packed-y:35%}.food-1{--packed-x:40%;--packed-y:38%}.food-2{--packed-x:51%;--packed-y:35%}.food-3{--packed-x:63%;--packed-y:37%}.food-4{--packed-x:31%;--packed-y:48%}.food-5{--packed-x:45%;--packed-y:49%}.food-6{--packed-x:60%;--packed-y:47%}
+
+/* Text switches as one unit; outgoing and incoming words never crossfade. */
+.notebook-story.enhanced:not(.reading) .narration .beat{transition:none;opacity:0;visibility:hidden;pointer-events:none}
+.notebook-story.enhanced:not(.reading) .narration .beat.active{opacity:1;visibility:visible;pointer-events:auto}
+.notebook-story .barrier-panel{transition:none}
+.notebook-story .scene{overflow:clip}
+.notebook-story.reading .narration{display:flex;flex-direction:column;gap:14px;align-items:stretch}
+.notebook-story.reading .narration .beat{grid-area:auto;margin:0;opacity:1;visibility:visible}
+/* Consistent reading and evidence spacing. */
+.notebook-story .scene-actions{position:relative;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;width:100%;flex:0 0 auto;padding:14px 32px 12px 120px;border-top:1px solid #29363225;min-height:52px;margin-top:10px}
+.notebook-story .scene-actions .source-inline,.notebook-story .scene-actions .next-scene{position:static;margin:0;max-width:none}
+.notebook-story .scene-actions .next-scene{font-size:24px;margin-left:auto}
+.notebook-story .stage{padding-bottom:24px}
+.notebook-story .sources{padding-top:75px;padding-bottom:75px}
+.notebook-story .global-footer{padding:40px 6vw 90px;gap:28px;line-height:1.6}
+.life-stage-art{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin:35px 0}
+.life-stage-art figure{margin:0;text-align:center;font-size:14px;line-height:1.4}
+.pregnancy-picture{background:url('/assets/wic-scenes.png') 0 0/200% 200%;height:230px;max-width:290px;margin:auto;mix-blend-mode:multiply}
+.life-stage-art svg{height:230px;width:100%;display:block}
+.life-stage-art figcaption{margin-top:12px}
+.state-explorer{width:min(960px,100%)}
+#state-map{display:block;width:100%;max-height:40svh;overflow:auto}
+#state-map svg{display:block;width:100%;max-height:40svh;overflow:visible}
+#state-map text{font-family:'DM Sans',sans-serif;fill:var(--ink);pointer-events:none}
+#state-map circle{stroke:var(--ink);cursor:pointer}
+#state-map.contrast-focus .other-state{opacity:.2}
+#state-map.contrast-focus .contrast-state{stroke-width:4;stroke:var(--ink)}
+#state-detail{min-height:2.8em;margin:12px 0 0;line-height:1.4}
+.map-toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px;font-size:13px}
+.map-toolbar button,.map-toolbar select{font-size:13px;padding:6px 9px}
+.diet-study{width:min(760px,100%)}
+.duration-row{display:grid;grid-template-columns:1fr 1.2fr;align-items:center;gap:24px;margin-bottom:16px;font-size:17px}
+.year-track{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.year-track span{padding:14px 6px;border:1px dashed #667670;text-align:center;font-size:14px}
+.year-track .received{background:#b6cbd5;border:1px solid #557589}
+.diet-result{border-top:2px solid var(--ink);padding:17px 0 8px;margin-top:20px}
+.diet-result>span{display:block;font-size:13px;margin-bottom:7px}
+.diet-result strong{display:block;font-size:clamp(21px,2.5vw,31px);line-height:1.2;margin-bottom:10px}
+.diet-result p{font-size:15px;margin:0}
+@media(max-width:700px){.notebook-story .scene-actions{padding:12px 0 12px 95px;gap:10px;min-height:62px}.notebook-story .scene-actions .closer{font-size:12px}.notebook-story .scene-actions .source-inline{font-size:11px}.notebook-story .stage{padding-bottom:18px}.life-stage-art{gap:15px}.pregnancy-picture,.life-stage-art svg{height:155px}.duration-row{grid-template-columns:1fr;gap:7px;font-size:15px;margin-bottom:15px}.year-track span{padding:9px 4px;font-size:12px}.diet-study>.small{font-size:12px}.diet-result{margin-top:12px;padding-top:12px}.diet-result p{font-size:12px}.map-toolbar{font-size:11px;gap:6px}.map-toolbar select,.map-toolbar button{font-size:11px;max-width:150px}#state-map.sorted svg{max-height:none}#state-map{max-height:34svh}#state-detail{font-size:12px}.notebook-story .global-footer{padding:35px 24px 95px}}
+@media(max-height:650px) and (min-width:701px){.notebook-story .scene-actions{padding-top:8px;padding-bottom:6px;min-height:35px;margin-top:0}.notebook-story .stage{padding-bottom:12px}.duration-row{margin-bottom:10px}.year-track span{padding:8px}.diet-result{margin-top:10px;padding-top:10px}#state-map,#state-map svg{max-height:36svh}}
+@media(min-width:701px){#state-map{max-height:none}#state-map svg{height:270px;max-height:none}#scene-6 .stage>.visual{zoom:1}#scene-6 .map-toolbar{margin-bottom:3px}#scene-6 #state-detail{margin-top:3px}#scene-6 .state-explorer{max-width:900px}}
+@media(min-width:701px) and (max-height:650px){#state-map svg{height:205px}#scene-6 .stage>.narration{min-height:2.5em}#scene-6 .map-toolbar{font-size:11px}#scene-6 .map-toolbar select,#scene-6 .map-toolbar button{font-size:11px;padding:4px 7px}#scene-6 #state-detail{font-size:11px;min-height:2em}}
