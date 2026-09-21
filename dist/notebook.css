@@ -91,3 +91,17 @@ html{scroll-behavior:auto;scroll-padding-top:0}.notebook-story .stage{scroll-mar
 @media(max-height:650px) and (min-width:701px){.notebook-story .scene-actions{padding-top:8px;padding-bottom:6px;min-height:35px;margin-top:0}.notebook-story .stage{padding-bottom:12px}.duration-row{margin-bottom:10px}.year-track span{padding:8px}.diet-result{margin-top:10px;padding-top:10px}#state-map,#state-map svg{max-height:36svh}}
 @media(min-width:701px){#state-map{max-height:none}#state-map svg{height:270px;max-height:none}#scene-6 .stage>.visual{zoom:1}#scene-6 .map-toolbar{margin-bottom:3px}#scene-6 #state-detail{margin-top:3px}#scene-6 .state-explorer{max-width:900px}}
 @media(min-width:701px) and (max-height:650px){#state-map svg{height:205px}#scene-6 .stage>.narration{min-height:2.5em}#scene-6 .map-toolbar{font-size:11px}#scene-6 .map-toolbar select,#scene-6 .map-toolbar button{font-size:11px;padding:4px 7px}#scene-6 #state-detail{font-size:11px;min-height:2em}}
+/* One stable caption; no overlapping hidden paragraphs or skipped arrow steps. */
+.notebook-story.enhanced:not(.reading) .narration .beat{display:none!important}
+.notebook-story .current-caption{margin:0;line-height:1.45}
+.notebook-story.reading .current-caption{display:none}
+.notebook-story.enhanced:not(.reading) .scene{min-height:calc(100svh + var(--steps,3)*55svh)!important;overflow:visible}
+.notebook-story.enhanced:not(.reading) .stage{height:100svh;min-height:0;position:sticky;top:0}
+.notebook-story.enhanced:not(.reading) .narration{display:block;min-height:5em}
+.notebook-story .section-transcript[open]>div{z-index:20;text-align:left;line-height:1.5}
+.notebook-story .section-transcript[open]>div p{margin-bottom:16px}
+.notebook-story.reading .section-transcript{display:none}
+.notebook-story .scene-actions{padding-left:125px}
+@media(max-width:700px){.notebook-story .scene-actions{gap:5px 12px;padding-left:105px}.notebook-story .scene-actions .closer summary{padding:4px 0}.notebook-story .stage>.visual{justify-content:center}.notebook-story.enhanced:not(.reading) .narration{min-height:6em}}
+@media print{.notebook-story.enhanced:not(.reading) .narration .beat{display:block!important;opacity:1!important;visibility:visible!important}.current-caption,.section-transcript{display:none!important}}
+@media(min-width:701px) and (max-height:650px){.notebook-story.enhanced:not(.reading) .narration{min-height:3em}.notebook-story.enhanced:not(.reading) .scene:not(#scene-6) .stage>.visual{zoom:.68}.notebook-story .scene-actions{margin-top:12px}}

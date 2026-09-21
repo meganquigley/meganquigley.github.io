@@ -5,6 +5,24 @@ const reduced=matchMedia('(prefers-reduced-motion: reduce)'), body=document.body
 body.classList.add('enhanced');
 let reading=reduced.matches||new URLSearchParams(location.search).get('motion')==='off', counts=false, revealed=false, stateTouched=false, lastPhase={};
 const fmt=n=>Math.round(n).toLocaleString('en-US');
+// Keep one live caption node. Source paragraphs remain available in reading mode.
+$$('.scene').forEach(scene=>{
+ const narration=scene.querySelector('.narration'), beats=[...narration.querySelectorAll('.beat')];
+ scene.dataset.steps=beats.length;
+ scene.style.setProperty('--steps',beats.length);
+ const caption=document.createElement('p');caption.className='current-caption';caption.innerHTML=beats[0]?.innerHTML||'';narration.append(caption);
+ const actions=scene.querySelector('.scene-actions');
+ const transcript=document.createElement('details');transcript.className='section-transcript closer';
+ transcript.innerHTML='<summary>Read this section</summary><div>'+beats.map(b=>'<p>'+b.innerHTML+'</p>').join('')+'</div>';
+ actions?.prepend(transcript);
+ const next=scene.querySelector('.next-scene');
+ next?.addEventListener('click',event=>{
+  if(reading)return;
+  const phase=Number(scene.dataset.phase||0),steps=Number(scene.dataset.steps);
+  if(phase<steps-1){event.preventDefault();const travel=scene.offsetHeight-innerHeight;window.scrollTo({top:scrollY+scene.getBoundingClientRect().top+travel*((phase+1.15)/steps),behavior:'instant'});update();}
+ });
+});
+
 const foodRules=[
  'Milk: approved low-fat (1%) or nonfat milk for this four-year-old, in a permitted container size. It must be on the issued food balance.',
  'Eggs: large white eggs in approved packages. California permits qualifying cage-free white eggs; brown and specialty eggs do not qualify under these rules.',
@@ -38,7 +56,7 @@ $$('[data-egg]').forEach(b=>b.addEventListener('click',()=>{$$('[data-egg]').for
 function trend(){const xs=i=>45+i*52, ys=v=>270-v*2.25;const path=key=>D.trends.map((d,i)=>`${i?'L':'M'}${xs(i)},${ys(d[key])}`).join(' ');
  $('#trend-chart').innerHTML=`<svg viewBox="0 0 515 315" role="img" aria-label="WIC coverage 2016 to 2023: infants 85.7 to 82.3 percent; children ages 1–4, 43.5 to 47.9 percent. Full series available in downloaded data.">${[0,25,50,75,100].map(v=>`<line x1="45" y1="${ys(v)}" x2="409" y2="${ys(v)}" stroke="#292824" opacity=".18"/><text x="35" y="${ys(v)+5}" text-anchor="end">${v}</text>`).join('')}<text x="45" y="20">% of eligible people</text><path d="${path('infants')}" fill="none" stroke="#292824" stroke-width="3"/><path d="${path('children')}" fill="none" stroke="#a74130" stroke-width="3"/>${D.trends.map((d,i)=>`<circle cx="${xs(i)}" cy="${ys(d.infants)}" r="4" fill="#fff9e9" stroke="#292824"/><circle cx="${xs(i)}" cy="${ys(d.children)}" r="4" fill="#fff9e9" stroke="#a74130"/><text x="${xs(i)}" y="295" text-anchor="middle">${String(d.year).slice(2)}</text>`).join('')}<text x="422" y="${ys(82.3)-5}">Infants</text><text x="422" y="${ys(82.3)+14}">82.3%</text><text x="422" y="${ys(47.9)-5}">Children</text><text x="422" y="${ys(47.9)+14}">47.9%</text><text x="43" y="${ys(43.5)+23}">43.5%</text><text x="230" y="314" text-anchor="middle">Year (2016–2023)</text></svg>`;
 }trend();
-function setPhase(scene,phase){const n=+scene.dataset.scene;if(lastPhase[n]===phase)return;lastPhase[n]=phase;scene.classList.remove('phase-0','phase-1','phase-2','phase-3','phase-4');scene.classList.add('phase-'+phase);scene.dataset.phase=phase;scene.querySelectorAll('.beat').forEach((b,i)=>b.classList.toggle('active',i===phase));
+function setPhase(scene,phase){const n=+scene.dataset.scene;if(lastPhase[n]===phase)return;lastPhase[n]=phase;scene.classList.remove('phase-0','phase-1','phase-2','phase-3','phase-4');scene.classList.add('phase-'+phase);scene.dataset.phase=phase;scene.querySelectorAll('.beat').forEach((b,i)=>b.classList.toggle('active',i===phase));const caption=scene.querySelector('.current-caption'),beats=scene.querySelectorAll('.beat');if(caption)caption.innerHTML=(beats[phase]||beats[beats.length-1]).innerHTML;const next=scene.querySelector('.next-scene');if(next)next.setAttribute('aria-label',phase<beats.length-1?'Continue this section':'Continue to next section');
  if(n===1){const num=reading?7:[0,1,3,7,7][phase];$$('.shopping-list [data-item]').forEach((l,i)=>l.classList.toggle('bought',i<num));$$('[data-food]').forEach((f,i)=>f.classList.toggle('packed',i<num));}
  if(n===3){scene.querySelector('h2').innerHTML=phase===3&&!reading?'The savings from this basket<br>could add up over time.':'WIC could cover $19.14<br>of this $22.63 grocery bill.';const before=phase===0&&!reading;scene.querySelector('.receipt-1 .wic-subtotal').textContent=before?'$0.00':'$19.14';scene.querySelector('.receipt-1 .receipt-total strong').textContent=before?'$22.63':'$3.49';}
  if(n===5)agePhase(phase);
@@ -48,7 +66,7 @@ function setPhase(scene,phase){const n=+scene.dataset.scene;if(lastPhase[n]===ph
 function renderMonths(months){const money=c=>(c/100).toLocaleString('en-US',{style:'currency',currency:'USD'});$('#cost-without').textContent=money(2263*months);$('#cost-with').textContent=money(349*months);$('#cost-saved').textContent=money(1914*months);$('#cost-without-bar').style.width=(2263*months/120000*100)+'%';$('#cost-with-bar').style.width=(349*months/120000*100)+'%';$$('[data-months]').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.months===months));}
 $$('[data-months]').forEach(b=>b.addEventListener('click',()=>renderMonths(+b.dataset.months)));renderMonths(48);
 let scheduled=false;function update(){scheduled=false;const vh=innerHeight, max=document.documentElement.scrollHeight-vh;$('.progress span').style.width=`${max?scrollY/max*100:0}%`;
- if(reading)return;$$('.scene').forEach(s=>{const r=s.getBoundingClientRect();const total=r.height-vh;const progress=Math.max(0,Math.min(.999,(-r.top+vh*.1)/Math.max(1,total)));const phase=Math.floor(progress*+s.dataset.steps);setPhase(s,phase)});}
+ if(reading)return;$$('.scene').forEach(s=>{const r=s.getBoundingClientRect();const total=r.height-vh;const progress=Math.max(0,Math.min(.999,(-r.top)/Math.max(1,total)));const phase=Math.floor(progress*+s.dataset.steps);setPhase(s,phase)});}
 function setReading(on){reading=on;body.classList.toggle('reading',on);$('#reading-mode').setAttribute('aria-pressed',on);$('#reading-mode').textContent=on?'Use scrolling effects':'Read without scrolling effects';lastPhase={};$$('.scene').forEach(s=>setPhase(s,on?+s.dataset.steps-1:0));if(on)reveal(true);update();}
 $('#reading-mode').addEventListener('click',()=>setReading(!reading));reduced.addEventListener('change',e=>{if(e.matches)setReading(true)});setReading(reading);
 document.fonts.ready.then(()=>{const el=document.getElementById(location.hash.slice(1));if(el)el.scrollIntoView({behavior:'instant',block:'start'});update();});addEventListener('hashchange',()=>{const el=document.getElementById(location.hash.slice(1));if(el)el.scrollIntoView({behavior:'instant',block:'start'});update();});
