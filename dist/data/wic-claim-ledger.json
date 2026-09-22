@@ -1,5 +1,5 @@
 {
-  "title": "WIC: from eligibility to groceries — claim ledger",
+  "title": "WIC: from eligibility to groceries \u2014 claim ledger",
   "reviewed": "2026-09-22",
   "latest_comparable_release_check": {
     "url": "https://www.fna.usda.gov/research/wic/eer",
@@ -24,7 +24,7 @@
       "geography": "United States, including territories in national estimate",
       "period": "Average month, CY2023",
       "denominator": "Estimated WIC-eligible people, all categories",
-      "calculation": "11,829,215 − 6,631,309 = 5,197,906; rounded display 11.83m / 6.63m / 5.20m.",
+      "calculation": "11,829,215 \u2212 6,631,309 = 5,197,906; rounded display 11.83m / 6.63m / 5.20m.",
       "source": "https://fns-prod.azureedge.us/research/wic/eer/2023",
       "limitation": "Modeled eligibility with administrative participation. Not unique annual people, rejected applicants, or a causal estimate of barriers."
     },
@@ -33,7 +33,7 @@
       "kind": "National estimate",
       "claim": "Coverage increased from 53.5% in 2022 to 56.1% in 2023.",
       "geography": "United States",
-      "period": "CY2022–2023",
+      "period": "CY2022\u20132023",
       "denominator": "Estimated eligible population in each year",
       "source": "https://fns-prod.azureedge.us/research/wic/eer/2023",
       "limitation": "Does not establish the cause of the increase. CY2023 is the latest comparable eligibility-and-reach release found, not a claim that no later caseload figures exist."
@@ -54,17 +54,17 @@
       "kind": "Published qualitative accounts",
       "claim": "Participants described eligibility misconceptions and competing responsibilities; others described convenient enrollment and assistance. Staff described retention outreach.",
       "geography": "New Hampshire and Vermont",
-      "period": "Interviews February–April 2024; published 2026",
+      "period": "Interviews February\u2013April 2024; published 2026",
       "denominator": "10 WIC participants; 17 clinical providers/staff; 6 WIC staff",
       "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12894314/",
-      "limitation": "Small qualitative sample, not national frequency. Different accounts are not merged into one biography. Direct quote: “I had so many other things to put first.”"
+      "limitation": "Small qualitative sample, not national frequency. Different accounts are not merged into one biography. Direct quote: \u201cI had so many other things to put first.\u201d"
     },
     {
       "id": "eggs",
       "kind": "Program rule / illustrative interaction",
       "claim": "Large white eggs can qualify; brown eggs are not authorized. Qualifying cage-free eggs are authorized. State rationale is cost containment.",
       "geography": "California only",
-      "period": "Shopping Guide FAQs, revised April 2026, pp. 5–6",
+      "period": "Shopping Guide FAQs, revised April 2026, pp. 5\u20136",
       "denominator": "Illustration of a four-year-old child with egg benefits available",
       "source": "https://docs.wic.ca.gov/Content/Documents/ShoppingForWicFoods/Shopping_Guide_FAQs.pdf",
       "limitation": "Generic cartons are not verified product SKUs. Approval requires approved product/package and sufficient issued benefits. No actual rejected transaction, national rule, or full-package value is claimed."
@@ -74,17 +74,17 @@
       "kind": "Published qualitative accounts",
       "claim": "Caregivers described WIC product restrictions, shopping inconvenience, and stigma.",
       "geography": "Two pediatric clinics in West Philadelphia",
-      "period": "Interviews July–August 2022; published 2024",
+      "period": "Interviews July\u2013August 2022; published 2024",
       "denominator": "40 current/former WIC and SNAP caregivers",
       "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11524039/",
-      "limitation": "Not nationally representative. The study’s SNAP-specific enrollment and recertification findings are not attributed to WIC."
+      "limitation": "Not nationally representative. The study\u2019s SNAP-specific enrollment and recertification findings are not attributed to WIC."
     },
     {
       "id": "redemption",
       "kind": "Local observational study",
       "claim": "At least 70% of the issued food benefit was redeemed in 69.6% of produce periods and 67.1% of egg periods.",
       "geography": "Southern California",
-      "period": "November 2019–June 2023",
+      "period": "November 2019\u2013June 2023",
       "denominator": "Certification periods with category issued: produce 365,738; eggs 364,908. Study includes 188,368 participants, with repeated periods.",
       "calculation": "Produce 254,506 / 365,738; eggs 244,775 / 364,908. Published rounded percentages shown.",
       "source": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2842211",
@@ -93,9 +93,9 @@
     {
       "id": "ebt",
       "kind": "National quasi-experimental study",
-      "claim": "Electronic benefits associated with 9.12% relative increase in participation among children ages 1–4 three years after implementation; 95% CI 3.19–15.39%.",
+      "claim": "Electronic benefits associated with 9.12% relative increase in participation among children ages 1\u20134 three years after implementation; 95% CI 3.19\u201315.39%.",
       "geography": "United States",
-      "period": "State participation data October 2014–November 2019; published 2021",
+      "period": "State participation data October 2014\u2013November 2019; published 2021",
       "denominator": "Difference-in-differences comparison of EBT and non-EBT states",
       "source": "https://jamanetwork.com/journals/jamapediatrics/fullarticle/2777820",
       "limitation": "Relative change, not percentage points. Not randomized; other state changes may contribute. Separate from national 2023 coverage trend; an evaluated past reform."
@@ -111,6 +111,57 @@
       "source": "/data/basket-prices.csv",
       "product_match_source": "/data/basket-approved-products.csv",
       "limitation": "Assumes approved products and enough issued benefits. Single-gallon milk price, not multi-buy price. Retailer pickup prices illustrate in-store WIC payment, not online acceptance. Brown eggs are only a comparison and do not enter the receipts. Not actual household testimony or typical savings."
+    },
+    {
+      "id": "state-reach",
+      "kind": "State estimates",
+      "claim": "State tiles, eligible counts, participant counts, and 95% coverage intervals reproduce USDA Table 3.5.",
+      "period": "Average month CY2023",
+      "geography": "50 states, DC, Puerto Rico",
+      "denominator": "Estimated eligible people in each jurisdiction, all WIC categories",
+      "source": "https://fns-prod.azureedge.us/sites/default/files/resource-files/wic-eer2023-report.pdf",
+      "limitation": "Not a causal policy ranking. Differences reflect population composition and other conditions as well as policy. Geography-specific uncertainty is displayed."
+    },
+    {
+      "id": "awareness",
+      "kind": "National participant survey subgroup",
+      "claim": "23.3% did not know about WIC; 22.6% thought they did not qualify.",
+      "period": "2019",
+      "denominator": "Current adult participants asked why they had not enrolled during prior pregnancies",
+      "source": "https://fns-prod.azureedge.us/sites/default/files/resource-files/NSWP-III-BriefReport4.pdf",
+      "source_location": "Exhibit 4",
+      "limitation": "Not all currently eligible nonparticipants, not reasons attributable to the 2023 gap; historical self-report."
+    },
+    {
+      "id": "perceived-need",
+      "kind": "Convenience sample",
+      "claim": "59% of 125 former participants interviewed reported feeling they no longer needed WIC.",
+      "period": "2019",
+      "denominator": "125 former participants interviewed, convenience sample",
+      "source": "https://fns-prod.azureedge.us/sites/default/files/resource-files/NSWP-III-BriefReport4.pdf",
+      "limitation": "Not nationally representative; does not establish ongoing eligibility."
+    },
+    {
+      "id": "unused-reasons",
+      "kind": "Participant accounts",
+      "claim": "Caregivers described food fit, cultural preferences, product mislabeling and checkout embarrassment, alongside benefits of EBT and apps.",
+      "geography": "Massachusetts",
+      "period": "2020\u20132021",
+      "denominator": "37 interviews: 20 current caregivers, 17 early-leaving while eligible",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8934047/",
+      "limitation": "Themes are not prevalence estimates or measured explanations of the California redemption findings."
+    },
+    {
+      "id": "stock-up",
+      "kind": "Illustrative transaction and arithmetic",
+      "claim": "Larger basket total $42.97, WIC food value $39.48, household cost $3.49. Same unit prices as original basket, milk/apples/peas quantities tripled.",
+      "period": "Prices observed September 20, 2026",
+      "geography": "Illustrative California child age 4; Smart & Final store 522 price snapshot",
+      "denominator": "One illustrative purchase",
+      "calculation": "3*429+199+399+299+3*399+3*189+349=4297 cents. Covered foods=3948 cents. Repeated once monthly: 3948*6=23688, *12=47376 cents; small basket 1914*6=11484,*12=22968.",
+      "source": "/data/basket-prices.csv",
+      "package_source": "https://docs.wic.ca.gov/Flyers/Home/YourWicFoods/YourWICFoods-EN.pdf",
+      "limitation": "Regular unit prices, no volume discounts/taxes/fees. Assumes matching approved products, enough issued benefits and selected package options. Illustrative repetition requires continued eligibility, new monthly issuance, same prices. Not a typical monthly value or full food package."
     }
   ]
 }

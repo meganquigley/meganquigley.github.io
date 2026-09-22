@@ -1,97 +1,38 @@
 (() => {
-  'use strict';
-  const body = document.body;
-  const chapters = [...document.querySelectorAll('[data-chapter]')];
-  const modeButton = document.getElementById('reading-mode');
-  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  let reading = reduced.matches || new URLSearchParams(location.search).get('motion') === 'off';
-  body.classList.add('js');
-  function setReading(value) {
-    reading = value;
-    body.classList.toggle('reading', reading);
-    modeButton.setAttribute('aria-pressed', String(reading));
-    modeButton.textContent = reading ? 'Use scrolling effects' : 'Read without effects';
-    update();
-  }
-  const foods = JSON.parse(document.getElementById('basket-data').textContent);
-  const belt = document.getElementById('food-belt');
-  const buttons = [...belt.querySelectorAll('[data-food]')];
-  const runway = document.querySelector('.conveyor-scroll');
-  const sticky = document.querySelector('.checkout-sticky');
-  const hurdleRunway = document.querySelector('.hurdle-runway');
-  const hurdleStage = document.querySelector('.hurdle-sticky');
-  const hurdleCards = [...document.querySelectorAll('[data-hurdle]')];
-  const hurdleAccounts = [...document.querySelectorAll('[data-account]')];
-  let selected = 0, manualBelt = false;
-  function selectFood(index, move = true) {
-    selected = Math.max(0, Math.min(foods.length - 1, index));
-    const food = foods[selected];
-    buttons.forEach((button, i) => button.setAttribute('aria-pressed', String(i === selected)));
-    document.getElementById('selected-food').textContent = food.name + (food.price_cents === null ? ' · comparison only' : ' · $' + (food.price_cents / 100).toFixed(2));
-    document.getElementById('carton-result').textContent = food.status;
-    document.getElementById('egg-feedback').textContent = food.rule;
-    document.querySelector('.scanner').dataset.result = food.wic_cents ? 'covered' : 'brown';
-    document.getElementById('food-position').textContent = `${selected + 1} of ${foods.length}`;
-    document.getElementById('food-prev').disabled = selected === 0;
-    document.getElementById('food-next').disabled = selected === foods.length - 1;
-    document.querySelectorAll('[data-receipt-food]').forEach(row => row.classList.toggle('selected', row.dataset.receiptFood === food.id));
-    if (move) {
-      const target = buttons[selected];
-      belt.scrollTo({ left: target.offsetLeft - (belt.clientWidth - target.offsetWidth) / 2, behavior: reading || reduced.matches ? 'instant' : 'smooth' });
-    }
-  }
-  buttons.forEach((button, i) => button.addEventListener('click', () => { manualBelt = true; document.querySelector('.scanner').setAttribute('aria-live', 'polite'); selectFood(i); }));
-  document.getElementById('food-prev').addEventListener('click', () => { manualBelt = true; document.querySelector('.scanner').setAttribute('aria-live', 'polite'); selectFood(selected - 1); });
-  document.getElementById('food-next').addEventListener('click', () => { manualBelt = true; document.querySelector('.scanner').setAttribute('aria-live', 'polite'); selectFood(selected + 1); });
-  belt.addEventListener('keydown', event => {
-    const action = { ArrowLeft: selected - 1, ArrowRight: selected + 1, Home: 0, End: foods.length - 1 }[event.key];
-    if (action !== undefined) { event.preventDefault(); manualBelt = true; document.querySelector('.scanner').setAttribute('aria-live', 'polite'); selectFood(action); buttons[selected].focus({ preventScroll: true }); }
-  });
-  let touchStart = null;
-  belt.addEventListener('touchstart', e => { touchStart = { x: e.touches[0].clientX, y: e.touches[0].clientY }; }, { passive: true });
-  belt.addEventListener('touchmove', e => { if (touchStart && Math.abs(e.touches[0].clientX - touchStart.x) > Math.abs(e.touches[0].clientY - touchStart.y) + 10) manualBelt = true; }, { passive: true });
-  belt.addEventListener('wheel', e => { if (Math.abs(e.deltaX) > Math.abs(e.deltaY) || e.shiftKey) manualBelt = true; }, { passive: true });
-  belt.addEventListener('scroll', () => { document.querySelector('.conveyor').style.setProperty('--belt-shift', `${-(belt.scrollLeft % 26)}px`); }, { passive: true });
-  selectFood(0, false);
-  let queued = false;
-  function update() {
-    queued = false;
-    const max = document.documentElement.scrollHeight - innerHeight;
-    document.querySelector('.reading-progress span').style.width = `${max > 0 ? Math.min(100, Math.max(0, scrollY / max * 100)) : 0}%`;
-    let active = chapters[0];
-    chapters.forEach(chapter => {
-      const bounds = chapter.getBoundingClientRect();
-      if (bounds.top < innerHeight * .45) active = chapter;
-      if (bounds.top < innerHeight * .85 && bounds.bottom > 0) chapter.classList.add('in-view');
-      if (!reading) {
-        const steps = [...chapter.querySelectorAll('.step')];
-        let phase = 0;
-        steps.forEach((step, index) => { if (step.getBoundingClientRect().top < innerHeight * .55) phase = index; });
-        chapter.dataset.phase = String(phase);
-      } else { delete chapter.dataset.phase; }
-    });
-    if (!reading && !reduced.matches && !manualBelt && innerHeight >= 720) {
-      const bounds = runway.getBoundingClientRect();
-      const travel = runway.offsetHeight - sticky.offsetHeight;
-      const progress = Math.max(0, Math.min(1, ((innerWidth <= 600 ? 10 : 40) - bounds.top) / Math.max(1, travel)));
-      belt.scrollLeft = progress * (belt.scrollWidth - belt.clientWidth);
-      const center = belt.scrollLeft + belt.clientWidth / 2;
-      const nearest = buttons.reduce((best, button, i) => Math.abs(button.offsetLeft + button.offsetWidth / 2 - center) < Math.abs(buttons[best].offsetLeft + buttons[best].offsetWidth / 2 - center) ? i : best, 0);
-      const index = progress <= .01 ? 0 : progress >= .99 ? foods.length - 1 : nearest;
-      if (index !== selected) { document.querySelector('.scanner').setAttribute('aria-live', 'off'); selectFood(index, false); }
-    }
-    const hurdleTravel = hurdleRunway.offsetHeight - hurdleStage.offsetHeight;
-    const hurdleProgress = Math.max(0, Math.min(.999, ((innerWidth <= 600 ? 20 : 60) - hurdleRunway.getBoundingClientRect().top) / Math.max(1, hurdleTravel)));
-    const hurdleIndex = Math.floor(hurdleProgress * 4);
-    hurdleCards.forEach((card, i) => card.classList.toggle('active', !reading && i === hurdleIndex));
-    hurdleAccounts.forEach((account, i) => account.classList.toggle('active', i === hurdleIndex));
-    document.getElementById('conveyor-help').textContent = !reading && innerHeight >= 720 ? 'Scroll to move the belt. Select any grocery to explore its rule.' : 'Swipe or use the arrows. Select any grocery to explore its rule.';
-    document.getElementById('chapter-position').textContent = active.dataset.chapter.padStart(2, '0');
-  }
-  function schedule() { if (!queued) { queued = true; requestAnimationFrame(update); } }
-  modeButton.addEventListener('click', () => setReading(!reading));
-  reduced.addEventListener('change', event => { if (event.matches) setReading(true); });
-  addEventListener('scroll', schedule, { passive: true });
-  addEventListener('resize', schedule);
-  setReading(reading);
+'use strict';
+const body=document.body, reduced=matchMedia('(prefers-reduced-motion: reduce)'), mode=document.querySelector('#reading-mode');
+let reading=reduced.matches||new URLSearchParams(location.search).get('motion')==='off';
+body.classList.add('js');
+const foods=JSON.parse(document.querySelector('#basket-data').textContent), belt=document.querySelector('#food-belt'), buttons=[...belt.querySelectorAll('[data-food]')];
+const pause=document.querySelector('#belt-pause');let selected=0,paused=false,hover=false,visible=false,offset=0,last=0;
+// Each grocery is one real button. Recycling offscreen nodes makes a seamless loop without duplicate keyboard targets.
+const track=document.createElement('div');track.className='belt-track';buttons.forEach(b=>track.append(b));belt.append(track);
+function resetBelt(){const focused=document.activeElement;offset=0;track.style.transform='';buttons.forEach(b=>track.append(b));belt.scrollLeft=0;if(buttons.includes(focused))focused.focus({preventScroll:true});}
+function beltMode(){const run=!paused&&!reading&&!reduced.matches;belt.classList.toggle('looping',run);pause.textContent=run?'Pause belt':'Play belt';pause.setAttribute('aria-pressed',String(!run));pause.disabled=reading||reduced.matches;resetBelt();}
+function stop(){if(!paused){paused=true;beltMode();}}
+function selectFood(index,move=true){selected=(index+foods.length)%foods.length;const f=foods[selected];buttons.forEach((b,i)=>b.setAttribute('aria-pressed',String(i===selected)));document.querySelector('#selected-food').textContent=f.name+(f.price_cents===null?' · comparison only':' · $'+(f.price_cents/100).toFixed(2));document.querySelector('#carton-result').textContent=f.status;document.querySelector('#egg-feedback').textContent=f.rule;document.querySelector('.scanner').dataset.result=f.wic_cents?'covered':'brown';document.querySelector('#food-position').textContent=`${selected+1} of ${foods.length}`;if(move){belt.scrollTo({left:buttons[selected].offsetLeft-(belt.clientWidth-buttons[selected].offsetWidth)/2,behavior:'instant'});}}
+buttons.forEach((b,i)=>b.addEventListener('click',()=>{stop();selectFood(i);}));
+document.querySelector('#food-prev').addEventListener('click',()=>{stop();selectFood(selected-1);});document.querySelector('#food-next').addEventListener('click',()=>{stop();selectFood(selected+1);});
+pause.addEventListener('click',()=>{paused=!paused;beltMode();});
+belt.addEventListener('pointerenter',()=>hover=true);belt.addEventListener('pointerleave',()=>hover=false);
+belt.addEventListener('focusin',stop);belt.addEventListener('touchstart',stop,{passive:true});
+belt.addEventListener('keydown',e=>{const index={ArrowLeft:selected-1,ArrowRight:selected+1,Home:0,End:foods.length-1}[e.key];if(index!==undefined){e.preventDefault();stop();selectFood(index);buttons[selected].focus({preventScroll:true});}});
+new IntersectionObserver(entries=>visible=entries[0].isIntersecting).observe(belt);
+function animate(now){const dt=Math.min(50,now-last);last=now;if(visible&&!document.hidden&&!paused&&!reading&&!reduced.matches&&!hover){offset+=dt*.026;const first=track.firstElementChild,stride=first.getBoundingClientRect().width+20;if(offset>=stride){track.append(first);offset-=stride;}track.style.transform=`translateX(${-offset}px)`;document.querySelector('.conveyor').style.setProperty('--belt-shift',`${-offset%26}px`);}requestAnimationFrame(animate);}requestAnimationFrame(animate);selectFood(0,false);
+const sequences=[...document.querySelectorAll('.scroll-sequence')],chapters=[...document.querySelectorAll('[data-chapter]')];
+const ageRows=[...document.querySelectorAll('.age-row')];
+const eligibility=['Support starts<br><em>before birth.</em>','Working families<br><em>can qualify.</em>','An agency checks<br><em>the requirements.</em>'];
+const props=[['☎','Local WIC office'],['✓','Documents & assessment'],['↻','Next appointment'],['WIC','Card & food balance']];
+function update(){let active=chapters[0];for(const c of chapters){const r=c.getBoundingClientRect();if(r.top<innerHeight*.45)active=c;if(r.top<innerHeight*.9&&r.bottom>0)c.classList.add('in-view');}document.querySelector('#chapter-position').textContent=active.dataset.chapter.padStart(2,'0');document.querySelector('.reading-progress span').style.width=`${Math.min(100,scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight)*100)}%`;
+for(const seq of sequences){const steps=[...seq.querySelectorAll('.sequence-steps>article')];let phase=0;steps.forEach((step,i)=>{const heading=step.querySelector('h3'),stageBottom=seq.querySelector('.sequence-stage').getBoundingClientRect().bottom;const threshold=innerWidth<=700?Math.min(innerHeight*.85,Math.max(0,stageBottom)+(innerHeight-Math.max(0,stageBottom))*.7):innerHeight*.55;if(heading.getBoundingClientRect().top<threshold)phase=i;});seq.dataset.active=phase;steps.forEach((step,i)=>step.classList.toggle('current',i===phase));if(seq.classList.contains('age-sequence'))ageRows.forEach((row,i)=>{row.classList.toggle('revealed',reading||i<=phase);row.classList.toggle('current',i===phase);});if(seq.classList.contains('eligibility-story'))document.querySelector('.eligibility-emphasis').innerHTML=eligibility[phase];if(seq.classList.contains('enrollment-sequence')){document.querySelector('#enroll-prop-symbol').textContent=props[phase][0];document.querySelector('#enroll-prop-label').textContent=props[phase][1];document.querySelector('#enroll-step').textContent=phase+1;seq.style.setProperty('--journey',phase);}}
+}
+function setReading(value){reading=value;body.classList.toggle('reading',reading);mode.setAttribute('aria-pressed',String(reading));mode.textContent=reading?'Use scrolling effects':'Read without effects';beltMode();update();}
+let pending=false;function schedule(){if(!pending){pending=true;requestAnimationFrame(()=>{pending=false;update();});}}addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule);mode.addEventListener('click',()=>setReading(!reading));reduced.addEventListener('change',e=>{if(e.matches)setReading(true);});setReading(reading);
+// State estimates remain available as static tiles and a CSV without JavaScript.
+const states=JSON.parse(document.querySelector('#state-data').textContent),pick=document.querySelector('#state-pick'),result=document.querySelector('#state-result');
+function stateSelect(id){const s=states.find(s=>s.id===id);if(!s)return;pick.value=id;document.querySelectorAll('[data-state]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.state===id)));const n=x=>Math.round(Number(x)).toLocaleString('en-US');result.replaceChildren();const title=document.createElement('h4');title.textContent=`${s.name}: ${s.rate}% reached`;const p=document.createElement('p');p.textContent=`${n(s.participants)} participating out of ${n(s.eligible)} estimated eligible people. About ${n(s.eligible-s.participants)} not participating.`;const note=document.createElement('small');note.textContent=`95% coverage interval: ${s.low}%–${s.high}%. All population groups, average month 2023.`;result.append(title,p,note);}
+pick.addEventListener('change',()=>stateSelect(pick.value));document.querySelectorAll('[data-state]').forEach(b=>b.addEventListener('click',()=>stateSelect(b.dataset.state)));stateSelect('CA');
+let months=1,saving=1914;const money=n=>'$'+(n/100).toFixed(2);function accumulation(){document.querySelector('#annual-saving').textContent=money(saving*months);document.querySelector('#cost-formula').textContent=`${money(saving)} × ${months} monthly purchase${months===1?'':'s'}`;document.querySelectorAll('[data-months]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.months)===months)));}
+function receipts(){const large=document.querySelector('#basket-size').value==='large',qty={milk:large?3:1,eggs:1,bread:1,peanut:1,apples:large?3:1,peas:large?3:1,soap:1};let total=0;saving=0;for(const f of foods.filter(f=>f.in_basket)){const q=qty[f.id]||1;total+=f.price_cents*q;saving+=f.wic_cents*q;document.querySelectorAll(`[data-receipt-food="${f.id}"]`).forEach(row=>{row.querySelector('span').textContent=`${f.name} × ${q}`;row.querySelector('b').textContent=money(f.price_cents*q);});}document.querySelectorAll('.receipt').forEach(r=>{r.querySelector('.subtotal b').textContent=money(total);r.querySelector('.subtotal + .receipt-row b').textContent=r.classList.contains('with-wic')?money(saving):'$0.00';r.querySelector('.receipt-total strong').textContent=money(total-(r.classList.contains('with-wic')?saving:0));});document.querySelector('#trip-saving').textContent=money(saving);document.querySelector('#basket-description').textContent=large?'Stock-up: 3 gallons milk, 3 bags apples, 3 bags peas; other quantities unchanged. Same quantities in both receipts.':'One of each priced item. Same quantities in both receipts.';accumulation();}
+document.querySelector('#basket-size').addEventListener('change',receipts);document.querySelectorAll('[data-months]').forEach(b=>b.addEventListener('click',()=>{months=Number(b.dataset.months);accumulation();}));receipts();
 })();
