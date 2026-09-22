@@ -99,6 +99,18 @@
       "denominator": "Difference-in-differences comparison of EBT and non-EBT states",
       "source": "https://jamanetwork.com/journals/jamapediatrics/fullarticle/2777820",
       "limitation": "Relative change, not percentage points. Not randomized; other state changes may contribute. Separate from national 2023 coverage trend; an evaluated past reform."
+    },
+    {
+      "id": "basket",
+      "kind": "Illustrative transaction using observed prices",
+      "claim": "Same seven-item basket costs $22.63. With sufficient issued benefits, WIC pays $19.14 and the household pays $3.49 for soap.",
+      "geography": "Montebello, California",
+      "period": "Retailer prices observed September 20, 2026; California rules April 2026",
+      "denominator": "One illustrative grocery purchase for an eligible child age four, not a full monthly package",
+      "calculation": "429+199+399+299+399+189+349 = 2263 cents. Six food items = 1914 cents; nonfood soap = 349 cents.",
+      "source": "/data/basket-prices.csv",
+      "product_match_source": "/data/basket-approved-products.csv",
+      "limitation": "Assumes approved products and enough issued benefits. Single-gallon milk price, not multi-buy price. Retailer pickup prices illustrate in-store WIC payment, not online acceptance. Brown eggs are only a comparison and do not enter the receipts. Not actual household testimony or typical savings."
     }
   ]
 }

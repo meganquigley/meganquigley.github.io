@@ -17,3 +17,9 @@
 .collection-home .opening-equation .not-equal{display:flex;align-items:center;justify-content:center;letter-spacing:0}.opening-equation .equation-word{overflow:visible;white-space:nowrap}
 
 .collection-home.has-scrolled .opening-scroll-cue,.collection-home.has-scrolled .intro-copy .scroll-cue{display:none}
+/* Keep the revealed symbol optically centered with the wordforms. */
+.collection-home .opening-equation .not-equal{transform:translateY(calc(var(--intro-reveal,0)*-.045em)) scale(calc(1 - var(--intro-reveal,0)*.65))}
+.continue-scroll-cue{position:absolute;bottom:clamp(28px,7svh,64px);left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px;white-space:nowrap;font-size:15px;text-decoration:none;padding:12px 16px;background:var(--paper)}
+.continue-scroll-cue[hidden]{display:none}.continue-scroll-cue span{font-size:25px}.continue-scroll-cue:hover{text-decoration:underline}
+@media(max-width:760px){.continue-scroll-cue{font-size:13px}.collection-home .opening-equation .not-equal{transform:translateY(calc(var(--intro-reveal,0)*-.045em)) scale(calc(1 - var(--intro-reveal,0)*.65))}}
+@media(prefers-reduced-motion:reduce){.collection-home .opening-equation .not-equal{transform:translateY(-.045em)!important}}
