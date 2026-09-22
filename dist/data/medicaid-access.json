@@ -1,0 +1,39 @@
+{
+  "audit": {
+    "calls_year": 2023,
+    "publication_year": 2024,
+    "cities": [
+      "New York City",
+      "Los Angeles",
+      "Chicago",
+      "Phoenix"
+    ],
+    "sample_per_city": 80,
+    "offices": 320,
+    "selected_clinician": 57,
+    "alternate_clinician": 30,
+    "no_appointment_obtained": 233,
+    "appointment_offers": 87,
+    "offered_percent": 27.2,
+    "source": "https://jamanetwork.com/journals/jama/fullarticle/2821639",
+    "scope": "Adult psychiatric prescribing appointments in selected Medicaid managed-care directories; not completed treatment."
+  },
+  "waits": {
+    "median_days": {
+      "Phoenix": 11,
+      "Chicago": 23,
+      "New York City": 28,
+      "Los Angeles": 64
+    },
+    "observed_offers": 70,
+    "offers_without_wait_time": 17,
+    "denominator": "Offered selected or alternate appointments with recorded waits",
+    "source": "https://jamanetwork.com/journals/jama/fullarticle/2821639",
+    "locator": "Figure 1 and Results"
+  },
+  "recommendation": {
+    "text": "CMS should work with states to improve directory accuracy in Medicaid managed care.",
+    "source": "https://oig.hhs.gov/reports/all/2025/many-medicare-advantage-and-medicaid-managed-care-plans-have-limited-behavioral-health-provider-networks-and-inactive-providers/",
+    "note": "Recommendation, not evidence of achieved improvement."
+  }
+}
