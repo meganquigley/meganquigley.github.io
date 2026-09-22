@@ -1,0 +1,104 @@
+{
+  "title": "WIC: from eligibility to groceries — claim ledger",
+  "reviewed": "2026-09-22",
+  "latest_comparable_release_check": {
+    "url": "https://www.fna.usda.gov/research/wic/eer",
+    "finding": "CY2023 listed as latest available; released December 2025."
+  },
+  "editorial_method": "Synthesis of published primary research and program guidance. No original interviews. Illustrations and rule demonstrations are labeled. National reach, local experiences, and redemption have different denominators and are not combined into an attrition funnel.",
+  "claims": [
+    {
+      "id": "program",
+      "kind": "Program description",
+      "claim": "WIC provides supplemental foods, nutrition education, breastfeeding support, and health care referrals to eligible population groups.",
+      "geography": "United States",
+      "period": "Program description reviewed September 2026",
+      "denominator": "Not applicable",
+      "source": "https://www.fns.usda.gov/wic",
+      "limitation": "Eligibility includes categorical, residency, income, and nutrition-risk requirements; packages differ by life stage."
+    },
+    {
+      "id": "reach",
+      "kind": "National estimate",
+      "claim": "11,829,215 eligible; 6,631,309 participating; 5,197,906 not participating; coverage 56.1%.",
+      "geography": "United States, including territories in national estimate",
+      "period": "Average month, CY2023",
+      "denominator": "Estimated WIC-eligible people, all categories",
+      "calculation": "11,829,215 − 6,631,309 = 5,197,906; rounded display 11.83m / 6.63m / 5.20m.",
+      "source": "https://fns-prod.azureedge.us/research/wic/eer/2023",
+      "limitation": "Modeled eligibility with administrative participation. Not unique annual people, rejected applicants, or a causal estimate of barriers."
+    },
+    {
+      "id": "coverage-change",
+      "kind": "National estimate",
+      "claim": "Coverage increased from 53.5% in 2022 to 56.1% in 2023.",
+      "geography": "United States",
+      "period": "CY2022–2023",
+      "denominator": "Estimated eligible population in each year",
+      "source": "https://fns-prod.azureedge.us/research/wic/eer/2023",
+      "limitation": "Does not establish the cause of the increase. CY2023 is the latest comparable eligibility-and-reach release found, not a claim that no later caseload figures exist."
+    },
+    {
+      "id": "age",
+      "kind": "National estimate",
+      "claim": "Coverage: infants 82.3%; age one 67.4%; age two 52.5%; age three 45.2%; age four 26.9%.",
+      "geography": "United States",
+      "period": "Average month, CY2023",
+      "denominator": "Estimated eligible people within each age group",
+      "source": "https://fns-prod.azureedge.us/research/wic/eer/2023",
+      "limitation": "Different age groups, not a tracked cohort. Does not measure dropout, reasons for nonparticipation, or lifetime receipt.",
+      "data": "age-coverage.csv"
+    },
+    {
+      "id": "accounts",
+      "kind": "Published qualitative accounts",
+      "claim": "Participants described eligibility misconceptions and competing responsibilities; others described convenient enrollment and assistance. Staff described retention outreach.",
+      "geography": "New Hampshire and Vermont",
+      "period": "Interviews February–April 2024; published 2026",
+      "denominator": "10 WIC participants; 17 clinical providers/staff; 6 WIC staff",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12894314/",
+      "limitation": "Small qualitative sample, not national frequency. Different accounts are not merged into one biography. Direct quote: “I had so many other things to put first.”"
+    },
+    {
+      "id": "eggs",
+      "kind": "Program rule / illustrative interaction",
+      "claim": "Large white eggs can qualify; brown eggs are not authorized. Qualifying cage-free eggs are authorized. State rationale is cost containment.",
+      "geography": "California only",
+      "period": "Shopping Guide FAQs, revised April 2026, pp. 5–6",
+      "denominator": "Illustration of a four-year-old child with egg benefits available",
+      "source": "https://docs.wic.ca.gov/Content/Documents/ShoppingForWicFoods/Shopping_Guide_FAQs.pdf",
+      "limitation": "Generic cartons are not verified product SKUs. Approval requires approved product/package and sufficient issued benefits. No actual rejected transaction, national rule, or full-package value is claimed."
+    },
+    {
+      "id": "shopping-accounts",
+      "kind": "Published qualitative accounts",
+      "claim": "Caregivers described WIC product restrictions, shopping inconvenience, and stigma.",
+      "geography": "Two pediatric clinics in West Philadelphia",
+      "period": "Interviews July–August 2022; published 2024",
+      "denominator": "40 current/former WIC and SNAP caregivers",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11524039/",
+      "limitation": "Not nationally representative. The study’s SNAP-specific enrollment and recertification findings are not attributed to WIC."
+    },
+    {
+      "id": "redemption",
+      "kind": "Local observational study",
+      "claim": "At least 70% of the issued food benefit was redeemed in 69.6% of produce periods and 67.1% of egg periods.",
+      "geography": "Southern California",
+      "period": "November 2019–June 2023",
+      "denominator": "Certification periods with category issued: produce 365,738; eggs 364,908. Study includes 188,368 participants, with repeated periods.",
+      "calculation": "Produce 254,506 / 365,738; eggs 244,775 / 364,908. Published rounded percentages shown.",
+      "source": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2842211",
+      "limitation": "Threshold attainment across periods, not share of dollars spent nationally. Lower redemption associated with discontinuation; no causal claim. Discontinuation means no issuance for two months after certification; continuing eligibility not established."
+    },
+    {
+      "id": "ebt",
+      "kind": "National quasi-experimental study",
+      "claim": "Electronic benefits associated with 9.12% relative increase in participation among children ages 1–4 three years after implementation; 95% CI 3.19–15.39%.",
+      "geography": "United States",
+      "period": "State participation data October 2014–November 2019; published 2021",
+      "denominator": "Difference-in-differences comparison of EBT and non-EBT states",
+      "source": "https://jamanetwork.com/journals/jamapediatrics/fullarticle/2777820",
+      "limitation": "Relative change, not percentage points. Not randomized; other state changes may contribute. Separate from national 2023 coverage trend; an evaluated past reform."
+    }
+  ]
+}
