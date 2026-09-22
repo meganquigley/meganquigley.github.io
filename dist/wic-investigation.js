@@ -20,11 +20,27 @@ belt.addEventListener('keydown',e=>{const index={ArrowLeft:selected-1,ArrowRight
 new IntersectionObserver(entries=>visible=entries[0].isIntersecting).observe(belt);
 function animate(now){const dt=Math.min(50,now-last);last=now;if(visible&&!document.hidden&&!paused&&!reading&&!reduced.matches&&!hover){offset+=dt*.026;const first=track.firstElementChild,stride=first.getBoundingClientRect().width+20;if(offset>=stride){track.append(first);offset-=stride;}track.style.transform=`translateX(${-offset}px)`;document.querySelector('.conveyor').style.setProperty('--belt-shift',`${-offset%26}px`);}requestAnimationFrame(animate);}requestAnimationFrame(animate);selectFood(0,false);
 const sequences=[...document.querySelectorAll('.scroll-sequence')],chapters=[...document.querySelectorAll('[data-chapter]')];
+sequences.forEach(seq=>{const pin=document.createElement('div');pin.className='scene-pin';while(seq.firstChild)pin.append(seq.firstChild);seq.append(pin);seq.style.setProperty('--beats',seq.querySelectorAll('.sequence-steps>article').length);});
+const revealTargets=[...document.querySelectorAll('.service-cards>details,.promise-break>* ,#reach .evidence,.receipt-pair>.receipt,#change .payment-change,#change .improvement,.why-use')];
+revealTargets.forEach((el,i)=>{el.classList.add('scroll-pop');el.style.setProperty('--pop-delay',`${el.closest('.service-cards')?i%3*100:0}ms`);});
+const popObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('popped');popObserver.unobserve(e.target);}}),{threshold:.15});revealTargets.forEach(el=>popObserver.observe(el));
+document.querySelectorAll('.person').forEach((el,i)=>el.style.setProperty('--person-order',i));
 const ageRows=[...document.querySelectorAll('.age-row')];
 const eligibility=['Support starts<br><em>before birth.</em>','Working families<br><em>can qualify.</em>','An agency checks<br><em>the requirements.</em>'];
 const props=[['☎','Local WIC office'],['✓','Documents & assessment'],['↻','Next appointment'],['WIC','Card & food balance']];
 function update(){let active=chapters[0];for(const c of chapters){const r=c.getBoundingClientRect();if(r.top<innerHeight*.45)active=c;if(r.top<innerHeight*.9&&r.bottom>0)c.classList.add('in-view');}document.querySelector('#chapter-position').textContent=active.dataset.chapter.padStart(2,'0');document.querySelector('.reading-progress span').style.width=`${Math.min(100,scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight)*100)}%`;
-for(const seq of sequences){const steps=[...seq.querySelectorAll('.sequence-steps>article')];let phase=0;steps.forEach((step,i)=>{const heading=step.querySelector('h3'),stageBottom=seq.querySelector('.sequence-stage').getBoundingClientRect().bottom;const threshold=innerWidth<=700?Math.min(innerHeight*.85,Math.max(0,stageBottom)+(innerHeight-Math.max(0,stageBottom))*.7):innerHeight*.55;if(heading.getBoundingClientRect().top<threshold)phase=i;});seq.dataset.active=phase;steps.forEach((step,i)=>step.classList.toggle('current',i===phase));if(seq.classList.contains('age-sequence'))ageRows.forEach((row,i)=>{row.classList.toggle('revealed',reading||i<=phase);row.classList.toggle('current',i===phase);});if(seq.classList.contains('eligibility-story'))document.querySelector('.eligibility-emphasis').innerHTML=eligibility[phase];if(seq.classList.contains('enrollment-sequence')){document.querySelector('#enroll-prop-symbol').textContent=props[phase][0];document.querySelector('#enroll-prop-label').textContent=props[phase][1];document.querySelector('#enroll-step').textContent=phase+1;seq.style.setProperty('--journey',phase);}}
+for(const seq of sequences){
+ const steps=[...seq.querySelectorAll('.sequence-steps>article')],pin=seq.querySelector('.scene-pin');
+ const travel=Math.max(1,seq.offsetHeight-pin.offsetHeight),progress=Math.max(0,Math.min(1,(16-seq.getBoundingClientRect().top)/travel));
+ const phase=reading?0:Math.round(progress*(steps.length-1));
+ const changed=seq.dataset.active!==String(phase);seq.dataset.active=phase;
+ steps.forEach((step,i)=>{step.classList.toggle('current',i===phase);step.inert=!reading&&i!==phase;step.setAttribute('aria-hidden',String(!reading&&i!==phase));});
+ if(seq.classList.contains('age-sequence'))ageRows.forEach((row,i)=>{row.classList.toggle('revealed',reading||i<=phase);row.classList.toggle('current',i===phase);});
+ if(seq.classList.contains('eligibility-story')&&changed)document.querySelector('.eligibility-emphasis').innerHTML=eligibility[phase];
+ if(seq.classList.contains('enrollment-sequence')){document.querySelector('#enroll-prop-symbol').textContent=props[phase][0];document.querySelector('#enroll-prop-label').textContent=props[phase][1];document.querySelector('#enroll-step').textContent=phase+1;seq.style.setProperty('--journey',phase);}
+ if(changed&&!reading&&!reduced.matches){pin.classList.remove('beat-enter');void pin.offsetWidth;pin.classList.add('beat-enter');}
+}
+
 }
 function setReading(value){reading=value;body.classList.toggle('reading',reading);mode.setAttribute('aria-pressed',String(reading));mode.textContent=reading?'Use scrolling effects':'Read without effects';beltMode();update();}
 let pending=false;function schedule(){if(!pending){pending=true;requestAnimationFrame(()=>{pending=false;update();});}}addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule);mode.addEventListener('click',()=>setReading(!reading));reduced.addEventListener('change',e=>{if(e.matches)setReading(true);});setReading(reading);
