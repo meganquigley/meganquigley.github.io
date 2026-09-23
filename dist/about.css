@@ -1,20 +1,19 @@
-/* A single author block remains visible, without a duplicate name or portrait. */
-.about-profile-shell{position:relative;z-index:40;pointer-events:none}
+/* The original name and portrait continuously condense into a single pinned row. */
+.about-page .wrap,.about-page .about-profile-shell .profile-heading{max-width:1280px;padding-inline:5%;text-align:left}
+.about-profile-shell{position:relative;z-index:40;pointer-events:none;--profile-progress:0}
 .profile-ready .about-profile-shell{position:sticky;top:0}
-.about-profile-shell .profile-heading{pointer-events:auto;display:flex;flex-direction:row;justify-content:space-between;align-items:center;gap:28px;max-width:1200px;margin:auto;padding:32px 5%;background:var(--paper,#f8f6f0);transition:padding .2s ease}
-.about-profile-shell h1{font-size:clamp(48px,6vw,80px);line-height:1.08;margin:12px 0 22px;transition:font-size .2s ease,margin .2s ease}
-.about-profile-shell .author-portrait{padding:0;margin:0;flex:none}
-.about-profile-shell .profile-photo{width:190px;height:190px;object-fit:cover;display:block;transition:width .2s ease,height .2s ease}
-.about-profile-shell .eyebrow{margin-bottom:12px}.about-profile-shell .about-deck{font-size:22px;line-height:1.5;margin:0}
-.about-profile-shell.is-compact .profile-heading{padding-block:10px;border-bottom:1px solid var(--line,#d7dcd5)}
-.about-profile-shell.is-compact h1{font-size:22px;line-height:1.3;margin:0}
-.about-profile-shell.is-compact h1 br{display:none}
-.about-profile-shell.is-compact .eyebrow,.about-profile-shell.is-compact .about-deck{display:none}
-.about-profile-shell.is-compact .profile-photo{width:52px;height:52px}
+.about-profile-shell .profile-heading{pointer-events:auto;display:flex;flex-direction:row;justify-content:flex-start;align-items:center;gap:var(--profile-gap,28px);margin:auto;padding-block:var(--profile-padding,32px);background:var(--paper,#f8f6f0)}
+.about-profile-shell .profile-heading>div{width:var(--profile-copy-width,460px);min-width:0;flex:none}
+.about-profile-shell h1{position:relative;height:var(--profile-title-height,161px);font-size:var(--profile-font,72px);line-height:1.12;text-align:left;margin:calc(12px*(1 - var(--profile-progress))) 0 calc(22px*(1 - var(--profile-progress)));letter-spacing:-.025em}
+.about-profile-shell .given-name,.about-profile-shell .family-name{position:absolute;left:0;top:0;white-space:nowrap;display:block;font-style:normal;color:var(--ink)}
+.about-profile-shell .family-name{transform:translate(var(--family-x,0px),var(--family-y,80px))}
+.about-profile-shell .author-portrait{padding:0;margin:0;flex:none;align-self:center}
+.about-profile-shell .profile-photo{width:var(--profile-photo,160px);height:var(--profile-photo,160px);object-fit:cover;display:block;border-radius:4px}
+.about-profile-shell .eyebrow{font-size:12px;line-height:18px;height:calc(18px*(1 - var(--profile-progress)));margin:0 0 calc(12px*(1 - var(--profile-progress)));opacity:calc(1 - var(--profile-progress));overflow:hidden}
+.about-profile-shell .about-deck{font-size:22px;line-height:1.5;margin:0;max-height:calc(var(--profile-deck-height,160px)*(1 - var(--profile-progress)));opacity:calc(1 - var(--profile-progress));overflow:hidden}
+.about-profile-shell .profile-heading{box-shadow:0 1px rgba(164,173,165,var(--profile-progress))}
 .about-hero{padding-top:28px}.experience article{scroll-margin-top:95px}
-.about-profile-shell.is-measuring *{transition:none!important}
-@media(max-width:650px){.about-profile-shell .profile-heading{padding:24px;gap:16px}.about-profile-shell h1{font-size:42px}.about-profile-shell .profile-photo{width:100px;height:100px}.about-profile-shell .about-deck{font-size:17px}.about-profile-shell .eyebrow{font-size:10px}.about-profile-shell.is-compact .profile-photo{width:44px;height:44px}.about-profile-shell.is-compact h1{font-size:20px}}
-@media(max-height:400px){.about-profile-shell.is-compact .profile-heading{padding-block:6px}.about-profile-shell.is-compact .profile-photo{width:36px;height:36px}}
-@media(prefers-reduced-motion:reduce){.about-profile-shell *{transition:none!important}}
-@media print{.profile-ready .about-profile-shell{position:static;height:auto!important}.about-profile-shell .profile-heading{padding:20px 0}.about-profile-shell .eyebrow,.about-profile-shell .about-deck{display:block!important}}
 .about-profile-shell.is-measuring{position:relative!important}
+@media(max-width:750px){.about-page .wrap,.about-page .about-profile-shell .profile-heading{padding-inline:24px}}
+@media(max-width:650px){.about-profile-shell{--profile-copy-width:210px;--profile-gap:20px;--profile-font:38px;--profile-title-height:85px;--profile-photo:90px;--family-y:43px}.about-profile-shell .about-deck{font-size:17px}.about-profile-shell .eyebrow{font-size:10px}}
+@media print{.profile-ready .about-profile-shell{position:static;height:auto!important}.about-profile-shell .profile-heading{padding-block:20px;box-shadow:none}}
