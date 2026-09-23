@@ -3,9 +3,8 @@
     {
       "title": "1. Approved",
       "paragraphs": [
-        "A voucher can change what a household can afford. Through the Housing Choice Voucher program, a local housing agency uses federal funding to pay part of the rent directly to a landlord. The household pays its share.",
-        "This story begins when the voucher is issued. A home still has to be found. Approval is a milestone worth recognizing, and it is the point where a different kind of work begins.",
-        "What would you count as success here: assistance issued, or a household able to use it?"
+        "A housing voucher helps pay the rent. A local agency pays part to the landlord; the household pays its share.",
+        "Approval starts a new task: finding a home where that help can be used."
       ],
       "sources": [
         {
@@ -17,9 +16,9 @@
     {
       "title": "2. Now find somewhere to use it",
       "paragraphs": [
-        "A promising rental listing is the start of an approval process. The renter and landlord complete tenancy paperwork. The housing agency checks the home’s condition and whether the proposed rent is reasonable. The lease and assistance arrangements must be completed.",
-        "These steps involve three parties: the household, the landlord, and the housing agency. Health and safety checks serve a purpose. The practical question is whether the process helps people reach a suitable home in time.",
-        "A voucher also has a search deadline. HUD advises recipients who need more time to contact their housing agency about an extension. The one-year window used later in this story is a research measure; it is not a promise that every household gets a year to search."
+        "Find a home. Agree with a landlord. Complete the paperwork.",
+        "The agency checks the home and rent before the lease and assistance arrangements are completed.",
+        "Three parties must coordinate before the search deadline. Extensions depend on the local agency."
       ],
       "sources": [
         {
@@ -31,10 +30,9 @@
     {
       "title": "3. The doors that stay closed",
       "paragraphs": [
-        "One obstacle appears before inspection or a signed lease: whether a landlord will accept the voucher.",
-        "A HUD-sponsored study published in 2018 tested landlord acceptance in five locations. Reported voucher-denial rates were 78% in Fort Worth, 76% in Los Angeles, 67% in Philadelphia, 31% in Newark, and 15% in Washington, DC.",
-        "Compare the five places. The same kind of rental assistance encountered very different levels of rejection. These are historical study results, not a description of every landlord or today’s local rules.",
-        "The comparison identifies one barrier. It does not tell us why every voucher search fails, and it cannot be subtracted from the separate lease-up figures that follow."
+        "A listing is not always an open door.",
+        "In this five-location study, voucher denial ranged from 15% to 78%. Scroll to compare the doors that closed.",
+        "These historical acceptance tests measure one barrier\u2014not completed leases or current local rules."
       ],
       "sources": [
         {
@@ -46,14 +44,13 @@
     {
       "title": "4. From voucher to lease",
       "paragraphs": [
-        "Now widen the view from landlord responses to completed searches.",
-        "A HUD-funded analysis published in 2025 estimated that 57.3% of searches by new voucher recipients led to a lease within one year in 2022. In 2020, the figure was 65.7%.",
-        "Imagine 100 searches: roughly 57 end with a lease within that window. The remaining searches did not record that outcome. This is a measure of whether issued assistance became usable housing support, not a count of all households needing help.",
-        "The analysis included 1,232 housing agencies meeting data-quality standards. Smaller and rural agencies were underrepresented. These records reveal an outcome gap; they do not supply a complete explanation for it."
+        "Follow 100 new voucher searches.",
+        "About 57 recorded a lease within one year in 2022. About 43 did not record that outcome.",
+        "The exact lease-up estimate fell from 65.7% in 2020 to 57.3% in 2022. These records show the gap, not every reason behind it."
       ],
       "sources": [
         {
-          "label": "Furman Center: sample and one-year success rates, pages 8–10",
+          "label": "Furman Center: sample and one-year success rates, pages 8\u201310",
           "url": "https://www.furmancenter.org/wp-content/uploads/ee-legacy/Success_Rates_in_the_Housing_Choice_Voucher_Program_508.pdf"
         }
       ]
@@ -61,10 +58,9 @@
     {
       "title": "5. Help with the search",
       "paragraphs": [
-        "What happens when assistance includes help navigating the search itself?",
-        "In Seattle and King County, a randomized trial offered a bundle of support: information about neighborhoods, customized search assistance, connections to landlords, and short-term financial help. The share of families moving to neighborhoods with high upward mobility rose from 15% in the control group to 53% in the treatment group.",
-        "This is a different question from whether a family found any home. The result concerns where families moved. It supports a narrower conclusion: in this setting, practical support expanded access to particular neighborhoods.",
-        "The trial tested a package of help. A simple animation should not suggest that any one ingredient produced the entire effect."
+        "What if the voucher came with practical search support?",
+        "In a Seattle\u2013King County trial, 15% of the control group moved to high-upward-mobility neighborhoods. With a bundle of support, 53% did.",
+        "This measures neighborhood choice\u2014not the overall chance of finding any home."
       ],
       "sources": [
         {
@@ -76,9 +72,8 @@
     {
       "title": "6. What counts as delivery?",
       "paragraphs": [
-        "Return to the voucher. The paper represents a commitment of public resources. The key represents a household able to use that commitment.",
-        "The evidence asks us to pay attention to the space between them. A useful evaluation should follow what happens after approval: the search, the obstacles, and the outcome. It should also ask which forms of support change what people can do.",
-        "Which part of the journey could a better public service make easier?"
+        "The voucher is a commitment. The key is a usable benefit.",
+        "Measure what happens after approval: the search, the obstacles, and the lease."
       ],
       "sources": []
     }
@@ -87,9 +82,8 @@
     {
       "title": "1. Covered",
       "paragraphs": [
-        "Medicaid finances mental-health care. In managed care, state agencies contract with health plans to deliver covered benefits. This makes access a public-service question even when the people answering the phone work for a private practice.",
-        "Coverage, a listed clinician, an offered appointment, and a completed visit are different milestones. This story follows one of those transitions: from a directory listing to an appointment offer.",
-        "The focus is adult psychiatric prescribing care through Medicaid managed care. It is not an assessment of every mental-health service, every therapist, or every Medicaid program."
+        "Medicaid covers mental-health services. Coverage is the beginning of access.",
+        "This story follows adult psychiatric prescribing care: from a directory listing to an appointment offer."
       ],
       "sources": [
         {
@@ -105,18 +99,18 @@
     {
       "title": "2. Listed",
       "paragraphs": [
-        "Researchers selected 80 psychiatric prescribing clinicians in each of four cities: New York City, Los Angeles, Chicago, and Phoenix. The clinicians appeared in directories for each city’s highest-enrollment Medicaid managed-care plan and were listed as accepting new patients.",
-        "That made 320 offices to contact. The calls took place in 2023; the study was published in 2024. Researchers requested the earliest appointment and asked about an alternate clinician if the selected clinician was unavailable.",
-        "On a screen, 320 listings can look like 320 opportunities. The next step is to test what those opportunities mean."
+        "Researchers sampled 80 listed clinicians in each of four cities: New York City, Los Angeles, Chicago, and Phoenix.",
+        "All were listed as accepting new patients in the city\u2019s highest-enrollment Medicaid managed-care plan.",
+        "320 listings. The test was whether a call could secure an appointment."
       ],
       "sources": []
     },
     {
       "title": "3. Contacted",
       "paragraphs": [
-        "Appointments were available with the selected clinician at 57 offices. Another 30 offered an alternate clinician at the same practice. Together, 87 of 320 offices—27.2%—offered an appointment.",
-        "At the other 233 offices, the study did not obtain an appointment. That group should not be described as 233 fake clinicians. An unsuccessful attempt does not, by itself, establish fraud or explain everything about a practice.",
-        "Keep all three groups visible. The distinction matters: counting only the selected clinician would miss the alternatives that were offered. Counting every directory entry as accessible would miss the gap the calls revealed."
+        "Start with the same 320 offices. Watch the listings separate into the outcomes of the calls.",
+        "57 offered the selected clinician. Another 30 offered an alternate. At 233 offices, no appointment was obtained.",
+        "87 offers out of 320 calls: 27.2%. An offer is not a completed visit."
       ],
       "sources": [
         {
@@ -128,10 +122,9 @@
     {
       "title": "4. Waiting",
       "paragraphs": [
-        "An appointment offer still leaves another question: when?",
-        "Among appointments with recorded wait times, city medians were 11 days in Phoenix, 23 in Chicago, 28 in New York City, and 64 in Los Angeles. Wait-time information was unavailable for 17 of the 87 offers without more extensive registration.",
-        "The calendar adds a dimension that the directory cannot show. An entry tells someone where to begin; the earliest available date tells them something different about whether help is within reach.",
-        "These medians describe observed offers, not the experience of everyone in those cities. Nor did the audit establish that an appointment was attended or that treatment helped. Those outcomes would require different evidence."
+        "An appointment offer brings another question: when?",
+        "In NYC, 36.3% of sampled offices offered an appointment with any clinician. The median recorded wait was 28 days.",
+        "This is one plan\u2019s sample of adult psychiatric prescribing offices\u2014not all NYC care. Waits were missing for 17 offers across the four cities."
       ],
       "sources": [
         {
@@ -143,11 +136,9 @@
     {
       "title": "5. Accountable",
       "paragraphs": [
-        "A public service needs ways to check whether the route it gives people actually works.",
-        "A separate 2025 federal inspector general review examined selected Medicare Advantage and Medicaid managed-care networks. It found that inactive listings could make networks appear larger than they were. Its Medicaid-specific recommendation was for CMS to work with states to improve directory accuracy.",
-        "That recommendation is a starting point for accountability, not evidence that access has already improved. Correct contact information is valuable; whether a person can obtain appropriate, timely care remains a further question.",
-        "For this story, the closing questions are practical: Can someone reach the office? Can the practice offer an appointment through the plan? How long is the wait? What happens when the first option is unavailable?",
-        "A directory can be the beginning of a public service. Its usefulness should be judged by where it leads."
+        "A useful directory should lead to reachable, available, timely care.",
+        "A separate federal review recommended improving Medicaid directory accuracy. That recommendation is not a measured improvement.",
+        "When the first office cannot help, who helps the patient find the next one?"
       ],
       "sources": [
         {

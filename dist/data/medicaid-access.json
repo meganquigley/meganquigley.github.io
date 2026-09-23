@@ -9,6 +9,7 @@
       "Phoenix"
     ],
     "sample_per_city": 80,
+    "nyc_offered_percent": 36.3,
     "offices": 320,
     "selected_clinician": 57,
     "alternate_clinician": 30,

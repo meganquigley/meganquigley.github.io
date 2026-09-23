@@ -20,34 +20,28 @@ belt.addEventListener('keydown',e=>{const index={ArrowLeft:selected-1,ArrowRight
 new IntersectionObserver(entries=>visible=entries[0].isIntersecting).observe(belt);
 function animate(now){const dt=Math.min(50,now-last);last=now;if(visible&&!document.hidden&&!paused&&!reading&&!reduced.matches&&!hover){offset+=dt*.026;const first=track.firstElementChild,stride=first.getBoundingClientRect().width+20;if(offset>=stride){track.append(first);offset-=stride;}track.style.transform=`translateX(${-offset}px)`;document.querySelector('.conveyor').style.setProperty('--belt-shift',`${-offset%26}px`);}requestAnimationFrame(animate);}requestAnimationFrame(animate);selectFood(0,false);
 const sequences=[...document.querySelectorAll('.scroll-sequence')],chapters=[...document.querySelectorAll('[data-chapter]')];
-sequences.forEach(seq=>{const pin=document.createElement('div');pin.className='scene-pin';while(seq.firstChild)pin.append(seq.firstChild);seq.append(pin);seq.style.setProperty('--beats',seq.querySelectorAll('.sequence-steps>article').length);});
-const revealTargets=[...document.querySelectorAll('.service-cards>details,.promise-break>* ,#reach .evidence,.receipt-pair>.receipt,#change .payment-change,#change .improvement,.why-use')];
-revealTargets.forEach((el,i)=>{el.classList.add('scroll-pop');el.style.setProperty('--pop-delay',`${el.closest('.service-cards')?i%3*100:0}ms`);});
-const popObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('popped');popObserver.unobserve(e.target);}}),{threshold:.15});revealTargets.forEach(el=>popObserver.observe(el));
-document.querySelectorAll('.person').forEach((el,i)=>el.style.setProperty('--person-order',i));
 const ageRows=[...document.querySelectorAll('.age-row')];
-const eligibility=['Support starts<br><em>before birth.</em>','Working families<br><em>can qualify.</em>','An agency checks<br><em>the requirements.</em>'];
 const props=[['☎','Local WIC office'],['✓','Documents & assessment'],['↻','Next appointment'],['WIC','Card & food balance']];
-function update(){let active=chapters[0];for(const c of chapters){const r=c.getBoundingClientRect();if(r.top<innerHeight*.45)active=c;if(r.top<innerHeight*.9&&r.bottom>0)c.classList.add('in-view');}document.querySelector('#chapter-position').textContent=active.dataset.chapter.padStart(2,'0');document.querySelector('.reading-progress span').style.width=`${Math.min(100,scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight)*100)}%`;
-for(const seq of sequences){
- const steps=[...seq.querySelectorAll('.sequence-steps>article')],pin=seq.querySelector('.scene-pin');
- const travel=Math.max(1,seq.offsetHeight-pin.offsetHeight),progress=Math.max(0,Math.min(1,(16-seq.getBoundingClientRect().top)/travel));
- const phase=reading?0:Math.round(progress*(steps.length-1));
- const changed=seq.dataset.active!==String(phase);seq.dataset.active=phase;
- steps.forEach((step,i)=>{step.classList.toggle('current',i===phase);step.inert=!reading&&i!==phase;step.setAttribute('aria-hidden',String(!reading&&i!==phase));});
- if(seq.classList.contains('age-sequence'))ageRows.forEach((row,i)=>{row.classList.toggle('revealed',reading||i<=phase);row.classList.toggle('current',i===phase);});
- if(seq.classList.contains('eligibility-story')&&changed)document.querySelector('.eligibility-emphasis').innerHTML=eligibility[phase];
- if(seq.classList.contains('enrollment-sequence')){document.querySelector('#enroll-prop-symbol').textContent=props[phase][0];document.querySelector('#enroll-prop-label').textContent=props[phase][1];document.querySelector('#enroll-step').textContent=phase+1;seq.style.setProperty('--journey',phase);}
- if(changed&&!reading&&!reduced.matches){pin.classList.remove('beat-enter');void pin.offsetWidth;pin.classList.add('beat-enter');}
-}
-
+function update(){
+ let active=chapters[0];
+ for(const c of chapters){const r=c.getBoundingClientRect();if(r.top<innerHeight*.45)active=c;if(r.top<innerHeight*.9&&r.bottom>0)c.classList.add('in-view');}
+ document.querySelector('#chapter-position').textContent=active.dataset.chapter.padStart(2,'0');
+ document.querySelector('.reading-progress span').style.width=`${Math.min(100,scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight)*100)}%`;
+ document.querySelectorAll('.wic-toolbar a').forEach(a=>{if(a.hash==='#'+active.id)a.setAttribute('aria-current','step');else a.removeAttribute('aria-current');});
+ for(const seq of sequences){
+  const steps=[...seq.querySelectorAll('.sequence-steps>article')];let phase=0;
+  steps.forEach((el,i)=>{if(el.getBoundingClientRect().top<innerHeight*.62)phase=i;});
+  seq.dataset.active=phase;steps.forEach((el,i)=>el.classList.toggle('current',i===phase));
+  if(seq.classList.contains('age-sequence'))ageRows.forEach((row,i)=>{row.classList.add('revealed');row.classList.toggle('current',i===phase);});
+  if(seq.classList.contains('enrollment-sequence')){document.querySelector('#enroll-prop-symbol').textContent=props[phase][0];document.querySelector('#enroll-prop-label').textContent=props[phase][1];document.querySelector('#enroll-step').textContent=phase+1;seq.style.setProperty('--journey',reading?0:phase);}
+ }
 }
 function setReading(value){reading=value;body.classList.toggle('reading',reading);mode.setAttribute('aria-pressed',String(reading));mode.textContent=reading?'Use scrolling effects':'Read without effects';beltMode();update();}
 let pending=false;function schedule(){if(!pending){pending=true;requestAnimationFrame(()=>{pending=false;update();});}}addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule);mode.addEventListener('click',()=>setReading(!reading));reduced.addEventListener('change',e=>{if(e.matches)setReading(true);});setReading(reading);
 // State estimates remain available as static tiles and a CSV without JavaScript.
 const states=JSON.parse(document.querySelector('#state-data').textContent),pick=document.querySelector('#state-pick'),result=document.querySelector('#state-result');
 function stateSelect(id){const s=states.find(s=>s.id===id);if(!s)return;pick.value=id;document.querySelectorAll('[data-state]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.state===id)));const n=x=>Math.round(Number(x)).toLocaleString('en-US');result.replaceChildren();const title=document.createElement('h4');title.textContent=`${s.name}: ${s.rate}% reached`;const p=document.createElement('p');p.textContent=`${n(s.participants)} participating out of ${n(s.eligible)} estimated eligible people. About ${n(s.eligible-s.participants)} not participating.`;const note=document.createElement('small');note.textContent=`95% coverage interval: ${s.low}%–${s.high}%. All population groups, average month 2023.`;result.append(title,p,note);}
-pick.addEventListener('change',()=>stateSelect(pick.value));document.querySelectorAll('[data-state]').forEach(b=>b.addEventListener('click',()=>stateSelect(b.dataset.state)));stateSelect('CA');
+pick.addEventListener('change',()=>stateSelect(pick.value));document.querySelectorAll('[data-state]').forEach(b=>{b.addEventListener('click',()=>stateSelect(b.dataset.state));b.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();stateSelect(b.dataset.state);}});});stateSelect('CA');
 let months=1,saving=1914;const money=n=>'$'+(n/100).toFixed(2);function accumulation(){document.querySelector('#annual-saving').textContent=money(saving*months);document.querySelector('#cost-formula').textContent=`${money(saving)} × ${months} monthly purchase${months===1?'':'s'}`;document.querySelectorAll('[data-months]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.months)===months)));}
 function receipts(){const large=document.querySelector('#basket-size').value==='large',qty={milk:large?3:1,eggs:1,bread:1,peanut:1,apples:large?3:1,peas:large?3:1,soap:1};let total=0;saving=0;for(const f of foods.filter(f=>f.in_basket)){const q=qty[f.id]||1;total+=f.price_cents*q;saving+=f.wic_cents*q;document.querySelectorAll(`[data-receipt-food="${f.id}"]`).forEach(row=>{row.querySelector('span').textContent=`${f.name} × ${q}`;row.querySelector('b').textContent=money(f.price_cents*q);});}document.querySelectorAll('.receipt').forEach(r=>{r.querySelector('.subtotal b').textContent=money(total);r.querySelector('.subtotal + .receipt-row b').textContent=r.classList.contains('with-wic')?money(saving):'$0.00';r.querySelector('.receipt-total strong').textContent=money(total-(r.classList.contains('with-wic')?saving:0));});document.querySelector('#trip-saving').textContent=money(saving);document.querySelector('#basket-description').textContent=large?'Stock-up: 3 gallons milk, 3 bags apples, 3 bags peas; other quantities unchanged. Same quantities in both receipts.':'One of each priced item. Same quantities in both receipts.';accumulation();}
 document.querySelector('#basket-size').addEventListener('change',receipts);document.querySelectorAll('[data-months]').forEach(b=>b.addEventListener('click',()=>{months=Number(b.dataset.months);accumulation();}));receipts();

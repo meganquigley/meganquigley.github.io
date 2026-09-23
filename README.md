@@ -19,3 +19,11 @@ Repository: https://github.com/meganquigley/meganquigley.github.io
 Website: https://meganquigley.github.io/
 
 Search indexing is disabled through noindex metadata on every page. The public GitHub repository itself can still be discovered; noindex is a search-engine instruction, not access control.
+
+## Scroll and evidence updates
+
+The homepage uses one continuous, reversible scroll cue. All three story openings use the same question format. `dist/story-refinements.css` and `dist/story-refinements.js` provide the shared quantitative animation layer; reading mode and reduced motion show complete static results.
+
+Run `python3 scripts/build-wic-geography.py` after editing the WIC state data. It reads the existing coverage CSV and bundled Census-derived US Atlas geometry, then builds all 52 selectable jurisdictions and an accessible ranked table. California and Louisiana are the featured comparison. Small or short screens use the map and table without a pinned transition. Run the WIC geography builder before the access-story generator and Pages build.
+
+DOM regression checks: install `jsdom@26` and `css-tree@3` in a temporary directory, then run `NODE_PATH=<temporary-directory>/node_modules node tests/scrollytelling.cjs`. These test logic, keyboard selection, count integrity, reading mode, reduced motion, and CSS syntax. They do not provide layout or visual verification.
