@@ -1,19 +1,22 @@
-/* The original name and portrait continuously condense into a single pinned row. */
+/* Keep the complete name in normal flow at every scroll position. */
 .about-page .wrap,.about-page .about-profile-shell .profile-heading{max-width:1280px;padding-inline:5%;text-align:left}
+.about-page .about-label{padding-block:36px 0}
+.about-label .eyebrow{margin:0}
 .about-profile-shell{position:relative;z-index:40;pointer-events:none;--profile-progress:0}
 .profile-ready .about-profile-shell{position:sticky;top:0}
-.about-profile-shell .profile-heading{pointer-events:auto;display:flex;flex-direction:row;justify-content:flex-start;align-items:center;gap:var(--profile-gap,28px);margin:auto;padding-block:var(--profile-padding,32px);background:var(--paper,#f8f6f0)}
-.about-profile-shell .profile-heading>div{width:var(--profile-copy-width,460px);min-width:0;flex:none}
-.about-profile-shell h1{position:relative;height:var(--profile-title-height,161px);font-size:var(--profile-font,72px);line-height:1.12;text-align:left;margin:calc(12px*(1 - var(--profile-progress))) 0 calc(22px*(1 - var(--profile-progress)));letter-spacing:-.025em}
-.about-profile-shell .given-name,.about-profile-shell .family-name{position:absolute;left:0;top:0;white-space:nowrap;display:block;font-style:normal;color:var(--ink)}
-.about-profile-shell .family-name{transform:translate(var(--family-x,0px),var(--family-y,80px))}
-.about-profile-shell .author-portrait{padding:0;margin:0;flex:none;align-self:center}
+.about-profile-shell .profile-heading{pointer-events:auto;display:flex;flex-direction:row;justify-content:flex-start;align-items:center;gap:var(--profile-gap,64px);margin:auto;padding-block:var(--profile-padding,24px);background:var(--paper,#f8f6f0);box-shadow:0 1px rgba(164,173,165,var(--profile-progress))}
+.about-profile-shell .profile-heading>div{width:auto;min-width:0;flex:0 1 auto}
+.about-profile-shell h1{position:static;height:auto;font-size:var(--profile-font,64px);line-height:1.08;text-align:left;margin:0;letter-spacing:-.025em}
+.about-profile-shell .given-name,.about-profile-shell .family-name{position:static;display:block;transform:none;white-space:nowrap;font-style:normal;color:var(--ink)}
+.about-profile-shell .author-portrait{padding:0;margin:0;flex:0 0 auto;align-self:center}
 .about-profile-shell .profile-photo{width:var(--profile-photo,160px);height:var(--profile-photo,160px);object-fit:cover;display:block;border-radius:4px}
-.about-profile-shell .eyebrow{font-size:12px;line-height:18px;height:calc(18px*(1 - var(--profile-progress)));margin:0 0 calc(12px*(1 - var(--profile-progress)));opacity:calc(1 - var(--profile-progress));overflow:hidden}
-.about-profile-shell .about-deck{font-size:22px;line-height:1.5;margin:0;max-height:calc(var(--profile-deck-height,160px)*(1 - var(--profile-progress)));opacity:calc(1 - var(--profile-progress));overflow:hidden}
-.about-profile-shell .profile-heading{box-shadow:0 1px rgba(164,173,165,var(--profile-progress))}
-.about-hero{padding-top:28px}.experience article{scroll-margin-top:95px}
+.about-page .about-hero{padding-top:24px}
+.about-hero .about-deck{font-size:22px;line-height:1.5;margin:0;max-width:680px}
+.experience article{scroll-margin-top:100px}
+.about-page .about-close{position:relative;padding-top:56px}
+.about-close:before{content:"";position:absolute;top:0;left:5%;right:5%;height:1px;background:var(--line)}
 .about-profile-shell.is-measuring{position:relative!important}
-@media(max-width:750px){.about-page .wrap,.about-page .about-profile-shell .profile-heading{padding-inline:24px}}
-@media(max-width:650px){.about-profile-shell{--profile-copy-width:210px;--profile-gap:20px;--profile-font:38px;--profile-title-height:85px;--profile-photo:90px;--family-y:43px}.about-profile-shell .about-deck{font-size:17px}.about-profile-shell .eyebrow{font-size:10px}}
+@media(max-width:750px){.about-page .wrap,.about-page .about-profile-shell .profile-heading{padding-inline:24px}.about-close:before{left:24px;right:24px}}
+@media(max-width:650px){.about-profile-shell{--profile-gap:28px;--profile-font:36px;--profile-photo:96px}.about-hero .about-deck{font-size:19px}}
+@media(max-width:360px){.about-profile-shell{--profile-font:30px;--profile-photo:76px;--profile-gap:24px}}
 @media print{.profile-ready .about-profile-shell{position:static;height:auto!important}.about-profile-shell .profile-heading{padding-block:20px;box-shadow:none}}
