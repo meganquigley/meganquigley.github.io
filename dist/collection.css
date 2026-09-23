@@ -20,13 +20,19 @@
 .journey-cue{position:absolute;bottom:clamp(30px,7svh,65px);left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 18px;text-decoration:none;opacity:var(--cue-opacity,1);font-size:15px;white-space:nowrap}
 .cue-labels{display:grid;text-align:center}.cue-labels>span{grid-area:1/1}.cue-explore{opacity:var(--explore-opacity,1)}.cue-stories{opacity:var(--stories-opacity,0)}.cue-arrow{font-size:30px;line-height:1}.journey-cue:focus-visible{opacity:1!important}.journey-cue:focus-visible .cue-explore{opacity:1}.journey-cue:focus-visible .cue-stories{opacity:0}
 @media(prefers-reduced-motion:reduce){.collection-home .collection-intro{height:auto;min-height:85svh}.collection-home .intro-inner{position:relative}.collection-home .equation-word{opacity:1;width:auto}.collection-home .intro-copy{opacity:1;visibility:visible}.collection-home .global-header{position:relative;opacity:1;visibility:visible}.journey-cue{opacity:1!important}.cue-explore{opacity:1!important}.cue-stories{opacity:0!important}}
-/* Keep the final question and the story artwork together as the intro releases. */
-.collection-home .intro-inner{justify-content:flex-end;padding-bottom:140px}
-.collection-home .story-objects{position:relative;z-index:1;margin-top:-104px;padding-top:0}
+/* Pin the centered title and let the cards occupy its unused lower space. */
+.collection-home .collection-intro{height:auto;min-height:0}
+.collection-home .intro-inner{position:relative;height:auto;min-height:85svh;padding:70px 24px;justify-content:center}
+.collection-home .opening-equation{transform:none;flex:none}
+.collection-home .intro-copy{transform:none;flex:none;overflow:hidden}
+.collection-home .story-objects{position:relative;z-index:1;margin-top:0;padding-top:0}
 .collection-home .story-object:nth-child(n){padding-top:0}
-@media(max-height:650px){.collection-home .collection-intro{height:auto;min-height:0}.collection-home .intro-inner{position:relative;height:auto;min-height:600px;padding-top:100px;padding-bottom:32px;justify-content:center}.collection-home .story-objects{margin-top:0}.collection-home .journey-cue{position:relative;left:auto;bottom:auto;transform:none;order:3;margin-top:10px}}
-@media(prefers-reduced-motion:reduce){.collection-home .intro-inner{height:auto;min-height:70svh;padding-bottom:28px;justify-content:center}.collection-home .story-objects{margin-top:0}.collection-home .journey-cue{position:relative;left:auto;bottom:auto;transform:none;order:3;margin-top:14px}}
-
-/* Center the opening symbol, then release it into the compact story layout. */
-.collection-home .opening-equation{transform:translateY(var(--opening-offset,0px))}
-@media(prefers-reduced-motion:reduce){.collection-home .opening-equation{transform:none}}
+.collection-home .journey-cue{position:relative;left:auto;bottom:auto;transform:none;order:3;margin-top:16px}
+.collection-home.home-motion .collection-intro{height:190svh}
+.collection-home.home-motion .intro-inner{position:sticky;top:0;height:100svh;min-height:0;padding:0 24px}
+.collection-home.home-motion .opening-equation{height:var(--equation-height,306px)}
+.collection-home.home-motion .intro-copy{max-height:calc(var(--intro-reveal,0)*var(--intro-copy-height,100px))}
+.collection-home.home-motion .story-objects{margin-top:calc(-1*var(--story-overlap,0px))}
+.collection-home.home-motion .journey-cue{position:absolute;left:50%;bottom:clamp(30px,7svh,65px);transform:translateX(-50%);order:0;margin-top:0}
+@media(max-width:760px){.collection-home.home-motion .collection-intro{height:170svh}.collection-home.home-motion .intro-inner{padding-inline:15px}}
+@media(prefers-reduced-motion:reduce){.collection-home .intro-copy{max-height:none}.collection-home .opening-equation{height:auto}}
