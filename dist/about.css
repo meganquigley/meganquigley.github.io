@@ -1,10 +1,20 @@
-/* Keep the author's identity in view through the experience and community sections. */
-.about-identity{position:sticky;top:0;z-index:40;background:var(--paper,#f8f6f0);border-block:1px solid var(--line,#d7dcd5);margin-bottom:32px}
-.about-identity-inner{max-width:1200px;margin:0 auto;padding:12px 5%;display:flex;gap:16px;align-items:center}
-.about-identity img{display:block;width:56px;height:56px;object-fit:cover;border-radius:4px;flex:none}
-.about-identity strong{display:block;font-size:20px;font-weight:600;line-height:1.3;letter-spacing:-.02em}
-.about-identity span{display:block;font-size:13px;line-height:1.5;color:var(--muted,#57645f);margin-top:3px}
-.experience article{scroll-margin-top:110px}
-@media(max-width:600px){.about-identity-inner{padding:10px 24px;gap:12px}.about-identity img{width:46px;height:46px}.about-identity strong{font-size:18px}.about-identity span{font-size:12px}}
-@media(max-height:400px){.about-identity-inner{padding-block:6px}.about-identity img{width:36px;height:36px}.about-identity span{display:none}}
-@media print{.about-identity{display:none}}
+/* A single author block remains visible, without a duplicate name or portrait. */
+.about-profile-shell{position:relative;z-index:40;pointer-events:none}
+.profile-ready .about-profile-shell{position:sticky;top:0}
+.about-profile-shell .profile-heading{pointer-events:auto;display:flex;flex-direction:row;justify-content:space-between;align-items:center;gap:28px;max-width:1200px;margin:auto;padding:32px 5%;background:var(--paper,#f8f6f0);transition:padding .2s ease}
+.about-profile-shell h1{font-size:clamp(48px,6vw,80px);line-height:1.08;margin:12px 0 22px;transition:font-size .2s ease,margin .2s ease}
+.about-profile-shell .author-portrait{padding:0;margin:0;flex:none}
+.about-profile-shell .profile-photo{width:190px;height:190px;object-fit:cover;display:block;transition:width .2s ease,height .2s ease}
+.about-profile-shell .eyebrow{margin-bottom:12px}.about-profile-shell .about-deck{font-size:22px;line-height:1.5;margin:0}
+.about-profile-shell.is-compact .profile-heading{padding-block:10px;border-bottom:1px solid var(--line,#d7dcd5)}
+.about-profile-shell.is-compact h1{font-size:22px;line-height:1.3;margin:0}
+.about-profile-shell.is-compact h1 br{display:none}
+.about-profile-shell.is-compact .eyebrow,.about-profile-shell.is-compact .about-deck{display:none}
+.about-profile-shell.is-compact .profile-photo{width:52px;height:52px}
+.about-hero{padding-top:28px}.experience article{scroll-margin-top:95px}
+.about-profile-shell.is-measuring *{transition:none!important}
+@media(max-width:650px){.about-profile-shell .profile-heading{padding:24px;gap:16px}.about-profile-shell h1{font-size:42px}.about-profile-shell .profile-photo{width:100px;height:100px}.about-profile-shell .about-deck{font-size:17px}.about-profile-shell .eyebrow{font-size:10px}.about-profile-shell.is-compact .profile-photo{width:44px;height:44px}.about-profile-shell.is-compact h1{font-size:20px}}
+@media(max-height:400px){.about-profile-shell.is-compact .profile-heading{padding-block:6px}.about-profile-shell.is-compact .profile-photo{width:36px;height:36px}}
+@media(prefers-reduced-motion:reduce){.about-profile-shell *{transition:none!important}}
+@media print{.profile-ready .about-profile-shell{position:static;height:auto!important}.about-profile-shell .profile-heading{padding:20px 0}.about-profile-shell .eyebrow,.about-profile-shell .about-deck{display:block!important}}
+.about-profile-shell.is-measuring{position:relative!important}
