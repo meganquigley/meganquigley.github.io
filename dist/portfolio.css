@@ -16,10 +16,11 @@ h1{font-size:23px;line-height:1.15;letter-spacing:-1px;font-weight:700;align-sel
 .section-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-bottom:10px;border-bottom:1px solid var(--line)}
 h2{font-size:14px;letter-spacing:-.45px;font-weight:700}
 .section-heading p{color:var(--muted);font-size:11px}
-.project-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
-.project{display:block;height:100%;padding:14px 0 8px;text-decoration:none}
-.project-art{display:block;width:108px;height:108px;object-fit:contain;margin:0 0 9px;mix-blend-mode:multiply}
-.apples{background:url('/assets/grocery-sprites.png') no-repeat 0% 50%;background-size:400% 300%;width:89px}
+.project-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr;gap:0}
+.project{display:grid;grid-template-columns:88px minmax(0,1fr);gap:24px;align-items:center;padding:16px 0;text-decoration:none;border-bottom:1px solid var(--line)}
+.project-list li:last-child .project{border-bottom:0}
+.project-art{display:block;width:88px;height:88px;object-fit:contain;margin:0;mix-blend-mode:multiply}
+.apples{background:url('/assets/grocery-sprites.png') no-repeat 0% 50%;background-size:400% 300%;width:72px}
 h3{font-size:12px;line-height:1.35;letter-spacing:-.25px;font-weight:700}
 .outward{color:var(--muted);font-weight:400}
 .project p{font-size:10px;line-height:1.5;color:var(--muted);margin-top:7px}
