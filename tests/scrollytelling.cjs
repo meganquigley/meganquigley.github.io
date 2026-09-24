@@ -19,9 +19,18 @@ function setup(route,{width=1440,height=1000,reduced=false}={}){
 }
 (async()=>{
 // CSS syntax and all script entry points.
-for(const name of ['collection.css','wic-investigation.css','access-stories.css','story-refinements.css']){const errors=[];css.parse(fs.readFileSync(path.join(root,name),'utf8'),{onParseError:e=>errors.push(e.message)});assert.deepEqual(errors,[],name);}
-let h=setup('index.html');const cue=h.d.querySelector('.journey-cue');const stories=h.d.querySelector('#case-studies');stories.dataset.testTop=1500;
-h.scroll(0);assert.equal(cue.style.getPropertyValue('--explore-opacity'),'1');const overlap=h.d.documentElement.style.getPropertyValue('--story-overlap');assert.equal(h.d.querySelector('.opening-equation').style.getPropertyValue('--equation-height'),'300px');h.scroll(260);assert.equal(cue.style.getPropertyValue('--explore-opacity'),'0');assert.equal(cue.style.getPropertyValue('--stories-opacity'),'0');h.scroll(600);assert.equal(cue.style.getPropertyValue('--stories-opacity'),'1');stories.dataset.testTop=600;h.scroll(900);assert(+cue.style.getPropertyValue('--cue-opacity')<.2);assert.equal(h.d.documentElement.style.getPropertyValue('--story-overlap'),overlap);assert.equal(h.d.querySelector('.opening-equation').style.getPropertyValue('--equation-height'),'105px');stories.dataset.testTop=1500;h.scroll(0);assert.equal(cue.style.getPropertyValue('--explore-opacity'),'1');assert.equal(h.d.querySelectorAll('.journey-cue').length,1);h.w.close();
+for(const name of ['portfolio.css','collection.css','wic-investigation.css','access-stories.css','story-refinements.css']){const errors=[];css.parse(fs.readFileSync(path.join(root,name),'utf8'),{onParseError:e=>errors.push(e.message)});assert.deepEqual(errors,[],name);}
+const h=setup('index.html');
+assert.equal(h.d.querySelector('h1').textContent,'Megan Quigley');
+assert.equal(h.d.querySelectorAll('.bio p').length,2);
+assert(h.d.querySelector('.portrait').alt.includes('Megan Quigley'));
+assert(h.d.querySelector('#case-studies'));
+assert.equal(h.d.querySelectorAll('script,.journey-cue,.opening-equation').length,0);
+assert.deepEqual([...h.d.querySelectorAll('.project')].map(a=>a.getAttribute('href')),['/case-studies/wic/','/case-studies/housing/','/case-studies/health/']);
+for(const a of h.d.querySelectorAll('.project')){assert.equal(a.target,'_blank');assert(a.relList.contains('noopener'));assert(a.relList.contains('noreferrer'));assert(a.textContent.includes('Opens in a new tab.'));}
+assert.deepEqual([...h.d.querySelectorAll('footer a')].map(a=>a.href),['https://www.linkedin.com/in/meganquigley55','https://github.com/meganquigley','mailto:meganquigley55@gmail.com']);
+h.w.close();
+for(const route of ['wic','housing','health']){const s=setup(`case-studies/${route}/index.html`);assert.equal(s.d.querySelector('.global-header .brand').tagName,'SPAN');assert(!s.d.querySelector('.global-footer a[href="/"]'));s.w.close();}
 let w=setup('case-studies/wic/index.html');w.flush();assert.equal(w.d.querySelectorAll('.geo-state').length,52);assert.equal(w.d.querySelectorAll('.geography-table tbody tr').length,52);assert.equal(w.d.querySelectorAll('.person').length,100);assert.equal(w.d.querySelectorAll('.person:not(.outside)').length,56);
 const geo=w.d.querySelector('.geography-story');geo.dataset.testTop=-735;w.scroll(1000);assert.equal(w.d.querySelector('.geo-chart-labels').style.opacity,'1');assert(w.d.querySelector('[data-state=CA]').getAttribute('transform').includes('scale(0.050000000000000044)'));
 geo.dataset.testTop=1000;w.scroll(0);assert.equal(w.d.querySelector('.geo-chart-labels').style.opacity,'0');
@@ -38,6 +47,6 @@ for(const route of ['housing','health']){
  }
 }
 for(const options of [{width:375,height:667},{width:740,height:400},{reduced:true}]){const t=setup('case-studies/wic/index.html',options);t.flush();assert(t.d.querySelector('.geography-table').open);assert(!t.d.body.classList.contains('enhanced-motion'));t.w.close();}
-console.log('PASS: CSS syntax; reversible cue and map; 52 jurisdictions; keyboard selection; reading/reduced-motion modes; exact mark counts; NYC focus; receipt controls. DOM simulation only.');
+console.log('PASS: CSS syntax; personal portfolio links and story branding; reversible map; 52 jurisdictions; keyboard selection; reading/reduced-motion modes; exact mark counts; NYC focus; receipt controls. DOM simulation only.');
 
 })().catch(e=>{console.error(e);process.exitCode=1});
