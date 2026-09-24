@@ -1,0 +1,47 @@
+{
+  "ny": {
+    "title": "New York WIC: applying and using benefits",
+    "url": "https://www.health.ny.gov/prevention/nutrition/wic/how_to_apply.htm",
+    "method": "Income eligibility is only one component of WIC certification. See also <a href=\"https://www.health.ny.gov/prevention/nutrition/wic/faqs.htm\">New York WIC FAQs</a>, <a href=\"https://www.mhhc.org/our-services/mhhc-wic-program/\">MHHC\u2019s current phone appointment options</a>, and <a href=\"https://www.ccf.ny.gov/application/files/2617/1294/8575/WICSNAPSummerMeals04112024.pdf\">New York\u2019s benefit-expiration guidance</a>. Product illustrations are schematic."
+  },
+  "referral": {
+    "title": "Qualitative referral study \u00b7 2026",
+    "url": "https://www.frontiersin.org/journals/health-services/articles/10.3389/frhs.2026.1707744/full",
+    "method": "Ten participant interviewees recruited through a New Hampshire WIC agency; the broader study includes New Hampshire and Vermont staff. Interviews February\u2013April 2024; 8 of 10 learned of WIC from family/friends. Not nationally representative."
+  },
+  "coverage": {
+    "title": "USDA \u00b7 2023 eligibility and coverage",
+    "url": "https://fns-prod.azureedge.us/sites/default/files/resource-files/wic-eer2023-report.pdf",
+    "method": "Tables 3.1, 3.5 and 3.7. Coverage = average-month participants divided by eligible people. 95% intervals: Vermont 65.1\u201394.2%, New York 61.0\u201363.8%, Louisiana 39.9\u201342.7%, national 54.5\u201357.6%. Age values are cross-sectional."
+  },
+  "access": {
+    "title": "USDA \u00b7 WIC retailer access, Table A.20",
+    "url": "https://fns-prod.azureedge.us/sites/default/files/resource-files/wic-accessPart1-finalReport.pdf",
+    "method": "FY2022 retailers; 2015\u20132019 ACS low-income families with children under 5 are a proxy for WIC-eligible families. Convenient access is within 1 mile in urban areas or 10 miles in rural areas. Rounded table percentages used."
+  },
+  "correlation": {
+    "title": "Reproduced 50-state comparison",
+    "url": "evidence.json",
+    "method": "Pearson r = -0.47440143. Join by state; exclude DC and Puerto Rico. Equal weight for each state; rounded access percentages from Table A.20 and 2023 coverage from Table 3.5. Ecological, cross-year association; no causal interpretation. Source transcription and Python reproduction are saved with this branch."
+  },
+  "rates": {
+    "title": "USDA \u00b7 FY2026 produce allowance",
+    "url": "https://www.usda.gov/sites/default/files/guidance-documents/fna.wic-2026-2-cvvb-amounts.pdf",
+    "method": "October 1, 2025\u2013September 30, 2026: $52/month fully breastfeeding; $26/month child. Illustration assumes 12 fully breastfeeding months plus 48 child months, continuous eligibility and constant FY2026 rates. Excludes other foods and the optional juice substitution. Not actual redemption, total WIC value, guaranteed savings, or forecast."
+  },
+  "redemption": {
+    "title": "JAMA Network Open \u00b7 benefit redemption",
+    "url": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2842211",
+    "method": "Southern California, November 2019\u2013June 2023 records; children aged 0\u20133 at certification in November 2019\u2013June 2022. 188,368 participants. Table 2: 254,506 of 365,738 fruit-and-vegetable certification periods redeemed at least 70% (69.6%); the complement is 30.4%. Unit is certification periods, not people or lost dollars."
+  },
+  "cohort": {
+    "title": "USDA \u00b7 Infant and Toddler Feeding Practices Study, Year 5",
+    "url": "https://fns-prod.azureedge.us/sites/default/files/resource-files/WIC-ITFPS2-Year5Report.pdf",
+    "method": "2013 enrollment cohort. Consistent participation refers to mother or child receipt during years 1 and 2 and subsequent observed months through 54 months. Weighted 43.5% consistent, 56.5% not consistent. Not a current national count or a renewal dropout estimate."
+  },
+  "diet": {
+    "title": "Borger et al. \u00b7 WIC participation and diet quality",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/35277313/",
+    "method": "Adjusted observational comparison at age 3: participation in only the first year was associated with a 3.6-point lower Healthy Eating Index\u20132015 score than participation into the third year. Scale is 0\u2013100. Does not establish causation."
+  }
+}

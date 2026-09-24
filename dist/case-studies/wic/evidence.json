@@ -1,0 +1,274 @@
+{
+  "states": [
+    {
+      "state": "Alabama",
+      "without_convenient_access_pct": 43.0,
+      "eligible_covered_pct": 51.4
+    },
+    {
+      "state": "Alaska",
+      "without_convenient_access_pct": 54.0,
+      "eligible_covered_pct": 50.3
+    },
+    {
+      "state": "Arizona",
+      "without_convenient_access_pct": 49.0,
+      "eligible_covered_pct": 59.5
+    },
+    {
+      "state": "Arkansas",
+      "without_convenient_access_pct": 43.0,
+      "eligible_covered_pct": 45.7
+    },
+    {
+      "state": "California",
+      "without_convenient_access_pct": 27.0,
+      "eligible_covered_pct": 72.4
+    },
+    {
+      "state": "Colorado",
+      "without_convenient_access_pct": 49.0,
+      "eligible_covered_pct": 54.2
+    },
+    {
+      "state": "Connecticut",
+      "without_convenient_access_pct": 25.0,
+      "eligible_covered_pct": 48.1
+    },
+    {
+      "state": "Delaware",
+      "without_convenient_access_pct": 50.0,
+      "eligible_covered_pct": 61.5
+    },
+    {
+      "state": "Florida",
+      "without_convenient_access_pct": 53.0,
+      "eligible_covered_pct": 52.9
+    },
+    {
+      "state": "Georgia",
+      "without_convenient_access_pct": 52.0,
+      "eligible_covered_pct": 47.7
+    },
+    {
+      "state": "Hawaii",
+      "without_convenient_access_pct": 44.0,
+      "eligible_covered_pct": 57.3
+    },
+    {
+      "state": "Idaho",
+      "without_convenient_access_pct": 41.0,
+      "eligible_covered_pct": 44.9
+    },
+    {
+      "state": "Illinois",
+      "without_convenient_access_pct": 27.0,
+      "eligible_covered_pct": 44.3
+    },
+    {
+      "state": "Indiana",
+      "without_convenient_access_pct": 52.0,
+      "eligible_covered_pct": 58.3
+    },
+    {
+      "state": "Iowa",
+      "without_convenient_access_pct": 32.0,
+      "eligible_covered_pct": 54.3
+    },
+    {
+      "state": "Kansas",
+      "without_convenient_access_pct": 49.0,
+      "eligible_covered_pct": 50.6
+    },
+    {
+      "state": "Kentucky",
+      "without_convenient_access_pct": 36.0,
+      "eligible_covered_pct": 62.1
+    },
+    {
+      "state": "Louisiana",
+      "without_convenient_access_pct": 56.0,
+      "eligible_covered_pct": 41.3
+    },
+    {
+      "state": "Maine",
+      "without_convenient_access_pct": 21.0,
+      "eligible_covered_pct": 55.2
+    },
+    {
+      "state": "Maryland",
+      "without_convenient_access_pct": 45.0,
+      "eligible_covered_pct": 61.2
+    },
+    {
+      "state": "Massachusetts",
+      "without_convenient_access_pct": 26.0,
+      "eligible_covered_pct": 68.7
+    },
+    {
+      "state": "Michigan",
+      "without_convenient_access_pct": 29.0,
+      "eligible_covered_pct": 62.6
+    },
+    {
+      "state": "Minnesota",
+      "without_convenient_access_pct": 35.0,
+      "eligible_covered_pct": 66.2
+    },
+    {
+      "state": "Mississippi",
+      "without_convenient_access_pct": 45.0,
+      "eligible_covered_pct": 45.6
+    },
+    {
+      "state": "Missouri",
+      "without_convenient_access_pct": 49.0,
+      "eligible_covered_pct": 43.0
+    },
+    {
+      "state": "Montana",
+      "without_convenient_access_pct": 34.0,
+      "eligible_covered_pct": 42.9
+    },
+    {
+      "state": "Nebraska",
+      "without_convenient_access_pct": 37.0,
+      "eligible_covered_pct": 59.6
+    },
+    {
+      "state": "Nevada",
+      "without_convenient_access_pct": 46.0,
+      "eligible_covered_pct": 47.7
+    },
+    {
+      "state": "New Hampshire",
+      "without_convenient_access_pct": 42.0,
+      "eligible_covered_pct": 49.5
+    },
+    {
+      "state": "New Jersey",
+      "without_convenient_access_pct": 29.0,
+      "eligible_covered_pct": 58.3
+    },
+    {
+      "state": "New Mexico",
+      "without_convenient_access_pct": 55.0,
+      "eligible_covered_pct": 43.9
+    },
+    {
+      "state": "New York",
+      "without_convenient_access_pct": 19.0,
+      "eligible_covered_pct": 62.4
+    },
+    {
+      "state": "North Carolina",
+      "without_convenient_access_pct": 42.0,
+      "eligible_covered_pct": 61.8
+    },
+    {
+      "state": "North Dakota",
+      "without_convenient_access_pct": 35.0,
+      "eligible_covered_pct": 51.6
+    },
+    {
+      "state": "Ohio",
+      "without_convenient_access_pct": 50.0,
+      "eligible_covered_pct": 45.5
+    },
+    {
+      "state": "Oklahoma",
+      "without_convenient_access_pct": 45.0,
+      "eligible_covered_pct": 54.2
+    },
+    {
+      "state": "Oregon",
+      "without_convenient_access_pct": 35.0,
+      "eligible_covered_pct": 63.1
+    },
+    {
+      "state": "Pennsylvania",
+      "without_convenient_access_pct": 34.0,
+      "eligible_covered_pct": 43.7
+    },
+    {
+      "state": "Rhode Island",
+      "without_convenient_access_pct": 21.0,
+      "eligible_covered_pct": 60.6
+    },
+    {
+      "state": "South Carolina",
+      "without_convenient_access_pct": 49.0,
+      "eligible_covered_pct": 44.3
+    },
+    {
+      "state": "South Dakota",
+      "without_convenient_access_pct": 41.0,
+      "eligible_covered_pct": 57.5
+    },
+    {
+      "state": "Tennessee",
+      "without_convenient_access_pct": 49.0,
+      "eligible_covered_pct": 47.4
+    },
+    {
+      "state": "Texas",
+      "without_convenient_access_pct": 48.0,
+      "eligible_covered_pct": 56.7
+    },
+    {
+      "state": "Utah",
+      "without_convenient_access_pct": 49.0,
+      "eligible_covered_pct": 44.5
+    },
+    {
+      "state": "Vermont",
+      "without_convenient_access_pct": 30.0,
+      "eligible_covered_pct": 79.6
+    },
+    {
+      "state": "Virginia",
+      "without_convenient_access_pct": 47.0,
+      "eligible_covered_pct": 47.2
+    },
+    {
+      "state": "Washington",
+      "without_convenient_access_pct": 45.0,
+      "eligible_covered_pct": 54.8
+    },
+    {
+      "state": "West Virginia",
+      "without_convenient_access_pct": 39.0,
+      "eligible_covered_pct": 59.2
+    },
+    {
+      "state": "Wisconsin",
+      "without_convenient_access_pct": 32.0,
+      "eligible_covered_pct": 56.0
+    },
+    {
+      "state": "Wyoming",
+      "without_convenient_access_pct": 56.0,
+      "eligible_covered_pct": 43.4
+    }
+  ],
+  "pearson_r": -0.47440143222623943,
+  "n_states": 50,
+  "national_coverage_2023": 56.1,
+  "age_coverage_2023": [
+    82.3,
+    67.4,
+    52.5,
+    45.2,
+    26.9
+  ],
+  "historical_consistent_participation_pct": 43.5,
+  "redemption_under_70_pct": 30.4,
+  "produce": {
+    "breastfeeding_monthly": 52,
+    "child_monthly": 26,
+    "months_breastfeeding": 12,
+    "months_child": 48,
+    "total": 1872
+  },
+  "diet_quality_adjusted_difference": 3.6
+}

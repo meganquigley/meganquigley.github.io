@@ -1,0 +1,322 @@
+[
+  {
+    "title": "Same mother. Same baby.",
+    "beats": [
+      {
+        "caption": "My baby is here. He is crying. I am exhausted.",
+        "speaker": "Maya \u00b7 both paths",
+        "source": null
+      },
+      {
+        "caption": "Everyone says to sleep when he sleeps. Apparently that is also when I\u2019m supposed to do everything else.",
+        "speaker": "Maya \u00b7 both paths",
+        "source": null
+      },
+      {
+        "caption": "Same baby. Same income. Same need for food. Two ways the next five years could go.",
+        "speaker": "One mother \u00b7 two illustrative paths",
+        "source": null
+      }
+    ]
+  },
+  {
+    "title": "\u201cHave you tried WIC?\u201d",
+    "beats": [
+      {
+        "caption": "\u201cHave you tried WIC?\u201d",
+        "speaker": "With WIC \u00b7 a friend",
+        "source": null
+      },
+      {
+        "caption": "\u201cIs that food stamps?\u201d",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": null
+      },
+      {
+        "caption": "Thank God she said something. I had no idea.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": "ny"
+      },
+      {
+        "caption": "I know about food stamps. We have Medicaid. WIC never comes up.",
+        "speaker": "Without WIC \u00b7 Maya",
+        "source": "referral"
+      }
+    ]
+  },
+  {
+    "title": "\u201cNow I have to apply.\u201d",
+    "beats": [
+      {
+        "caption": "Ugh. First, my ID.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": null
+      },
+      {
+        "caption": "Then my address and Medicaid information. Medicaid establishes income eligibility. It doesn\u2019t enroll me in WIC.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": "ny"
+      },
+      {
+        "caption": "There\u2019s still an appointment to arrange. A phone appointment can save a trip\u2014but I still need time for the call.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": "ny"
+      },
+      {
+        "caption": "I\u2019m fully breastfeeding. My package includes $52 a month for produce, plus other foods. Okay. That would help.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": "rates"
+      }
+    ]
+  },
+  {
+    "title": "The help reaches people unevenly.",
+    "beats": [
+      {
+        "caption": "Where I live changes the system I have to get through.",
+        "speaker": "A wider view",
+        "source": "coverage"
+      },
+      {
+        "caption": "The same federal program. Very different reach.",
+        "speaker": "A wider view",
+        "source": "coverage"
+      },
+      {
+        "caption": "Would a referral that leads somewhere\u2014or an appointment that fits my life\u2014change what happens next?",
+        "speaker": "Maya \u00b7 a question for the system",
+        "source": "coverage"
+      }
+    ]
+  },
+  {
+    "title": "Same neighborhood. Different trip.",
+    "beats": [
+      {
+        "caption": "The baby is finally settled. I just want to get the groceries done.",
+        "speaker": "Maya \u00b7 both paths",
+        "source": null
+      },
+      {
+        "caption": "My nearby store doesn\u2019t take WIC. I check the locator. It\u2019s a longer trip with the baby.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": null
+      },
+      {
+        "caption": "I go where I usually shop. I choose what I can afford.",
+        "speaker": "Without WIC \u00b7 Maya",
+        "source": null
+      },
+      {
+        "caption": "Having benefits and having a place to use them are two different things.",
+        "speaker": "A wider view",
+        "source": "access"
+      },
+      {
+        "caption": "States with more families far from a WIC store tend to reach fewer eligible people.",
+        "speaker": "A wider view",
+        "source": "correlation"
+      }
+    ]
+  },
+  {
+    "title": "\u201cRight food. Wrong size.\u201d",
+    "beats": [
+      {
+        "caption": "This is not one grocery budget. It\u2019s quantities of certain foods, plus dollars for produce.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": "ny"
+      },
+      {
+        "caption": "Right food. Wrong size. Back down the aisle.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": null
+      },
+      {
+        "caption": "I put something back. I\u2019m watching what\u2019s left in my account.",
+        "speaker": "Without WIC \u00b7 Maya",
+        "source": null
+      },
+      {
+        "caption": "I can\u2019t swap the milk allowance for more fruit. And now the baby is crying.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": "ny"
+      },
+      {
+        "caption": "The card replaced paper checks. It didn\u2019t remove the rules.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": null
+      }
+    ]
+  },
+  {
+    "title": "Checkout.",
+    "beats": [
+      {
+        "caption": "One item won\u2019t go through on WIC. Do I go back, leave it, or pay?",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": null
+      },
+      {
+        "caption": "I pay this time.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": null
+      },
+      {
+        "caption": "Some food is covered. Thank God. But getting it took more out of me than I expected.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": null
+      },
+      {
+        "caption": "I don\u2019t know what WIC would have paid for. I just know what I have to cover myself.",
+        "speaker": "Without WIC \u00b7 Maya",
+        "source": null
+      }
+    ]
+  },
+  {
+    "title": "On the card. In the kitchen.",
+    "beats": [
+      {
+        "caption": "Some months I make the trip. The food I bring home helps.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": null
+      },
+      {
+        "caption": "Some months there\u2019s still food on my benefits when they expire. I meant to go back. Then something else happened.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": "ny"
+      },
+      {
+        "caption": "The amount on the card and the amount in the kitchen aren\u2019t always the same.",
+        "speaker": "A wider view",
+        "source": "redemption"
+      }
+    ]
+  },
+  {
+    "title": "\u201cCan I deal with this today?\u201d",
+    "beats": [
+      {
+        "caption": "His first birthday. Another grocery list.",
+        "speaker": "Maya \u00b7 both paths",
+        "source": null
+      },
+      {
+        "caption": "The renewal reminder arrives. The appointment conflicts with work. I put it aside.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": null
+      },
+      {
+        "caption": "Tomorrow, I remember after the office closes. Then I have to check which documents they need.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": null
+      },
+      {
+        "caption": "I\u2019m not deciding we don\u2019t need the food. I just can\u2019t deal with this today.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": null
+      },
+      {
+        "caption": "This time, I call before the deadline. I find an appointment I can manage. I renew.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": null
+      }
+    ]
+  },
+  {
+    "title": "Four more years.",
+    "beats": [
+      {
+        "caption": "He\u2019s two. More groceries. Another appointment.",
+        "speaker": "Maya \u00b7 both paths",
+        "source": null
+      },
+      {
+        "caption": "He\u2019s three. I know the foods that work for us. I still have to keep coming back.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": null
+      },
+      {
+        "caption": "He\u2019s four. His need for food hasn\u2019t expired with the paperwork.",
+        "speaker": "Maya \u00b7 both paths",
+        "source": null
+      },
+      {
+        "caption": "Not everyone stays connected all the way through.",
+        "speaker": "A wider view",
+        "source": "cohort"
+      },
+      {
+        "caption": "Nationally, WIC reaches fewer eligible children at each older age.",
+        "speaker": "A wider view",
+        "source": "coverage"
+      }
+    ]
+  },
+  {
+    "title": "What accumulates.",
+    "beats": [
+      {
+        "caption": "One month: up to $52 for produce while I\u2019m fully breastfeeding.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": "rates"
+      },
+      {
+        "caption": "Twelve months: up to $624.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": "rates"
+      },
+      {
+        "caption": "Then $26 a month for my child. One year adds $312.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": "rates"
+      },
+      {
+        "caption": "Two child years add $624 to that first year of help.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": "rates"
+      },
+      {
+        "caption": "Three child years add $936.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": "rates"
+      },
+      {
+        "caption": "Four child years, plus my breastfeeding year: up to $1,872 in available produce benefits.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": "rates"
+      }
+    ]
+  },
+  {
+    "title": "What the help can change.",
+    "beats": [
+      {
+        "caption": "The years after infancy matter, too. Children who stayed into their third year had higher diet-quality scores.",
+        "speaker": "A wider view",
+        "source": "diet"
+      },
+      {
+        "caption": "The same fifth birthday. A different experience of getting help.",
+        "speaker": "Maya \u00b7 both paths",
+        "source": null
+      },
+      {
+        "caption": "Tell me about WIC. Help me book the first appointment. Follow up when the referral goes nowhere.",
+        "speaker": "Without WIC \u00b7 Maya",
+        "source": null
+      },
+      {
+        "caption": "Give me a renewal I can manage. A nearby store. Clear labels. Help when something won\u2019t scan.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": null
+      },
+      {
+        "caption": "Getting help should take less work.",
+        "speaker": "The work of getting help",
+        "source": null
+      }
+    ]
+  }
+]

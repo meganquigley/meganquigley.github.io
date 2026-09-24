@@ -30,14 +30,7 @@ assert.deepEqual([...h.d.querySelectorAll('.project')].map(a=>a.getAttribute('hr
 for(const a of h.d.querySelectorAll('.project')){assert.equal(a.target,'_blank');assert(a.relList.contains('noopener'));assert(a.relList.contains('noreferrer'));assert(a.textContent.includes('Opens in a new tab.'));}
 assert.deepEqual([...h.d.querySelectorAll('footer a')].map(a=>a.href),['https://www.linkedin.com/in/meganquigley55','https://github.com/meganquigley','mailto:meganquigley55@gmail.com']);
 h.w.close();
-for(const route of ['wic','housing','health']){const s=setup(`case-studies/${route}/index.html`);assert.equal(s.d.querySelector('.global-header .brand').tagName,'SPAN');assert(!s.d.querySelector('.global-footer a[href="/"]'));s.w.close();}
-let w=setup('case-studies/wic/index.html');w.flush();assert.equal(w.d.querySelectorAll('.geo-state').length,52);assert.equal(w.d.querySelectorAll('.geography-table tbody tr').length,52);assert.equal(w.d.querySelectorAll('.person').length,100);assert.equal(w.d.querySelectorAll('.person:not(.outside)').length,56);
-const geo=w.d.querySelector('.geography-story');geo.dataset.testTop=-735;w.scroll(1000);assert.equal(w.d.querySelector('.geo-chart-labels').style.opacity,'1');assert(w.d.querySelector('[data-state=CA]').getAttribute('transform').includes('scale(0.050000000000000044)'));
-geo.dataset.testTop=1000;w.scroll(0);assert.equal(w.d.querySelector('.geo-chart-labels').style.opacity,'0');
-const la=w.d.querySelector('[data-state=LA]');la.dispatchEvent(new w.w.KeyboardEvent('keydown',{key:'Enter',bubbles:true}));assert(w.d.querySelector('#state-result').textContent.includes('Louisiana: 41.3%'));assert.equal(la.getAttribute('aria-pressed'),'true');
-w.d.querySelector('#reading-mode').click();await Promise.resolve();w.flush();assert(w.d.body.classList.contains('reading'));assert(w.d.querySelector('.geography-table').open);assert.equal(w.d.querySelector('.person').style.getPropertyValue('--person-fill'),'1');
-assert(!w.d.querySelector('.sequence-steps [aria-hidden=true]'));assert.equal(w.d.querySelector('.start').textContent.trim(),'↓');assert(w.d.querySelector('.start').hasAttribute('aria-label'));
-const basket=w.d.querySelector('#basket-size');basket.value='large';basket.dispatchEvent(new w.w.Event('change'));assert.equal(w.d.querySelector('#trip-saving').textContent,'$39.48');w.w.close();
+for(const route of ['housing','health']){const s=setup(`case-studies/${route}/index.html`);assert.equal(s.d.querySelector('.global-header .brand').tagName,'SPAN');assert(!s.d.querySelector('.global-footer a[href="/"]'));s.w.close();}
 for(const route of ['housing','health']){
  for(const options of [{},{width:375,height:667},{width:740,height:400},{reduced:true}]){
   const t=setup(`case-studies/${route}/index.html`,options);t.flush();assert(t.d.querySelector('h1').textContent.startsWith('What does it take'));assert(t.d.querySelector('.chapter-nav [aria-current]'));
@@ -46,7 +39,7 @@ for(const route of ['housing','health']){
   t.d.querySelector('[data-reading-toggle]').click();await Promise.resolve();t.flush();assert(t.d.body.classList.contains('reading'));t.w.close();
  }
 }
-for(const options of [{width:375,height:667},{width:740,height:400},{reduced:true}]){const t=setup('case-studies/wic/index.html',options);t.flush();assert(t.d.querySelector('.geography-table').open);assert(!t.d.body.classList.contains('enhanced-motion'));t.w.close();}
-console.log('PASS: CSS syntax; personal portfolio links and story branding; reversible map; 52 jurisdictions; keyboard selection; reading/reduced-motion modes; exact mark counts; NYC focus; receipt controls. DOM simulation only.');
+
+console.log('PASS: CSS syntax; personal portfolio links and story branding; housing/health reading and reduced-motion modes; exact mark counts; NYC focus. WIC checked separately. DOM simulation only.');
 
 })().catch(e=>{console.error(e);process.exitCode=1});
