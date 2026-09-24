@@ -14,7 +14,7 @@
       },
       {
         "caption": "Same baby. Same income. Same need for food. Two ways the next five years could go.",
-        "speaker": "One mother \u00b7 two illustrative paths",
+        "speaker": "One mother \u00b7 two paths",
         "source": null
       }
     ]
@@ -73,7 +73,7 @@
     "title": "The help reaches people unevenly.",
     "beats": [
       {
-        "caption": "Where I live changes the system I have to get through.",
+        "caption": "The first hurdle is getting through the door.",
         "speaker": "A wider view",
         "source": "coverage"
       },
@@ -150,25 +150,40 @@
     ]
   },
   {
-    "title": "Checkout.",
+    "title": "One item at a time.",
     "beats": [
       {
-        "caption": "One item won\u2019t go through on WIC. Do I go back, leave it, or pay?",
+        "caption": "First, the eggs. One dozen. The right size this time.",
         "speaker": "With WIC \u00b7 Maya",
         "source": null
       },
       {
-        "caption": "I pay this time.",
+        "caption": "Bananas. Two pounds. That comes out of my produce dollars.",
         "speaker": "With WIC \u00b7 Maya",
         "source": null
       },
       {
-        "caption": "Some food is covered. Thank God. But getting it took more out of me than I expected.",
+        "caption": "Then the carrots. More food coming home.",
         "speaker": "With WIC \u00b7 Maya",
         "source": null
       },
       {
-        "caption": "I don\u2019t know what WIC would have paid for. I just know what I have to cover myself.",
+        "caption": "Peanut butter. That one goes through, too.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": null
+      },
+      {
+        "caption": "The rice won\u2019t go through. I picked white rice. WIC covers brown rice.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": null
+      },
+      {
+        "caption": "I pay the $1.77. WIC covered $5.97 of this $7.74 basket.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": null
+      },
+      {
+        "caption": "Without WIC, the same basket takes $7.74 from the money I already have.",
         "speaker": "Without WIC \u00b7 Maya",
         "source": null
       }
@@ -293,7 +308,7 @@
     "title": "What the help can change.",
     "beats": [
       {
-        "caption": "The years after infancy matter, too. Children who stayed into their third year had higher diet-quality scores.",
+        "caption": "The years after infancy matter, too. Staying into the third year was associated with higher diet-quality scores.",
         "speaker": "A wider view",
         "source": "diet"
       },

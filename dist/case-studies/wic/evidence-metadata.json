@@ -43,5 +43,15 @@
     "title": "Borger et al. \u00b7 WIC participation and diet quality",
     "url": "https://pubmed.ncbi.nlm.nih.gov/35277313/",
     "method": "Adjusted observational comparison at age 3: participation in only the first year was associated with a 3.6-point lower Healthy Eating Index\u20132015 score than participation into the third year. Scale is 0\u2013100. Does not establish causation."
+  },
+  "shopping": {
+    "title": "The checkout basket \u00b7 prices and food rules",
+    "url": "basket.json",
+    "method": "Walmart online prices accessed September 24, 2026: 12 Great Value large white eggs $1.67; bananas 2 lb at $0.50/lb, $1.00; 1 lb baby carrots $1.32; Great Value creamy peanut butter 16 oz $1.98; Great Value white rice 32 oz $1.77. Total $7.74; four covered items $5.97; white rice $1.77 paid separately. Public listings are a price snapshot, not an Albany-store quote. Assumes an authorized store and sufficient matching food benefits. Individual product URLs, sizes, quantities, and NY food-rule sources are in the linked data file."
+  },
+  "map": {
+    "title": "Albany street map \u00b7 U.S. Census Bureau",
+    "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer",
+    "method": "Street geometry downloaded September 24, 2026 from TIGERweb local and secondary road layers. Routes follow connected street vertices. The story\u2019s home and generic shop endpoints are narrative locations; no household address, reported trip, retailer status, or travel-time estimate is asserted. Raw geometry and route calculations are saved with the project."
   }
 }

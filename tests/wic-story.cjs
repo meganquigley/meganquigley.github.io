@@ -2,8 +2,8 @@ const assert=require('node:assert/strict'),fs=require('fs'),path=require('path')
 const {JSDOM}=require('jsdom'),css=require('css-tree');
 (async()=>{
  const root=path.resolve(__dirname,'../dist/case-studies/wic');
- const {beatAt,openingAt,produceTotal}=await import(path.join(root,'model.mjs'));
- for(const count of [3,4,5,6]){
+ const {beatAt,openingAt,produceTotal,checkoutAt}=await import(path.join(root,'model.mjs'));
+ for(const count of [3,4,5,6,7]){
   const height=900+(count-1)*648;
   assert.equal(beatAt(100,height,900,count),0);
   assert.equal(beatAt(-height,height,900,count),count-1);
@@ -16,6 +16,10 @@ const {JSDOM}=require('jsdom'),css=require('css-tree');
  assert.equal(openingAt(0,1890,900).scale,1);
  assert.equal(openingAt(-990,1890,900).words,1);
  assert.deepEqual([1,12,24,36,48,60].map(produceTotal),[52,624,936,1248,1560,1872]);
+ const basket=JSON.parse(fs.readFileSync(path.join(root,'basket.json'))).items;
+ assert.deepEqual(checkoutAt(7,basket),{count:5,total:774,covered:597,own:177});
+ assert.deepEqual(checkoutAt(0,basket),{count:0,total:0,covered:0,own:0});
+ assert.equal(checkoutAt(2,basket).total,267);
  const data=JSON.parse(fs.readFileSync(path.join(root,'evidence.json')));
  assert.equal(data.states.length,50);assert.equal(new Set(data.states.map(x=>x.state)).size,50);
  const mx=data.states.reduce((a,r)=>a+r.without_convenient_access_pct,0)/50;
@@ -26,20 +30,24 @@ const {JSDOM}=require('jsdom'),css=require('css-tree');
  assert.equal((100*(1-254506/365738)).toFixed(1),'30.4');
  const dom=new JSDOM(fs.readFileSync(path.join(root,'index.html'),'utf8'));
  const d=dom.window.document;
- assert.equal(d.querySelectorAll('.scene').length,12);assert.equal(d.querySelectorAll('.frame').length,52);
+ assert.equal(d.querySelectorAll('.scene').length,12);assert.equal(d.querySelectorAll('.frame').length,55);
  assert.equal(d.querySelectorAll('nav,[data-reading-toggle],#reading-mode').length,0);
  assert.equal(d.querySelectorAll('.opening a,.introduction a').length,0);
  for(const meta of ['robots','googlebot'])assert.equal(d.querySelector(`meta[name=${meta}]`).content,'noindex, nofollow, noarchive');
- assert.deepEqual([...d.querySelectorAll('script[src]')].map(x=>x.getAttribute('src')),['story.js']);
- assert.deepEqual([...d.querySelectorAll('link[rel=stylesheet]')].map(x=>x.getAttribute('href')),['story.css']);
+ assert.deepEqual([...d.querySelectorAll('script[src]')].map(x=>x.getAttribute('src')),['story.js?v=20260924-3']);
+ assert.deepEqual([...d.querySelectorAll('link[rel=stylesheet]')].map(x=>x.getAttribute('href')),['story.css?v=20260924-3']);
  for(const frame of d.querySelectorAll('.frame')){
   assert.equal(frame.querySelectorAll('.caption').length,1);assert(frame.querySelector('.line').textContent.length);
-  assert(frame.querySelector('.pair')||frame.querySelector('.anchors'));
+  assert(frame.querySelector('.pair')||frame.querySelector('.anchors')||frame.closest('.immersive'));
   if(frame.querySelector('.pair'))assert.deepEqual([...frame.querySelectorAll('.path-label')].map(x=>x.textContent),['Without WIC','With WIC']);
  }
  for(const a of d.querySelectorAll('a[href^="#"]'))assert(d.getElementById(a.getAttribute('href').slice(1)));
  for(const el of d.querySelectorAll('[id]'))assert.equal(d.querySelectorAll(`[id="${el.id}"]`).length,1);
  const errors=[];css.parse(fs.readFileSync(path.join(root,'story.css'),'utf8'),{onParseError:e=>errors.push(e.message)});assert.deepEqual(errors,[]);
+ assert.equal(d.querySelectorAll('img').length,0);
+ assert.equal(d.querySelectorAll('.real-map .street-lines path').length,898);
+ assert.equal(d.querySelectorAll('.conveyor .belt-item').length,5);
+ assert(![...d.querySelectorAll('.caption')].some(x=>/illustrative|not a reported|no mileage|cannot infer|not the share of dollars/.test(x.textContent)));
  const code=fs.readFileSync(path.join(root,'story.js'),'utf8');assert(!/setInterval|setTimeout|fetch\(|localStorage|sessionStorage/.test(code));
 
  // Exercise the actual DOM renderer with controlled geometry, including reduced motion.
@@ -53,7 +61,7 @@ const {JSDOM}=require('jsdom'),css=require('css-tree');
   w.Element.prototype.getBoundingClientRect=function(){return {top:Number(this.dataset.top||0),height:this.classList.contains('scene')?900+(Number(this.dataset.count)-1)*648:1890};};
   w.SVGElement.prototype.getTotalLength=()=>100;
   w.SVGElement.prototype.getPointAtLength=n=>({x:n,y:n});
-  w.beatAt=beatAt;w.openingAt=openingAt;w.clamp=(n,l=0,h=1)=>Math.min(h,Math.max(l,n));w.produceTotal=produceTotal;
+  w.checkoutAt=checkoutAt;w.beatAt=beatAt;w.openingAt=openingAt;w.clamp=(n,l=0,h=1)=>Math.min(h,Math.max(l,n));w.produceTotal=produceTotal;
   w.eval(code.replace(/^import .*?;\n/,''));
   assert(w.document.documentElement.classList.contains('enhanced'));
   const target=w.document.querySelector('#scene-11');
@@ -65,7 +73,16 @@ const {JSDOM}=require('jsdom'),css=require('css-tree');
    const active=target.querySelector('.is-active');
    if(reduced)assert.equal(active.querySelector('.money span:last-child strong').textContent,'$'+produceTotal(Number(active.querySelector('[data-months]').dataset.months)).toLocaleString('en-US'));
   }
+  const checkout=w.document.querySelector('#scene-7');
+  for(const top of [-3888,0,-1600,-3888,-400]){
+   checkout.dataset.top=top;w.dispatchEvent(new w.Event('scroll'));pending.splice(0).forEach(fn=>fn());
+   const progress=Math.min(1,Math.max(0,-top/3888)),beat=beatAt(top,4788,900,7),time=reduced?beat+.95:progress*7;
+   const state=checkoutAt(time,basket);
+   assert.equal(checkout.querySelector('[data-total]').textContent,'$'+(state.total/100).toFixed(2));
+   assert.equal(checkout.querySelector('[data-covered]').textContent,'$'+(state.covered/100).toFixed(2));
+   assert.equal(checkout.querySelectorAll('.receipt-row.scanned').length,state.count);
+  }
   runtime.window.close();
  }
- dom.window.close();console.log('PASS: absolute scroll state, reverse/fast jumps, monthly arithmetic, 50-state correlation, redemption denominator, 52 complete scenes/frames, semantic captions, sources, noindex, asset isolation, CSS syntax.');
+ dom.window.close();console.log('PASS: absolute scroll state, reverse/fast jumps, monthly arithmetic, 50-state correlation, redemption denominator, 55 complete scenes/frames, semantic captions, sources, noindex, asset isolation, CSS syntax.');
 })().catch(e=>{console.error(e);process.exitCode=1});

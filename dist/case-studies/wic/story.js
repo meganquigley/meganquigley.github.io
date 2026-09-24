@@ -1,79 +1,51 @@
-import {beatAt,openingAt,clamp,produceTotal} from './model.mjs';
-const scenes=[...document.querySelectorAll('.scene')];
-const opening=document.querySelector('.opening');
-const short=matchMedia('(max-height:560px)');
+import {beatAt,openingAt,clamp,produceTotal,checkoutAt} from './model.mjs';
+const scenes=[...document.querySelectorAll('.scene')],opening=document.querySelector('.opening');
+const basket=JSON.parse(document.querySelector('#basket-data').textContent);
 const reduced=matchMedia('(prefers-reduced-motion:reduce)');
-let queued=false;
-const visible=new Set();
+const visible=new Set(); let queued=false;
+const money=n=>'$'+(n/100).toFixed(2);
+function travel(path,person,p,svg=false){
+ const length=path.getTotalLength(),point=path.getPointAtLength(length*clamp(p));
+ if(svg){person.setAttribute('transform',`translate(${point.x} ${point.y})`);path.style.strokeDasharray=length;path.style.strokeDashoffset=length*(1-clamp(p));}
+ else {person.style.left=point.x/12+'%';person.style.top=`clamp(40px, ${point.y/6.2}%, calc(100% - 65px))`;}
+ return point;
+}
+function environment(scene,current,local,progress){
+ const t=current+(reduced.matches?.95:local);
+ if(scene.querySelector('.real-map')){
+  for(const side of ['left','right'])travel(scene.querySelector('.map-route-'+side),scene.querySelector('.map-traveler-'+side),side==='left'?clamp(t/1.5):clamp((t-1)/1.8),true);
+ }
+ if(scene.querySelector('.store-camera')){
+  travel(scene.querySelector('.left-route'),scene.querySelector('.shopper-left'),clamp((t-2)/1.4));
+  const point=travel(scene.querySelector('.right-route'),scene.querySelector('.shopper-right'),clamp(t/4.8));
+  const stage=scene.querySelector('.store-environment');
+  scene.style.setProperty('--camera-x',Math.min(0,Math.max(stage.clientWidth-1000,stage.clientWidth/2-point.x/1200*1000))+'px');
+  scene.style.setProperty('--wrong-opacity',current===1?1:0);
+ }
+ if(scene.querySelector('.conveyor')){
+  const state=checkoutAt(t,basket);scene.querySelector('.checkout-environment').classList.toggle('is-rejected',current===4);scene.querySelector('.checkout-environment').classList.toggle('compare-left',current===6);
+  scene.querySelectorAll('.belt-item').forEach((item,i)=>{const phase=t-i;item.style.left=(-25+phase*140)+'%';item.style.opacity=phase>-.3&&phase<1.15?'1':'0';});
+  scene.querySelector('.belt-texture').style.backgroundPositionX=t*280+'px';
+  scene.querySelectorAll('.receipt-row').forEach((row,i)=>row.classList.toggle('scanned',i<state.count));
+  for(const [key,value] of Object.entries({total:state.total,without:state.total,own:state.own,covered:state.covered}))scene.querySelector('[data-'+key+']').textContent=money(value);
+  const item=basket[Math.min(current,basket.length-1)],display=scene.querySelector('.scanner-display');
+  display.querySelector('span').textContent=current>4?'WIC COVERS':item.label;
+  display.querySelector('strong').textContent=money(current>4?state.covered:item.cents);
+  display.querySelector('small').textContent=current>4?'The rest comes from my money':item.covered?'Covered by WIC':'Not covered · pay separately';
+ }
+}
 function renderScene(scene){
- const rect=scene.getBoundingClientRect();
- const frames=[...scene.querySelectorAll('.frame')];
- const current=beatAt(rect.top,rect.height,innerHeight,frames.length);
+ const rect=scene.getBoundingClientRect(),frames=[...scene.querySelectorAll('.frame')];
+ const current=beatAt(rect.top,rect.height,innerHeight,frames.length),progress=clamp(-rect.top/Math.max(1,rect.height-innerHeight)),local=clamp(progress*frames.length-current);
  scene.dataset.activeBeat=current;
- const progress=clamp(-rect.top/Math.max(1,rect.height-innerHeight));
- const local=clamp(progress*frames.length-current);
- const activeFrame=frames[current];
- // Continuous travel is computed from absolute scroll position, never elapsed time.
- const traveler=activeFrame.querySelector('.right .cart, .map-traveler.far');
- if(traveler&&!short.matches){
-  const route=traveler.parentElement.querySelector('.cart-route,.route');
-  if(route){
-   const isMap=traveler.classList.contains('map-traveler');
-   const start=isMap?0:current===1?.2:current===3?.55:0;
-   const end=isMap?1:current===1?.55:current===3?1:.2;
-   const amount=reduced.matches?end:start+(end-start)*clamp(local/.8);
-   const point=route.getPointAtLength(route.getTotalLength()*amount);
-   traveler.style.left=`${point.x/(isMap?330:320)*100}%`;
-   traveler.style.top=`${point.y/(isMap?270:320)*100}%`;
-   traveler.style.transform='translate(-50%,-50%)';
-  }
- }
- const produce=activeFrame.querySelector('[data-months]');
- if(produce&&!short.matches){
-  const end=Number(produce.dataset.months);
-  const previous=current?Number(frames[current-1].querySelector('[data-months]').dataset.months):1;
-  const month=reduced.matches?end:Math.round(previous+(end-previous)*clamp(local/.75));
-  produce.querySelectorAll('.month').forEach((cell,i)=>cell.classList.toggle('filled',i<month));
-  produce.querySelector('.money span:last-child strong').textContent='$'+produceTotal(month).toLocaleString('en-US');
-  produce.querySelector('.axis-note').textContent=month+' of 60 months illustrated · available, not redeemed.';
- }
- frames.forEach((frame,i)=>{
-  const active=i===current;
-  frame.classList.toggle('is-active',active);
-  // Short viewports show every frame in normal flow, including at 200% zoom.
-  frame.inert=!short.matches&&!active;
-  if(!short.matches&&!active)frame.setAttribute('aria-hidden','true');
-  else frame.removeAttribute('aria-hidden');
- });
+ frames.forEach((frame,i)=>{const active=i===current;frame.classList.toggle('is-active',active);frame.inert=!active;if(active)frame.removeAttribute('aria-hidden');else frame.setAttribute('aria-hidden','true');});
+ const frame=frames[current];frame.style.setProperty('--enter',reduced.matches?1:clamp(local/.22));frame.style.setProperty('--local',reduced.matches?0:local);
+ scene.classList.toggle('has-research',Boolean(frame.querySelector('.research')));
+ if(scene.classList.contains('immersive')){scene.style.setProperty('--caption-height',Math.max(90,frame.querySelector('.caption').scrollHeight)+'px');environment(scene,current,local,progress);}
+ const produce=frame.querySelector('[data-months]');
+ if(produce){const end=Number(produce.dataset.months),previous=current?Number(frames[current-1].querySelector('[data-months]')?.dataset.months||1):1,month=reduced.matches?end:Math.round(previous+(end-previous)*clamp(local/.75));produce.querySelectorAll('.month').forEach((cell,i)=>cell.classList.toggle('filled',i<month));produce.querySelector('.money span:last-child strong').textContent='$'+produceTotal(month).toLocaleString('en-US');produce.querySelector('.axis-note').textContent=month+' of 60 months · available produce benefits';}
  scene.querySelectorAll('.beat-progress i').forEach((mark,i)=>mark.classList.toggle('passed',i<=current));
 }
-function render(all=false){
- queued=false;
- const rect=opening.getBoundingClientRect();
- const state=openingAt(rect.top,rect.height,innerHeight);
- opening.style.setProperty('--symbol-scale',state.scale);
- opening.style.setProperty('--word-opacity',state.words);
- opening.style.setProperty('--cue-opacity',state.cue);
- (all?scenes:visible).forEach(renderScene);
-}
+function render(all=false){queued=false;const rect=opening.getBoundingClientRect(),state=openingAt(rect.top,rect.height,innerHeight);opening.style.setProperty('--symbol-scale',state.scale);opening.style.setProperty('--word-opacity',state.words);opening.style.setProperty('--cue-opacity',state.cue);(all?scenes:visible).forEach(renderScene);}
 function schedule(){if(!queued){queued=true;requestAnimationFrame(()=>render());}}
-// Populate every state before enabling the sticky enhancement (also works on a deep link).
-try {
- document.documentElement.classList.add('enhanced');
- render(true);
- const observer=new IntersectionObserver(entries=>{
-  for(const entry of entries){if(entry.isIntersecting)visible.add(entry.target);else visible.delete(entry.target);renderScene(entry.target);}
- },{rootMargin:'100% 0px'});
- scenes.forEach(scene=>observer.observe(scene));
- addEventListener('scroll',schedule,{passive:true});
- addEventListener('resize',()=>render(true));
- addEventListener('pageshow',()=>render(true));
- addEventListener('hashchange',()=>requestAnimationFrame(()=>render(true)));
- short.addEventListener('change',()=>render(true));
- reduced.addEventListener('change',()=>render(true));
- document.fonts?.ready.then(()=>render(true));
-} catch(error) {
- document.documentElement.classList.remove('enhanced');
- document.querySelectorAll('.frame').forEach(f=>{f.inert=false;f.removeAttribute('aria-hidden');});
- console.error('Story enhancement unavailable; showing complete static story.',error);
-}
+try{document.documentElement.classList.add('enhanced');render(true);const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting)visible.add(entry.target);else visible.delete(entry.target);renderScene(entry.target);}},{rootMargin:'100% 0px'});scenes.forEach(s=>observer.observe(s));addEventListener('scroll',schedule,{passive:true});addEventListener('resize',()=>render(true));addEventListener('pageshow',()=>render(true));addEventListener('hashchange',()=>requestAnimationFrame(()=>render(true)));reduced.addEventListener('change',()=>render(true));document.fonts?.ready.then(()=>render(true));}catch(error){document.documentElement.classList.remove('enhanced');document.querySelectorAll('.frame').forEach(f=>{f.inert=false;f.removeAttribute('aria-hidden');});console.error('Story enhancement unavailable',error);}

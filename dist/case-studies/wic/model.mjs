@@ -12,3 +12,7 @@ export function produceTotal(months) {
  const m=clamp(Math.floor(months),0,60);
  return Math.min(m,12)*52+Math.max(m-12,0)*26;
 }
+export function checkoutAt(time,items){
+ const count=Math.min(items.length,Math.max(0,Math.floor(time+.25)));
+ return items.slice(0,count).reduce((s,item)=>({count,total:s.total+item.cents,covered:s.covered+(item.covered?item.cents:0),own:s.own+(item.covered?0:item.cents)}),{count,total:0,covered:0,own:0});
+}

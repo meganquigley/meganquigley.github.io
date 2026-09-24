@@ -1,0 +1,12 @@
+{
+  "observed": "2026-09-24",
+  "price_basis": "Walmart public online listings; prices are snapshots and not a quoted Albany-store order. No delivery, fees, or tax included. Basket assumes sufficient corresponding WIC benefits and an authorized store.",
+  "food_rules": ["https://www.health.ny.gov/prevention/nutrition/wic/approved_formulas.htm", "https://www.health.ny.gov/publications/4099.pdf", "https://nyswicvendors.com/wp-content/uploads/2026/03/New-WIC-Food-Options-Handout.pdf"],
+  "items": [
+    {"label":"Large white eggs","quantity":"Great Value · 12 count","icon":"eggs","cents":167,"covered":true,"source":"https://business.walmart.com/ip/Great-Value-Large-White-Eggs-12-Count/145051970","rule":"One dozen medium or large eggs; standard store brand."},
+    {"label":"Bananas","quantity":"2 lb × $0.50/lb","icon":"bananas","cents":100,"covered":true,"source":"https://www.walmart.com/cp/fresh-produce/976793","rule":"Fresh fruit, charged against available produce dollars."},
+    {"label":"Baby carrots","quantity":"1 lb bag","icon":"carrots","cents":132,"covered":true,"source":"https://www.walmart.com/ip/10451315","rule":"Plain fresh vegetables, charged against available produce dollars."},
+    {"label":"Peanut butter","quantity":"Great Value creamy · 16 oz","icon":"peanut","cents":198,"covered":true,"source":"https://www.walmart.com/ip/3716446909","rule":"Plain creamy peanut butter in a 16–18 oz jar; no added disallowed ingredients."},
+    {"label":"White rice","quantity":"Great Value long grain · 32 oz","icon":"rice","cents":177,"covered":false,"source":"https://www.walmart.com/ip/10315394","rule":"White rice is not a WIC whole grain; brown rice is the eligible rice category."}
+  ]
+}
