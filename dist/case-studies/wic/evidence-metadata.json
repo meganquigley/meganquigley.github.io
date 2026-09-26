@@ -42,7 +42,7 @@
   "shopping": {
     "title": "The stock-up basket \u00b7 prices and WIC rules",
     "url": "basket.json",
-    "method": "Walmart online listing snapshots accessed September 24\u201325, 2026. Total $64.08; eligible foods $23.97; own payment $40.11. Quantities are for a larger stock-up with pantry food already at home, not a nutritionally complete meal plan. Prices are not a local store quote. The linked ledger contains every item, quantity, unit price, product source, and food rule. Covered amounts assume sufficient corresponding benefits and an authorized store."
+    "method": "Walmart online listing snapshots accessed September 24\u201325, 2026. Total $49.84; eligible foods $46.10; own payment $3.74. Quantities are for a larger stock-up with pantry food already at home, not a nutritionally complete meal plan. Prices are not a local store quote. The linked ledger contains every item, quantity, unit price, product source, and food rule. This is a WIC-focused basket rather than a full food budget: $32.62 produce (below the $52 breastfeeding allowance), two dozen eggs, three gallons of 1% milk and one 16 oz peanut butter jar. Covered amounts assume sufficient corresponding benefits and an authorized store. Frozen vegetable prices verified on Walmart product listings September 25, 2026; approved categories cross-checked against the NY March 2026 frozen-food list."
   },
   "map": {
     "title": "A measured rural driving route",

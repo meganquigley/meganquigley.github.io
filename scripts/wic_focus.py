@@ -3,16 +3,15 @@ from pathlib import Path
 import json,csv,math
 R=Path(__file__).resolve().parents[1]
 def state_map(evidence,focus='NY'):
- shapes=json.loads((R/'dist/data/state-shapes.json').read_text())['shapes']
  ids={x['name']:x['id'] for x in csv.DictReader((R/'dist/data/state-coverage.csv').open())}
+ # Tile geography follows the conventional US cartogram, with equal-area circles.
+ grid=[['AK','','','','','','','','','','ME'],['','','','','','WI','','','','VT','NH'],['','WA','ID','MT','ND','MN','IL','MI','','NY','MA'],['','OR','NV','WY','SD','IA','IN','OH','PA','NJ','CT','RI'],['','CA','UT','CO','NE','MO','KY','WV','VA','MD','DE'],['','','AZ','NM','KS','AR','TN','NC','SC','',''],['','','','','OK','LA','MS','AL','GA','',''],['HI','','','','TX','','','','','FL','']]
+ positions={ab:(r+1,c+1) for r,row in enumerate(grid) for c,ab in enumerate(row) if ab}
  tiles=''
- import re
  for row in evidence['states']:
-  ab=ids[row['state']];p=shapes[ab];v=row['eligible_covered_pct']
-  nums=list(map(float,re.findall(r'-?\d+(?:\.\d+)?',p['path'])))
-  xs=nums[::2];ys=nums[1::2];x=min(xs);y=min(ys);w=max(xs)-x;h=max(ys)-y
-  tiles+=f'<button class="state-tile" aria-label="{row["state"]}: {v}% of eligible people participating"><svg viewBox="{x-3} {y-3} {w+6} {h+6}" aria-hidden="true"><path d="{p["path"]}" fill="hsl(195 25% {92-v*.65}%)"/></svg><span>{ab}</span><span class="state-tip">{row["state"]}: {v}%</span></button>'
- return '<div class="national-map"><p class="zoom-label">Across the United States</p><div class="state-grid">'+tiles+'</div><p class="map-key">Eligible people participating · 2023<br>Darker means greater reach · explore a state</p></div>'
+  ab=ids[row['state']];v=row['eligible_covered_pct'];r,c=positions[ab]
+  tiles+=f'<button class="state-tile" style="grid-row:{r};grid-column:{c};--state-color:hsl(195 28% {92-v*.62}%)" aria-label="{row["state"]}: {v}% of eligible people participating"><span class="state-ab">{ab}</span><span class="state-tip">{row["state"]}: {v}%</span></button>'
+ return '<div class="national-map"><p class="zoom-label">Where you live matters.</p><div class="state-grid">'+tiles+'</div><p class="map-key">Eligible people participating · 2023<br><span class="shade-scale"></span> Lower reach → higher reach<br>Hover or tap a state</p></div>'
 def driving_map():
  route=json.loads((R/'research/wic-rebuild/focus-revision/driving-route.json').read_text())['routes'][0]
  coords=route['geometry']['coordinates'];xs=[p[0] for p in coords];ys=[p[1] for p in coords]
@@ -35,5 +34,5 @@ def diet_plate(step):
   ticks+=f'<circle cx="{x:.2f}" cy="{y:.2f}" r="3.2" fill="#b7c1b0"/>'
  arc='<circle cx="160" cy="160" r="124" fill="none" stroke="#aa6047" stroke-width="9" pathLength="100" stroke-dasharray="3.6 96.4" transform="rotate(-90 160 160)"/>' if step>0 else ''
  middle='<text x="160" y="152" text-anchor="middle" class="plate-number">'+('100' if step==0 else '+3.6')+'</text><text x="160" y="185" text-anchor="middle">'+('possible points' if step==0 else 'points out of 100')+'</text>'
- if step==0: middle=''.join(f'<use href="art/story-vectors.svg?v=focus2#v-{name}" x="{x}" y="{y}" width="85" height="85"/>' for name,x,y in [('apples',75,68),('carrots',162,68),('rice',75,160),('milk',162,160)])
- return '<div class="diet-plate"><p class="chart-label">The Healthy Eating Index</p><svg viewBox="0 0 320 320" role="img" aria-label="'+('Diet quality is scored on a 100-point scale' if step==0 else 'The adjusted diet-quality difference was 3.6 points on a 100-point scale')+'"><circle cx="160" cy="160" r="145" fill="#fbf8ed" stroke="#6e8779" stroke-width="2"/><circle cx="160" cy="160" r="107" fill="none" stroke="#d3dcc9"/>'+ticks+arc+middle+'</svg><p class="plate-label">'+('100 possible points for the whole pattern of eating.' if step==0 else 'Continued into year 3<br>compared with WIC in year 1 only')+'</p></div>'
+ if step==0: middle=''.join(f'<use href="art/story-vectors.svg?v=motion1#v-{name}" x="{x}" y="{y}" width="85" height="85"/>' for name,x,y in [('apples',75,68),('carrots',162,68),('rice',75,160),('milk',162,160)])
+ return '<div class="diet-plate"><p class="chart-label">The Healthy Eating Index</p><svg viewBox="0 0 320 320" role="img" aria-label="'+('Diet quality is scored on a 100-point scale' if step==0 else 'The adjusted diet-quality difference was 3.6 points on a 100-point scale')+'"><circle cx="160" cy="160" r="145" fill="#fbf8ed" stroke="#6e8779" stroke-width="2"/><circle cx="160" cy="160" r="107" fill="none" stroke="#d3dcc9"/>'+ticks+arc+middle+'</svg><p class="plate-label">'+('The whole pattern of eating<br>scored from 0 to 100' if step==0 else 'Continued into year 3<br>compared with WIC in year 1 only')+'</p></div>'

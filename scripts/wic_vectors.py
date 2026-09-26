@@ -22,7 +22,7 @@ def build_art():
  torso=f'<path d="M134 117q26 15 52 0 27 7 35 33l13 65-27 7-12-53 7 62h-85l7-62-13 53-27-7 13-65q9-27 37-33Z" fill="{BLUE}"/>'
  symbol('maya',legs+torso+f'<path d="M85 213l-2 17q0 17 12 17 11-1 14-25m99 0q2 25 14 25 14-1 11-18l-1-16" fill="{SKIN}"/>'+head)
  holding_torso=f'<path d="M132 119q29 15 56 0 27 6 35 35l4 36-29 8-5-31 9 65h-85l6-65-8 32-29-8 8-40q7-28 38-32Z" fill="{BLUE}"/>'
- symbol('mother-baby',legs+holding_torso+head+use('baby',135,96,115,132)+f'<path d="M87 188q-4 24 24 34l61 13q15 2 18-9 1-10-13-12l-58-14-5-8Z" fill="{SKIN}"/><path d="M198 194l2 13q-6 12-27 12-12-1-13 10 0 10 14 11 39 1 48-24l4-26Z" fill="{SKIN}"/>')
+ symbol('mother-baby',legs+holding_torso+head+f'<path d="M87 188q-4 24 24 34l61 13q15 2 18-9 1-10-13-12l-58-14-5-8Z" fill="{SKIN}"/><path d="M198 194l2 13q-6 12-27 12-12-1-13 10 0 10 14 11 39 1 48-24l4-26Z" fill="{SKIN}"/>'+use('baby',131,79,128,146))
  symbol('family',use('maya',-5,0,240,310)+use('child',173,133,134,175))
  symbol('room',rect(10,13,300,285,'#e5dcc6',0)+rect(175,37,99,137,'#a8c4ca',2)+'<path d="M224 38v135m-48-68h98" stroke="'+CREAM+'" stroke-width="8"/>'+rect(20,220,270,71,'#b08c6e')+'<path d="M20 246h270m-245 0v44m85-44v44m105-44v44" stroke="#987256"/>'+rect(42,163,113,92,BLUE,25)+rect(29,188,24,71,BLUE,10)+rect(143,189,23,71,BLUE,10)+'<path d="M196 194h69l-17-73h-34Z" fill="'+CREAM+'"/><path d="M230 193v62m-18 0h37"/><path d="M31 123q-21-30 4-37 27 9 1 45m0-12q30-21 30 3-4 27-29 13" fill="'+GREEN+'"/>'+rect(20,139,34,42,CLAY,4))
  symbol('phone',rect(79,8,164,299,INK,24)+rect(89,22,144,269,CREAM,17)+rect(136,23,51,10,INK,5)+rect(101,72,117,47,'#b5ccd1',9)+rect(130,136,88,39,'#d9e4d1',9)+rect(101,192,117,49,'#b5ccd1',9)+'<circle cx="161" cy="301" r="3" fill="'+CREAM+'"/>')
@@ -39,12 +39,14 @@ def build_art():
  symbol('chicken',rect(20,80,282,194,CREAM,20)+'<path d="M60 137q38-70 92 0 24 59-21 90-94 21-71-90Z" fill="#d9a694"/><path d="M163 128q75-57 96 24 16 71-49 79-71-10-47-103Z" fill="#d9a694"/>')
  symbol('pasta',rect(79,20,163,287,CLAY,4)+rect(93,90,135,137,CREAM,0)+''.join(f'<path d="M{x} 113v91" stroke="#c4a054" stroke-width="5"/>' for x in range(104,219,12)))
  symbol('sauce',rect(78,61,167,235,'#a96750',20)+rect(78,34,167,44,BLUE,6)+rect(78,124,167,104,CREAM,0)+'<circle cx="162" cy="176" r="30" fill="#b56b4c"/>')
+ symbol('broccoli',rect(58,24,205,275,CREAM,8)+rect(58,24,205,50,BLUE,3)+''.join(f'<path d="M{x} {y+25}l-8 45h18l-3-45" fill="{GREEN}"/><circle cx="{x}" cy="{y}" r="31" fill="{GREEN}"/><circle cx="{x-20}" cy="{y+8}" r="20" fill="{GREEN}"/><circle cx="{x+20}" cy="{y+8}" r="20" fill="{GREEN}"/>' for x,y in [(124,132),(200,198)]))
+ symbol('spinach',rect(58,24,205,275,CREAM,8)+rect(58,24,205,50,BLUE,3)+''.join(f'<ellipse cx="{x}" cy="{y}" rx="25" ry="43" transform="rotate({a} {x} {y})" fill="{GREEN}"/><path d="M{x} {y-25}v60" fill="none"/>' for x,y,a in [(120,142,-30),(190,150,25),(155,211,5)]))
  symbol('groceries',use('carrots',-18,-12,190,230)+use('bananas',126,10,170,220)+'<path d="M44 151h232l-16 156H62Z" fill="'+CLAY+'"/><path d="M90 154q-2-58 31-60h78q29 3 26 60" fill="none" stroke-width="8"/>')
  symbol('cart','<path d="M74 77h190l-22 126H103Z" fill="#ecede5"/>'+''.join(f'<path d="M{x} 90l8 99" stroke="#81908d"/>' for x in [104,135,166,197,228])+'<path d="M78 115h178m-171 35h164m-157 31h152M69 77L54 44H21m81 160-8 30h153" fill="none"/><circle cx="121" cy="257" r="18" fill="'+INK+'"/><circle cx="226" cy="257" r="18" fill="'+INK+'"/>'+use('baby',106,43,104,120))
  symbol('storefront',rect(19,54,282,244,CLAY,3)+rect(41,131,84,143,'#c8dcd8',0)+rect(193,131,85,143,'#c8dcd8',0)+rect(131,129,57,168,CREAM,0)+''.join(f'<path d="M{x} 70h35l13 62h-39Z" fill="{BLUE if i%2==0 else CREAM}"/>' for i,x in enumerate(range(20,287,35)))+'<path d="M155 150v110m21-44v20"/>'+rect(13,56,293,26,INK,2))
  symbol('receipt',rect(71,22,179,277,CREAM,0)+''.join(f'<path d="M91 {y}h139" stroke="#94a099"/>' for y in range(58,260,24)))
  symbol('kitchen',rect(15,20,288,269,'#e4dbc4',0)+rect(28,36,113,102,GREEN,4)+rect(162,36,122,102,GREEN,4)+rect(17,196,286,101,BLUE,0)+'<path d="M20 189h279m-201 21v85m131-85v85m-168-68h18m133 0h16M84 37v100m143-100v100"/><path d="M166 174q-5-47 30-43 21 4 17 31" fill="none"/>'+use('bananas',208,131,80,70))
- symbol('birthday',rect(24,226,276,70,CLAY,12)+'<path d="M53 213q92-43 210 0v47H53Z" fill="'+CREAM+'"/><path d="M53 227q17 27 33 0 16 25 33 0 16 24 33 0 17 23 35 0 16 25 32 0 21 23 44 0" fill="none"/>'+''.join(f'<path d="M{x} 210v-34" stroke="{BLUE}" stroke-width="6"/><ellipse cx="{x}" cy="166" rx="4" ry="9" fill="#e4b562" stroke="none"/>' for x in [110,137,164,191,218])+'<ellipse cx="53" cy="72" rx="29" ry="37" fill="'+BLUE+'"/><path d="M53 111l15 104" fill="none"/><ellipse cx="269" cy="48" rx="26" ry="34" fill="'+CLAY+'"/><path d="M269 82l-20 134" fill="none"/>')
+ symbol('birthday',rect(24,226,276,70,CLAY,12)+'<path d="M53 213q92-43 210 0v47H53Z" fill="'+CREAM+'"/><path d="M53 227q17 27 33 0 16 25 33 0 16 24 33 0 17 23 35 0 16 25 32 0 21 23 44 0" fill="none"/>'+''.join(f'<path d="M{x} 210v-34" stroke="{BLUE}" stroke-width="6"/><ellipse cx="{x}" cy="166" rx="4" ry="9" fill="#e4b562" stroke="none"/>' for x in [110,137,164,191,218]))
  birthday_body=re.search(r'<g[^>]*>(.*)</g></symbol>',next(x for x in defs if 'id="v-birthday"' in x)).group(1)
  for x in [110,137,164,191,218]:
   birthday_body=birthday_body.replace(f'<path d="M{x} 210v-34" stroke="{BLUE}" stroke-width="6"/><ellipse cx="{x}" cy="166" rx="4" ry="9" fill="#e4b562" stroke="none"/>','')
@@ -62,37 +64,33 @@ def build_art():
   if i==7:body+=use('receipt',190,120,106,150)
   if i==8:body+=use('groceries',5,193,112,126)
   if i==9:body+=use('calendar',210,23,100,120)
-  if i in [11,15]:body+=use('birthday-one' if i==11 else 'birthday',30,118,270,190)
+  if i in [11,15]:
+   body=f'<g opacity=".65">{use("room")}</g><path d="M35 35Q160 80 285 35" fill="none" stroke="{INK}"/>'+''.join(f'<path d="M{x} {y}l12 24 12-19Z" fill="{BLUE if j%2 else CLAY}"/>' for j,(x,y) in enumerate([(55,43),(95,54),(140,58),(185,54),(225,43)]))+use('maya',28,75,170,220)+use('child',194,145,100,130)+use('birthday-one' if i==11 else 'birthday',45,146,250,164)
   symbol('s'+str(i),body)
  (OUT/'art/story-vectors.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg"><defs>'+''.join(defs)+'</defs></svg>')
 
 def external(name,cls='',label=''):
- return f'<svg class="vector {cls}" viewBox="0 0 320 320" aria-hidden="true"><use href="art/story-vectors.svg?v=flow6#v-{name}"/></svg>'
+ return f'<svg class="vector {cls}" viewBox="0 0 320 320" aria-hidden="true"><use href="art/story-vectors.svg?v=motion1#v-{name}"/></svg>'
 
 def store_environment():
- # A single persistent store floor. Two travelers occupy the same geographical space.
  shelves=''
- colors=['#c9ac78','#a3b48e','#bd8266','#e3cf97','#8da4a8']
- for col,(x,name) in enumerate([(170,'DAIRY'),(405,'GRAINS'),(640,'PANTRY'),(875,'PRODUCE')]):
-  shelves+=f'<g class="aisle aisle-{col}"><rect x="{x}" y="105" width="120" height="390" rx="7" fill="#a49982" stroke="#38473d" stroke-width="3"/>'
-  for row in range(12):
-   for k in range(3):
-    shelves+=rect(x+8+k*35,116+row*30,28,22,colors[(row+k+col)%5],2)
-  for row in range(5):
-   food=['milk','rice','peanut','carrots'][col]
-   shelves+=f'<use href="art/story-vectors.svg?v=flow6#v-{food}" x="{x+25}" y="{116+row*72}" width="72" height="65"/>'
-  shelves+=f'<text x="{x+60}" y="84" text-anchor="middle">{name}</text></g>'
- body='<svg viewBox="0 0 1200 620" class="store-floor" preserveAspectRatio="none" role="img" aria-label="Overhead grocery store with two shopping routes"><defs><pattern id="tile" width="45" height="45" patternUnits="userSpaceOnUse"><path d="M45 0H0V45" fill="none" stroke="#c8c4ad"/></pattern></defs><rect width="1200" height="620" fill="#e4dfc7"/><rect width="1200" height="620" fill="url(#tile)"/>'+shelves
- body+='<path class="shopping-path left-route" d="M550 570 L340 570 L340 40 L1070 40 L1070 550 L630 550"/><path class="shopping-path right-route" d="M550 570 L110 570 L110 50 L335 50 L335 525 L575 525 L575 50 L820 50 L820 535 L335 535 L335 50 L1070 50 L1070 570 L630 570"/>'
- for x in [465,610,755]:body+=rect(x,547,70,44,'#69837b',3)+rect(x+36,547,20,17,INK,2)
- body+='<text x="580" y="608" text-anchor="middle">CHECKOUT</text></svg>'
- return '<div class="immersive-stage store-environment"><div class="store-camera">'+body+'<div class="shopper shopper-left">'+external('mother-baby','shopper-person')+external('cart')+'<b>Without WIC</b></div><div class="shopper shopper-right">'+external('mother-baby','shopper-person')+external('cart')+'<b>With WIC</b></div></div><div class="shelf-callout"><span>CHECK THE SIZE</span><strong>18 eggs?</strong><p>My benefit is for a dozen.</p></div><div class="environment-legend"><span>Without WIC</span><span>With WIC</span></div><div class="shopping-list"><span>MY WIC LIST</span><p>Eggs <b>1 dozen</b></p><p>Peanut butter <b>16 oz</b></p><p>Produce <b>$52.00</b></p></div></div>'
+ for side in range(2):
+  offset=side*600
+  for col,(x,name,food) in enumerate([(95,'DAIRY','milk'),(255,'PANTRY','peanut'),(415,'PRODUCE','apples')]):
+   x+=offset
+   shelves+=f'<rect x="{x}" y="140" width="80" height="300" rx="8" fill="#b8ad92" stroke="#293833" stroke-width="3"/><text x="{x+40}" y="120" text-anchor="middle">{name}</text>'
+   for row in range(5):shelves+=f'<use href="art/story-vectors.svg?v=motion1#v-{food}" x="{x+8}" y="{150+row*55}" width="64" height="50"/>'
+  shelves+=f'<rect x="{offset+235}" y="540" width="130" height="38" rx="6" fill="#658695"/><text x="{offset+300}" y="608" text-anchor="middle">CHECKOUT</text>'
+ body='<svg viewBox="0 0 1200 630" class="store-floor" role="img" aria-label="Two overhead grocery trips: WIC requires checking products; without WIC, Maya checks her budget"><defs><pattern id="tile" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#c8c4ad"/></pattern></defs><rect width="1200" height="630" rx="15" fill="#eee7d7"/><rect width="1200" height="630" fill="url(#tile)"/><path d="M600 0V630" stroke="#a69f8c" stroke-width="3"/><text class="floor-path-label" x="300" y="45" text-anchor="middle">✓ WITH WIC</text><text class="floor-path-label" x="900" y="45" text-anchor="middle">○ WITHOUT WIC</text>'+shelves
+ body+='<path class="shopping-path with-route" d="M300 515L55 515V80H215V480H375V80H215V480H545V80H375V505H300"/><path class="shopping-path without-route" d="M900 515H655V80H815V480H1135V80H975V505H900"/>'
+ for cls in ['with','without']:body+=f'<g class="shopper-{cls}"><circle r="26" fill="#f8f6f0" stroke="#293833" stroke-width="2"/><use href="art/story-vectors.svg?v=motion1#v-cart" x="-25" y="-25" width="50" height="50"/></g>'
+ return '<div class="immersive-stage store-environment"><div class="store-labels"><span>✓ With WIC</span><span>○ Without WIC</span></div>'+body+'</svg><div class="shelf-callout"><strong>18 eggs?</strong><p>I need dozen-size cartons.</p></div></div>'
 
 def checkout_environment(items):
  products=''.join(f'<div class="belt-item" data-item="{j}">{external(i["icon"])}<span>{i["label"]}</span><b>${i["cents"]/100:.2f}</b></div>' for j,i in enumerate(items))
  rows=''.join(f'<div class="receipt-row" data-row="{j}"><span>{i["label"]}<small>{i["quantity"]}</small></span><b>${i["cents"]/100:.2f}</b><em>{"✓ WIC" if i["covered"] else "MY MONEY"}</em></div>' for j,i in enumerate(items))
  total=sum(i['cents'] for i in items);covered=sum(i['cents'] for i in items if i['covered'])
- return '<div class="immersive-stage checkout-environment"><div class="checkout-machine"><div class="scanner-window"><i></i></div></div><div class="conveyor"><div class="belt-texture"></div>'+products+'</div><div class="live-receipt"><h3>My grocery bill</h3><div class="receipt-window"><div class="receipt-roll">'+rows+'</div></div><div class="receipt-total"><span>Groceries</span><b data-total>$'+f'{total/100:.2f}'+'</b></div><div class="receipt-payment"><p><span>WIC pays</span><strong data-covered>$'+f'{covered/100:.2f}'+'</strong></p><p><span>I pay</span><strong data-own>$'+f'{(total-covered)/100:.2f}'+'</strong></p></div><span data-without hidden></span></div></div>'
+ return '<div class="immersive-stage checkout-environment"><div class="checkout-machine"><div class="scanner-window"><i></i></div></div><div class="conveyor"><div class="belt-texture"></div>'+products+'</div><div class="live-receipt"><h3>My grocery bill</h3><div class="receipt-window"><div class="receipt-roll">'+rows+'</div></div><div class="receipt-total"><span>Groceries</span><b data-total>$'+f'{total/100:.2f}'+'</b></div><div class="receipt-payment"><p><span>✓ WIC pays</span><strong data-covered>$'+f'{covered/100:.2f}'+'</strong></p><p><span>I pay</span><strong data-own>$'+f'{(total-covered)/100:.2f}'+'</strong></p></div><span data-without hidden></span></div></div>'
 
 def map_environment():
  import heapq

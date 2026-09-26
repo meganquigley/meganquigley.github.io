@@ -1,6 +1,7 @@
 """Build the independently authored WIC narrative. No legacy story imports."""
 from pathlib import Path
 import json, html
+from wic_motion import split_stage, phone, crowd
 from wic_focus import state_map, driving_map, diet_plate
 from wic_vectors import build_art, external, map_environment, store_environment, checkout_environment
 build_art()
@@ -12,7 +13,7 @@ def art(i,cls='',atlas='maya'):
 def situation(i,cls=''): return art(i,'situation '+cls,'situations')
 def badge(t): return f'<span class="object-label">{t}</span>'
 def pair(left,right,focus='both',labels=('Without WIC','With WIC')):
- return f'<div class="pair"><div class="path left"><span class="path-label">With WIC</span><div class="world">{right}</div></div><div class="path right"><span class="path-label">Without WIC</span><div class="world">{left}</div></div></div>'
+ return f'<div class="pair"><div class="path left"><span class="path-label"><span aria-hidden="true">✓</span> With WIC</span><div class="world">{right}</div></div><div class="path right"><span class="path-label"><span aria-hidden="true">○</span> Without WIC</span><div class="world">{left}</div></div></div>'
 def home(i=0,extra=''): return '<div class="room">'+art(4,'room-bg')+art(i,'person')+extra+'</div>'
 def anchors(): return '<div class="anchors"><span>'+art(1)+'Without WIC</span><span>'+art(1)+'With WIC</span></div>'
 def research(content):return '<div class="research">'+anchors()+content+'</div>'
@@ -35,125 +36,84 @@ def produce(n):
 scenes=[]
 def scene(title,time,beats):scenes.append({'title':title,'time':time,'beats':beats})
 def beat(visual,caption,who='Maya · both paths',note='',source=None):return dict(visual=visual,caption=caption,who=who,note=note,source=source)
-scene('Same mother. Same baby.','A new baby',[
- beat(pair(home(),home()),'My baby is here. He is crying. I am exhausted.'),
- beat(pair(situation(0),situation(0)),'Everyone says to sleep when he sleeps. Apparently that is also when I’m supposed to do everything else.'),
- beat(pair(home(),home()),'Same baby. Same income. Same need for food. Two ways the next five years could go.','One mother · two paths','Maya and the dialogue are illustrative, not a reported individual. Both paths begin with the same eligible New York family.')])
-scene('“Have you tried WIC?”','A friend’s text',[
- beat(pair(home(),situation(1),'right'),'“Have you tried WIC?”','With WIC · a friend'),
- beat(pair(home(),'<div class="phone-scene">'+art(10,'phone')+'<div class="messages"><p class="message incoming">Have you tried WIC?</p><p class="message outgoing">Is that food stamps?</p></div></div>','right'),'“Is that food stamps?”','With WIC · Maya'),
- beat(pair(home(),'<div class="phone-scene">'+art(10,'phone')+'<div class="messages"><p class="message incoming">No, it’s for you and the baby.</p><p class="message incoming">You should check.</p></div></div>','right'),'Thank God she said something. I had no idea.','With WIC · Maya','WIC provides specified foods, nutrition education, breastfeeding support, and referrals.','ny'),
- beat(pair(home(),situation(1),'left'),'I know about food stamps. We have Medicaid. WIC never comes up.','Without WIC · Maya','In one small study, 8 of 10 participant interviewees learned about WIC through family or friends. This is not a national estimate.','referral')])
-scene('“Now I have to apply.”','Before the help arrives',[
- beat(pair(home(),situation(2),'right'),'Ugh. First, my ID.','With WIC · Maya'),
- beat(pair(home(),'<div class="paperwork">'+art(11)+'<span class="paper">ID</span><span class="paper">Address</span><span class="paper">Medicaid</span></div>','right'),'Then my address and Medicaid information. Medicaid establishes income eligibility. It doesn’t enroll me in WIC.','With WIC · Maya','WIC still requires an eligibility assessment, including nutrition risk.','ny'),
- beat(pair(home(),situation(3),'right'),'There’s still an appointment to arrange. A phone appointment can save a trip—but I still need time for the call.','With WIC · Maya','New York offers phone appointments; circumstances and required documentation vary.','ny'),
- beat(pair(home(),situation(8)),'I’m fully breastfeeding. My package includes $52 a month for produce, plus other foods. Okay. That would help.','With WIC · Maya','FY2026 rate for fully breastfeeding participants. This is Maya’s allowance, not a newborn’s produce allowance.','rates')])
-scene('The help reaches people unevenly.','From one family to the country',[
- beat(research(bars([('New York',62.4),('United States',56.1)],'Share of eligible people participating · 2023')),'The first hurdle is getting through the door.','A wider view','Average-month estimates; women, infants, and children eligible for WIC.','coverage'),
- beat(research(bars([('Vermont',79.6),('New York',62.4),('United States',56.1),('Louisiana',41.3)],'Share of eligible people participating · 2023')),'The same federal program. Very different reach.','A wider view','Vermont and Louisiana have the highest and lowest point estimates among the 50 states. Estimates have uncertainty; Vermont’s interval is especially wide.','coverage'),
- beat(research(bars([('Vermont',79.6),('New York',62.4),('United States',56.1),('Louisiana',41.3)],'Share of eligible people participating · 2023')),'Would a referral that leads somewhere—or an appointment that fits my life—change what happens next?','Maya · a question for the system','These are plausible explanations, not demonstrated causes of the state differences.','coverage')])
-scene('Same neighborhood. Different trip.','Getting to a store',[
- beat(pair(mapview(),mapview()),'The baby is finally settled. I just want to get the groceries done.','Maya · both paths','Both maps are illustrative. No mileage or actual neighborhood is implied.'),
- beat(pair(mapview(),mapview(True),'right'),'My nearby store doesn’t take WIC. I check the locator. It’s a longer trip with the baby.','With WIC · Maya','Illustrative route, not a measured trip.'),
- beat(pair(situation(4),situation(4),'left'),'I go where I usually shop. I choose what I can afford.','Without WIC · Maya'),
- beat(research(bars([('Louisiana',56),('United States',40),('Vermont',30),('New York',19)],'Families without convenient WIC retailer access')),'Having benefits and having a place to use them are two different things.','A wider view','FY2022 retailers; low-income families with children under 5 estimated from 2015–19 ACS data. Threshold: more than 1 mile urban or 10 miles rural.','access'),
- beat(research('<div class="chart scatter"><p class="chart-label">Across 50 states: farther from stores, less reach</p><svg viewBox="0 0 640 330" role="img" aria-label="State access and coverage scatter plot, Pearson correlation minus 0.47"><path class="axis" d="M60 20V275H610"/>'+''.join(f'<circle cx="{60+r["without_convenient_access_pct"]*8.2}" cy="{275-(r["eligible_covered_pct"]-30)*4.5}" r="5"><title>{r["state"]}: {r["without_convenient_access_pct"]:g}% without access, {r["eligible_covered_pct"]:g}% covered</title></circle>' for r in E['states'])+'<text x="65" y="18">WIC coverage (%)</text><text x="12" y="57">80</text><text x="12" y="147">60</text><text x="12" y="237">40</text><text x="52" y="297">0</text><text x="212" y="297">20</text><text x="377" y="297">40</text><text x="541" y="297">60</text><text x="160" y="325">Without convenient access (%)</text></svg></div>'),'States with more families far from a WIC store tend to reach fewer eligible people.','A wider view','Reproduced Pearson r = −0.47 across 50 states. Different years and populations; association does not establish causation.','correlation')])
-scene('“Right food. Wrong size.”','Inside the grocery store',[
- beat(pair(shop(),shop()),'This is not one grocery budget. It’s quantities of certain foods, plus dollars for produce.','With WIC · Maya','Food packages vary by participant. Illustrations do not identify approved brands or sizes.','ny'),
- beat(pair(shop(False,1),shop(True,1),'right'),'Right food. Wrong size. Back down the aisle.','With WIC · Maya'),
- beat(pair(situation(5),situation(5),'left'),'I put something back. I’m watching what’s left in my account.','Without WIC · Maya'),
- beat(pair(shop(False,2),shop(True,3),'right'),'I can’t swap the milk allowance for more fruit. And now the baby is crying.','With WIC · Maya','Specified food quantities and the produce dollar allowance are separate.','ny'),
- beat(pair(situation(5),'<div class="food-rules">'+art(13)+badge('Food quantities')+art(9)+badge('Produce dollars')+'</div>','right'),'The card replaced paper checks. It didn’t remove the rules.','With WIC · Maya')])
-scene('One item at a time.','At the checkout',[
- beat('', 'First, the eggs. One dozen. The right size this time.','With WIC · Maya'),
- beat('', 'Bananas. Two pounds. That comes out of my produce dollars.','With WIC · Maya'),
- beat('', 'Then the carrots. More food coming home.','With WIC · Maya'),
- beat('', 'Peanut butter. That one goes through, too.','With WIC · Maya'),
- beat('', 'The rice won’t go through. I picked white rice. WIC covers brown rice.','With WIC · Maya'),
- beat('', 'I pay the $1.77. WIC covered $5.97 of this $7.74 basket.','With WIC · Maya'),
- beat('', 'Without WIC, the same basket takes $7.74 from the money I already have.','Without WIC · Maya')])
-scene('On the card. In the kitchen.','Month after month',[
- beat(pair(situation(8),situation(8),'right'),'Some months I make the trip. The food I bring home helps.','With WIC · Maya'),
- beat(pair(situation(8),'<div class="expiry">'+art(12)+'<span class="expiry-stamp">MONTH ENDS</span>'+art(9,'fading-food')+'</div>','right'),'Some months there’s still food on my benefits when they expire. I meant to go back. Then something else happened.','With WIC · Maya','Unused monthly benefits do not roll over. No redemption percentage is assigned to Maya.','ny'),
- beat(research('<div class="redemption"><p class="chart-label">Southern California · 2019–2023 study</p><strong class="big-number">30.4%</strong><div class="portion"><span style="width:30.4%"></span></div><p>redeemed less than 70%<br>of the fruit-and-vegetable benefit</p></div>'),'The amount on the card and the amount in the kitchen aren’t always the same.','A wider view','365,738 certification periods in the study’s fruit-and-vegetable analysis. This is a share of periods, not the share of dollars lost.','redemption')])
-scene('“Can I deal with this today?”','His first birthday',[
- beat(pair(situation(11),situation(11)),'His first birthday. Another grocery list.','Maya · both paths'),
- beat(pair(situation(11),situation(9),'right'),'The renewal reminder arrives. The appointment conflicts with work. I put it aside.','With WIC · Maya'),
- beat(pair(situation(11),'<div class="paperwork">'+art(12)+badge('Office closed')+art(11)+badge('Documents to update')+'</div>','right'),'Tomorrow, I remember after the office closes. Then I have to check which documents they need.','With WIC · Maya'),
- beat(pair(situation(11),situation(9),'right'),'I’m not deciding we don’t need the food. I just can’t deal with this today.','With WIC · Maya'),
- beat(pair(situation(11),situation(10),'right'),'This time, I call before the deadline. I find an appointment I can manage. I renew.','With WIC · Maya','This renewal sequence is illustrative. Certification schedules and requirements vary.')])
-scene('Four more years.','Growing up together',[
- beat(pair(situation(12),situation(12)),'He’s two. More groceries. Another appointment.','Maya · both paths'),
- beat(pair(situation(13),situation(13)),'He’s three. I know the foods that work for us. I still have to keep coming back.','With WIC · Maya'),
- beat(pair(situation(14),situation(14)),'He’s four. His need for food hasn’t expired with the paperwork.','Maya · both paths'),
- beat(research('<div class="cohort"><p class="chart-label">A historical enrollment cohort · through 54 months</p><strong class="big-number">43.5%</strong><div class="portion"><span style="width:43.5%"></span></div><p>participated consistently</p><p class="small-stat">56.5% did not participate consistently</p></div>'),'Not everyone stays connected all the way through.','A wider view','USDA’s 2013 enrollment cohort, weighted mother–child pairs. Inconsistent includes leaving or intermittent participation; it is not a single-renewal dropout rate.','cohort'),
- beat(research(bars(list(zip(['Infants','Age 1','Age 2','Age 3','Age 4'],E['age_coverage_2023'])),'Eligible people reached · separate age groups, 2023')),'Nationally, WIC reaches fewer eligible children at each older age.','A wider view','Average-month coverage in 2023. These are separate age groups, NOT the same children followed as they leave.','coverage')])
-scene('What accumulates.','One month at a time',[
- beat(produce(1),'One month: up to $52 for produce while I’m fully breastfeeding.','With WIC · Maya','Available produce benefits only; other WIC foods are additional.','rates'),
- beat(produce(12),'Twelve months: up to $624.','With WIC · Maya','Assumes a full year of maternal eligibility at the FY2026 fully breastfeeding rate.','rates'),
- beat(produce(24),'Then $26 a month for my child. One year adds $312.','With WIC · Maya','The child illustration starts at age 1 and continues until the fifth birthday.','rates'),
- beat(produce(36),'Two child years add $624 to that first year of help.','With WIC · Maya','Available allowance, not actual food redeemed or guaranteed savings.','rates'),
- beat(produce(48),'Three child years add $936.','With WIC · Maya','Holds FY2026 rates constant; not a forecast of future benefit levels.','rates'),
- beat(produce(60),'Four child years, plus my breastfeeding year: up to $1,872 in available produce benefits.','With WIC · Maya','12 × $52 + 48 × $26 = $1,872. Actual redeemed value is lower whenever benefits go unused.','rates')])
-scene('What the help can change.','His fifth birthday',[
- beat(research('<div class="diet"><p class="chart-label">Diet quality at age 3 · observational study</p><strong class="big-number">+3.6 <small>points</small></strong><div class="difference"><span>WIC in first year only</span><b>→</b><span>Continued into third year</span></div><p>Adjusted difference on the 100-point<br>Healthy Eating Index–2015</p></div>'),'The years after infancy matter, too. Staying into the third year was associated with higher diet-quality scores.','A wider view','Association, not a causal estimate or a forecast for Maya’s child. Absolute group scores are not depicted.','diet'),
- beat(pair(situation(15),situation(15)),'The same fifth birthday. A different experience of getting help.','Maya · both paths','We cannot infer different health outcomes for these illustrative children.'),
- beat(pair(situation(15),situation(15),'left'),'Tell me about WIC. Help me book the first appointment. Follow up when the referral goes nowhere.','Without WIC · Maya'),
- beat(pair(situation(15),situation(15),'right'),'Give me a renewal I can manage. A nearby store. Clear labels. Help when something won’t scan.','With WIC · Maya'),
- beat(pair(situation(15),situation(15)),'Getting help should take less work.','The work of getting help')])
-# Revised editorial beats: one focal point, with research separated from dialogue.
-for b in scenes[0]['beats']: b['visual']=pair(home(),home())
-scenes[0]['beats'][0]['caption']='Same mother. Same baby. My baby is here. He is crying. I am exhausted.'
-scenes[1]['beats'][1]['visual']=pair(home(),art(10,'phone'),'right')
-scenes[1]['beats'][2]['visual']=pair(home(),art(10,'phone'),'right')
-scenes[1]['beats'][2]['caption']='“No, WIC helps with food for you and your baby.” Thank God she said something. I had no idea.'
-scenes[3]['beats']=[
- beat(research(state_map(E,'NY')),'Let’s step back from one family. Across the country, getting through the door looks very different.','A wider view',source='coverage'),
- beat(research(state_map(E,'NY,VT,LA')),'WIC reaches 79.6% of eligible people in Vermont, 62.4% in New York, and 41.3% in Louisiana.','A wider view',source='coverage'),
- beat(research(state_map(E,'NY,VT,LA')),'The same federal program. A different chance of receiving help. Nationally, 56.1% of eligible people participate.','A wider view',source='coverage')]
-scenes[4]['beats']=scenes[4]['beats'][:4]
-scenes[4]['beats'][0]['caption']='Back to the grocery trip. In rural New York, the next store can be a long way away.'
-scenes[4]['beats'][0]['source']='map'
-scenes[4]['beats'][1]['caption']='Keene Valley to this store in Lake Placid: 21.5 miles one way. Now add the baby, the bags, and getting home again.'
-scenes[4]['beats'][1]['source']='map'
-scenes[4]['beats'][2]['caption']='Without WIC, I can choose where to shop. With WIC, I need a store where I can use the benefits.'
-scenes[4]['beats'][2]['who']='Maya · both paths'
-scenes[4]['beats'][3]['caption']='“Without convenient access” means farther than 1 mile from a WIC store in an urban area, or 10 miles in a rural area.'
-scenes[7]['beats'].append(beat(pair(situation(8),situation(9),'right'),'Another month ends. Then another. Suddenly, the next date on the calendar is his first birthday.','With WIC · Maya'))
-scenes[8]['beats'][0]['caption']='One candle. A whole year of feeding him. And another deadline to keep the help.'
-scenes[8]['beats'][2]['visual']=pair(situation(11),'<div class="renewal-desk">'+art(12)+art(11)+'</div>','right')
-scenes[11]['beats']=[
- beat(research(diet_plate(0)),'What does “better diet quality” mean? Researchers score the overall pattern of eating on a scale of 0 to 100.','A wider view',source='diet'),
- beat(research(diet_plate(1)),'At age three, children who stayed in WIC into their third year scored 3.6 points higher than those who only received it in year one.','A wider view',source='diet'),
- beat(research(diet_plate(1)),'The difference is modest, but it is visible across the overall diet. Continuing WIC was associated with better diet quality.','A wider view',source='diet'),
- beat(pair(situation(15),situation(15)),'Now he is five. The same birthday in both paths.'),
- beat('<div class="ending-art">'+situation(15)+'</div>','The food matters. So does all the work it takes to get it.'),
- beat('<div class="ending-art">'+situation(15)+'</div>','A referral that reaches me. A renewal I can manage. A store I can get to.'),
- beat('<div class="ending-art final-art">'+situation(15)+'</div>','Getting help should take less work.')]
 BASKET=json.loads((OUT/'basket.json').read_text())
-total=sum(x['cents'] for x in BASKET['items']); covered=sum(x['cents'] for x in BASKET['items'] if x['covered']); own=total-covered
-scenes[6]['beats']=[
- beat('', 'I’m stocking up for the next couple of weeks. First, the eggs, fruit, and vegetables.','With WIC · Maya',source='shopping'),
- beat('', 'Peanut butter and milk. I check the sizes before they reach the scanner.','With WIC · Maya'),
- beat('', 'More fruit for the kitchen. These come out of my produce dollars.','With WIC · Maya'),
- beat('', 'Chicken, pasta, sauce. WIC helps with specific foods; the rest is still on me.','With WIC · Maya'),
- beat('', 'The white rice isn’t covered either. I decide to pay for it.','With WIC · Maya'),
- beat('', f'WIC covers ${covered/100:.2f}. I pay ${own/100:.2f}. This time, the food is coming home.','With WIC · Maya',source='shopping'),
- beat('', f'Without WIC, the same groceries take ${total/100:.2f} from my own money.','Without WIC · Maya')]
-# Narrative bridges and a single family before the paths separate.
-for b in scenes[0]['beats'][:2]: b['visual']='<div class="single-family">'+home()+'</div>'
-scenes[0]['beats'][2]['visual']='<svg class="branch-arrows" viewBox="0 0 400 100" aria-hidden="true"><path d="M200 0V20Q200 45 120 45H60Q30 45 30 80m340 0q0-35-30-35h-60q-80 0-80-25M15 65l15 15 15-15m310 0 15 15 15-15" fill="none" stroke="currentColor" stroke-width="3"/></svg>'+pair(home(),home())
-scenes[2]['beats'][0]['caption']='My friend sends me the number. I call WIC to apply. Before the appointment, I need to gather a few things—starting with my ID.'
-scenes[2]['beats'][3]['visual']=pair(home(),home())
-scenes[2]['beats'].append(beat(pair(home(),home()),'In my other life, nobody tells me about the program. I’m buying the same food, but all of it comes out of my own budget.','Without WIC · Maya'))
-scenes[4]['beats'][3]['caption']='For many families, using the card starts with a trip: more than a mile to a WIC store in a city, or more than ten miles in the countryside. Across the country, 40% of low-income families with young children live beyond those distances.'
-scenes[9]['beats'][3]['caption']='I’ve kept coming back. But how many families manage that? Researchers followed children who enrolled in 2013: only 43.5% participated consistently through four and a half years.'
-scenes[9]['beats'][4]['caption']='A newer national snapshot shows the same challenge from another angle. WIC reaches 82.3% of eligible infants, but just 26.9% of eligible four-year-olds.'
-scenes[11]['beats'][0]['caption']='Those groceries add up. But do they change what children eat? Researchers looked beyond the grocery bill and scored children’s overall diets on a 100-point scale.'
-scenes[11]['beats'][4]['caption']='WIC can make nutritious food more affordable. But a benefit only helps when a family hears about it, enrolls, finds a store, buys the right foods, and manages to keep renewing.'
-scenes[11]['beats'][5]['caption']='Make that work easier: connect families directly to WIC when they receive Medicaid or have a baby; offer appointments and renewals that fit working lives; bring authorized stores closer; and make approved foods and checkout rules easier to understand. Help should be easier to start—and easier to keep.'
-ENVIRONMENTS={4:driving_map(),5:store_environment(),6:checkout_environment(BASKET['items'])}
+total=sum(x['cents'] for x in BASKET['items']);covered=sum(x['cents'] for x in BASKET['items'] if x['covered']);own=total-covered
+scene('A new baby','Home',[
+ beat('', 'My baby is here. He is crying. I am exhausted.'),
+ beat('', 'Everyone says to sleep when he sleeps. Apparently that is also when I’m supposed to do everything else.'),
+ beat('', 'Same baby. Same income. Same need for food. Now watch our lives split: in one, I get WIC. In the other, I never do.')])
+scene('A friend checks in','Finding out',[
+ beat(pair(home(),phone([('friend','How are you doing? Have you tried WIC?')])),'A friend checks in.','With WIC · Maya'),
+ beat(pair(home(),phone([('friend','Have you tried WIC?'),('me','Is that food stamps?')])),'Is that food stamps?','With WIC · Maya'),
+ beat(pair(home(),phone([('me','Is that food stamps?'),('friend','No—it helps with food for you and the baby. You can get WIC and SNAP.'),('me','Oh. I had no idea. Can you send me the number?')])),'My friend explains WIC.','With WIC · Maya',source='ny'),
+ beat(pair(home(),situation(1)),'Thank God she said something. WIC could help me buy food while I’m breastfeeding—and help feed him as he grows.','With WIC · Maya',source='ny'),
+ beat(pair(home(),situation(1)),'In my other life, that text never comes. I know about food stamps. We have Medicaid. WIC never comes up.','Without WIC · Maya',source='referral')])
+scene('Getting through the door','Applying',[
+ beat(pair(home(),situation(2)),'I call the number to apply. Before my appointment, I need to gather a few things. First: my ID.','With WIC · Maya'),
+ beat(pair(home(),'<div class="paperwork">'+art(11)+'<span class="paper">ID</span><span class="paper">Address</span><span class="paper">Medicaid</span></div>'),'Then my address and Medicaid information. Medicaid helps establish income eligibility. It doesn’t enroll me in WIC.','With WIC · Maya',source='ny'),
+ beat(pair(home(),situation(3)),'Now the appointment. Doing it by phone saves a trip, but I still need a stretch of time when I can talk.','With WIC · Maya',source='ny'),
+ beat(pair(home(),home()),'I’m approved. While I’m fully breastfeeding, my package includes $52 a month for produce, plus other foods. Okay. That would help.','With WIC · Maya',source='rates'),
+ beat(pair(home(),home()),'Meanwhile, I’m buying the same kinds of food without that help. All of it comes out of my own budget.','Without WIC · Maya')])
+scene('From one person to the country','Participation',[
+ beat(research(crowd()),'One text helped me get through the door. But my story is only one of millions.','A wider view',source='coverage'),
+ beat(research(crowd()),'Across the country, WIC reaches about 56 of every 100 eligible people. The others qualify for help they aren’t receiving.','A wider view',source='coverage'),
+ beat(research(state_map(E)),'And the chance of getting that help changes depending on where you live.','A wider view',source='coverage'),
+ beat(research(state_map(E)),'In 2023, WIC reached 79.6% of eligible people in Vermont, 62.4% in New York, and 41.3% in Louisiana.','A wider view',source='coverage'),
+ beat(research(state_map(E)),'Those differences don’t tell us why people miss out. They do show that making help available is only the beginning.','A wider view',source='coverage')])
+scene('A place to use the card','The grocery trip',[
+ beat('', 'Back in my kitchen, the list is getting longer. Being approved is one thing. Now I need a store where I can use the card.','With WIC · Maya',source='map'),
+ beat('', 'This run from Keene Valley to Lake Placid is 21.5 miles each way. Now add the baby, the bags, and getting home again.','With WIC · Maya',source='map'),
+ beat('', 'I can shop wherever works for me. But at the register, I’ll have to cover the whole bill.','Without WIC · Maya'),
+ beat(research(bars([('Louisiana',56),('United States',40),('Vermont',30),('New York',19)],'Families beyond convenient WIC store access')),'This isn’t just one long drive. Nationally, 40% of low-income families with young children live beyond convenient access to a WIC store.','A wider view',source='access'),
+ beat(research(bars([('Louisiana',56),('United States',40),('Vermont',30),('New York',19)],'Families beyond convenient WIC store access')),'For a family in a city, that means going more than a mile. In the countryside, more than ten. Having a card doesn’t make the trip disappear.','A wider view',source='access')])
+scene('Inside the store','Shopping',[
+ beat('', 'At last, the store. I start with the foods on my WIC list: eggs, milk, peanut butter, fruit, and vegetables.','With WIC · Maya',source='ny'),
+ beat('', 'Eggs—but the carton has eighteen. I need dozen-size cartons. Back down the aisle to swap them.','With WIC · Maya'),
+ beat('', 'I don’t have that list to follow. I’m checking prices instead, putting things back when the total gets too high.','Without WIC · Maya'),
+ beat('', 'Fresh fruit for now. Frozen vegetables for later. Those use my produce dollars; the milk and eggs use separate quantities.','With WIC · Maya',source='ny'),
+ beat('', 'The card will help pay for this food. Getting the right things into the cart is still work. Finally, I head to checkout.','With WIC · Maya')])
+scene('What the card pays for','Checkout',[
+ beat('', 'I’m stocking up on the foods WIC helps me buy. Two dozen eggs, bananas, and carrots go down the belt first.','With WIC · Maya',source='shopping'),
+ beat('', 'Then peanut butter and three gallons of milk. The sizes match my benefits this time.','With WIC · Maya'),
+ beat('', 'Apples and grapes. I’m buying enough to keep fruit in the kitchen for a while.','With WIC · Maya'),
+ beat('', 'Broccoli and spinach for the freezer. Fresh and frozen produce together use $32.62 of my $52 allowance.','With WIC · Maya',source='shopping'),
+ beat('', 'The pasta sauce and white rice aren’t covered. I decide to pay for those myself.','With WIC · Maya'),
+ beat('', f'For this ${total/100:.2f} shop, WIC pays ${covered/100:.2f}. I pay ${own/100:.2f}. That leaves more of my own money for everything else.','With WIC · Maya',source='shopping'),
+ beat('', f'The very same food would cost me ${total/100:.2f} out of pocket. Without WIC, I have to decide what stays in the cart.','Without WIC · Maya')])
+scene('The months between trips','Using the help',[
+ beat(pair(situation(8),situation(8)),'At home, the groceries are the part that matters. Some months I make the trip and use the help.','With WIC · Maya'),
+ beat(pair(situation(8),situation(8)),'My groceries run out, too. But there’s no benefit balance to check—just what’s left in my bank account.','Without WIC · Maya'),
+ beat(pair(situation(8),'<div class="expiry">'+art(12)+'<span class="expiry-stamp">MONTH ENDS</span>'+art(9,'fading-food')+'</div>'),'Other months, I still have benefits when they expire. I meant to go back. Then something else happened.','With WIC · Maya',source='ny'),
+ beat(research('<div class="redemption"><p class="chart-label">A Southern California study</p><strong class="big-number">30.4%</strong><div class="portion"><span style="width:30.4%"></span></div><p>of certification periods used less than<br>70% of the produce benefit</p></div>'),'The gap between the card and the kitchen shows up in research, too. In this study, substantial produce benefits went unused in about three out of ten certification periods.','A wider view',source='redemption'),
+ beat(pair(situation(9),situation(9)),'Another month ends. Then another. In both lives, the next big date on the calendar is his first birthday.')])
+scene('A birthday. Another deadline.','Renewing',[
+ beat(pair(situation(11),situation(11)),'One candle. A whole year of feeding him. In the life with WIC, another deadline arrives with the birthday.'),
+ beat(pair(situation(11),situation(9)),'It’s time to renew. The appointment conflicts with work. I put the reminder aside.','With WIC · Maya'),
+ beat(pair(situation(11),'<div class="renewal-desk">'+art(12)+art(11)+'</div>'),'Tomorrow, I remember after the office closes. Then I have to check which documents need updating.','With WIC · Maya'),
+ beat(pair(situation(11),situation(9)),'I’m not deciding we don’t need the food. I’m deciding whether I can deal with one more thing today.','With WIC · Maya'),
+ beat(pair(situation(11),situation(10)),'This time, I call before the deadline. I find an appointment I can manage. We stay enrolled.')])
+scene('Keeping the help','Growing up',[
+ beat(pair(situation(12),situation(12)),'He’s two. His appetite is growing. So are the grocery lists.'),
+ beat(pair(situation(13),situation(13)),'He’s three. I know which foods work for us. But keeping WIC still means keeping up with appointments.','With WIC · Maya'),
+ beat(pair(situation(14),situation(14)),'He’s four. His need for food hasn’t expired with the paperwork.'),
+ beat(research('<div class="cohort"><p class="chart-label">Children enrolled in 2013 · followed through 54 months</p><strong class="big-number">43.5%</strong><div class="portion"><span style="width:43.5%"></span></div><p>participated consistently</p></div>'),'I’ve kept coming back. How many families manage that? Researchers followed children who enrolled in 2013: fewer than half participated consistently through four and a half years.','A wider view',source='cohort'),
+ beat(research(bars(list(zip(['Infants','Age 1','Age 2','Age 3','Age 4'],E['age_coverage_2023'])),'Eligible people reached · 2023')),'A newer national snapshot looks at separate age groups. WIC reaches 82.3% of eligible infants, but just 26.9% of eligible four-year-olds.','A wider view',source='coverage')])
+scene('What staying can add up to','Five years',[
+ beat(produce(1),'So what is there to keep? Start with just the produce: up to $52 a month while I’m fully breastfeeding.','With WIC · Maya',source='rates'),
+ beat(produce(12),'A full year at that rate makes up to $624 for fruit and vegetables.','With WIC · Maya',source='rates'),
+ beat(produce(24),'From his first birthday, the child’s allowance is $26 a month. One year adds $312.','With WIC · Maya',source='rates'),
+ beat(produce(36),'Another year. Another $312 in produce benefits available to use.','With WIC · Maya',source='rates'),
+ beat(produce(48),'And another. Small monthly amounts are becoming years of help.','With WIC · Maya',source='rates'),
+ beat(produce(60),'At the same rates all the way through, that’s up to $1,872 in produce benefits by his fifth birthday. Using them is what turns that number into food.','With WIC · Maya',source='rates')])
+scene('What all that work is for','Looking back',[
+ beat(research(diet_plate(0)),'Those groceries add up. But do they change what children eat? Researchers looked beyond the bill, scoring the whole diet on a 100-point scale.','A wider view',source='diet'),
+ beat(research(diet_plate(1)),'At age three, children who stayed in WIC into their third year scored 3.6 points higher than children who only received it in year one.','A wider view',source='diet'),
+ beat(research(diet_plate(1)),'That’s a modest difference in overall diet quality, associated with staying connected to WIC. The years after infancy matter, too.','A wider view',source='diet'),
+ beat(pair(situation(15),situation(15)),'Back to Maya. The same fifth birthday in both lives. Five years of needing food—and two different experiences of paying for it.','A wider view'),
+ beat('<div class="ending-art">'+situation(15)+'</div>','Look back at everything it took. WIC made nutritious food more affordable. But the help depended on hearing about it, enrolling, reaching a store, finding the right foods, and managing to renew.'),
+ beat('<div class="ending-art">'+situation(15)+'</div>','More families could benefit if getting started came with a direct referral, staying enrolled fit around work and caregiving, and shopping meant nearby stores, clear labels, and checkout support. Each is a place to remove some of the work.'),
+ beat('<div class="ending-art final-art">'+situation(15)+'</div>','Getting help should take less work.')])
+ENVIRONMENTS={0:split_stage(),4:driving_map(),5:store_environment(),6:checkout_environment(BASKET['items'])}
 SOURCES={
 'ny':('New York WIC: applying and using benefits','https://www.health.ny.gov/prevention/nutrition/wic/how_to_apply.htm','Income eligibility is only one component of WIC certification. See also <a href="https://www.health.ny.gov/prevention/nutrition/wic/faqs.htm">New York WIC FAQs</a>, <a href="https://www.mhhc.org/our-services/mhhc-wic-program/">MHHC’s current phone appointment options</a>, and <a href="https://www.ccf.ny.gov/application/files/2617/1294/8575/WICSNAPSummerMeals04112024.pdf">New York’s benefit-expiration guidance</a>. Product illustrations are schematic.'),
 'referral':('Qualitative referral study · 2026','https://www.frontiersin.org/journals/health-services/articles/10.3389/frhs.2026.1707744/full','Ten participant interviewees recruited through a New Hampshire WIC agency; the broader study includes New Hampshire and Vermont staff. Interviews February–April 2024; 8 of 10 learned of WIC from family/friends. Not nationally representative.'),
@@ -167,20 +127,23 @@ SOURCES={
 SOURCES['shopping']=('The checkout basket · prices and food rules','basket.json','Walmart online prices accessed September 24, 2026: 12 Great Value large white eggs $1.67; bananas 2 lb at $0.50/lb, $1.00; 1 lb baby carrots $1.32; Great Value creamy peanut butter 16 oz $1.98; Great Value white rice 32 oz $1.77. Total $7.74; four covered items $5.97; white rice $1.77 paid separately. Public listings are a price snapshot, not an Albany-store quote. Assumes an authorized store and sufficient matching food benefits. Individual product URLs, sizes, quantities, and NY food-rule sources are in the linked data file.')
 SOURCES['map']=('Albany street map · U.S. Census Bureau','https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer','Street geometry downloaded September 24, 2026 from TIGERweb local and secondary road layers. Routes follow connected street vertices. The story’s home and generic shop endpoints are narrative locations; no household address, reported trip, retailer status, or travel-time estimate is asserted. Raw geometry and route calculations are saved with the project.')
 SOURCES.pop('correlation',None)
-SOURCES['shopping']=('The stock-up basket · prices and WIC rules','basket.json',f'Walmart online listing snapshots accessed September 24–25, 2026. Total ${total/100:.2f}; eligible foods ${covered/100:.2f}; own payment ${own/100:.2f}. Quantities are for a larger stock-up with pantry food already at home, not a nutritionally complete meal plan. Prices are not a local store quote. The linked ledger contains every item, quantity, unit price, product source, and food rule. Covered amounts assume sufficient corresponding benefits and an authorized store.')
+SOURCES['shopping']=('The stock-up basket · prices and WIC rules','basket.json',f'Walmart online listing snapshots accessed September 24–25, 2026. Total ${total/100:.2f}; eligible foods ${covered/100:.2f}; own payment ${own/100:.2f}. Quantities are for a larger stock-up with pantry food already at home, not a nutritionally complete meal plan. Prices are not a local store quote. The linked ledger contains every item, quantity, unit price, product source, and food rule. This is a WIC-focused basket rather than a full food budget: $32.62 produce (below the $52 breastfeeding allowance), two dozen eggs, three gallons of 1% milk and one 16 oz peanut butter jar. Covered amounts assume sufficient corresponding benefits and an authorized store. Frozen vegetable prices verified on Walmart product listings September 25, 2026; approved categories cross-checked against the NY March 2026 frozen-food list.')
 SOURCES['map']=('A measured rural driving route','https://www.pricechopper.com/stores/ny/lakeplacid/price-chopper-180.html','Keene Valley town-center coordinates (-73.7865, 44.1895) to the store’s published coordinates (-74.0109175, 44.2941736), 1930 Saranac Avenue. OpenStreetMap/OSRM driving route retrieved September 25, 2026: 34,558.1 metres / 1,609.344 = 21.47 miles, shown as 21.5 one way. This is a selected real road trip, not a claim that this is the nearest authorized store or a measured household trip. <a href="https://www.pricechopper.com/benefit-card/">Price Chopper’s benefit-card policy includes WIC</a>. <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors</a>; routing by OSRM. Travel time and the road-distance metric are separate from USDA’s retailer-access definition.')
 SOURCES['map']=(SOURCES['map'][0],SOURCES['map'][1],SOURCES['map'][2]+' Basemap: U.S. Census TIGERweb Transportation layers 6 and 8, secondary and local roads, downloaded September 25, 2026; 893 road features. Uniform map scale corrects longitude for latitude. The nearby-store comparison remains unverified and is not asserted.')
+citation_order=list(dict.fromkeys(b['source'] for scene in scenes for b in scene['beats'] if b['source']))
 parts=[]
 for i,s in enumerate(scenes):
  frames=[]
  for j,b in enumerate(s['beats']):
-  source=f' <a href="#source-{b["source"]}" class="source-link" aria-label="Source {list(SOURCES).index(b["source"])+1}">{list(SOURCES).index(b["source"])+1}</a>' if b['source'] else ''
+  source=f' <a href="#source-{b["source"]}" class="source-link" aria-label="Source {citation_order.index(b["source"])+1}">{citation_order.index(b["source"])+1}</a>' if b['source'] else ''
   focus='research' if 'class="research"' in b['visual'] else 'ending' if 'ending-art' in b['visual'] else 'right' if b['who'].startswith('Without WIC') else 'left' if b['who'].startswith('With WIC') else 'both'
-  frames.append(f'<div class="frame focus-{focus}" data-focus="{focus}" data-beat="{j}"><div class="visual">{b["visual"]}</div><div class="caption"><p class="line">{esc(b["caption"])}</p><p class="disclosure">{source}</p></div></div>')
- parts.append(f'<section class="scene {"immersive" if i in ENVIRONMENTS else ""}" id="scene-{i+1}" data-count="{len(frames)}" style="--beats:{len(frames)}" aria-labelledby="title-{i+1}"><div class="sticky"><header class="scene-heading"><h2 id="title-{i+1}">{s["title"]}</h2></header>{ENVIRONMENTS.get(i, "")}<div class="frames">'+''.join(frames)+f'</div><div class="beat-progress" aria-hidden="true">'+''.join('<i></i>' for _ in frames)+'</div></div></section>')
-end='<section class="sources" id="sources"><p class="eyebrow">Behind the story</p><h2>Sources & methodology</h2><p>Narrative and dialogue written for this project. Research, calculations, prices, and map data are documented below.</p>'+''.join(f'<article id="source-{k}"><h3><a href="{v[1]}">{v[0]}</a></h3><p>{v[2]}</p></article>' for k,v in SOURCES.items())+'<article><h3>Artwork & approach</h3><p>Original SVG character, environment, food, and chart drawings; OpenStreetMap road geometry; scroll-driven movement and receipt calculations. Inspired by character continuity in The Pudding’s <a href="https://pudding.cool/2024/03/teenagers/">Teenagers</a>, conversational pacing in <a href="https://pudding.cool/2025/02/middle-school/">Middle School</a>, and transaction-to-population storytelling in <a href="https://pudding.cool/2022/12/yard-sale/">Yard Sale</a>.</p></article><p class="end-credit">A visual story by Megan Quigley</p></section>'
-page='''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, nofollow, noarchive"><meta name="googlebot" content="noindex, nofollow, noarchive"><meta name="theme-color" content="#f8f6f0"><title>The work of getting help — WIC</title><meta name="description" content="Follow one mother down two paths to see what WIC changes—and how much work it takes to keep getting it."><link rel="stylesheet" href="story.css?v=20260925-flow9"><script type="module" src="story.js?v=20260925-flow9"></script></head><body><main><div class="landing-track"><section class="introduction"><p class="eyebrow">Available ≠ Accessible · WIC</p><h1>The work<br>of getting help</h1><p class="dek">WIC helps families afford nutritious food. Follow one mother down two paths to see what the help changes—and how much work it takes to keep getting it.</p><p class="byline">By Megan Quigley</p><div class="hero-art">HEROART</div><p class="intro-tail">One mother. Two paths. Five years.<br><span>Scroll to begin ↓</span></p></section></div>'''+''.join(parts)+end+'<dialog id="source-dialog" aria-labelledby="detail-title"><button class="close-details" aria-label="Close details">Close ×</button><div class="detail-content"></div></dialog><script id="basket-data" type="application/json">'+json.dumps(BASKET['items'])+'</script></main></body></html>'
-page=page.replace('HEROART',situation(0)+art(12)+art(9))
+  visual=b['visual']
+  if 'phone-conversation' in visual and source:
+   at=visual.rfind('</p>');visual=visual[:at]+source+visual[at:];source=''
+  frames.append(f'<div class="frame focus-{focus} {"phone-frame" if "phone-conversation" in b["visual"] else ""}" data-focus="{focus}" data-beat="{j}"><div class="visual">{visual}</div><div class="caption"><p class="line">{esc(b["caption"])}{source}</p></div></div>')
+ parts.append(f'<section class="scene {"immersive" if i in ENVIRONMENTS else ""}" id="scene-{i+1}" data-count="{len(frames)}" data-hold="{2 if i==11 else 0}" style="--beats:{len(frames)};--hold:{2 if i==11 else 0}" aria-labelledby="title-{i+1}"><div class="sticky"><header class="scene-heading"><h2 id="title-{i+1}">{s["title"]}</h2></header>{ENVIRONMENTS.get(i, "")}<div class="frames">'+''.join(frames)+f'</div><div class="beat-progress" aria-hidden="true">'+''.join('<i></i>' for _ in frames)+'</div></div></section>')
+end='<section class="sources" id="sources"><p class="eyebrow">Behind the story</p><h2>Sources & methodology</h2><p>Narrative and dialogue written for this project. Research, calculations, prices, and map data are documented below.</p>'+''.join(f'<article id="source-{k}"><h3><a href="{v[1]}">{v[0]}</a></h3><p>{v[2]}</p></article>' for k,v in SOURCES.items())+'<article><h3>Artwork & approach</h3><p>Original SVG character, environment, food, and chart drawings; AI-generated home illustration; OpenStreetMap road geometry; scroll-driven movement and receipt calculations. Inspired by character continuity in The Pudding’s <a href="https://pudding.cool/2024/03/teenagers/">Teenagers</a>, conversational pacing in <a href="https://pudding.cool/2025/02/middle-school/">Middle School</a>, and transaction-to-population storytelling in <a href="https://pudding.cool/2022/12/yard-sale/">Yard Sale</a>.</p></article><p class="end-credit">A visual story by Megan Quigley</p></section>'
+page='''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, nofollow, noarchive"><meta name="googlebot" content="noindex, nofollow, noarchive"><meta name="theme-color" content="#f8f6f0"><title>The work of getting help — WIC</title><meta name="description" content="Follow one mother down two paths to see what WIC changes—and how much work it takes to keep getting it."><link rel="stylesheet" href="story.css?v=20260925-motion1"><script type="module" src="story.js?v=20260925-motion1"></script></head><body><main><div class="landing-track"><section class="introduction"><img class="hero-home" src="art/home-hero.jpg" width="1672" height="941" alt="Maya rests in a chair at home, cradling her newborn."><div class="hero-copy"><p class="eyebrow">A WIC story</p><h1>The work<br>of getting help</h1><p class="dek">Food assistance can change a life.<br>Getting it is another story.</p><p class="byline">By Megan Quigley</p></div><p class="scroll-cue">Scroll to begin <span aria-hidden="true">↓</span></p></section></div>'''+''.join(parts)+end+'<dialog id="source-dialog" aria-labelledby="detail-title"><button class="close-details" aria-label="Close details">Close ×</button><div class="detail-content"></div></dialog><script id="basket-data" type="application/json">'+json.dumps(BASKET['items'])+'</script></main></body></html>'
 (OUT/'index.html').write_text(page)
 (OUT/'evidence-metadata.json').write_text(json.dumps({k:{'title':v[0],'url':v[1],'method':v[2]} for k,v in SOURCES.items()},indent=2)+'\n')
 (OUT/'scene-manifest.json').write_text(json.dumps([{'title':s['title'],'beats':[{'caption':b['caption'],'speaker':b['who'],'source':b['source']} for b in s['beats']]} for s in scenes],indent=2)+'\n')
