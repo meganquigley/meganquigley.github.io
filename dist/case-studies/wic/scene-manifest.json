@@ -3,7 +3,7 @@
     "title": "Same mother. Same baby.",
     "beats": [
       {
-        "caption": "My baby is here. He is crying. I am exhausted.",
+        "caption": "Same mother. Same baby. My baby is here. He is crying. I am exhausted.",
         "speaker": "Maya \u00b7 both paths",
         "source": null
       },
@@ -33,7 +33,7 @@
         "source": null
       },
       {
-        "caption": "Thank God she said something. I had no idea.",
+        "caption": "\u201cNo, WIC helps with food for you and your baby.\u201d Thank God she said something. I had no idea.",
         "speaker": "With WIC \u00b7 Maya",
         "source": "ny"
       },
@@ -73,18 +73,18 @@
     "title": "The help reaches people unevenly.",
     "beats": [
       {
-        "caption": "The first hurdle is getting through the door.",
+        "caption": "Let\u2019s step back from one family. Across the country, getting through the door looks very different.",
         "speaker": "A wider view",
         "source": "coverage"
       },
       {
-        "caption": "The same federal program. Very different reach.",
+        "caption": "WIC reaches 79.6% of eligible people in Vermont, 62.4% in New York, and 41.3% in Louisiana.",
         "speaker": "A wider view",
         "source": "coverage"
       },
       {
-        "caption": "Would a referral that leads somewhere\u2014or an appointment that fits my life\u2014change what happens next?",
-        "speaker": "Maya \u00b7 a question for the system",
+        "caption": "The same federal program. A different chance of receiving help. Nationally, 56.1% of eligible people participate.",
+        "speaker": "A wider view",
         "source": "coverage"
       }
     ]
@@ -93,29 +93,24 @@
     "title": "Same neighborhood. Different trip.",
     "beats": [
       {
-        "caption": "The baby is finally settled. I just want to get the groceries done.",
+        "caption": "Back to the grocery trip. In rural New York, the next store can be a long way away.",
+        "speaker": "Maya \u00b7 both paths",
+        "source": "map"
+      },
+      {
+        "caption": "Keene Valley to this store in Lake Placid: 21.5 miles one way. Now add the baby, the bags, and getting home again.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": "map"
+      },
+      {
+        "caption": "Without WIC, I can choose where to shop. With WIC, I need a store where I can use the benefits.",
         "speaker": "Maya \u00b7 both paths",
         "source": null
       },
       {
-        "caption": "My nearby store doesn\u2019t take WIC. I check the locator. It\u2019s a longer trip with the baby.",
-        "speaker": "With WIC \u00b7 Maya",
-        "source": null
-      },
-      {
-        "caption": "I go where I usually shop. I choose what I can afford.",
-        "speaker": "Without WIC \u00b7 Maya",
-        "source": null
-      },
-      {
-        "caption": "Having benefits and having a place to use them are two different things.",
+        "caption": "\u201cWithout convenient access\u201d means farther than 1 mile from a WIC store in an urban area, or 10 miles in a rural area.",
         "speaker": "A wider view",
         "source": "access"
-      },
-      {
-        "caption": "States with more families far from a WIC store tend to reach fewer eligible people.",
-        "speaker": "A wider view",
-        "source": "correlation"
       }
     ]
   },
@@ -153,37 +148,37 @@
     "title": "One item at a time.",
     "beats": [
       {
-        "caption": "First, the eggs. One dozen. The right size this time.",
+        "caption": "I\u2019m stocking up for the next couple of weeks. First, the eggs, fruit, and vegetables.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": "shopping"
+      },
+      {
+        "caption": "Peanut butter and milk. I check the sizes before they reach the scanner.",
         "speaker": "With WIC \u00b7 Maya",
         "source": null
       },
       {
-        "caption": "Bananas. Two pounds. That comes out of my produce dollars.",
+        "caption": "More fruit for the kitchen. These come out of my produce dollars.",
         "speaker": "With WIC \u00b7 Maya",
         "source": null
       },
       {
-        "caption": "Then the carrots. More food coming home.",
+        "caption": "Chicken, pasta, sauce. WIC helps with specific foods; the rest is still on me.",
         "speaker": "With WIC \u00b7 Maya",
         "source": null
       },
       {
-        "caption": "Peanut butter. That one goes through, too.",
+        "caption": "The white rice isn\u2019t covered either. I decide to pay for it.",
         "speaker": "With WIC \u00b7 Maya",
         "source": null
       },
       {
-        "caption": "The rice won\u2019t go through. I picked white rice. WIC covers brown rice.",
+        "caption": "WIC covers $23.97. I pay $40.11. This time, the food is coming home.",
         "speaker": "With WIC \u00b7 Maya",
-        "source": null
+        "source": "shopping"
       },
       {
-        "caption": "I pay the $1.77. WIC covered $5.97 of this $7.74 basket.",
-        "speaker": "With WIC \u00b7 Maya",
-        "source": null
-      },
-      {
-        "caption": "Without WIC, the same basket takes $7.74 from the money I already have.",
+        "caption": "Without WIC, the same groceries take $64.08 from my own money.",
         "speaker": "Without WIC \u00b7 Maya",
         "source": null
       }
@@ -206,6 +201,11 @@
         "caption": "The amount on the card and the amount in the kitchen aren\u2019t always the same.",
         "speaker": "A wider view",
         "source": "redemption"
+      },
+      {
+        "caption": "Another month ends. Then another. Suddenly, the next date on the calendar is his first birthday.",
+        "speaker": "With WIC \u00b7 Maya",
+        "source": null
       }
     ]
   },
@@ -213,7 +213,7 @@
     "title": "\u201cCan I deal with this today?\u201d",
     "beats": [
       {
-        "caption": "His first birthday. Another grocery list.",
+        "caption": "One candle. A whole year of feeding him. And another deadline to keep the help.",
         "speaker": "Maya \u00b7 both paths",
         "source": null
       },
@@ -308,28 +308,38 @@
     "title": "What the help can change.",
     "beats": [
       {
-        "caption": "The years after infancy matter, too. Staying into the third year was associated with higher diet-quality scores.",
+        "caption": "What does \u201cbetter diet quality\u201d mean? Researchers score the overall pattern of eating on a scale of 0 to 100.",
         "speaker": "A wider view",
         "source": "diet"
       },
       {
-        "caption": "The same fifth birthday. A different experience of getting help.",
+        "caption": "At age three, children who stayed in WIC into their third year scored 3.6 points higher than those who only received it in year one.",
+        "speaker": "A wider view",
+        "source": "diet"
+      },
+      {
+        "caption": "The difference is modest, but it is visible across the overall diet. Continuing WIC was associated with better diet quality.",
+        "speaker": "A wider view",
+        "source": "diet"
+      },
+      {
+        "caption": "Now he is five. The same birthday in both paths.",
         "speaker": "Maya \u00b7 both paths",
         "source": null
       },
       {
-        "caption": "Tell me about WIC. Help me book the first appointment. Follow up when the referral goes nowhere.",
-        "speaker": "Without WIC \u00b7 Maya",
+        "caption": "The food matters. So does all the work it takes to get it.",
+        "speaker": "Maya \u00b7 both paths",
         "source": null
       },
       {
-        "caption": "Give me a renewal I can manage. A nearby store. Clear labels. Help when something won\u2019t scan.",
-        "speaker": "With WIC \u00b7 Maya",
+        "caption": "A referral that reaches me. A renewal I can manage. A store I can get to.",
+        "speaker": "Maya \u00b7 both paths",
         "source": null
       },
       {
         "caption": "Getting help should take less work.",
-        "speaker": "The work of getting help",
+        "speaker": "Maya \u00b7 both paths",
         "source": null
       }
     ]

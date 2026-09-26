@@ -1,12 +1,132 @@
 {
-  "observed": "2026-09-24",
-  "price_basis": "Walmart public online listings; prices are snapshots and not a quoted Albany-store order. No delivery, fees, or tax included. Basket assumes sufficient corresponding WIC benefits and an authorized store.",
-  "food_rules": ["https://www.health.ny.gov/prevention/nutrition/wic/approved_formulas.htm", "https://www.health.ny.gov/publications/4099.pdf", "https://nyswicvendors.com/wp-content/uploads/2026/03/New-WIC-Food-Options-Handout.pdf"],
+  "observed": "2026-09-25",
+  "price_basis": "Walmart public online price snapshots accessed September 24\u201325, 2026; quantities chosen for a larger stock-up trip, with pantry staples already at home. Not a nutritionally complete two-week meal plan or a local-store quote. Covered amounts assume sufficient matching WIC benefits. No taxes, delivery, or fees.",
+  "food_rules": [
+    "https://www.health.ny.gov/prevention/nutrition/wic/approved_formulas.htm",
+    "https://www.health.ny.gov/publications/4099.pdf",
+    "https://nyswicvendors.com/wp-content/uploads/2026/03/New-WIC-Food-Options-Handout.pdf"
+  ],
   "items": [
-    {"label":"Large white eggs","quantity":"Great Value · 12 count","icon":"eggs","cents":167,"covered":true,"source":"https://business.walmart.com/ip/Great-Value-Large-White-Eggs-12-Count/145051970","rule":"One dozen medium or large eggs; standard store brand."},
-    {"label":"Bananas","quantity":"2 lb × $0.50/lb","icon":"bananas","cents":100,"covered":true,"source":"https://www.walmart.com/cp/fresh-produce/976793","rule":"Fresh fruit, charged against available produce dollars."},
-    {"label":"Baby carrots","quantity":"1 lb bag","icon":"carrots","cents":132,"covered":true,"source":"https://www.walmart.com/ip/10451315","rule":"Plain fresh vegetables, charged against available produce dollars."},
-    {"label":"Peanut butter","quantity":"Great Value creamy · 16 oz","icon":"peanut","cents":198,"covered":true,"source":"https://www.walmart.com/ip/3716446909","rule":"Plain creamy peanut butter in a 16–18 oz jar; no added disallowed ingredients."},
-    {"label":"White rice","quantity":"Great Value long grain · 32 oz","icon":"rice","cents":177,"covered":false,"source":"https://www.walmart.com/ip/10315394","rule":"White rice is not a WIC whole grain; brown rice is the eligible rice category."}
+    {
+      "label": "Large white eggs",
+      "quantity": "Great Value \u00b7 12 count",
+      "icon": "eggs",
+      "cents": 167,
+      "covered": true,
+      "source": "https://business.walmart.com/ip/Great-Value-Large-White-Eggs-12-Count/145051970",
+      "rule": "One dozen medium or large eggs; standard store brand.",
+      "unit_cents": 167,
+      "units": 1
+    },
+    {
+      "label": "Bananas",
+      "quantity": "4 lb \u00d7 $0.50",
+      "icon": "bananas",
+      "cents": 200,
+      "covered": true,
+      "source": "https://www.walmart.com/cp/fresh-produce/976793",
+      "rule": "Fresh fruit, charged against available produce dollars.",
+      "unit_cents": 50,
+      "units": 4
+    },
+    {
+      "label": "Baby carrots",
+      "quantity": "2 \u00d7 1 lb bags",
+      "icon": "carrots",
+      "cents": 264,
+      "covered": true,
+      "source": "https://www.walmart.com/ip/10451315",
+      "rule": "Plain fresh vegetables, charged against available produce dollars.",
+      "unit_cents": 132,
+      "units": 2
+    },
+    {
+      "label": "Peanut butter",
+      "quantity": "Great Value creamy \u00b7 16 oz",
+      "icon": "peanut",
+      "cents": 198,
+      "covered": true,
+      "source": "https://www.walmart.com/ip/3716446909",
+      "rule": "Plain creamy peanut butter in a 16\u201318 oz jar; no added disallowed ingredients.",
+      "unit_cents": 198,
+      "units": 1
+    },
+    {
+      "label": "1% milk",
+      "quantity": "2 gallons \u00d7 $2.72",
+      "icon": "milk",
+      "cents": 544,
+      "covered": true,
+      "source": "https://www.walmart.com/c/kp/milk-1-gallon-great-value",
+      "rule": "Plain low-fat milk; assumes matching milk allowance.",
+      "unit_cents": 272,
+      "units": 2
+    },
+    {
+      "label": "Gala apples",
+      "quantity": "2 \u00d7 3 lb bags at $3.24",
+      "icon": "apples",
+      "cents": 648,
+      "covered": true,
+      "source": "https://www.walmart.com/cp/fresh-produce/976793",
+      "rule": "Fresh fruit charged against produce dollars.",
+      "unit_cents": 324,
+      "units": 2
+    },
+    {
+      "label": "Red grapes",
+      "quantity": "2.25 lb \u00d7 $1.67/lb",
+      "icon": "grapes",
+      "cents": 376,
+      "covered": true,
+      "source": "https://www.walmart.com/cp/fresh-produce/976793",
+      "rule": "Fresh fruit; rounded to nearest cent.",
+      "unit_cents": 167,
+      "units": 2.25
+    },
+    {
+      "label": "Chicken breasts",
+      "quantity": "10 lb \u00d7 $2.57/lb",
+      "icon": "chicken",
+      "cents": 2570,
+      "covered": false,
+      "source": "https://www.walmart.com/ip/27935840",
+      "rule": "Fresh chicken is outside this WIC package.",
+      "unit_cents": 257,
+      "units": 10
+    },
+    {
+      "label": "Spaghetti",
+      "quantity": "4 \u00d7 16 oz at $1.24",
+      "icon": "pasta",
+      "cents": 496,
+      "covered": false,
+      "source": "https://www.walmart.com/c/best-sellers/spaghetti-noodles-great-value",
+      "rule": "Regular refined-wheat pasta is not whole-grain pasta.",
+      "unit_cents": 124,
+      "units": 4
+    },
+    {
+      "label": "Pasta sauce",
+      "quantity": "3 \u00d7 24 oz at $1.97",
+      "icon": "sauce",
+      "cents": 591,
+      "covered": false,
+      "source": "https://www.walmart.com/browse/976759_976794_2002490_5543259",
+      "rule": "Prepared meat-flavored sauce is not an eligible plain vegetable.",
+      "unit_cents": 197,
+      "units": 3
+    },
+    {
+      "label": "White rice",
+      "quantity": "2 \u00d7 32 oz at $1.77",
+      "icon": "rice",
+      "cents": 354,
+      "covered": false,
+      "source": "https://www.walmart.com/ip/10315394",
+      "rule": "White rice is not a WIC whole grain; brown rice is the eligible rice category.",
+      "unit_cents": 177,
+      "units": 2
+    }
   ]
 }
