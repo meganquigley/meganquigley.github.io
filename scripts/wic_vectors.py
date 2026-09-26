@@ -1,6 +1,6 @@
 """Original resolution-independent story drawings and immersive environments."""
 from pathlib import Path
-import json, math
+import json, math, re
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'dist/case-studies/wic'
 
@@ -16,16 +16,16 @@ def build_art():
   defs.append(f'<symbol id="v-{name}" viewBox="{view}"><g stroke="{INK}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">{body}</g></symbol>')
  symbol('baby','<path d="M112 168Q81 259 159 285Q230 269 211 181Z" fill="'+CREAM+'"/><path d="M105 205L198 249M113 238L179 275" fill="none"/><ellipse cx="158" cy="158" rx="45" ry="47" fill="'+SKIN+'"/><path d="M119 144Q124 101 162 111Q186 101 200 137Q176 119 148 136Z" fill="'+HAIR+'"/><path d="M134 158q7 7 13 0m22 0q7 7 13 0m-33 21q10 6 19-1" fill="none"/><ellipse cx="132" cy="174" rx="8" ry="4" fill="#e5a593" stroke="none"/>')
  symbol('child','<path d="M120 247l-7 58h32l13-56m22-2 10 58h31l-12-66" fill="'+CLAY+'"/><path d="M106 169Q157 140 210 169l18 74-25 8-6-48v70h-78v-65l-10 45-25-10Z" fill="'+CREAM+'"/><path d="M127 178v44h68v-44m-68 23v63h68v-63" fill="'+CLAY+'"/><circle cx="160" cy="117" r="53" fill="'+SKIN+'"/><path d="M109 112Q91 72 115 62Q126 38 148 52Q170 33 187 52Q214 44 216 75Q229 88 208 119l-6-31-21 2-12-16-23 17-25-6Z" fill="'+HAIR+'"/><path d="M139 123v5m40-5v5m-31 19q12 12 25-2" fill="none"/><path d="M109 305h37m42 0h36" stroke-width="7"/>')
- symbol('maya','<path d="M113 211l-7 89h42l12-74 13 74h42l-12-90" fill="'+CLAY+'"/><path d="M111 301h39m22 0h45" stroke-width="10"/><path d="M98 121Q126 101 157 106Q199 98 223 128l14 99-28 5-17-71 9 70h-98l7-69-15 69-27-9Z" fill="'+BLUE+'"/><path d="M71 219q-7 33 10 33 12 0 15-23m113-2q3 30 18 25 16-5 9-29" fill="'+SKIN+'"/><path d="M139 92v25q19 18 39-1V86" fill="'+SKIN+'"/><circle cx="151" cy="23" r="21" fill="'+HAIR+'"/><path d="M108 55Q98 29 128 20Q165 8 191 34l9 33-88 25Z" fill="'+HAIR+'"/><path d="M116 51q-7 63 41 63 45-4 42-52l-12-22-16 11-15-15-16 20Z" fill="'+SKIN+'"/><path d="M129 67l10 1m28-2 11-3m-44 13v3m38-5v3m-22 10 6 2m-14 9q12 8 24-3" fill="none"/><path d="M111 47q-2 24 5 34l11-30 12 3 6-16 21 9 14-16 19 23q-1-23-27-30l-35 3Z" fill="'+HAIR+'"/><ellipse cx="130" cy="89" rx="7" ry="4" fill="#dfa895" stroke="none"/>')
- # A separate holding pose: two connected bent arms, with no dangling arms underneath.
- maya_holding=next(x for x in defs if 'id="v-maya"' in x)
- import re
- holding=re.search(r'<g[^>]*>(.*)</g></symbol>',maya_holding).group(1)
- holding=holding.replace('<path d="M71 219q-7 33 10 33 12 0 15-23m113-2q3 30 18 25 16-5 9-29" fill="'+SKIN+'"/>','')
- symbol('mother-baby','<g transform="translate(25 5) scale(.84375 .96875)">'+holding+'</g>'+use('baby',114,69,144,168)+f'<path d="M94 177 Q88 196 111 207 L164 220 Q178 223 183 211 Q179 203 166 204 L121 192 L116 181Z" fill="{SKIN}"/><path d="M207 183 L211 206 Q209 221 185 223 L164 220 Q154 215 162 208 L188 207 L188 191Z" fill="{SKIN}"/>')
+ # Smooth, consistent face and a purpose-drawn cradling pose.
+ head=f'<path d="M140 101v22q20 17 39 0v-22" fill="{SKIN}"/><circle cx="157" cy="25" r="20" fill="{HAIR}"/><ellipse cx="160" cy="70" rx="47" ry="52" fill="{HAIR}"/><ellipse cx="160" cy="78" rx="40" ry="43" fill="{SKIN}"/><path d="M119 68q1-48 41-47 40 1 42 47-18-6-32-28-13 22-51 28Z" fill="{HAIR}"/><path d="M137 72q5-3 10 0m26 0q5-3 10 0" fill="none" stroke-width="1.6"/><ellipse cx="143" cy="81" rx="2" ry="3" fill="{INK}" stroke="none"/><ellipse cx="177" cy="81" rx="2" ry="3" fill="{INK}" stroke="none"/><path d="M160 84l-3 9h5m-15 10q13 9 26-1" fill="none" stroke-width="1.8"/>'
+ legs=f'<path d="M118 211l-8 87h37l13-68 14 68h37l-9-87Z" fill="{CLAY}"/><path d="M109 301h40m23 0h41" stroke-width="8"/>'
+ torso=f'<path d="M134 117q26 15 52 0 27 7 35 33l13 65-27 7-12-53 7 62h-85l7-62-13 53-27-7 13-65q9-27 37-33Z" fill="{BLUE}"/>'
+ symbol('maya',legs+torso+f'<path d="M85 213l-2 17q0 17 12 17 11-1 14-25m99 0q2 25 14 25 14-1 11-18l-1-16" fill="{SKIN}"/>'+head)
+ holding_torso=f'<path d="M132 119q29 15 56 0 27 6 35 35l4 36-29 8-5-31 9 65h-85l6-65-8 32-29-8 8-40q7-28 38-32Z" fill="{BLUE}"/>'
+ symbol('mother-baby',legs+holding_torso+head+use('baby',135,96,115,132)+f'<path d="M87 188q-4 24 24 34l61 13q15 2 18-9 1-10-13-12l-58-14-5-8Z" fill="{SKIN}"/><path d="M198 194l2 13q-6 12-27 12-12-1-13 10 0 10 14 11 39 1 48-24l4-26Z" fill="{SKIN}"/>')
  symbol('family',use('maya',-5,0,240,310)+use('child',173,133,134,175))
  symbol('room',rect(10,13,300,285,'#e5dcc6',0)+rect(175,37,99,137,'#a8c4ca',2)+'<path d="M224 38v135m-48-68h98" stroke="'+CREAM+'" stroke-width="8"/>'+rect(20,220,270,71,'#b08c6e')+'<path d="M20 246h270m-245 0v44m85-44v44m105-44v44" stroke="#987256"/>'+rect(42,163,113,92,BLUE,25)+rect(29,188,24,71,BLUE,10)+rect(143,189,23,71,BLUE,10)+'<path d="M196 194h69l-17-73h-34Z" fill="'+CREAM+'"/><path d="M230 193v62m-18 0h37"/><path d="M31 123q-21-30 4-37 27 9 1 45m0-12q30-21 30 3-4 27-29 13" fill="'+GREEN+'"/>'+rect(20,139,34,42,CLAY,4))
- symbol('phone',rect(79,8,164,299,INK,24)+rect(89,22,144,269,CREAM,17)+rect(136,23,51,10,INK,5)+'<circle cx="161" cy="301" r="3" fill="'+CREAM+'"/>')
+ symbol('phone',rect(79,8,164,299,INK,24)+rect(89,22,144,269,CREAM,17)+rect(136,23,51,10,INK,5)+rect(101,72,117,47,'#b5ccd1',9)+rect(130,136,88,39,'#d9e4d1',9)+rect(101,192,117,49,'#b5ccd1',9)+'<circle cx="161" cy="301" r="3" fill="'+CREAM+'"/>')
  symbol('documents',rect(45,28,213,263,CREAM,5)+rect(60,15,211,259,'#fffaf0',4)+'<path d="M87 70h140m-140 22h140m-140 22h110m-110 32h140m-140 22h140m-140 22h93" stroke="#9caa9e"/>'+rect(107,204,186,99,BLUE,9)+'<circle cx="148" cy="239" r="17" fill="'+SKIN+'"/><path d="M124 277q0-34 24-30 27-5 28 30Z" fill="'+CREAM+'"/><path d="M192 232h73m-73 16h58m-58 17h69" stroke="'+CREAM+'"/>')
  symbol('calendar',rect(31,34,257,256,CREAM,10)+rect(31,34,257,57,BLUE,10)+'<path d="M80 20v33m53-33v33m53-33v33m53-33v33" stroke-width="10"/>'+''.join(f'<path d="M{x} 111v147" stroke="#c4cbbb"/>' for x in [79,127,175,223])+''.join(f'<path d="M49 {y}h220" stroke="#c4cbbb"/>' for y in [111,160,209,258])+'<circle cx="198" cy="185" r="29" fill="none" stroke="#a45f48" stroke-width="5"/>')
  symbol('eggs',rect(20,124,282,139,'#c4bea5',12)+''.join(f'<ellipse cx="{x}" cy="{y}" rx="22" ry="28" fill="#f9eed3"/>' for y in [160,220] for x in [51,94,137,180,223,266])+'<path d="M22 185h278" stroke="#a29f8b"/>')
@@ -55,7 +55,7 @@ def build_art():
  for i in range(16):
   backdrop='room' if i in [0,1,2,3,10] else 'kitchen' if i in [8,9,12,13] else 'storefront' if i in [4,5,6,7,14] else 'room'
   body=f'<g opacity=".5">{use(backdrop)}</g>'
-  body+=use('mother-baby' if i<8 else 'family',30,20,260,280)
+  body+=use('mother-baby' if i<11 else 'family',30,20,260,280)
   if i in [1,10]:body+=use('phone',183,87,70,90)
   if i==2:body+=rect(13,238,284,60,CLAY)+use('documents',128,167,135,128)
   if i in [5,6]:body+=use('cart',157,137,161,173)
@@ -67,7 +67,7 @@ def build_art():
  (OUT/'art/story-vectors.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg"><defs>'+''.join(defs)+'</defs></svg>')
 
 def external(name,cls='',label=''):
- return f'<svg class="vector {cls}" viewBox="0 0 320 320" aria-hidden="true"><use href="art/story-vectors.svg?v=focus2#v-{name}"/></svg>'
+ return f'<svg class="vector {cls}" viewBox="0 0 320 320" aria-hidden="true"><use href="art/story-vectors.svg?v=flow6#v-{name}"/></svg>'
 
 def store_environment():
  # A single persistent store floor. Two travelers occupy the same geographical space.
@@ -80,7 +80,7 @@ def store_environment():
     shelves+=rect(x+8+k*35,116+row*30,28,22,colors[(row+k+col)%5],2)
   for row in range(5):
    food=['milk','rice','peanut','carrots'][col]
-   shelves+=f'<use href="art/story-vectors.svg?v=focus2#v-{food}" x="{x+25}" y="{116+row*72}" width="72" height="65"/>'
+   shelves+=f'<use href="art/story-vectors.svg?v=flow6#v-{food}" x="{x+25}" y="{116+row*72}" width="72" height="65"/>'
   shelves+=f'<text x="{x+60}" y="84" text-anchor="middle">{name}</text></g>'
  body='<svg viewBox="0 0 1200 620" class="store-floor" preserveAspectRatio="none" role="img" aria-label="Overhead grocery store with two shopping routes"><defs><pattern id="tile" width="45" height="45" patternUnits="userSpaceOnUse"><path d="M45 0H0V45" fill="none" stroke="#c8c4ad"/></pattern></defs><rect width="1200" height="620" fill="#e4dfc7"/><rect width="1200" height="620" fill="url(#tile)"/>'+shelves
  body+='<path class="shopping-path left-route" d="M550 570 L340 570 L340 40 L1070 40 L1070 550 L630 550"/><path class="shopping-path right-route" d="M550 570 L110 570 L110 50 L335 50 L335 525 L575 525 L575 50 L820 50 L820 535 L335 535 L335 50 L1070 50 L1070 570 L630 570"/>'
@@ -90,7 +90,7 @@ def store_environment():
 
 def checkout_environment(items):
  products=''.join(f'<div class="belt-item" data-item="{j}">{external(i["icon"])}<span>{i["label"]}</span><b>${i["cents"]/100:.2f}</b></div>' for j,i in enumerate(items))
- rows=''.join(f'<div class="receipt-row" data-row="{j}"><span>{i["label"]}<small>{i["quantity"]}</small></span><b>${i["cents"]/100:.2f}</b><em>{"WIC" if i["covered"] else "MY MONEY"}</em></div>' for j,i in enumerate(items))
+ rows=''.join(f'<div class="receipt-row" data-row="{j}"><span>{i["label"]}<small>{i["quantity"]}</small></span><b>${i["cents"]/100:.2f}</b><em>{"✓ WIC" if i["covered"] else "MY MONEY"}</em></div>' for j,i in enumerate(items))
  total=sum(i['cents'] for i in items);covered=sum(i['cents'] for i in items if i['covered'])
  return '<div class="immersive-stage checkout-environment"><div class="checkout-machine"><div class="scanner-window"><i></i></div></div><div class="conveyor"><div class="belt-texture"></div>'+products+'</div><div class="live-receipt"><h3>My grocery bill</h3><div class="receipt-window"><div class="receipt-roll">'+rows+'</div></div><div class="receipt-total"><span>Groceries</span><b data-total>$'+f'{total/100:.2f}'+'</b></div><div class="receipt-payment"><p><span>WIC pays</span><strong data-covered>$'+f'{covered/100:.2f}'+'</strong></p><p><span>I pay</span><strong data-own>$'+f'{(total-covered)/100:.2f}'+'</strong></p></div><span data-without hidden></span></div></div>'
 

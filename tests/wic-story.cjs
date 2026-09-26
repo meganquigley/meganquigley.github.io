@@ -31,25 +31,25 @@ const {JSDOM}=require('jsdom'),css=require('css-tree');
  assert.equal((100*(1-254506/365738)).toFixed(1),'30.4');
  const dom=new JSDOM(fs.readFileSync(path.join(root,'index.html'),'utf8'));
  const d=dom.window.document;
- assert.equal(d.querySelectorAll('.scene').length,12);assert.equal(d.querySelectorAll('.frame').length,57);
+ assert.equal(d.querySelectorAll('.scene').length,12);assert.equal(d.querySelectorAll('.frame').length,58);
  assert.equal(d.querySelectorAll('nav,[data-reading-toggle],#reading-mode').length,0);
  assert.equal(d.querySelectorAll('.opening a,.introduction a').length,0);
  for(const meta of ['robots','googlebot'])assert.equal(d.querySelector(`meta[name=${meta}]`).content,'noindex, nofollow, noarchive');
- assert.deepEqual([...d.querySelectorAll('script[src]')].map(x=>x.getAttribute('src')),['story.js?v=20260925-focus5']);
- assert.deepEqual([...d.querySelectorAll('link[rel=stylesheet]')].map(x=>x.getAttribute('href')),['story.css?v=20260925-focus5']);
+ assert.deepEqual([...d.querySelectorAll('script[src]')].map(x=>x.getAttribute('src')),['story.js?v=20260925-flow9']);
+ assert.deepEqual([...d.querySelectorAll('link[rel=stylesheet]')].map(x=>x.getAttribute('href')),['story.css?v=20260925-flow9']);
  for(const frame of d.querySelectorAll('.frame')){
   assert.equal(frame.querySelectorAll('.caption').length,1);assert(frame.querySelector('.line').textContent.length);
-  assert(frame.querySelector('.pair')||frame.querySelector('.anchors')||frame.closest('.immersive')||frame.querySelector('.ending-art'));
-  if(frame.querySelector('.pair'))assert.deepEqual([...frame.querySelectorAll('.path-label')].map(x=>x.textContent),['Without WIC','With WIC']);
+  assert(frame.querySelector('.pair')||frame.querySelector('.anchors')||frame.closest('.immersive')||frame.querySelector('.ending-art')||frame.querySelector('.single-family'));
+  if(frame.querySelector('.pair'))assert.deepEqual([...frame.querySelectorAll('.path-label')].map(x=>x.textContent),['With WIC','Without WIC']);
  }
  for(const a of d.querySelectorAll('a[href^="#"]'))assert(d.getElementById(a.getAttribute('href').slice(1)));
  for(const el of d.querySelectorAll('[id]'))assert.equal(d.querySelectorAll(`[id="${el.id}"]`).length,1);
  const errors=[];css.parse(fs.readFileSync(path.join(root,'story.css'),'utf8'),{onParseError:e=>errors.push(e.message)});assert.deepEqual(errors,[]);
  assert.equal(d.querySelectorAll('img').length,0);
- assert.equal(d.querySelectorAll('.national-map .state-dot').length,150);
+ assert.equal(d.querySelectorAll('.national-map .state-tile').length,150);
  assert.equal(d.querySelectorAll('.scatter,.speaker').length,0);
  assert(d.querySelector('#source-dialog'));
- assert([...d.querySelectorAll('.source-link')].every(x=>x.textContent==='See details'));
+ assert([...d.querySelectorAll('.source-link')].every(x=>/^\d+$/.test(x.textContent)));
  assert(!d.body.textContent.includes('States with more families far from a WIC store'));
  const route=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../research/wic-rebuild/focus-revision/driving-route.json'))).routes[0];
  assert.equal((route.distance/1609.344).toFixed(1),'21.5');
@@ -65,7 +65,7 @@ const {JSDOM}=require('jsdom'),css=require('css-tree');
   w.requestAnimationFrame=fn=>{pending.push(fn);};
   Object.defineProperty(w,'innerHeight',{value:900});
   w.IntersectionObserver=class{constructor(fn){this.fn=fn}observe(target){this.fn([{target,isIntersecting:true}]);}};
-  w.Element.prototype.getBoundingClientRect=function(){return {top:Number(this.dataset.top||0),height:this.classList.contains('scene')?900+(Number(this.dataset.count)-1)*648:1890};};
+  w.Element.prototype.getBoundingClientRect=function(){const top=Number(this.dataset.top??10000),height=this.classList.contains('scene')?900+(Number(this.dataset.count)-1)*648:1890;return {top,height,bottom:top+height};};
   w.SVGElement.prototype.getTotalLength=()=>100;
   w.SVGElement.prototype.getPointAtLength=n=>({x:n,y:n});
   w.checkoutAt=checkoutAt;w.beatAt=beatAt;w.openingAt=openingAt;w.clamp=(n,l=0,h=1)=>Math.min(h,Math.max(l,n));w.produceTotal=produceTotal;
@@ -74,16 +74,16 @@ const {JSDOM}=require('jsdom'),css=require('css-tree');
   const target=w.document.querySelector('#scene-11');
   for(const top of [-2000,-500,0,-3000]){
    target.dataset.top=top;w.dispatchEvent(new w.Event('scroll'));pending.splice(0).forEach(fn=>fn());
-   const expected=beatAt(top,4140,900,6);
+   const expected=beatAt(top,5040,900,6);
    assert.equal(target.querySelector('.is-active').dataset.beat,String(expected));
    assert.equal(target.querySelectorAll('.frame:not([aria-hidden])').length,1);
    const active=target.querySelector('.is-active');
    if(reduced)assert.equal(active.querySelector('.money span:last-child strong').textContent,'$'+produceTotal(Number(active.querySelector('[data-months]').dataset.months)).toLocaleString('en-US'));
   }
-  const checkout=w.document.querySelector('#scene-7');
+  target.dataset.top=10000;const checkout=w.document.querySelector('#scene-7');
   for(const top of [-3888,0,-1600,-3888,-400]){
    checkout.dataset.top=top;w.dispatchEvent(new w.Event('scroll'));pending.splice(0).forEach(fn=>fn());
-   const progress=Math.min(1,Math.max(0,-top/3888)),beat=beatAt(top,4788,900,7),time=(reduced?beat+.95:progress*7)/5*basket.length;
+   const progress=Math.min(1,Math.max(0,-top/4788)),beat=beatAt(top,5688,900,7),time=[0,3,5,7,10,11,11,11][beat]+([0,3,5,7,10,11,11,11][beat+1]-[0,3,5,7,10,11,11,11][beat])*(reduced?.95:progress*7-beat);
    const state=checkoutAt(time,basket);
    assert.equal(checkout.querySelector('[data-total]').textContent,'$'+(state.total/100).toFixed(2));
    assert.equal(checkout.querySelector('[data-covered]').textContent,'$'+((beat===6?0:state.covered)/100).toFixed(2));
@@ -91,5 +91,5 @@ const {JSDOM}=require('jsdom'),css=require('css-tree');
   }
   runtime.window.close();
  }
- dom.window.close();console.log('PASS: absolute scroll state, reverse/fast jumps, monthly arithmetic, 50-state correlation, redemption denominator, 57 complete scenes/frames, semantic captions, sources, noindex, asset isolation, CSS syntax.');
+ dom.window.close();console.log('PASS: absolute scroll state, reverse/fast jumps, monthly arithmetic, 50-state correlation, redemption denominator, 58 complete scenes/frames, semantic captions, sources, noindex, asset isolation, CSS syntax.');
 })().catch(e=>{console.error(e);process.exitCode=1});

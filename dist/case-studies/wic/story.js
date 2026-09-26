@@ -23,7 +23,7 @@ function environment(scene,current,local,progress){
   scene.style.setProperty('--wrong-opacity',current===1?1:0);
  }
  if(scene.querySelector('.conveyor')){
-  const clock=t/5*basket.length;const state=checkoutAt(clock,basket);scene.querySelector('.checkout-environment').classList.toggle('is-rejected',current===4);scene.querySelector('.checkout-environment').classList.toggle('compare-left',current===6);
+  const cuts=[0,3,5,7,10,11,11,11];const clock=cuts[current]+(cuts[current+1]-cuts[current])*(reduced.matches?.95:local);const state=checkoutAt(clock,basket);scene.querySelector('.checkout-environment').classList.toggle('is-rejected',current===4);scene.querySelector('.checkout-environment').classList.toggle('compare-left',current===6);
   scene.querySelectorAll('.belt-item').forEach((item,i)=>{const phase=clock-i;item.style.left=(-25+phase*140)+'%';item.style.opacity=phase>-.3&&phase<1.15?'1':'0';});
   scene.querySelector('.belt-texture').style.backgroundPositionX=clock*280+'px';
   scene.querySelectorAll('.receipt-row').forEach((row,i)=>row.classList.toggle('scanned',i<state.count));
@@ -40,19 +40,37 @@ function environment(scene,current,local,progress){
 }
 function renderScene(scene){
  const rect=scene.getBoundingClientRect(),frames=[...scene.querySelectorAll('.frame')];
- const current=beatAt(rect.top,rect.height,innerHeight,frames.length),progress=clamp(-rect.top/Math.max(1,rect.height-innerHeight)),local=clamp(progress*frames.length-current);
+ const current=beatAt(rect.top,rect.height+innerHeight,innerHeight,frames.length),progress=clamp(-rect.top/Math.max(1,rect.height)),local=clamp(progress*frames.length-current);
  scene.dataset.activeBeat=current;
  frames.forEach((frame,i)=>{const active=i===current;frame.classList.toggle('is-active',active);frame.inert=!active;if(active)frame.removeAttribute('aria-hidden');else frame.setAttribute('aria-hidden','true');});
- const frame=frames[current];frame.style.setProperty('--enter',1);frame.style.setProperty('--local',0);scene.style.setProperty('--scene-progress',progress);frame.style.setProperty('--caption-reveal',reduced.matches?1:current===0?clamp((local-.12)/.16):1);scene.dataset.focus=frame.dataset.focus;if(frame.dataset.focus==='ending')frame.style.setProperty('--caption-reveal',reduced.matches?1:clamp(local/.32));
+ const frame=frames[current];frame.style.setProperty('--enter',1);frame.style.setProperty('--local',0);scene.style.setProperty('--scene-progress',progress);frame.style.setProperty('--caption-reveal',reduced.matches?1:clamp(local/.16));scene.dataset.focus=frame.dataset.focus;if(frame.dataset.focus==='ending')frame.style.setProperty('--caption-reveal',reduced.matches?1:clamp(local/.32));
  scene.classList.toggle('has-research',Boolean(frame.querySelector('.research')));
  if(scene.classList.contains('immersive')){environment(scene,current,local,progress);}
  const produce=frame.querySelector('[data-months]');
  if(produce){const end=Number(produce.dataset.months),previous=current?Number(frames[current-1].querySelector('[data-months]')?.dataset.months||1):1,month=reduced.matches?end:Math.round(previous+(end-previous)*clamp(local/.75));produce.querySelectorAll('.month').forEach((cell,i)=>cell.classList.toggle('filled',i<month));produce.querySelector('.money span:last-child strong').textContent='$'+produceTotal(month).toLocaleString('en-US');produce.querySelector('.axis-note').textContent=month+' of 60 months · available produce benefits';}
  scene.querySelectorAll('.beat-progress i').forEach((mark,i)=>mark.classList.toggle('passed',i<=current));
 }
-function render(all=false){queued=false;const rect=opening.getBoundingClientRect(),state=openingAt(rect.top,rect.height,innerHeight);opening.style.setProperty('--symbol-scale',state.scale);opening.style.setProperty('--word-opacity',state.words);opening.style.setProperty('--cue-opacity',state.cue);(all?scenes:visible).forEach(renderScene);}
+const colors=['#dedec5','#ecd0bd','#f0ebdc','#c9dadd','#dde5d4','#e6dcc7','#ddd8cd','#eeeadd','#c4d3d9','#dedec9','#ede2cc','#dce7e3'];
+function render(all=false){
+ queued=false;
+ const landing=document.querySelector('.introduction'),track=document.querySelector('.landing-track');
+ const lr=track.getBoundingClientRect();landing.style.opacity=reduced.matches?(lr.bottom>0?1:0):clamp(lr.bottom/(innerHeight*.25));landing.style.visibility=lr.bottom>0?'visible':'hidden';landing.inert=lr.bottom<=0;
+ let active=-1;
+ scenes.forEach((scene,i)=>{const r=scene.getBoundingClientRect();if(r.top<=0&&r.bottom>0)active=i;});
+ scenes.forEach((scene,i)=>{
+  const r=scene.getBoundingClientRect();const present=i===active;
+  scene.classList.toggle('is-present',present);
+  const distance=Math.max(1,r.height-innerHeight);
+  const end=clamp(r.bottom/Math.min(innerHeight*.2,distance));
+  const start=clamp(-r.top/(innerHeight*.2));
+  scene.style.setProperty('--scene-alpha',reduced.matches?1:Math.min(start,end));
+  scene.querySelector('.sticky').inert=!present;
+  if(present)renderScene(scene);
+ });
+ document.body.style.setProperty('--story-background',active>=0?colors[active]:'#f8f6f0');
+}
 function schedule(){if(!queued){queued=true;requestAnimationFrame(()=>render());}}
-try{document.documentElement.classList.add('enhanced');render(true);const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting)visible.add(entry.target);else visible.delete(entry.target);renderScene(entry.target);}},{rootMargin:'100% 0px'});scenes.forEach(s=>observer.observe(s));addEventListener('scroll',schedule,{passive:true});addEventListener('resize',()=>render(true));addEventListener('pageshow',()=>render(true));addEventListener('hashchange',()=>requestAnimationFrame(()=>render(true)));reduced.addEventListener('change',()=>render(true));document.fonts?.ready.then(()=>render(true));}catch(error){document.documentElement.classList.remove('enhanced');document.querySelectorAll('.frame').forEach(f=>{f.inert=false;f.removeAttribute('aria-hidden');});console.error('Story enhancement unavailable',error);}
+try{document.documentElement.classList.add('enhanced');render(true);const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting)visible.add(entry.target);else visible.delete(entry.target);}},{rootMargin:'100% 0px'});scenes.forEach(s=>observer.observe(s));addEventListener('scroll',schedule,{passive:true});addEventListener('resize',()=>render(true));addEventListener('pageshow',()=>render(true));addEventListener('hashchange',()=>requestAnimationFrame(()=>render(true)));reduced.addEventListener('change',()=>render(true));document.fonts?.ready.then(()=>render(true));}catch(error){document.documentElement.classList.remove('enhanced');document.querySelectorAll('.frame').forEach(f=>{f.inert=false;f.removeAttribute('aria-hidden');});console.error('Story enhancement unavailable',error);}
 
 const details=document.querySelector('#source-dialog');let detailTrigger;
 document.querySelectorAll('.source-link').forEach(link=>link.addEventListener('click',event=>{

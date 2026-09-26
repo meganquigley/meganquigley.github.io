@@ -48,7 +48,7 @@
     "title": "\u201cNow I have to apply.\u201d",
     "beats": [
       {
-        "caption": "Ugh. First, my ID.",
+        "caption": "My friend sends me the number. I call WIC to apply. Before the appointment, I need to gather a few things\u2014starting with my ID.",
         "speaker": "With WIC \u00b7 Maya",
         "source": null
       },
@@ -66,6 +66,11 @@
         "caption": "I\u2019m fully breastfeeding. My package includes $52 a month for produce, plus other foods. Okay. That would help.",
         "speaker": "With WIC \u00b7 Maya",
         "source": "rates"
+      },
+      {
+        "caption": "In my other life, nobody tells me about the program. I\u2019m buying the same food, but all of it comes out of my own budget.",
+        "speaker": "Without WIC \u00b7 Maya",
+        "source": null
       }
     ]
   },
@@ -108,7 +113,7 @@
         "source": null
       },
       {
-        "caption": "\u201cWithout convenient access\u201d means farther than 1 mile from a WIC store in an urban area, or 10 miles in a rural area.",
+        "caption": "For many families, using the card starts with a trip: more than a mile to a WIC store in a city, or more than ten miles in the countryside. Across the country, 40% of low-income families with young children live beyond those distances.",
         "speaker": "A wider view",
         "source": "access"
       }
@@ -258,12 +263,12 @@
         "source": null
       },
       {
-        "caption": "Not everyone stays connected all the way through.",
+        "caption": "I\u2019ve kept coming back. But how many families manage that? Researchers followed children who enrolled in 2013: only 43.5% participated consistently through four and a half years.",
         "speaker": "A wider view",
         "source": "cohort"
       },
       {
-        "caption": "Nationally, WIC reaches fewer eligible children at each older age.",
+        "caption": "A newer national snapshot shows the same challenge from another angle. WIC reaches 82.3% of eligible infants, but just 26.9% of eligible four-year-olds.",
         "speaker": "A wider view",
         "source": "coverage"
       }
@@ -308,7 +313,7 @@
     "title": "What the help can change.",
     "beats": [
       {
-        "caption": "What does \u201cbetter diet quality\u201d mean? Researchers score the overall pattern of eating on a scale of 0 to 100.",
+        "caption": "Those groceries add up. But do they change what children eat? Researchers looked beyond the grocery bill and scored children\u2019s overall diets on a 100-point scale.",
         "speaker": "A wider view",
         "source": "diet"
       },
@@ -328,12 +333,12 @@
         "source": null
       },
       {
-        "caption": "The food matters. So does all the work it takes to get it.",
+        "caption": "WIC can make nutritious food more affordable. But a benefit only helps when a family hears about it, enrolls, finds a store, buys the right foods, and manages to keep renewing.",
         "speaker": "Maya \u00b7 both paths",
         "source": null
       },
       {
-        "caption": "A referral that reaches me. A renewal I can manage. A store I can get to.",
+        "caption": "Make that work easier: connect families directly to WIC when they receive Medicaid or have a baby; offer appointments and renewals that fit working lives; bring authorized stores closer; and make approved foods and checkout rules easier to understand. Help should be easier to start\u2014and easier to keep.",
         "speaker": "Maya \u00b7 both paths",
         "source": null
       },
