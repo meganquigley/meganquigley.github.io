@@ -35,8 +35,8 @@ const {JSDOM}=require('jsdom'),css=require('css-tree');
  assert.equal(d.querySelectorAll('nav,[data-reading-toggle],#reading-mode').length,0);
  assert.equal(d.querySelectorAll('.opening a,.introduction a').length,0);
  for(const meta of ['robots','googlebot'])assert.equal(d.querySelector(`meta[name=${meta}]`).content,'noindex, nofollow, noarchive');
- assert.deepEqual([...d.querySelectorAll('script[src]')].map(x=>x.getAttribute('src')),['story.js?v=20260927-families3']);
- assert.deepEqual([...d.querySelectorAll('link[rel=stylesheet]')].map(x=>x.getAttribute('href')),['story.css?v=20260927-families3']);
+ assert.deepEqual([...d.querySelectorAll('script[src]')].map(x=>x.getAttribute('src')),['story.js?v=20260927-families4']);
+ assert.deepEqual([...d.querySelectorAll('link[rel=stylesheet]')].map(x=>x.getAttribute('href')),['story.css?v=20260927-families4']);
  for(const frame of d.querySelectorAll('.frame')){
   assert.equal(frame.querySelectorAll('.caption').length,1);assert(frame.querySelector('.line,.opening-exchange').textContent.length);
   assert(frame.querySelector('.research')||frame.querySelector('.pair')||frame.querySelector('.anchors')||frame.closest('.immersive')||frame.querySelector('.ending-art')||frame.querySelector('.single-family'));
@@ -79,6 +79,7 @@ const {JSDOM}=require('jsdom'),css=require('css-tree');
   w.requestAnimationFrame=fn=>{pending.push(fn);};
   Object.defineProperty(w,'innerHeight',{value:900});
   w.Element.prototype.getBoundingClientRect=function(){
+   if(this.classList.contains('split-family'))return {top:50,width:500,height:540,bottom:590};
    const scene=this.closest('.scene'),top=Number(scene?.dataset.top??10000);
    if(this.classList.contains('story-step')){const t=top+585+Number(this.dataset.beat)*765;return {top:t,height:765,bottom:t+765};}
    const height=scene?Number(scene.dataset.count)*765+720:900;return {top,height,bottom:top+height};
@@ -110,6 +111,17 @@ const {JSDOM}=require('jsdom'),css=require('css-tree');
   }
   checkout.dataset.top=10000;
   const first=w.document.querySelector('#scene-1'),second=w.document.querySelector('#scene-3');
+  // The focal mother has identical screen coordinates before and after every zoom sample.
+  let anchor;
+  for(const position of [1.5,1.99,2.001,2.5,3.2,3.79,2.001,1.99]){
+   first.dataset.top=-position*765;flush();
+   const camera=first.querySelector('.crowd-camera'),origin=camera.querySelector('.crowd-origin');
+   const c=camera.getAttribute('transform').match(/[-\d.]+/g).map(Number),o=origin.getAttribute('transform').match(/[-\d.]+/g).map(Number);
+   const point=[c[0]+o[0]*c[2],c[1]+o[1]*c[2]];
+   assert(point.every(Number.isFinite));
+   if(anchor)point.forEach((v,i)=>assert(Math.abs(v-anchor[i])<.001,'Focal mother must remain anchored'));
+   anchor=point;
+  }
   first.dataset.top=-5700;second.dataset.top=215;flush();
   assert.equal(w.document.querySelectorAll('.is-present').length,2);
   assert.equal(w.document.querySelectorAll('.is-speaking').length,1);
