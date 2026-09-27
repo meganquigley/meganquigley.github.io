@@ -33,7 +33,7 @@
   choose(indices){
    if(!indices.length)return;if(indices.length===1){this.onSelect(indices[0],true);return;}
    const dialog=document.getElementById('map-place-dialog'),list=document.getElementById('map-place-list');list.replaceChildren();document.getElementById('map-place-title').textContent=`${indices.length} services here`;
-   for(const i of indices){const b=document.createElement('button');b.className='place-choice';const dot=document.createElement('i');dot.className='swatch '+this.states[i].state;dot.textContent={open:'✓',closed:'−',unknown:'?',appointment:'◷'}[this.states[i].state];const text=document.createElement('span');text.textContent=this.records[i].name+' · '+status[this.states[i].state]+(this.states[i].estimated?' · Estimated from location hours':'');b.append(dot,text);b.addEventListener('click',()=>{dialog.close();this.onSelect(i,true);});list.append(b);}dialog.showModal();
+   for(const i of indices){const b=document.createElement('button');b.className='place-choice';const dot=document.createElement('i');dot.className='swatch '+this.states[i].state;dot.textContent={open:'✓',closed:'−',unknown:'?',appointment:'◷'}[this.states[i].state];const text=document.createElement('span');text.textContent=window.PlacePreview.title(this.records[i])+' · '+status[this.states[i].state]+(this.states[i].estimated?' · Estimated from location hours':'');b.append(dot,text);b.addEventListener('click',()=>{dialog.close();this.onSelect(i,true);});list.append(b);}dialog.showModal();
   }
   mixture(feature){
    const p=feature.properties,key='mix-'+[p.open,p.closed,p.appointment].join('-');

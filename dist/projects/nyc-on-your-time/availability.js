@@ -70,7 +70,7 @@
     detail.style.setProperty('top',Math.max(8,Math.min(y,innerHeight-h-8))+'px','important');
   }
   document.addEventListener('pointermove',e=>{pointer={x:e.clientX,y:e.clientY};if(!detail.hidden)positionDetail();},{passive:true});
-  function openPlace(index){const r=records[index];try{const url=new URL(r.website||r.websiteUrl||r.sourceUrl);if(['https:','http:'].includes(url.protocol))window.open(url.href,'_blank','noopener,noreferrer');}catch{};hideDetail();}
+  function openPlace(index){const r=records[index];try{const url=new URL(window.PlacePreview.website(r));if(['https:','http:'].includes(url.protocol))window.open(url.href,'_blank','noopener,noreferrer');}catch{};hideDetail();}
   function showDetail(button,pin=false) {
     if(!button)return;const index=Number(button.dataset.record);
     if(pin){openPlace(index);return;}
@@ -93,7 +93,7 @@
     const cells=[];
     for(let i=row*cols;i<Math.min((row+1)*cols,filtered.length);i++) {
       const ri=filtered[i],r=records[ri],s=states[ri];
-      cells.push(`<button class="tile ${s.state}" data-index="${i}" data-record="${ri}" tabindex="${i===active?0:-1}" role="gridcell" aria-colindex="${i%cols+1}" aria-label="${esc(`${r.name}, ${r.service}, ${r.borough}. ${words[s.state]}.${s.estimated?' Estimated from location hours.':''}`)}" aria-haspopup="dialog" aria-expanded="false" aria-controls="detail"><span class="tile-symbol" aria-hidden="true">${symbols[s.state]}</span>${list?`<span class="tile-copy" aria-hidden="true"><strong>${esc(r.name)}</strong><small>${esc(r.service)} · ${esc(r.borough)} · ${words[s.state]}</small></span>`:''}</button>`);
+      cells.push(`<button class="tile ${s.state}" data-index="${i}" data-record="${ri}" tabindex="${i===active?0:-1}" role="gridcell" aria-colindex="${i%cols+1}" aria-label="${esc(`${window.PlacePreview.title(r)}, ${window.PlacePreview.casing(r.service)}, ${r.borough}. ${words[s.state]}.${s.estimated?' Estimated from location hours.':''}`)}" aria-haspopup="dialog" aria-expanded="false" aria-controls="detail"><span class="tile-symbol" aria-hidden="true">${symbols[s.state]}</span>${list?`<span class="tile-copy" aria-hidden="true"><strong>${esc(window.PlacePreview.title(r))}</strong><small>${esc(window.PlacePreview.casing(r.service))} · ${esc(r.borough)} · ${words[s.state]}</small></span>`:''}</button>`);
     }
     el.innerHTML=cells.join('');return el;
   }
@@ -139,7 +139,7 @@
     b.tabIndex=0;b.dataset.index=index;b.dataset.record=ri;b.setAttribute('aria-colindex',index%cols+1);
     b.parentElement.setAttribute('aria-rowindex',Math.floor(index/cols)+1);
     b.style.left=`${index%cols*step}px`;b.style.top=`${Math.floor(index/cols)*step}px`;
-    b.setAttribute('aria-label',`${r.name}, ${r.service}, ${r.borough}. ${words[states[ri].state]}.${states[ri].estimated?' Estimated from location hours.':''}`);return b;
+    b.setAttribute('aria-label',`${window.PlacePreview.title(r)}, ${window.PlacePreview.casing(r.service)}, ${r.borough}. ${words[states[ri].state]}.${states[ri].estimated?' Estimated from location hours.':''}`);return b;
   }
   function drawCanvas(){
     const canvas=document.createElement('canvas');canvas.setAttribute('aria-hidden','true');

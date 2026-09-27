@@ -13,11 +13,17 @@ def font(size):
  try:f.set_variation_by_name('Bold')
  except (ValueError,OSError):pass
  return f
-draw.rounded_rectangle(box((54,54,294,167)),radius=19*SCALE,fill='#204e68')
-draw.text(box((78,66)),'NYC',font=font(65),fill='#f7fcff')
-draw.ellipse(box((235,88,275,128)),outline='#f7fcff',width=3*SCALE)
-draw.line([box((255,96)),box((255,109)),box((265,115))],fill='#f7fcff',width=3*SCALE)
-draw.text(box((324,72)),'on Your Time',font=font(67),fill='#163d58')
+# Preserve the site's tilted NYC stamp, clock, and italic serif wordmark.
+stamp=Image.new('RGBA',(330*SCALE,132*SCALE));sd=ImageDraw.Draw(stamp)
+sd.rounded_rectangle(box((4,4,321,122)),radius=20*SCALE,fill='#244754')
+sd.text(box((35,12)),'NYC',font=font(76),fill='#f4fbff')
+sd.ellipse(box((240,36,292,88)),outline='#f4fbff',width=4*SCALE)
+sd.line([box((266,46)),box((266,63)),box((278,70))],fill='#f4fbff',width=4*SCALE)
+stamp=stamp.rotate(2,resample=Image.Resampling.BICUBIC,expand=True)
+image.paste(stamp,box((50,51)),stamp)
+draw.text(box((408,71)),'on',font=ImageFont.truetype(str(SITE/'assets/fonts/Inter.ttf'),68*SCALE),fill='#1d4353')
+serif=ImageFont.truetype('/System/Library/Fonts/Supplemental/Georgia Bold Italic.ttf',84*SCALE)
+draw.text(box((515,61)),'Your Time',font=serif,fill='#1d4353')
 # Keep the same five-borough silhouette and illustrative location dots.
 data=json.loads((SITE/'boroughs.js').read_text().removeprefix('window.BOROUGHS=').rstrip(';'))
 polygons=[]
@@ -35,5 +41,5 @@ for poly in polygons:
   draw.line(points,fill='#83aac4',width=SCALE)
 for i,p in enumerate([(-74.13,40.60),(-74.09,40.63),(-73.98,40.67),(-73.94,40.69),(-73.88,40.72),(-73.96,40.73),(-73.98,40.77),(-73.94,40.80),(-73.90,40.85),(-73.86,40.87),(-73.83,40.83),(-73.78,40.71),(-73.85,40.75),(-73.91,40.76)]):
  x,y=point(p);r=10*SCALE;draw.ellipse((x-r,y-r,x+r,y+r),fill=['#259b78','#8173b2','#d27570'][i%3],outline='#f6fbff',width=2*SCALE)
-image.resize((1200,630),Image.Resampling.LANCZOS).save(SITE/'og-image-blue-20260927.png')
+image.resize((1200,630),Image.Resampling.LANCZOS).save(SITE/'og-image-cool-20260927.png')
 print('Rendered NYC social card: 1200 × 630')

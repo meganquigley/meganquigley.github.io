@@ -1,6 +1,6 @@
 (() => {
   const menus=[];
-  const titleCase=text=>text.replace(/\b[a-z]/g,c=>c.toUpperCase());
+  const titleCase=text=>window.PlacePreview.casing(text);
   const iconPaths={all:'M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z',appointment:'M5 5h14v15H5zM8 3v4m8-4v4M5 10h14m-10 5 2 2 4-4',walkin:'M13 5a2 2 0 1 0 0-.1M10 10l3-2 3 4 3 1M13 9l-2 6-4 5m4-5 5 5M6 13l4-3',booking:'M5 5h14v15H5zM8 3v4m8-4v4M5 10h14m-7 3v5m-2.5-2.5h5',unknown:'M9 9a3 3 0 1 1 5 2c-2 1-2 2-2 3m0 3h.01',housing:'m3 11 9-8 9 8M5 10v11h14V10M10 21v-7h4v7',health:'M9 3h6v6h6v6h-6v6H9v-6H3V9h6z',food:'M5 3v7m3-7v7M4 7h5m-2.5 3v11M16 3v18m0-18c5 4 5 9 0 9',work:'M3 7h18v14H3zM8 7V3h8v4M3 12h18',people:'M9 8a3 3 0 1 0 0-.1M3 21v-3a6 6 0 0 1 12 0v3m1-16a3 3 0 0 1 0 6m2 4a5 5 0 0 1 3 5',benefits:'M12 3 3 7l9 4 9-4-9-4ZM3 12l9 4 9-4M3 17l9 4 9-4'};
   function iconFor(value){const v=value.toLowerCase();const key=iconPaths[value]?value:!value?'all':/housing/.test(v)?'housing':/health/.test(v)?'health':/food/.test(v)?'food':/employment|work/.test(v)?'work':/aging|child|veteran|disability/.test(v)?'people':'benefits';const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');for(const [k,v]of Object.entries({viewBox:'0 0 24 24',width:17,height:17,fill:'none',stroke:'currentColor','stroke-width':1.5,'stroke-linecap':'round','stroke-linejoin':'round','aria-hidden':'true'}))svg.setAttribute(k,v);const path=document.createElementNS(svg.namespaceURI,'path');path.setAttribute('d',iconPaths[key]);svg.append(path);return svg;}
 

@@ -1,0 +1,1356 @@
+{
+  "checkedDate": "2026-09-27",
+  "scope": "174 unique click destinations across 1,270 included records. Link and presentation audit, not a fresh review of every opening-hour record.",
+  "corrections": "preview-model.js keeps historical research source URLs separate from current visitor destinations. SSA uses its public locator; Ryan WIC uses /wic-2; UJO uses its navigator network listing; COPO uses NYC Care partner listing; Polish and Slavic Center uses its secure main-domain service overview (the aging detail endpoint also returned HTTP 500); raw aging JSON uses the public NYC Aging information page.",
+  "checks": [
+    {
+      "url": "https://a125-egovt.nyc.gov/AgingService/ProgramService/searchResult?programType=SRCTR",
+      "status": 200,
+      "final": "https://a125-egovt.nyc.gov/AgingService/ProgramService/searchResult?programType=SRCTR",
+      "title": "Service Finder - Search Results - Department for the Aging",
+      "contentType": "text/html; charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.bayridgecenter.org/connects",
+      "status": 200,
+      "final": "https://www.bayridgecenter.org/connects",
+      "title": "About CONNECTS &mdash; Bay Ridge Center",
+      "contentType": "text/html;charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://bronxworks.org/our-services/services-for-older-adults/senior-housing-assistance-programs/",
+      "status": 200,
+      "final": "https://bronxworks.org/our-services/services-for-older-adults/senior-housing-assistance-programs/",
+      "title": "Senior Housing Assistance Programs - BronxWorks",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.bca.net/eng/sixth.html",
+      "status": 403,
+      "final": "https://www.bca.net/eng/sixth.html",
+      "verification": "automated access denied; not proof of a broken visitor page"
+    },
+    {
+      "url": "https://canaanssc.com/",
+      "status": 200,
+      "final": "https://canaanssc.com/",
+      "title": "The New York City Department for the Aging &#8211; Just another WordPress site",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://conta.cc/46pQfCS",
+      "status": 200,
+      "final": "https://myemail.constantcontact.com/Upcoming-Classes-and-Programming-from-CBN-.html?soid=1112660967885&aid=BiNFLrq6FRs",
+      "title": "Upcoming Classes and Programming from CBN!",
+      "contentType": "text/html; charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.ccbq.org/wp-content/uploads/2026/09/GailPDuke-Binder1.pdf",
+      "status": 200,
+      "final": "https://www.ccbq.org/wp-content/uploads/2026/09/GailPDuke-Binder1.pdf",
+      "title": "",
+      "contentType": "application/pdf",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.ccbq.org/wp-content/uploads/2026/09/September-Newsletter-2026-Hillcrest-OAC.pdf",
+      "status": 200,
+      "final": "https://www.ccbq.org/wp-content/uploads/2026/09/September-Newsletter-2026-Hillcrest-OAC.pdf",
+      "title": "",
+      "contentType": "application/pdf",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.ccbq.org/wp-content/uploads/2026/09/ozone-park-September-2026-2-compressed.pdf",
+      "status": 200,
+      "final": "https://www.ccbq.org/wp-content/uploads/2026/09/ozone-park-September-2026-2-compressed.pdf",
+      "title": "",
+      "contentType": "application/pdf",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.ccbq.org/wp-content/uploads/2026/09/SEPTEMBER-2026-SEASIDE-OAC-NEWSLETTER-FOR-WEBSITE-pdf.pdf",
+      "status": 200,
+      "final": "https://www.ccbq.org/wp-content/uploads/2026/09/SEPTEMBER-2026-SEASIDE-OAC-NEWSLETTER-FOR-WEBSITE-pdf.pdf",
+      "title": "",
+      "contentType": "application/pdf",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.ccbq.org/wp-content/uploads/2026/09/September-2026-Newsletter-Updated-2.pdf",
+      "status": 200,
+      "final": "https://www.ccbq.org/wp-content/uploads/2026/09/September-2026-Newsletter-Updated-2.pdf",
+      "title": "",
+      "contentType": "application/pdf",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.ccbq.org/wp-content/uploads/2026/09/Woodhaven-September-2026-3_compressed.pdf",
+      "status": 200,
+      "final": "https://www.ccbq.org/wp-content/uploads/2026/09/Woodhaven-September-2026-3_compressed.pdf",
+      "title": "",
+      "contentType": "application/pdf",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.cidny.org/nyconnects-2/",
+      "status": 200,
+      "final": "https://www.cidny.org/nyconnects-2/",
+      "title": "NY Connects &#8211; Center for Independence of the Disabled, New York",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://cascsiny.org/ny-connects-staten-island/",
+      "status": 403,
+      "final": "https://cascsiny.org/ny-connects-staten-island/",
+      "verification": "automated access denied; not proof of a broken visitor page"
+    },
+    {
+      "url": "https://www.jchb.org/uplift/",
+      "status": 200,
+      "final": "https://www.jchb.org/uplift/",
+      "title": "Uplift Community Response - Brooklyn, NY | JCH",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.encorenyc.org/programs-services/",
+      "status": 200,
+      "final": "https://www.encorenyc.org/programs-services/",
+      "title": "Programs &amp; Services - Encore Community Services",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.fesscenter.org/general-5",
+      "status": 200,
+      "final": "https://www.fesscenter.org/general-5",
+      "title": "FAQ | Mysite",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.foodbanknyc.org/find-food/community-kitchen/",
+      "status": 200,
+      "final": "https://www.foodbanknyc.org/find-food/community-kitchen/",
+      "title": "Community Kitchen - Food Bank For NYC",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://goddard.org/menu-and-activities-for-lincoln-square-older-adult-center/",
+      "status": 200,
+      "final": "https://goddard.org/menu-and-activities-for-lincoln-square-older-adult-center/",
+      "title": "September 2026 Menu and Activities for Lincoln Square Older Adult Center | Goddard Riverside",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.henrystreet.org/wp-content/uploads/2026/09/September-2026.pdf",
+      "status": 200,
+      "final": "https://www.henrystreet.org/wp-content/uploads/2026/09/September-2026.pdf",
+      "title": "",
+      "contentType": "application/pdf",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://hopeseniorcenter.org/services/",
+      "status": 200,
+      "final": "https://hopeseniorcenter.org/services/",
+      "title": "Services &#8211; Hope Senior Center",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://hudsonguild.org/nyconnects",
+      "status": 200,
+      "final": "https://hudsonguild.org/nyconnects",
+      "title": "NY Connects",
+      "contentType": "text/html; charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://data.cityofnewyork.us/resource/cqc8-am9x.json",
+      "status": 200,
+      "final": "https://data.cityofnewyork.us/resource/cqc8-am9x.json",
+      "title": "",
+      "contentType": "application/json;charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.sijcc.org/older-adult-centers",
+      "status": 200,
+      "final": "https://www.sijcc.org/older-adult-centers",
+      "title": "Older Adult Centers | Engage and Thrive Today &mdash; Staten Island Jewish Community Center",
+      "contentType": "text/html;charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://drive.google.com/file/d/1IFsOL0RvFt5vChiiLA_VF90kqt9lMTbK/view",
+      "status": 200,
+      "final": "https://drive.google.com/file/d/1IFsOL0RvFt5vChiiLA_VF90kqt9lMTbK/view",
+      "title": "FOAC Program  Sep Final.pdf - Google Drive",
+      "contentType": "text/html; charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://drive.google.com/file/d/1ScSp7xZ-JptVr4cpEdjnGC_j-7oIr36b/view",
+      "status": 200,
+      "final": "https://drive.google.com/file/d/1ScSp7xZ-JptVr4cpEdjnGC_j-7oIr36b/view",
+      "title": "September 2026 MOAC Program.pdf - Google Drive",
+      "contentType": "text/html; charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.lenoxhill.org/s/September-2026_Activity-Calendar-for-The-Center-at-Lenox-Hill-Neighborhood-House-and-Remote-Activiti.pdf",
+      "status": 200,
+      "final": "https://static1.squarespace.com/static/55520913e4b0e71274cff7ce/t/6a91da6b2b0a9f752b81f5f6/1787943531735/September+2026_Activity+Calendar+for+The+Center+at+Lenox+Hill+Neighborhood+House+and+Remote+Activities.pdf",
+      "title": "",
+      "contentType": "application/pdf",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.lenoxhill.org/s/September-2026_Older-Adult-Center-at-Saint-Peters-Church-Activity-Calendar-and-Menu-829a.pdf",
+      "status": 200,
+      "final": "https://static1.squarespace.com/static/55520913e4b0e71274cff7ce/t/6a91dc885f31b413fa1774ad/1787944072706/September++2026_Older+Adult+Center+at+Saint+Peter%27s+Church+Activity+Calendar+and+Menu.pdf",
+      "title": "",
+      "contentType": "application/pdf",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://nshopp.org/nyconnects/",
+      "status": 200,
+      "final": "https://nshopp.org/nyconnects/",
+      "title": "NY Connects &#8211; The Bronx | Neighborhood SHOPP",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.nyc.gov/assets/dfta/downloads/pdf/services/HIICAP-Resource-MIPPA-Sites.pdf",
+      "status": 200,
+      "final": "https://www.nyc.gov/assets/dfta/downloads/pdf/services/HIICAP-Resource-MIPPA-Sites.pdf",
+      "title": "",
+      "contentType": "application/pdf",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://us.polishslaviccenter.org/uslugi-socialne-dla-serniorow/",
+      "status": "unverified",
+      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1129)>",
+      "verification": "needs follow-up or corrected visitor destination"
+    },
+    {
+      "url": "https://pssusa.org/nyconnects/",
+      "status": 200,
+      "final": "https://pssusa.org/nyconnects/",
+      "title": "NY Connects - Brooklyn - PSS",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.riverstonenyc.org/programs/social-services/",
+      "status": 200,
+      "final": "https://www.riverstonenyc.org/programs/social-services/",
+      "title": "Social Services - Riverstone Senior Life Services",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://selfhelp.net/contact-us/",
+      "status": 200,
+      "final": "https://selfhelp.net/contact-us/",
+      "title": "Contact Selfhelp - We're Here to Help",
+      "contentType": "text/html",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://selfhelp.net/older-adult-centers/",
+      "status": 200,
+      "final": "https://selfhelp.net/older-adult-centers/",
+      "title": "Selfhelp Older Adult Centers - Community and Care",
+      "contentType": "text/html",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://snapqueens.org/programs/case-assistance",
+      "status": 200,
+      "final": "https://snapqueens.org/programs/case-assistance",
+      "title": "Case Assistance Services &#8211; Snap Queens",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.raices.us/older-adult-centers",
+      "status": 200,
+      "final": "https://www.raices.us/older-adult-centers",
+      "title": "RAICES Older Adult Centers",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://isaacscenter.org/wp-content/uploads/2026/09/September-26-Monthly-CalendarSeptember-26-Monthly-Calendar-September-26-Monthly-Calendar.pdf",
+      "status": 200,
+      "final": "https://isaacscenter.org/wp-content/uploads/2026/09/September-26-Monthly-CalendarSeptember-26-Monthly-Calendar-September-26-Monthly-Calendar.pdf",
+      "title": "",
+      "contentType": "application/pdf",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://jasa.org/sites/default/files/inline-files/September%202026%20Calendar%20Revised%20.docx-2.pdf",
+      "status": 200,
+      "final": "https://jasa.org/sites/default/files/inline-files/September%202026%20Calendar%20Revised%20.docx-2.pdf",
+      "title": "",
+      "contentType": "application/pdf",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://oac.visionsvcb.org/",
+      "status": 200,
+      "final": "https://oac.visionsvcb.org/",
+      "title": "VISIONS Center on Aging",
+      "contentType": "text/html; charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://wordnyc.org/social-work/",
+      "status": 200,
+      "final": "https://wordnyc.org/social-work/",
+      "title": "Social Work &#8211; Wayside Outreach Development, Inc",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://riverdaley.org/new-beginnings/",
+      "status": 200,
+      "final": "https://riverdaley.org/new-beginnings/",
+      "title": "New Beginnings: Adults 60+ - Riverdale Y",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://aafscny.org/",
+      "status": 200,
+      "final": "https://aafscny.org/",
+      "title": "Arab-American Family Support Center |\n        Home - Arab-American Family Support Center",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.aafe.org/missions/community-services/",
+      "status": 200,
+      "final": "https://www.aafe.org/missions/community-services/",
+      "title": "Community Services | Asian Americans for Equality",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://restorationplaza.org/contact-us/",
+      "status": 200,
+      "final": "https://restorationplaza.org/contact-us/",
+      "title": "Contact Us | Restoration Plaza",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.bronxdefenders.org/get-legal-help/",
+      "status": 200,
+      "final": "https://www.bronxdefenders.org/get-legal-help/",
+      "title": "Get Legal Help - The Bronx Defenders",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://bronxworks.org/our-services/workforce-development/tax-financial-services/",
+      "status": 200,
+      "final": "https://bronxworks.org/our-services/workforce-development/tax-financial-services/",
+      "title": "Tax &amp; Financial Assistance Services - BronxWorks",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://bronxworks.org/our-services/benefits-and-other-assistance/bronxworks-benefit-access-and-assistance/",
+      "status": 200,
+      "final": "https://bronxworks.org/our-services/benefits-and-other-assistance/bronxworks-benefit-access-and-assistance/",
+      "title": "BronxWorks Benefit Access and Assistance - BronxWorks",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://a866-dcwpwb.nyc.gov/ftps_map/",
+      "status": 200,
+      "final": "https://a866-dcwpwb.nyc.gov/ftps_map/",
+      "title": "NYC Free Tax Prep Sites",
+      "contentType": "text/html",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.ccbanyc.org/cservices.html",
+      "status": 200,
+      "final": "https://www.ccbanyc.org/cservices.html",
+      "title": "Chinese Consolidated Benevolent Association",
+      "contentType": "text/html",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://a866-dcwpwb.nyc.gov/talkmoney/book-appointment",
+      "status": 200,
+      "final": "https://a866-dcwpwb.nyc.gov/talkmoney/book-appointment",
+      "title": "DCWP - Office of Financial Empowerment",
+      "contentType": "text/html",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.cpc-nyc.org/programs/community-economic-empowerment/community-centers",
+      "status": 200,
+      "final": "https://www.cpc-nyc.org/programs/community-economic-empowerment/community-centers",
+      "title": "Community Centers | Chinese-American Planning Council",
+      "contentType": "text/html; charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.cucs.org/connects/",
+      "status": 200,
+      "final": "https://www.cucs.org/connects/",
+      "title": "CUCS Connects | CUCS",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.cypresshills.org/event-details/benefits-made-easy-2026-08-13-09-00",
+      "status": 200,
+      "final": "https://www.cypresshills.org/event-details/benefits-made-easy-2026-08-13-09-00",
+      "title": "",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.nychealthandhospitals.org/elmhurst/",
+      "status": 200,
+      "title": "Radware Block Page",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "blocked by website"
+    },
+    {
+      "url": "https://fortunesociety.org/our-services/",
+      "status": 200,
+      "final": "https://fortunesociety.org/our-services/",
+      "title": "Our Services | The Fortune Society",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://goddard.org/programs/strengthening-families/resourcecenter/",
+      "status": 200,
+      "final": "https://goddard.org/programs/strengthening-families/resourcecenter/",
+      "title": "Resource Center | Goddard Riverside",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.haupinc.org/location",
+      "status": 200,
+      "final": "https://www.haupinc.org/location",
+      "title": "Location &mdash; HAUP, Inc",
+      "contentType": "text/html;charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://hfrepdirectory.healthfirst.org/CommunityOffices",
+      "status": 200,
+      "final": "https://hfrepdirectory.healthfirst.org/CommunityOffices",
+      "title": "Healthfirst Virtual Community Office - Shop Health Insurance",
+      "contentType": "text/html; charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.henrystreet.org/programs/primary-behaviorial-health/dale-jones-burch-neighborhood-center/",
+      "status": 403,
+      "final": "https://www.henrystreet.org/programs/primary-behaviorial-health/dale-jones-burch-neighborhood-center/",
+      "verification": "automated access denied; not proof of a broken visitor page"
+    },
+    {
+      "url": "https://www.nyc.gov/site/hra/locations/job-locations-and-service-centers.page",
+      "status": 200,
+      "final": "https://www.nyc.gov/site/hra/locations/job-locations-and-service-centers.page",
+      "title": "Benefits Access Centers (BAC) - HRA",
+      "contentType": "text/html;charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.nyc.gov/site/hra/locations/medicaid-locations.page",
+      "status": 200,
+      "final": "https://www.nyc.gov/site/hra/locations/medicaid-locations.page",
+      "title": "Medicaid Locations - HRA",
+      "contentType": "text/html;charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.nyc.gov/site/hra/locations/snap-locations.page",
+      "status": 200,
+      "final": "https://www.nyc.gov/site/hra/locations/snap-locations.page",
+      "title": "SNAP Locations - HRA",
+      "contentType": "text/html;charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.nyc.gov/site/hra/help/hiv-aids-services.page",
+      "status": 200,
+      "final": "https://www.nyc.gov/site/hra/help/hiv-aids-services.page",
+      "title": "HIV/AIDS Services - HRA",
+      "contentType": "text/html;charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://ritchietorres.house.gov/posts/congressman-ritchie-torres-joins-hunger-nonprofit-to-highlight-increased-online-ordering-and-home-deliveries-for-snap-food-stamps-recipients",
+      "status": 200,
+      "final": "https://ritchietorres.house.gov/posts/congressman-ritchie-torres-joins-hunger-nonprofit-to-highlight-increased-online-ordering-and-home-deliveries-for-snap-food-stamps-recipients",
+      "title": "Congressman Ritchie Torres Joins Hunger Nonprofit to Highlight Increased Online Ordering and Home Deliveries For SNAP (Food Stamps) Recipients",
+      "contentType": "text/html; charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.jasaonline.org/about/locate",
+      "status": 200,
+      "final": "https://www.jasaonline.org/about/locate",
+      "title": "Locate | JASA",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.kcsny.org/",
+      "status": 200,
+      "final": "https://www.kcsny.org/",
+      "title": "Korean Community Services of Metropolitan New York, Inc. (KCS) | Community",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.lacolmenanyc.org/",
+      "status": 200,
+      "final": "https://www.lacolmenanyc.org/",
+      "title": "Immigrants Rights | La Colmena | New York",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://maketheroadny.org/contact/",
+      "status": 200,
+      "final": "https://maketheroadny.org/contact/",
+      "title": "Contact | Make the Road New York",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://mercycenterbronx.org/about-us/",
+      "status": 200,
+      "final": "https://mercycenterbronx.org/about-us/",
+      "title": "About us - Mercy Center",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.mmcc.org/crisis-case-management/",
+      "status": 200,
+      "final": "https://www.mmcc.org/crisis-case-management/",
+      "title": "Crisis Case Management - Mosholu Montefiore Community Center",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://neighborhoodtrust.org/what-we-do/our-solutions-for-workers/financial-empowerment-centers/",
+      "status": 200,
+      "final": "https://neighborhoodtrust.org/what-we-do/our-solutions-for-workers/financial-empowerment-centers/",
+      "title": "Free Financial Coaching in NYC | Neighborhood Trust",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.nypl.org/business/resources/financial-credit-medicare-counseling",
+      "status": 200,
+      "final": "https://www.nypl.org/business/resources/financial-credit-medicare-counseling",
+      "title": "",
+      "contentType": "text/html",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.nmic.org/en/benefits/",
+      "status": 403,
+      "final": "https://www.nmic.org/en/benefits/",
+      "verification": "automated access denied; not proof of a broken visitor page"
+    },
+    {
+      "url": "https://connector.hrsa.gov/connector/site-profile/B57B6D0D-5FE5-4F96-B6EF-9E972D1151E8",
+      "status": 200,
+      "final": "https://connector.hrsa.gov/connector/site-profile/B57B6D0D-5FE5-4F96-B6EF-9E972D1151E8",
+      "title": "Health Workforce Connector",
+      "contentType": "text/html",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.projecthospitality.org/get-help",
+      "status": 200,
+      "final": "https://www.projecthospitality.org/get-help",
+      "title": "Get Help | Access Support Today \u2013 Get Help Now &mdash; Project Hospitality",
+      "contentType": "text/html;charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://metroplus.org/in-your-community/locations/queens/",
+      "status": 200,
+      "final": "https://metroplus.org/in-your-community/locations/queens/",
+      "title": "Queens Locations - MetroPlusHealth",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://riseboro.org/program/nutrition/",
+      "status": 200,
+      "final": "https://riseboro.org/program/nutrition/",
+      "title": "RiseBoro | Food and Nutrition - RiseBoro",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.sacssny.org/weekly-activity/",
+      "status": 200,
+      "final": "https://www.sacssny.org/weekly-activity/",
+      "title": "This Week @ SACSS - South Asian Council for Social Services (SACSS)",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://whedco.org/education-family-support/family-support-2/",
+      "status": 200,
+      "final": "https://whedco.org/education-family-support/family-support-2/",
+      "title": "Family Support | WHEDco",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://dol.ny.gov/node/4976",
+      "status": 200,
+      "final": "https://dol.ny.gov/node/4976",
+      "title": "Elmhurst Workforce1 Career Center | Department of Labor",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://dol.ny.gov/location/kings-county-new-york-state-department-labor-workforce1-career-center",
+      "status": 200,
+      "final": "https://dol.ny.gov/location/kings-county-new-york-state-department-labor-workforce1-career-center",
+      "title": "Kings County - New York State Department of Labor Workforce1 Career Center | Department of Labor",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://dol.ny.gov/location/long-island-city-workforce1-career-center",
+      "status": 200,
+      "final": "https://dol.ny.gov/location/long-island-city-workforce1-career-center",
+      "title": "Long Island City Workforce1 Career Center | Department of Labor",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://dol.ny.gov/node/5241",
+      "status": 200,
+      "final": "https://dol.ny.gov/node/5241",
+      "title": "Lower Manhattan Workforce1 Career Center | Department of Labor",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://dol.ny.gov/location/midtown-workforce1-career-center",
+      "status": 200,
+      "final": "https://dol.ny.gov/location/midtown-workforce1-career-center",
+      "title": "Midtown Workforce1 Career Center | Department of Labor",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://dol.ny.gov/node/5126",
+      "status": 200,
+      "final": "https://dol.ny.gov/node/5126",
+      "title": "Bronx Workforce1 Career Center | Department of Labor",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.nyc.gov/site/sbs/careers/wf1-career-centers.page",
+      "status": 200,
+      "final": "https://www.nyc.gov/site/sbs/careers/wf1-career-centers.page",
+      "title": "Workforce1 Career Centers - SBS",
+      "contentType": "text/html;charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://dol.ny.gov/location/brooklyn-workforce1-career-center",
+      "status": 200,
+      "final": "https://dol.ny.gov/location/brooklyn-workforce1-career-center",
+      "title": "Brooklyn Workforce1 Career Center | Department of Labor",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://dol.ny.gov/location/flushing-library-workforce1-career-center",
+      "status": 200,
+      "final": "https://dol.ny.gov/location/flushing-library-workforce1-career-center",
+      "title": "Flushing Library Workforce1 Career Center | Department of Labor",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://dol.ny.gov/location/workforce1-healthcare-career-center",
+      "status": 200,
+      "final": "https://dol.ny.gov/location/workforce1-healthcare-career-center",
+      "title": "Workforce1 Healthcare Career Center | Department of Labor",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://dol.ny.gov/location/hunts-point-workforce1-career-center",
+      "status": 200,
+      "final": "https://dol.ny.gov/location/hunts-point-workforce1-career-center",
+      "title": "Hunts Point Workforce1 Career Center | Department of Labor",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://dol.ny.gov/node/4426",
+      "status": 200,
+      "final": "https://dol.ny.gov/node/4426",
+      "title": "Queens Career Center | Department of Labor",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://dol.ny.gov/node/3546",
+      "status": 200,
+      "final": "https://dol.ny.gov/node/3546",
+      "title": "Staten Island Workforce 1 Career Center | Department of Labor",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://dol.ny.gov/node/4501",
+      "status": 200,
+      "final": "https://dol.ny.gov/node/4501",
+      "title": "NYC Workforce 1 Career Center | Department of Labor",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://portal.311.nyc.gov/article/?kanumber=KA-02827",
+      "status": 200,
+      "final": "https://portal.311.nyc.gov/article/?kanumber=KA-02827",
+      "title": "Job Training and Placement for Foreign-Born New Yorkers&nbsp;\u00b7 NYC311",
+      "contentType": "text/html; charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://dol.ny.gov/location/workforce1-industrial-transportation-career-center",
+      "status": 200,
+      "final": "https://dol.ny.gov/location/workforce1-industrial-transportation-career-center",
+      "title": "Workforce1 Industrial &amp; Transportation Career Center | Department of Labor",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.nyc.gov/site/hra/locations/home-energy-assistance-program.page",
+      "status": 200,
+      "final": "https://www.nyc.gov/site/hra/locations/home-energy-assistance-program.page",
+      "title": "HEAP BAC Locations - HRA",
+      "contentType": "text/html;charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://centerforfamilylife.org/legal-services-and-benefits-screening/",
+      "status": 403,
+      "final": "https://centerforfamilylife.org/legal-services-and-benefits-screening/",
+      "verification": "automated access denied; not proof of a broken visitor page"
+    },
+    {
+      "url": "https://www.nyc.gov/site/hra/locations/ocss-locations.page",
+      "status": 200,
+      "final": "https://www.nyc.gov/site/hra/locations/ocss-locations.page",
+      "title": "OCSS Locations - HRA",
+      "contentType": "text/html;charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.nyc.gov/assets/hra/downloads/pdf/services/efap/CFC_ACTIVE.pdf",
+      "status": 200,
+      "final": "https://www.nyc.gov/assets/hra/downloads/pdf/services/efap/CFC_ACTIVE.pdf",
+      "title": "",
+      "contentType": "application/pdf",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.foodbanknyc.org/find-food/snap-help/snap-partners/",
+      "status": 200,
+      "final": "https://www.foodbanknyc.org/find-food/snap-help/snap-partners/",
+      "title": "SNAP Partners - Food Bank For NYC",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.bsfhc.org/women-infant-children-wic",
+      "status": 200,
+      "final": "https://www.bsfhc.org/women-infant-children-wic",
+      "title": "Women Infants and Children (WIC) New York Ave, Brooklyn NY",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://onebrooklynhealth.org/services/wic-program",
+      "status": 200,
+      "final": "https://onebrooklynhealth.org/services/wic-program",
+      "title": "WIC Program | One Brooklyn Health",
+      "contentType": "text/html; charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.tbh.org/locations/women-infants-children-program-centers",
+      "status": 200,
+      "final": "https://www.tbh.org/locations/women-infants-children-program-centers",
+      "title": "Women, Infants &amp; Children (WIC) Program Centers in Brooklyn, NY - The Brooklyn Hospital Center",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://bmsfamilyhealth.org/wic/",
+      "status": "unverified",
+      "error": "<urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:1129)>",
+      "verification": "needs follow-up or corrected visitor destination"
+    },
+    {
+      "url": "https://www.health.ny.gov/prevention/nutrition/wic/local_agencies.htm",
+      "status": 200,
+      "final": "https://www.health.ny.gov/prevention/nutrition/wic/local_agencies.htm",
+      "title": "Offices (Local Agencies) That Provide WIC Services",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.nychealthandhospitals.org/bellevue/services/wic/",
+      "status": 200,
+      "title": "Radware Block Page",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "blocked by website"
+    },
+    {
+      "url": "https://www.nychealthandhospitals.org/elmhurst/services/wic/",
+      "status": 200,
+      "title": "Radware Block Page",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "blocked by website"
+    },
+    {
+      "url": "https://www.commonpoint.org/program/digital-food-pantry",
+      "status": 200,
+      "final": "https://www.commonpoint.org/program/digital-food-pantry",
+      "title": "Digital Food Pantry - Commonpoint",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.thehes.org/food-pantry/",
+      "status": 200,
+      "final": "https://www.thehes.org/food-pantry/",
+      "title": "FOOD PANTRY - Hebrew Educational Society",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.addabbo.org/our-services/women-infants-and-children-wic-program/",
+      "status": 200,
+      "final": "https://www.addabbo.org/women-infants-and-children-wic-program",
+      "title": "Women, Infants and Children (WIC) Program | Primary Care, Dentists, Podiatry, Obstetrics &amp; Gynecology, Pharmacy, Cardiology, Behavioral Health &amp; Pediatric Dentistry in Arverne, Far Rockaway, J",
+      "contentType": "text/html",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://lacasadesalud.org/wic-program/",
+      "status": 200,
+      "final": "https://lacasadesalud.org/wic-program/",
+      "title": "WIC Program for Women and Children - La Casa de Salud",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.nychealthandhospitals.org/lincoln/services/wic/",
+      "status": 200,
+      "title": "Radware Block Page",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "blocked by website"
+    },
+    {
+      "url": "https://montefioreeinstein.org/patient-care/services/primary-care/community-health-programs/women-infants-children-wic?fp-link-id=kcxp9r1g",
+      "status": 200,
+      "final": "https://montefioreeinstein.org/patient-care/services/primary-care/community-health-programs/women-infants-children-wic?fp-link-id=kcxp9r1g",
+      "title": "Women, Infants &amp; Children (WIC) | Montefiore Medical Group | Patient Care | Montefiore Einstein",
+      "contentType": "text/html; charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.mhhc.org/our-services/mhhc-wic-program/wic-locations-contact-information/",
+      "status": 403,
+      "final": "https://www.mhhc.org/our-services/mhhc-wic-program/wic-locations-contact-information/",
+      "verification": "automated access denied; not proof of a broken visitor page"
+    },
+    {
+      "url": "https://www.nychealthandhospitals.org/gotham-health/morrisania/services/wic/",
+      "status": 200,
+      "title": "Radware Block Page",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "blocked by website"
+    },
+    {
+      "url": "https://www.wicstrong.com/agency/morrisania-diagnostic-treatment-center/",
+      "status": 200,
+      "final": "https://www.wicstrong.com/agency/morrisania-diagnostic-treatment-center/",
+      "title": "Morrisania Diagnostic &amp; Treatment Center - WIC - WICstrong",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.nyp.org/acn/community-programs/wic-program",
+      "status": 200,
+      "final": "https://www.nyp.org/acn/community-programs/wic-program",
+      "title": "WIC Program | NewYork-Presbyterian",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.nychealthandhospitals.org/woodhull/services/wic/",
+      "status": 200,
+      "title": "Radware Block Page",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "blocked by website"
+    },
+    {
+      "url": "https://www.nychealthandhospitals.org/metropolitan/services/wic/",
+      "status": 200,
+      "title": "Radware Block Page",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "blocked by website"
+    },
+    {
+      "url": "https://healthsolutions.org/food-and-nutrition/neighborhood-wic/",
+      "status": 403,
+      "final": "https://healthsolutions.org/food-and-nutrition/neighborhood-wic/",
+      "verification": "automated access denied; not proof of a broken visitor page"
+    },
+    {
+      "url": "https://healthsolutions.org/food-and-nutrition/snap-assistance/",
+      "status": 403,
+      "final": "https://healthsolutions.org/food-and-nutrition/snap-assistance/",
+      "verification": "automated access denied; not proof of a broken visitor page"
+    },
+    {
+      "url": "https://www.nychealthandhospitals.org/queens/services/wic/",
+      "status": 200,
+      "title": "Radware Block Page",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "blocked by website"
+    },
+    {
+      "url": "https://www.nychealthandhospitals.org/southbrooklynhealth/services/wic/",
+      "status": 200,
+      "title": "Radware Block Page",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "blocked by website"
+    },
+    {
+      "url": "https://www.sbhny.org/wic/",
+      "status": 200,
+      "final": "https://www.sbhny.org/wic/",
+      "title": "WIC Program - SBH Health System",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://straphael-queens.org/ministries/food-pantry",
+      "status": 200,
+      "final": "https://straphael-queens.org/ministries/food-pantry",
+      "title": "Food Pantry - St. Raphael",
+      "contentType": "text/html; charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.urbanhealthplan.org/wic-program-women-infants-children/",
+      "status": 200,
+      "final": "https://www.urbanhealthplan.org/social-programs/wic-program-women-infants-children/",
+      "title": "WIC Program - Urban Health Plan",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://ryanhealth.org/services/wic-2-2",
+      "status": 404,
+      "final": "https://ryanhealth.org/services/wic-2-2",
+      "verification": "needs follow-up or corrected visitor destination"
+    },
+    {
+      "url": "https://www.adhikaar.org/news/newsletter-jan-march-2024",
+      "status": 200,
+      "final": "https://www.adhikaar.org/news/newsletter-jan-march-2024",
+      "title": "Adhikaar\u2019s Newsletter: January-March 2024 &mdash; Adhikaar",
+      "contentType": "text/html;charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://alliance.nyc/visit-us",
+      "status": 200,
+      "final": "https://alliance.nyc/visit-us",
+      "title": "Visit Us &mdash; The Alliance",
+      "contentType": "text/html;charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://info.nystateofhealth.ny.gov/sites/default/files/September%202026%20Site%20Schedule%20Directory.pdf",
+      "status": 200,
+      "final": "https://info.nystateofhealth.ny.gov/sites/default/files/September%202026%20Site%20Schedule%20Directory.pdf",
+      "title": "",
+      "contentType": "application/pdf",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.aafe.org/missions/community-services/health-access-services/",
+      "status": 200,
+      "final": "https://www.aafe.org/missions/community-services/health-access-services/",
+      "title": "Health Access &amp; Services | Asian Americans for Equality",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://bronxworks.org/our-services/benefits-and-other-assistance/health-insurance-assistance/",
+      "status": 200,
+      "final": "https://bronxworks.org/our-services/benefits-and-other-assistance/health-insurance-assistance/",
+      "title": "Health Insurance Assistance - BronxWorks",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.cianainc.org/nyc-care",
+      "status": 200,
+      "final": "https://www.cianainc.org/nyc-care",
+      "title": "NYC Care: Healthcare for Immigrant New Yorkers | CIANA",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.sijcc.org/health-insurance-programs",
+      "status": 200,
+      "final": "https://www.sijcc.org/health-insurance-programs",
+      "title": "Health Insurance Programs | Get Covered Today - Enroll Now &mdash; Staten Island Jewish Community Center",
+      "contentType": "text/html;charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://copo.org/",
+      "status": 500,
+      "final": "https://copo.org/",
+      "verification": "needs follow-up or corrected visitor destination"
+    },
+    {
+      "url": "https://eiic.org/social-services/health/",
+      "status": 200,
+      "final": "https://eiic.org/social-services/health/",
+      "title": "Healthcare &#8211; Emerald Isle Immigration Center",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://entertainmentcommunity.org/faqs",
+      "status": 200,
+      "final": "https://entertainmentcommunity.org/faqs",
+      "title": "FAQs | Entertainment Community Fund",
+      "contentType": "text/html; charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://hanac.org/programs-services/adult-family-programs/health-care-access/",
+      "status": 200,
+      "final": "https://hanac.org/programs-services/adult-family-programs/health-care-access/",
+      "title": "Health Care Access - HANAC",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.achiezer.org/contact",
+      "status": 200,
+      "final": "https://www.achiezer.org/contact",
+      "title": "Contact: Achiezer",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://sa1s3optim.patientpop.com/assets/docs/461240.pdf",
+      "status": 200,
+      "final": "https://sa1s3.patientpop.com/assets/docs/461240.pdf",
+      "title": "",
+      "contentType": "application/pdf",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.kcsny.org/phrc",
+      "status": 200,
+      "final": "https://www.kcsny.org/phrc",
+      "title": "Public Health &amp; Research | Korean Community Ser",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://metcouncil.org/services/benefits-access/",
+      "status": 200,
+      "final": "https://metcouncil.org/services/benefits-access/",
+      "title": "Benefits Access - Met Council",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://metroplus.org/in-your-community/locations/manhattan/",
+      "status": 200,
+      "final": "https://metroplus.org/in-your-community/locations/manhattan/",
+      "title": "Manhattan Locations - MetroPlusHealth",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://metroplus.org/in-your-community/locations/brooklyn/",
+      "status": 200,
+      "final": "https://metroplus.org/in-your-community/locations/brooklyn/",
+      "title": "Brooklyn Locations - MetroPlusHealth",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://metroplus.org/in-your-community/locations/bronx/",
+      "status": 200,
+      "final": "https://metroplus.org/in-your-community/locations/bronx/",
+      "title": "Bronx Locations - MetroPlusHealth",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://metroplus.org/in-your-community/locations/staten-island/",
+      "status": 200,
+      "final": "https://metroplus.org/in-your-community/locations/staten-island/",
+      "title": "Staten Island Locations - MetroPlusHealth",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.mixteca.org/",
+      "status": 200,
+      "final": "https://www.mixteca.org/",
+      "title": "Mixteca",
+      "contentType": "text/html;charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://montefioreeinstein.org/patient-care/patients-visitors/billing-insurance/financial-services",
+      "status": 200,
+      "final": "https://montefioreeinstein.org/patient-care/patients-visitors/billing-insurance/financial-services",
+      "title": "Financial Services | Patient Care | Montefiore Einstein",
+      "contentType": "text/html; charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.mhhc.org/locations/health-connections-at-grand-avenue/",
+      "status": 403,
+      "final": "https://www.mhhc.org/locations/health-connections-at-grand-avenue/",
+      "verification": "automated access denied; not proof of a broken visitor page"
+    },
+    {
+      "url": "https://www.mhhc.org/documents/content/Need-Health-Insurance-English-and-Spanish.2%29.pdf",
+      "status": 403,
+      "final": "https://www.mhhc.org/documents/content/Need-Health-Insurance-English-and-Spanish.2%29.pdf",
+      "verification": "automated access denied; not proof of a broken visitor page"
+    },
+    {
+      "url": "https://www.nyc.gov/site/doh/health/health-topics/health-insurance.page",
+      "status": 200,
+      "final": "https://www.nyc.gov/site/doh/health/health-topics/health-insurance.page",
+      "title": "Health Insurance: Enrollment Counselors - NYC Health",
+      "contentType": "text/html;charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.nyc.gov/assets/ochia/downloads/pdf/facilitated-enrollers.pdf",
+      "status": 200,
+      "final": "https://www.nyc.gov/assets/ochia/downloads/pdf/facilitated-enrollers.pdf",
+      "title": "",
+      "contentType": "application/pdf",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://healthsolutions.org/health-insurance/aged-blind-and-disabled/",
+      "status": 403,
+      "final": "https://healthsolutions.org/health-insurance/aged-blind-and-disabled/",
+      "verification": "automated access denied; not proof of a broken visitor page"
+    },
+    {
+      "url": "https://healthsolutions.org/health-insurance/enrollment-services/",
+      "status": 403,
+      "final": "https://healthsolutions.org/health-insurance/enrollment-services/",
+      "verification": "automated access denied; not proof of a broken visitor page"
+    },
+    {
+      "url": "https://www.raisinghealth.org/community-centers",
+      "status": 200,
+      "final": "https://www.raisinghealth.org/community-centers",
+      "title": "Community Centers &mdash; RaisingHealth",
+      "contentType": "text/html;charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://sautiyetunyc.org/services/",
+      "status": 403,
+      "final": "https://sautiyetunyc.org/services/",
+      "verification": "automated access denied; not proof of a broken visitor page"
+    },
+    {
+      "url": "https://goodshepherds.org/program/cba/",
+      "status": 200,
+      "final": "https://goodshepherds.org/program/cba/",
+      "title": "Good Shepherd Services | Community Benefits Assistance - Good Shepherd Services",
+      "contentType": "text/html; charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://communityhealthadvocates.org/agencies/united-jewish-organizations-of-williamsburg/",
+      "status": 404,
+      "final": "https://communityhealthadvocates.org/agencies/united-jewish-organizations-of-williamsburg/",
+      "verification": "needs follow-up or corrected visitor destination"
+    },
+    {
+      "url": "https://www.urbanhealthplan.org/social-programs/health-information-place/",
+      "status": 200,
+      "final": "https://www.urbanhealthplan.org/social-programs/health-information-place/",
+      "title": "The Health Information Place - Urban Health Plan",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.voceslatinas.org/health-care-services",
+      "status": 200,
+      "final": "https://www.voceslatinas.org/health-care-services",
+      "title": "Health Care Services | Access Quality Care Today &mdash; VOCESLATINAS",
+      "contentType": "text/html;charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://portal.311.nyc.gov/article/?kanumber=KA-02501",
+      "status": 200,
+      "final": "https://portal.311.nyc.gov/article/?kanumber=KA-02501",
+      "title": "Homeless Shelters&nbsp;\u00b7 NYC311",
+      "contentType": "text/html; charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://portal.311.nyc.gov/article/?kanumber=KA-02528",
+      "status": 200,
+      "final": "https://portal.311.nyc.gov/article/?kanumber=KA-02528",
+      "title": "Homeless Drop-In Centers&nbsp;\u00b7 NYC311",
+      "contentType": "text/html; charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.nyc.gov/site/dycd/services/runaway-homeless-youth/borough-based-drop-in-centers.page",
+      "status": 200,
+      "final": "https://www.nyc.gov/site/dycd/services/runaway-homeless-youth/borough-based-drop-in-centers.page",
+      "title": "Borough-Based Drop-In Centers - DYCD",
+      "contentType": "text/html;charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://camba.org/programs/homebase/",
+      "status": 403,
+      "final": "https://camba.org/programs/homebase/",
+      "verification": "automated access denied; not proof of a broken visitor page"
+    },
+    {
+      "url": "https://www.nyc.gov/site/hra/help/homebase-locations.page",
+      "status": 200,
+      "final": "https://www.nyc.gov/site/hra/help/homebase-locations.page",
+      "title": "Homebase Locations",
+      "contentType": "text/html;charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://portal.311.nyc.gov/article/?kanumber=KA-02347",
+      "status": 200,
+      "final": "https://portal.311.nyc.gov/article/?kanumber=KA-02347",
+      "title": "Rent Freeze Program Renewal&nbsp;\u00b7 NYC311",
+      "contentType": "text/html; charset=utf-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.nyc.gov/site/nycha/residents/ccc-walk-in-centers.page",
+      "status": 200,
+      "final": "https://www.nyc.gov/site/nycha/residents/ccc-walk-in-centers.page",
+      "title": "ccc-walk-in-centers",
+      "contentType": "text/html;charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.ssa.gov/data/FO-Address-Open-Close-Times.csv",
+      "status": 403,
+      "final": "https://www.ssa.gov/data/FO-Address-Open-Close-Times.csv",
+      "verification": "automated access denied; not proof of a broken visitor page"
+    },
+    {
+      "url": "https://www.nyc.gov/site/fairfares/contact-us/contact-us.page",
+      "status": 200,
+      "final": "https://www.nyc.gov/site/fairfares/contact-us/contact-us.page",
+      "title": "Contact Us - Fair Fares",
+      "contentType": "text/html;charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.mta.info/contact-us/customer-service-centers",
+      "status": 403,
+      "final": "https://www.mta.info/contact-us/customer-service-centers",
+      "verification": "automated access denied; not proof of a broken visitor page"
+    },
+    {
+      "url": "https://www.nyc.gov/site/veterans/contact/veteran-resource-centers.page",
+      "status": 200,
+      "final": "https://www.nyc.gov/site/veterans/contact/veteran-resource-centers.page",
+      "title": "Veteran Resource Centers - Veterans",
+      "contentType": "text/html;charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://veterans.ny.gov/location/brooklyn-vetcenter",
+      "status": 200,
+      "final": "https://veterans.ny.gov/location/brooklyn-vetcenter",
+      "title": "Brooklyn VetCenter | New York State Department of Veterans&#039; Services",
+      "contentType": "text/html; charset=UTF-8",
+      "verification": "responded successfully"
+    },
+    {
+      "url": "https://www.va.gov/new-york-va-regional-benefit-office/",
+      "status": 200,
+      "final": "https://www.va.gov/new-york-va-regional-benefit-office/",
+      "title": "New York VA Regional Benefit Office | Veterans Affairs",
+      "contentType": "text/html",
+      "verification": "responded successfully"
+    }
+  ],
+  "replacementVerification": {
+    "SSA": "Official SSA locator retrieved through web source on 2026-09-27; direct automated requests are blocked.",
+    "Ryan Health": "Current WIC link followed from the live official services navigation to /services/wic-2. Current Monday onsite opening time matches the existing 10:30 schedule.",
+    "UJO": "CSS navigator network listing retrieved HTTP 200 and names United Jewish Organizations of Williamsburg with its phone number.",
+    "COPO": "NYC Care partner directory retrieved HTTP 200 and names Council of Peoples Organization with its address and phone number.",
+    "Polish and Slavic Center": "Official main-domain mission page retrieved through web source; lists social services and the Krakus center.",
+    "BMS": "WIC page verified through web source; initial direct Python request had a TLS compatibility error, not a missing page."
+  }
+}
