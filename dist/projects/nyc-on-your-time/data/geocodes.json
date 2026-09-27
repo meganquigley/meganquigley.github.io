@@ -1,0 +1,2250 @@
+[
+  {
+    "id": "idnyc-enrollment-bronx-business-center",
+    "query": "3030 Third Avenue Bronx",
+    "coordinates": [
+      -73.913054,
+      40.819378
+    ],
+    "matchedLabel": "3030 THIRD AVENUE, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=3030+Third+Avenue+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "idnyc-enrollment-bronx-monterey",
+    "query": "1910 Monterey Avenue Bronx",
+    "coordinates": [
+      -73.894845,
+      40.847035
+    ],
+    "matchedLabel": "1910 MONTEREY AVENUE, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=1910+Monterey+Avenue+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "idnyc-enrollment-brooklyn-public-library-central",
+    "query": "10 Grand Army Plaza Brooklyn",
+    "coordinates": [
+      -73.96809,
+      40.6724
+    ],
+    "matchedLabel": "10 GRAND ARMY PLAZA, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=10+Grand+Army+Plaza+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "idnyc-enrollment-east-new-york",
+    "query": "2400 Fulton Street Brooklyn",
+    "coordinates": [
+      -73.90414,
+      40.67753
+    ],
+    "matchedLabel": "2400 FULTON STREET, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=2400+Fulton+Street+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "idnyc-enrollment-coney-island",
+    "query": "1912 Mermaid Avenue Brooklyn",
+    "coordinates": [
+      -73.98624,
+      40.57573
+    ],
+    "matchedLabel": "1912 MERMAID AVENUE, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=1912+Mermaid+Avenue+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "idnyc-enrollment-manhattan-business-center",
+    "query": "66 John Street Manhattan",
+    "coordinates": [
+      -74.007961,
+      40.708794
+    ],
+    "matchedLabel": "66 JOHN STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=66+John+Street+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "idnyc-enrollment-union-square",
+    "query": "109 East 16th Street Manhattan",
+    "coordinates": [
+      -73.988093,
+      40.735671
+    ],
+    "matchedLabel": "109 EAST 16 STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=109+East+16th+Street+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "idnyc-enrollment-east-harlem",
+    "query": "158 East 115th Street Manhattan",
+    "coordinates": [
+      -73.941788,
+      40.797619
+    ],
+    "matchedLabel": "158 EAST 115 STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=158+East+115th+Street+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "idnyc-enrollment-queens-public-library-at-central",
+    "query": "89-11 Merrick Boulevard Queens",
+    "coordinates": [
+      -73.794604,
+      40.707828
+    ],
+    "matchedLabel": "89-11 MERRICK BOULEVARD, Jamaica, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=89-11+Merrick+Boulevard+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "idnyc-enrollment-queens-business-center",
+    "query": "144-06 94th Avenue Queens",
+    "coordinates": [
+      -73.807724,
+      40.698375
+    ],
+    "matchedLabel": "144-06 94 AVENUE, Jamaica, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=144-06+94th+Avenue+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "idnyc-enrollment-staten-island",
+    "query": "201 Bay Street Staten Island",
+    "coordinates": [
+      -74.075698,
+      40.637338
+    ],
+    "matchedLabel": "201 BAY STREET, Staten Island, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=201+Bay+Street+Staten+Island&size=1",
+    "accepted": true
+  },
+  {
+    "id": "benefits-office-support-crotona",
+    "query": "1910 Monterey Avenue Bronx",
+    "coordinates": [
+      -73.894845,
+      40.847035
+    ],
+    "matchedLabel": "1910 MONTEREY AVENUE, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=1910+Monterey+Avenue+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "benefits-office-support-fordham",
+    "query": "2541-2549 Bainbridge Avenue Bronx",
+    "coordinates": null,
+    "matchedLabel": "2541 BAINBRIDGE AVENUE, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=2541-2549+Bainbridge+Avenue+Bronx&size=1",
+    "accepted": false
+  },
+  {
+    "id": "benefits-office-support-concourse",
+    "query": "845 Barretto Street Bronx",
+    "coordinates": [
+      -73.89087,
+      40.817106
+    ],
+    "matchedLabel": "845 BARRETTO STREET, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=845+Barretto+Street+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "benefits-office-support-hunts-point",
+    "query": "847 Barretto Street Bronx",
+    "coordinates": [
+      -73.89087,
+      40.817106
+    ],
+    "matchedLabel": "847 BARRETTO STREET, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=847+Barretto+Street+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "benefits-office-support-rider",
+    "query": "300 Canal Place Bronx",
+    "coordinates": [
+      -73.927162,
+      40.813219
+    ],
+    "matchedLabel": "300 CANAL PLACE, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=300+Canal+Place+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "benefits-office-support-bushwick",
+    "query": "2 George\u00a0Street Brooklyn",
+    "coordinates": [
+      -73.932191,
+      40.700069
+    ],
+    "matchedLabel": "2 GEORGE STREET, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=2+George%C2%A0Street+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "benefits-office-support-clinton-hill",
+    "query": "495 Clermont Ave Brooklyn",
+    "coordinates": [
+      -73.968242,
+      40.682633
+    ],
+    "matchedLabel": "495 CLERMONT AVENUE, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=495+Clermont+Ave+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "benefits-office-support-coney-island",
+    "query": "1912 Mermaid Avenue Brooklyn",
+    "coordinates": [
+      -73.98624,
+      40.57573
+    ],
+    "matchedLabel": "1912 MERMAID AVENUE, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=1912+Mermaid+Avenue+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "benefits-office-support-east-new-york",
+    "query": "2400 Fulton Street Brooklyn",
+    "coordinates": [
+      -73.90414,
+      40.67753
+    ],
+    "matchedLabel": "2400 FULTON STREET, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=2400+Fulton+Street+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "benefits-office-support-dyckman",
+    "query": "4055 10th Avenue Manhattan",
+    "coordinates": [
+      -73.913833,
+      40.870066
+    ],
+    "matchedLabel": "4055 10 AVENUE, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=4055+10th+Avenue+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "benefits-office-support-east-end",
+    "query": "2322 Third Avenue Manhattan",
+    "coordinates": [
+      -73.935498,
+      40.804823
+    ],
+    "matchedLabel": "2322 THIRD AVENUE, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=2322+Third+Avenue+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "benefits-office-support-st-nicholas",
+    "query": "132 W. 125th Street Manhattan",
+    "coordinates": [
+      -73.947408,
+      40.80812
+    ],
+    "matchedLabel": "132 WEST 125 STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=132+W.+125th+Street+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "benefits-office-support-lower-manhattan",
+    "query": "109 E. 16th Street Manhattan",
+    "coordinates": [
+      -73.988093,
+      40.735671
+    ],
+    "matchedLabel": "109 EAST 16 STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=109+E.+16th+Street+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "benefits-office-support-jamaica",
+    "query": "165-08 88th Avenue Queens",
+    "coordinates": [
+      -73.796319,
+      40.708569
+    ],
+    "matchedLabel": "165-08 88 AVENUE, Jamaica, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=165-08+88th+Avenue+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "benefits-office-support-queens",
+    "query": "32-20 Northern Blvd Queens",
+    "coordinates": [
+      -73.930976,
+      40.751563
+    ],
+    "matchedLabel": "32-20 NORTHERN BOULEVARD, Long Island City, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=32-20+Northern+Blvd+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "benefits-office-support-rockaway",
+    "query": "219 Beach 59th Street Queens",
+    "coordinates": [
+      -73.789306,
+      40.592724
+    ],
+    "matchedLabel": "219 BEACH 59 STREET, Arverne, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=219+Beach+59th+Street+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "benefits-office-support-richmond",
+    "query": "201 Bay Street Staten Island",
+    "coordinates": [
+      -74.075698,
+      40.637338
+    ],
+    "matchedLabel": "201 BAY STREET, Staten Island, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=201+Bay+Street+Staten+Island&size=1",
+    "accepted": true
+  },
+  {
+    "id": "specialized-benefits-support-union-square-service-center",
+    "query": "109 East 16th Street Manhattan",
+    "coordinates": [
+      -73.988093,
+      40.735671
+    ],
+    "matchedLabel": "109 EAST 16 STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=109+East+16th+Street+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "specialized-benefits-support-michael-j-handy-veterans-service-center",
+    "query": "25 Chapel Street Brooklyn",
+    "coordinates": [
+      -73.985887,
+      40.697433
+    ],
+    "matchedLabel": "25 CHAPEL STREET, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=25+Chapel+Street+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "specialized-benefits-support-ebt-services-office",
+    "query": "785 Atlantic Avenue Brooklyn",
+    "coordinates": [
+      -73.968242,
+      40.682633
+    ],
+    "matchedLabel": "785 ATLANTIC AVENUE, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=785+Atlantic+Avenue+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "specialized-benefits-support-refugee-and-immigrant-service-center",
+    "query": "25 Chapel Street Brooklyn",
+    "coordinates": [
+      -73.985887,
+      40.697433
+    ],
+    "matchedLabel": "25 CHAPEL STREET, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=25+Chapel+Street+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "specialized-benefits-support-residential-treatment-service-center",
+    "query": "109 East 16th Street Manhattan",
+    "coordinates": [
+      -73.988093,
+      40.735671
+    ],
+    "matchedLabel": "109 EAST 16 STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=109+East+16th+Street+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "specialized-benefits-support-special-project-center",
+    "query": "109 East 16th Street Manhattan",
+    "coordinates": [
+      -73.988093,
+      40.735671
+    ],
+    "matchedLabel": "109 EAST 16 STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=109+East+16th+Street+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "specialized-benefits-support-transportation-unit",
+    "query": "25 Chapel Street Brooklyn",
+    "coordinates": [
+      -73.985887,
+      40.697433
+    ],
+    "matchedLabel": "25 CHAPEL STREET, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=25+Chapel+Street+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "family-services-recertification-bronx-satellite",
+    "query": "847 Barretto Street Bronx",
+    "coordinates": [
+      -73.89087,
+      40.817106
+    ],
+    "matchedLabel": "847 BARRETTO STREET, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=847+Barretto+Street+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "family-services-recertification-brooklyn-satellite",
+    "query": "2400 Fulton Street Brooklyn",
+    "coordinates": [
+      -73.90414,
+      40.67753
+    ],
+    "matchedLabel": "2400 FULTON STREET, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=2400+Fulton+Street+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "family-services-recertification-manhattan-satellite",
+    "query": "132 West 125th Street Manhattan",
+    "coordinates": [
+      -73.947408,
+      40.80812
+    ],
+    "matchedLabel": "132 WEST 125 STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=132+West+125th+Street+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "family-services-recertification-queens-satellite",
+    "query": "32-20 Northern Boulevard Queens",
+    "coordinates": [
+      -73.930976,
+      40.751563
+    ],
+    "matchedLabel": "32-20 NORTHERN BOULEVARD, Long Island City, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=32-20+Northern+Boulevard+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "snap-office-support-crotona-snap-center",
+    "query": "1910 Monterey Avenue Bronx",
+    "coordinates": [
+      -73.894845,
+      40.847035
+    ],
+    "matchedLabel": "1910 MONTEREY AVENUE, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=1910+Monterey+Avenue+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "snap-office-support-hunts-point-snap-center",
+    "query": "845 Barretto Street Bronx",
+    "coordinates": [
+      -73.89087,
+      40.817106
+    ],
+    "matchedLabel": "845 BARRETTO STREET, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=845+Barretto+Street+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "snap-office-support-coney-island-snap-center",
+    "query": "1912 Mermaid Avenue Brooklyn",
+    "coordinates": [
+      -73.98624,
+      40.57573
+    ],
+    "matchedLabel": "1912 MERMAID AVENUE, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=1912+Mermaid+Avenue+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "snap-office-support-east-new-york-snap-center",
+    "query": "2400 Fulton Street Brooklyn",
+    "coordinates": [
+      -73.90414,
+      40.67753
+    ],
+    "matchedLabel": "2400 FULTON STREET, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=2400+Fulton+Street+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "snap-office-support-williamsburg-snap-center",
+    "query": "2 George Street Brooklyn",
+    "coordinates": [
+      -73.932191,
+      40.700069
+    ],
+    "matchedLabel": "2 GEORGE STREET, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=2+George+Street+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "snap-office-support-east-end-snap-center",
+    "query": "2322 Third Avenue Manhattan",
+    "coordinates": [
+      -73.935498,
+      40.804823
+    ],
+    "matchedLabel": "2322 THIRD AVENUE, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=2322+Third+Avenue+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "snap-office-support-washington-heights-snap-center",
+    "query": "4055 10th Avenue Manhattan",
+    "coordinates": [
+      -73.913833,
+      40.870066
+    ],
+    "matchedLabel": "4055 10 AVENUE, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=4055+10th+Avenue+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "snap-office-support-lower-manhattan",
+    "query": "109 E. 16th Street Manhattan",
+    "coordinates": [
+      -73.988093,
+      40.735671
+    ],
+    "matchedLabel": "109 EAST 16 STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=109+E.+16th+Street+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "snap-office-support-st-nicholas",
+    "query": "132 W. 125th Street Manhattan",
+    "coordinates": [
+      -73.947408,
+      40.80812
+    ],
+    "matchedLabel": "132 WEST 125 STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=132+W.+125th+Street+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "snap-office-support-jamaica-snap-center",
+    "query": "165-08 88th Avenue Queens",
+    "coordinates": [
+      -73.796319,
+      40.708569
+    ],
+    "matchedLabel": "165-08 88 AVENUE, Jamaica, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=165-08+88th+Avenue+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "snap-office-support-queens-snap-center",
+    "query": "32-20 Northern Blvd. Queens",
+    "coordinates": [
+      -73.930976,
+      40.751563
+    ],
+    "matchedLabel": "32-20 NORTHERN BOULEVARD, Long Island City, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=32-20+Northern+Blvd.+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "snap-office-support-rockaway-snap-center",
+    "query": "219 Beach 59th Street Queens",
+    "coordinates": [
+      -73.789306,
+      40.592724
+    ],
+    "matchedLabel": "219 BEACH 59 STREET, Arverne, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=219+Beach+59th+Street+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "snap-office-support-richmond-snap-center",
+    "query": "201 Bay Street Staten Island",
+    "coordinates": [
+      -74.075698,
+      40.637338
+    ],
+    "matchedLabel": "201 BAY STREET, Staten Island, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=201+Bay+Street+Staten+Island&size=1",
+    "accepted": true
+  },
+  {
+    "id": "medicaid-office-support-rider-community",
+    "query": "305 Rider Avenue Bronx",
+    "coordinates": [
+      -73.927162,
+      40.813219
+    ],
+    "matchedLabel": "305 RIDER AVENUE, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=305+Rider+Avenue+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "medicaid-office-support-fordham",
+    "query": "2541-2549 Bainbridge Avenue Bronx",
+    "coordinates": null,
+    "matchedLabel": "2541 BAINBRIDGE AVENUE, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=2541-2549+Bainbridge+Avenue+Bronx&size=1",
+    "accepted": false
+  },
+  {
+    "id": "medicaid-office-support-coney-island",
+    "query": "1912 Mermaid Avenue Brooklyn",
+    "coordinates": [
+      -73.98624,
+      40.57573
+    ],
+    "matchedLabel": "1912 MERMAID AVENUE, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=1912+Mermaid+Avenue+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "medicaid-office-support-east-new-york",
+    "query": "2400 Fulton Street Brooklyn",
+    "coordinates": [
+      -73.90414,
+      40.67753
+    ],
+    "matchedLabel": "2400 FULTON STREET, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=2400+Fulton+Street+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "medicaid-office-support-kings-county-hospital",
+    "query": "441 Clarkson Avenue Brooklyn",
+    "coordinates": [
+      -73.944896,
+      40.656588
+    ],
+    "matchedLabel": "441 CLARKSON AVENUE, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=441+Clarkson+Avenue+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "medicaid-office-support-brooklyn-south",
+    "query": "495 Clermont Avenue Brooklyn",
+    "coordinates": [
+      -73.968242,
+      40.682633
+    ],
+    "matchedLabel": "495 CLERMONT AVENUE, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=495+Clermont+Avenue+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "medicaid-office-support-chinatown",
+    "query": "115 Chrystie Street Manhattan",
+    "coordinates": [
+      -73.993909,
+      40.71869
+    ],
+    "matchedLabel": "115 CHRYSTIE STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=115+Chrystie+Street+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "medicaid-office-support-dyckman-community",
+    "query": "4055 10th Avenue Manhattan",
+    "coordinates": [
+      -73.913833,
+      40.870066
+    ],
+    "matchedLabel": "4055 10 AVENUE, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=4055+10th+Avenue+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "medicaid-office-support-queens-community",
+    "query": "32-20 Northern Boulevard Queens",
+    "coordinates": [
+      -73.930976,
+      40.751563
+    ],
+    "matchedLabel": "32-20 NORTHERN BOULEVARD, Long Island City, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=32-20+Northern+Boulevard+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "medicaid-office-support-jamaica-community",
+    "query": "165-08 88th Avenue Queens",
+    "coordinates": [
+      -73.796319,
+      40.708569
+    ],
+    "matchedLabel": "165-08 88 AVENUE, Jamaica, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=165-08+88th+Avenue+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "medicaid-office-support-staten-island",
+    "query": "215 Bay Street Staten Island",
+    "coordinates": [
+      -74.075807,
+      40.636941
+    ],
+    "matchedLabel": "215 BAY STREET, Staten Island, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=215+Bay+Street+Staten+Island&size=1",
+    "accepted": true
+  },
+  {
+    "id": "school-enrollment-help-fordham-family-welcome-center",
+    "query": "1 Fordham Plaza Bronx",
+    "coordinates": [
+      -73.889582,
+      40.860381
+    ],
+    "matchedLabel": "1 FORDHAM PLAZA, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=1+Fordham+Plaza+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "school-enrollment-help-zerega-family-welcome-center",
+    "query": "1230 Zerega Avenue Bronx",
+    "coordinates": [
+      -73.844549,
+      40.833883
+    ],
+    "matchedLabel": "1230 ZEREGA AVENUE, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=1230+Zerega+Avenue+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "school-enrollment-help-89-street-family-welcome-center",
+    "query": "415 89th Street Brooklyn",
+    "coordinates": [
+      -74.028577,
+      40.620419
+    ],
+    "matchedLabel": "415 89 STREET, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=415+89th+Street+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "school-enrollment-help-st-marks-family-welcome-center",
+    "query": "1665 St. Marks Avenue Brooklyn",
+    "coordinates": [
+      -73.911926,
+      40.673404
+    ],
+    "matchedLabel": "1665 ST MARK'S AVENUE, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=1665+St.+Marks+Avenue+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "school-enrollment-help-ocean-avenue-family-welcome-center",
+    "query": "1780 Ocean Avenue Brooklyn",
+    "coordinates": [
+      -73.955396,
+      40.61872
+    ],
+    "matchedLabel": "1780 OCEAN AVENUE, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=1780+Ocean+Avenue+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "school-enrollment-help-333-7th-avenue-family-welcome-center",
+    "query": "333 Seventh Avenue Manhattan",
+    "coordinates": [
+      -73.99283,
+      40.747415
+    ],
+    "matchedLabel": "333 SEVENTH AVENUE, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=333+Seventh+Avenue+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "school-enrollment-help-morningside-family-welcome-center",
+    "query": "123 Morningside Drive Manhattan",
+    "coordinates": [
+      -73.957418,
+      40.81062
+    ],
+    "matchedLabel": "123 MORNINGSIDE DRIVE, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=123+Morningside+Drive+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "school-enrollment-help-sutphin-family-welcome-center",
+    "query": "90-27 Sutphin Boulevard Queens",
+    "coordinates": [
+      -73.807816,
+      40.702455
+    ],
+    "matchedLabel": "90-27 SUTPHIN BOULEVARD, Jamaica, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=90-27+Sutphin+Boulevard+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "school-enrollment-help-linden-family-welcome-center",
+    "query": "30-48 Linden Place Queens",
+    "coordinates": [
+      -73.833169,
+      40.769621
+    ],
+    "matchedLabel": "30-48 LINDEN PLACE, Flushing, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=30-48+Linden+Place+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "school-enrollment-help-queens-plaza-north-family-welcome-center",
+    "query": "28-11 Queens Plaza North Queens",
+    "coordinates": [
+      -73.937998,
+      40.750265
+    ],
+    "matchedLabel": "28-11 QUEENS PLAZA NORTH, Long Island City, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=28-11+Queens+Plaza+North+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "school-enrollment-help-bay-street-welcome-center",
+    "query": "365 Bay Street Staten Island",
+    "coordinates": [
+      -74.074694,
+      40.633316
+    ],
+    "matchedLabel": "365 BAY STREET, Staten Island, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=365+Bay+Street+Staten+Island&size=1",
+    "accepted": true
+  },
+  {
+    "id": "marriage-license-bronx-city-clerk",
+    "query": "851 Grand Concourse Bronx",
+    "coordinates": [
+      -73.923808,
+      40.826285
+    ],
+    "matchedLabel": "851 GRAND CONCOURSE, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=851+Grand+Concourse+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "marriage-license-brooklyn-city-clerk",
+    "query": "210 Joralemon Street Brooklyn",
+    "coordinates": [
+      -73.990501,
+      40.692131
+    ],
+    "matchedLabel": "210 JORALEMON STREET, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=210+Joralemon+Street+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "marriage-license-manhattan-city-clerk",
+    "query": "141 Worth Street Manhattan",
+    "coordinates": [
+      -74.001237,
+      40.71515
+    ],
+    "matchedLabel": "141 WORTH STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=141+Worth+Street+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "marriage-license-queens-city-clerk",
+    "query": "120-55 Queens Boulevard Queens",
+    "coordinates": [
+      -73.828104,
+      40.713783
+    ],
+    "matchedLabel": "120-55 QUEENS BOULEVARD, Kew Gardens, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=120-55+Queens+Boulevard+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "marriage-license-staten-island-city-clerk",
+    "query": "10 Richmond Terrace Staten Island",
+    "coordinates": [
+      -74.076018,
+      40.642348
+    ],
+    "matchedLabel": "10 RICHMOND TERRACE, Staten Island, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=10+Richmond+Terrace+Staten+Island&size=1",
+    "accepted": true
+  },
+  {
+    "id": "sexual-health-clinic-morrisania-sexual-health-clinic",
+    "query": "1309 Fulton Avenue Bronx",
+    "coordinates": [
+      -73.903443,
+      40.832794
+    ],
+    "matchedLabel": "1309 FULTON AVENUE, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=1309+Fulton+Avenue+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "sexual-health-clinic-jamaica-sexual-health-clinic",
+    "query": "90-37 Parsons Boulevard Queens",
+    "coordinates": [
+      -73.800209,
+      40.703964
+    ],
+    "matchedLabel": "90-37 PARSONS BOULEVARD, Jamaica, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=90-37+Parsons+Boulevard+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "sexual-health-clinic-corona-sexual-health-clinic",
+    "query": "34-33 Junction Boulevard Queens",
+    "coordinates": [
+      -73.871979,
+      40.754221
+    ],
+    "matchedLabel": "34-33 JUNCTION BOULEVARD, North Corona, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=34-33+Junction+Boulevard+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "sexual-health-clinic-fort-greene-sexual-health-clinic",
+    "query": "295 Flatbush Avenue Extension Brooklyn",
+    "coordinates": [
+      -73.973453,
+      40.679016
+    ],
+    "matchedLabel": "295 FLATBUSH AVENUE, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=295+Flatbush+Avenue+Extension+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "express-sti-testing-fort-greene-express-clinic",
+    "query": "295 Flatbush Avenue Extension Brooklyn",
+    "coordinates": [
+      -73.973453,
+      40.679016
+    ],
+    "matchedLabel": "295 FLATBUSH AVENUE, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=295+Flatbush+Avenue+Extension+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "sexual-health-clinic-chelsea-sexual-health-clinic",
+    "query": "303 9th Avenue Manhattan",
+    "coordinates": [
+      -73.99983,
+      40.749585
+    ],
+    "matchedLabel": "303 9 AVENUE, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=303+9th+Avenue+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "express-sti-testing-chelsea-express-clinic",
+    "query": "303 9th Avenue Manhattan",
+    "coordinates": [
+      -73.99983,
+      40.749585
+    ],
+    "matchedLabel": "303 9 AVENUE, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=303+9th+Avenue+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "sexual-health-clinic-central-harlem-sexual-health-clinic",
+    "query": "2238 Fifth Avenue Manhattan",
+    "coordinates": [
+      -73.93715,
+      40.813864
+    ],
+    "matchedLabel": "2238 FIFTH AVENUE, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=2238+Fifth+Avenue+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "sexual-health-clinic-crown-heights-sexual-health-clinic",
+    "query": "1218 Prospect Place Brooklyn",
+    "coordinates": [
+      -73.935805,
+      40.673312
+    ],
+    "matchedLabel": "1218 PROSPECT PLACE, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=1218+Prospect+Place+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "sexual-health-clinic-riverside-sexual-health-clinic",
+    "query": "160 West 100th Street Manhattan",
+    "coordinates": [
+      -73.967672,
+      40.795923
+    ],
+    "matchedLabel": "160 WEST 100 STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=160+West+100th+Street+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "tb-clinic-visit-morrisania-chest-center",
+    "query": "1309 Fulton Avenue Bronx",
+    "coordinates": [
+      -73.903443,
+      40.832794
+    ],
+    "matchedLabel": "1309 FULTON AVENUE, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=1309+Fulton+Avenue+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "tb-clinic-visit-fort-greene-chest-center",
+    "query": "295 Flatbush Avenue Extension Brooklyn",
+    "coordinates": [
+      -73.973453,
+      40.679016
+    ],
+    "matchedLabel": "295 FLATBUSH AVENUE, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=295+Flatbush+Avenue+Extension+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "tb-clinic-visit-corona-chest-center",
+    "query": "34-33 Junction Boulevard Queens",
+    "coordinates": [
+      -73.871979,
+      40.754221
+    ],
+    "matchedLabel": "34-33 JUNCTION BOULEVARD, North Corona, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=34-33+Junction+Boulevard+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "tb-clinic-visit-washington-heights-chest-center",
+    "query": "Not provided in current directory Manhattan",
+    "coordinates": null,
+    "accepted": false,
+    "error": "IndexError"
+  },
+  {
+    "id": "finance-counter-service-manhattan-business-center",
+    "query": "66 John Street Manhattan",
+    "coordinates": [
+      -74.007961,
+      40.708794
+    ],
+    "matchedLabel": "66 JOHN STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=66+John+Street+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "finance-counter-service-bronx-business-center",
+    "query": "3030 Third Avenue Bronx",
+    "coordinates": [
+      -73.913054,
+      40.819378
+    ],
+    "matchedLabel": "3030 THIRD AVENUE, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=3030+Third+Avenue+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "finance-counter-service-brooklyn-business-center",
+    "query": "210 Joralemon Street Brooklyn",
+    "coordinates": [
+      -73.990501,
+      40.692131
+    ],
+    "matchedLabel": "210 JORALEMON STREET, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=210+Joralemon+Street+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "finance-counter-service-queens-business-center",
+    "query": "144-06 94th Avenue Queens",
+    "coordinates": [
+      -73.807724,
+      40.698375
+    ],
+    "matchedLabel": "144-06 94 AVENUE, Jamaica, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=144-06+94th+Avenue+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "finance-counter-service-staten-island-business-center",
+    "query": "350 St. Marks Place Staten Island",
+    "coordinates": [
+      -74.07812,
+      40.641303
+    ],
+    "matchedLabel": "350 SAINT MARK'S PLACE, Staten Island, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=350+St.+Marks+Place+Staten+Island&size=1",
+    "accepted": true
+  },
+  {
+    "id": "cash-bail-court-trust-counter-manhattan-cash-bail-court-and-trust",
+    "query": "66 John Street Manhattan",
+    "coordinates": [
+      -74.007961,
+      40.708794
+    ],
+    "matchedLabel": "66 JOHN STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=66+John+Street+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "non-criminal-fingerprints-nypd-certificate-of-conduct-fingerprint-unit",
+    "query": "One Police Plaza Manhattan",
+    "coordinates": null,
+    "matchedLabel": "1 POLICE PLAZA, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=One+Police+Plaza+Manhattan&size=1",
+    "accepted": false
+  },
+  {
+    "id": "child-support-services-bronx-borough-office",
+    "query": "894 Garrison Avenue Bronx",
+    "coordinates": [
+      -73.89087,
+      40.817106
+    ],
+    "matchedLabel": "894 GARRISON AVENUE, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=894+Garrison+Avenue+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "child-support-services-bronx-family-court",
+    "query": "900 Sheridan Avenue Bronx",
+    "coordinates": [
+      -73.920293,
+      40.82669
+    ],
+    "matchedLabel": "900 SHERIDAN AVENUE, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=900+Sheridan+Avenue+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "child-support-services-brooklyn-borough-office",
+    "query": "2400 Fulton Street Brooklyn",
+    "coordinates": [
+      -73.90414,
+      40.67753
+    ],
+    "matchedLabel": "2400 FULTON STREET, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=2400+Fulton+Street+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "child-support-services-kings-county-family-court",
+    "query": "330 Jay Street Brooklyn",
+    "coordinates": [
+      -73.987707,
+      40.694622
+    ],
+    "matchedLabel": "330 JAY STREET, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=330+Jay+Street+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "child-support-services-customer-services-walk-in-center",
+    "query": "151 W. Broadway Manhattan",
+    "coordinates": [
+      -74.007462,
+      40.717124
+    ],
+    "matchedLabel": "151 WEST B'WAY, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=151+W.+Broadway+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "child-support-services-manhattan-staten-island-borough-office",
+    "query": "115 Chrystie Street Manhattan",
+    "coordinates": [
+      -73.993909,
+      40.71869
+    ],
+    "matchedLabel": "115 CHRYSTIE STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=115+Chrystie+Street+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "child-support-services-manhattan-family-court",
+    "query": "60 Lafayette Street Manhattan",
+    "coordinates": [
+      -74.00274,
+      40.716657
+    ],
+    "matchedLabel": "60 LAFAYETTE STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=60+Lafayette+Street+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "child-support-services-queens-borough-office",
+    "query": "165-08 88th Avenue Queens",
+    "coordinates": [
+      -73.796319,
+      40.708569
+    ],
+    "matchedLabel": "165-08 88 AVENUE, Jamaica, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=165-08+88th+Avenue+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "child-support-services-queens-family-court",
+    "query": "151-20 Jamaica Avenue Queens",
+    "coordinates": [
+      -73.802623,
+      40.702197
+    ],
+    "matchedLabel": "151-20 JAMAICA AVENUE, Jamaica, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=151-20+Jamaica+Avenue+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "child-support-services-richmond-county-family-court",
+    "query": "18 Richmond Terrace Staten Island",
+    "coordinates": [
+      -74.076567,
+      40.642779
+    ],
+    "matchedLabel": "18 RICHMOND TERRACE, Staten Island, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=18+Richmond+Terrace+Staten+Island&size=1",
+    "accepted": true
+  },
+  {
+    "id": "homebase-housing-support-mott-haven-630-jackson-avenue",
+    "query": "630 Jackson Avenue Bronx",
+    "coordinates": [
+      -73.907881,
+      40.815283
+    ],
+    "matchedLabel": "630 JACKSON AVENUE, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=630+Jackson+Avenue+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "homebase-housing-support-grand-concourse-1130-grand-concourse",
+    "query": "1130 Grand Concourse Bronx",
+    "coordinates": [
+      -73.918769,
+      40.832586
+    ],
+    "matchedLabel": "1130 GRAND CONCOURSE, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=1130+Grand+Concourse+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "homebase-housing-support-unionport-2155-blackrock-avenue",
+    "query": "2155 Blackrock Avenue Bronx",
+    "coordinates": [
+      -73.851036,
+      40.82916
+    ],
+    "matchedLabel": "2155 BLACKROCK AVENUE, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=2155+Blackrock+Avenue+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "homebase-housing-support-hunts-point-890-garrison-avenue",
+    "query": "890 Garrison Avenue Bronx",
+    "coordinates": [
+      -73.89087,
+      40.817106
+    ],
+    "matchedLabel": "890 GARRISON AVENUE, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=890+Garrison+Avenue+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "homebase-housing-support-bronxdale-2901-whiteplains-road",
+    "query": "2901 Whiteplains Road Bronx",
+    "coordinates": [
+      -73.867622,
+      40.868386
+    ],
+    "matchedLabel": "2901 WHITEPLAINS ROAD, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=2901+Whiteplains+Road+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "homebase-housing-support-woodlawn-4377-bronx-boulevard",
+    "query": "4377 Bronx Boulevard Bronx",
+    "coordinates": [
+      -73.85837,
+      40.899551
+    ],
+    "matchedLabel": "4377 BRONX BOULEVARD, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=4377+Bronx+Boulevard+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "homebase-housing-support-williamsbridge-815-burke-avenue",
+    "query": "815 Burke Avenue Bronx",
+    "coordinates": [
+      -73.862866,
+      40.87162
+    ],
+    "matchedLabel": "815 BURKE AVENUE, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=815+Burke+Avenue+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "homebase-housing-support-mount-hope-1780-grand-concourse",
+    "query": "1780 Grand Concourse Bronx",
+    "coordinates": [
+      -73.908914,
+      40.846228
+    ],
+    "matchedLabel": "1780 GRAND CONCOURSE, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=1780+Grand+Concourse+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "homebase-housing-support-parkchester-1860-east-tremont-avenue",
+    "query": "1860 East Tremont Avenue Bronx",
+    "coordinates": [
+      -73.865022,
+      40.840669
+    ],
+    "matchedLabel": "1860 EAST TREMONT AVENUE, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=1860+East+Tremont+Avenue+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "homebase-housing-support-bedford-stuyvesant-1958-fulton-street",
+    "query": "1958 Fulton Street Brooklyn",
+    "coordinates": [
+      -73.92021,
+      40.678421
+    ],
+    "matchedLabel": "1958 FULTON STREET, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=1958+Fulton+Street+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "homebase-housing-support-crown-heights-1117-eastern-parkway",
+    "query": "1117 Eastern Parkway Brooklyn",
+    "coordinates": [
+      -73.931316,
+      40.669329
+    ],
+    "matchedLabel": "1117 EASTERN PARKWAY, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=1117+Eastern+Parkway+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "homebase-housing-support-flatbush-2244-church-avenue",
+    "query": "2244 Church Avenue Brooklyn",
+    "coordinates": [
+      -73.956968,
+      40.650221
+    ],
+    "matchedLabel": "2244 CHURCH AVENUE, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=2244+Church+Avenue+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "homebase-housing-support-east-flatbush-1900a-ralph-avenue",
+    "query": "1900A Ralph Avenue Brooklyn",
+    "coordinates": [
+      -73.919049,
+      40.630036
+    ],
+    "matchedLabel": "1900 RALPH AVENUE, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=1900A+Ralph+Avenue+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "homebase-housing-support-east-new-york-3060-fulton-street",
+    "query": "3060 Fulton Street Brooklyn",
+    "coordinates": [
+      -73.881678,
+      40.680681
+    ],
+    "matchedLabel": "3060 FULTON STREET, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=3060+Fulton+Street+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "homebase-housing-support-east-new-york-560-livonia-avenue",
+    "query": "560 Livonia Avenue Brooklyn",
+    "coordinates": [
+      -73.89633,
+      40.664224
+    ],
+    "matchedLabel": "560 LIVONIA AVENUE, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=560+Livonia+Avenue+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "homebase-housing-support-bushwick-535-bushwick-avenue",
+    "query": "535 Bushwick Avenue Brooklyn",
+    "coordinates": null,
+    "matchedLabel": "1462 BUSHWICK AVENUE, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=535+Bushwick+Avenue+Brooklyn&size=1",
+    "accepted": false
+  },
+  {
+    "id": "homebase-housing-support-bushwick-north-380-grove-street",
+    "query": "380 Grove Street Brooklyn",
+    "coordinates": [
+      -73.913417,
+      40.700326
+    ],
+    "matchedLabel": "380 GROVE STREET, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=380+Grove+Street+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "homebase-housing-support-brownsville-145-east-98th-street",
+    "query": "145 East 98th Street Brooklyn",
+    "coordinates": [
+      -73.92117,
+      40.663714
+    ],
+    "matchedLabel": "145 EAST 98 STREET, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=145+East+98th+Street+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "homebase-housing-support-brownsville-1875-broadway",
+    "query": "1875 Broadway Brooklyn",
+    "coordinates": [
+      -73.906365,
+      40.68084
+    ],
+    "matchedLabel": "1875 B'WAY, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=1875+Broadway+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "homebase-housing-support-washington-heights-516-west-181st-st",
+    "query": "516 West 181st St Manhattan",
+    "coordinates": [
+      -73.932188,
+      40.84837
+    ],
+    "matchedLabel": "516 WEST 181 STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=516+West+181st+St+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "homebase-housing-support-east-harlem-2322-3rd-avenue",
+    "query": "2322 3rd Avenue Manhattan",
+    "coordinates": [
+      -73.935498,
+      40.804823
+    ],
+    "matchedLabel": "2322 3 AVENUE, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=2322+3rd+Avenue+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "homebase-housing-support-jamaica-161-10-jamaica-avenue",
+    "query": "161-10 Jamaica Avenue Queens",
+    "coordinates": [
+      -73.797881,
+      40.703791
+    ],
+    "matchedLabel": "161-10 JAMAICA AVENUE, Jamaica, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=161-10+Jamaica+Avenue+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "homebase-housing-support-rockaways-1847-mott-avenue-temporarily-closed",
+    "query": "1847 Mott Avenue (temporarily closed) Queens",
+    "coordinates": [
+      -73.751533,
+      40.603312
+    ],
+    "matchedLabel": "1847 MOTT AVENUE, Far Rockaway, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=1847+Mott+Avenue+%28temporarily+closed%29+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "homebase-housing-support-st-george-120-stuyvesant-place",
+    "query": "120 Stuyvesant Place Staten Island",
+    "coordinates": [
+      -74.077558,
+      40.643275
+    ],
+    "matchedLabel": "120 STUYVESANT PLACE, Staten Island, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=120+Stuyvesant+Place+Staten+Island&size=1",
+    "accepted": true
+  },
+  {
+    "id": "homebase-housing-support-tompkinsville-209-bay-street",
+    "query": "209 Bay Street Staten Island",
+    "coordinates": [
+      -74.075915,
+      40.637067
+    ],
+    "matchedLabel": "209 BAY STREET, Staten Island, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=209+Bay+Street+Staten+Island&size=1",
+    "accepted": true
+  },
+  {
+    "id": "workforce1-career-help-bronx-workforce1-career-center",
+    "query": "400 East Fordham Road Bronx",
+    "coordinates": [
+      -73.891569,
+      40.86098
+    ],
+    "matchedLabel": "400 EAST FORDHAM ROAD, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=400+East+Fordham+Road+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "workforce1-career-help-hunts-point-workforce1-career-center",
+    "query": "1029 East 163rd Street Bronx",
+    "coordinates": [
+      -73.892064,
+      40.82126
+    ],
+    "matchedLabel": "1029 EAST 163 STREET, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=1029+East+163rd+Street+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "workforce1-career-help-west-farms-workforce1-career-center",
+    "query": "901 East Tremont Avenue Bronx",
+    "coordinates": [
+      -73.884396,
+      40.842381
+    ],
+    "matchedLabel": "901 EAST TREMONT AVENUE, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=901+East+Tremont+Avenue+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "workforce1-career-help-bronx-workforce1-industrial-transportation-career-center",
+    "query": "14 Bruckner Boulevard Bronx",
+    "coordinates": [
+      -73.929497,
+      40.80722
+    ],
+    "matchedLabel": "14 BRUCKNER BOULEVARD, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=14+Bruckner+Boulevard+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "workforce1-career-help-brooklyn-workforce1-career-center",
+    "query": "9 Bond Street Brooklyn",
+    "coordinates": [
+      -73.982844,
+      40.689137
+    ],
+    "matchedLabel": "9 BOND STREET, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=9+Bond+Street+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "workforce1-career-help-east-new-york-workforce1-career-center",
+    "query": "2617 Atlantic Avenue Brooklyn",
+    "coordinates": [
+      -73.897775,
+      40.675948
+    ],
+    "matchedLabel": "2617 ATLANTIC AVENUE, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=2617+Atlantic+Avenue+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "workforce1-career-help-brooklyn-workforce1-industrial-transportation-career-center",
+    "query": "Brooklyn Army Terminal Brooklyn",
+    "coordinates": null,
+    "matchedLabel": "BROOKLYN ARMY TERMINAL PIERS, Brooklyn, NY, USA",
+    "confidence": 1,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=Brooklyn+Army+Terminal+Brooklyn&size=1",
+    "accepted": false
+  },
+  {
+    "id": "workforce1-career-help-upper-manhattan-workforce1-career-center",
+    "query": "215 West 125th Street Manhattan",
+    "coordinates": [
+      -73.948933,
+      40.809708
+    ],
+    "matchedLabel": "215 WEST 125 STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=215+West+125th+Street+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "workforce1-career-help-washington-heights-workforce1-career-center",
+    "query": "516 West 181st Street Manhattan",
+    "coordinates": [
+      -73.932188,
+      40.84837
+    ],
+    "matchedLabel": "516 WEST 181 STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=516+West+181st+Street+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "workforce1-career-help-healthcare-workforce1-career-center",
+    "query": "14 Wall Street Manhattan",
+    "coordinates": [
+      -74.010765,
+      40.707623
+    ],
+    "matchedLabel": "14 WALL STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=14+Wall+Street+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "workforce1-career-help-queens-workforce1-career-center",
+    "query": "168-25 Jamaica Avenue Queens",
+    "coordinates": [
+      -73.791654,
+      40.707158
+    ],
+    "matchedLabel": "168-25 JAMAICA AVENUE, Jamaica, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=168-25+Jamaica+Avenue+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "workforce1-career-help-far-rockaway-workforce1-career-center",
+    "query": "57-17 Rockaway Beach Boulevard Queens",
+    "coordinates": [
+      -73.787276,
+      40.591658
+    ],
+    "matchedLabel": "57-17 ROCKAWAY BEACH BOULEVARD, Arverne, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=57-17+Rockaway+Beach+Boulevard+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "workforce1-career-help-flushing-workforce1-career-center",
+    "query": "41-17 Main Street Queens",
+    "coordinates": [
+      -73.828843,
+      40.757744
+    ],
+    "matchedLabel": "41-17 MAIN STREET, Flushing, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=41-17+Main+Street+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "workforce1-career-help-workforce1-industrial-transportation-career-center",
+    "query": "168-46 91 Avenue Queens",
+    "coordinates": [
+      -73.791654,
+      40.707158
+    ],
+    "matchedLabel": "168-46 91 AVENUE, Jamaica, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=168-46+91+Avenue+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "workforce1-career-help-long-island-city-workforce1-industrial-transportation-career-center",
+    "query": "47-10 Austell Place Queens",
+    "coordinates": [
+      -73.941945,
+      40.743003
+    ],
+    "matchedLabel": "47-10 AUSTELL PLACE, Long Island City, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=47-10+Austell+Place+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "workforce1-career-help-staten-island-workforce1-career-center",
+    "query": "120 Stuyvesant Place Staten Island",
+    "coordinates": [
+      -74.077558,
+      40.643275
+    ],
+    "matchedLabel": "120 STUYVESANT PLACE, Staten Island, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=120+Stuyvesant+Place+Staten+Island&size=1",
+    "accepted": true
+  },
+  {
+    "id": "workforce1-career-help-staten-island-workforce1-industrial-transportation-career-center",
+    "query": "120 Stuyvesant Place Staten Island",
+    "coordinates": [
+      -74.077558,
+      40.643275
+    ],
+    "matchedLabel": "120 STUYVESANT PLACE, Staten Island, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=120+Stuyvesant+Place+Staten+Island&size=1",
+    "accepted": true
+  },
+  {
+    "id": "fjc-manhattan",
+    "query": "80 Centre Street Manhattan",
+    "coordinates": [
+      -74.001237,
+      40.71515
+    ],
+    "matchedLabel": "80 CENTRE STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=80+Centre+Street+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "fjc-brooklyn",
+    "query": "350 Jay Street Brooklyn",
+    "coordinates": [
+      -73.98799,
+      40.693852
+    ],
+    "matchedLabel": "350 JAY STREET, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=350+Jay+Street+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "fjc-queens",
+    "query": "126-02 82nd Avenue Queens",
+    "coordinates": [
+      -73.825881,
+      40.713248
+    ],
+    "matchedLabel": "126-02 82 AVENUE, Kew Gardens, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=126-02+82nd+Avenue+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "fjc-bronx",
+    "query": "198 E. 161st Street Bronx",
+    "coordinates": [
+      -73.921102,
+      40.825818
+    ],
+    "matchedLabel": "198 EAST 161 STREET, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=198+E.+161st+Street+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "fjc-staten-island",
+    "query": "126 Stuyvesant Place Staten Island",
+    "coordinates": [
+      -74.077168,
+      40.642932
+    ],
+    "matchedLabel": "126 STUYVESANT PLACE, Staten Island, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=126+Stuyvesant+Place+Staten+Island&size=1",
+    "accepted": true
+  },
+  {
+    "id": "dob-bronx",
+    "query": "1775 Grand Concourse Bronx",
+    "coordinates": [
+      -73.910342,
+      40.846518
+    ],
+    "matchedLabel": "1775 GRAND CONCOURSE, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=1775+Grand+Concourse+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "dob-brooklyn",
+    "query": "345 Adams Street Brooklyn",
+    "coordinates": [
+      -73.988425,
+      40.692729
+    ],
+    "matchedLabel": "345 ADAMS STREET, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=345+Adams+Street+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "dob-manhattan",
+    "query": "280 Broadway Manhattan",
+    "coordinates": [
+      -74.005625,
+      40.714222
+    ],
+    "matchedLabel": "280 BROADWAY, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=280+Broadway+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "dob-queens",
+    "query": "120-55 Queens Boulevard Queens",
+    "coordinates": [
+      -73.828104,
+      40.713783
+    ],
+    "matchedLabel": "120-55 QUEENS BOULEVARD, Kew Gardens, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=120-55+Queens+Boulevard+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "dob-staten-island",
+    "query": "10 Richmond Terrace Staten Island",
+    "coordinates": [
+      -74.076018,
+      40.642348
+    ],
+    "matchedLabel": "10 RICHMOND TERRACE, Staten Island, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=10+Richmond+Terrace+Staten+Island&size=1",
+    "accepted": true
+  },
+  {
+    "id": "oath-manhattan",
+    "query": "66 John Street Manhattan",
+    "coordinates": [
+      -74.007961,
+      40.708794
+    ],
+    "matchedLabel": "66 JOHN STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=66+John+Street+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "oath-brooklyn",
+    "query": "9 Bond Street Brooklyn",
+    "coordinates": [
+      -73.982844,
+      40.689137
+    ],
+    "matchedLabel": "9 BOND STREET, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=9+Bond+Street+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "oath-bronx",
+    "query": "260 E. 161 Street Bronx",
+    "coordinates": [
+      -73.91887,
+      40.825423
+    ],
+    "matchedLabel": "260 EAST 161 STREET, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=260+E.+161+Street+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "oath-queens",
+    "query": "31-00 47 Avenue Queens",
+    "coordinates": [
+      -73.935516,
+      40.742088
+    ],
+    "matchedLabel": "31-00 47 AVENUE, Long Island City, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=31-00+47+Avenue+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "oath-staten-island",
+    "query": "350 St. Marks Place Staten Island",
+    "coordinates": [
+      -74.07812,
+      40.641303
+    ],
+    "matchedLabel": "350 SAINT MARK'S PLACE, Staten Island, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=350+St.+Marks+Place+Staten+Island&size=1",
+    "accepted": true
+  },
+  {
+    "id": "dcwp-licensing",
+    "query": "42 Broadway Manhattan",
+    "coordinates": [
+      -74.012602,
+      40.705993
+    ],
+    "matchedLabel": "42 B'WAY, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=42+Broadway+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "dcwp-collections",
+    "query": "42 Broadway Manhattan",
+    "coordinates": [
+      -74.012602,
+      40.705993
+    ],
+    "matchedLabel": "42 B'WAY, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=42+Broadway+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "sbs-bronx",
+    "query": "400 East Fordham Road Bronx",
+    "coordinates": [
+      -73.891569,
+      40.86098
+    ],
+    "matchedLabel": "400 EAST FORDHAM ROAD, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=400+East+Fordham+Road+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "sbs-brooklyn",
+    "query": "9 Bond Street Brooklyn",
+    "coordinates": [
+      -73.982844,
+      40.689137
+    ],
+    "matchedLabel": "9 BOND STREET, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=9+Bond+Street+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "sbs-lower-manhattan",
+    "query": "14 Wall Street Manhattan",
+    "coordinates": [
+      -74.010765,
+      40.707623
+    ],
+    "matchedLabel": "14 WALL STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=14+Wall+Street+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "sbs-upper-manhattan",
+    "query": "361 West 125th Street Manhattan",
+    "coordinates": [
+      -73.952975,
+      40.811231
+    ],
+    "matchedLabel": "361 WEST 125 STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=361+West+125th+Street+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "sbs-washington-heights",
+    "query": "560 West 181st Street Manhattan",
+    "coordinates": [
+      -73.933394,
+      40.84887
+    ],
+    "matchedLabel": "560 WEST 181 STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=560+West+181st+Street+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "sbs-queens",
+    "query": "90-27 Sutphin Boulevard Queens",
+    "coordinates": [
+      -73.807816,
+      40.702455
+    ],
+    "matchedLabel": "90-27 SUTPHIN BOULEVARD, Jamaica, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=90-27+Sutphin+Boulevard+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "sbs-staten-island",
+    "query": "120 Stuyvesant Place Staten Island",
+    "coordinates": [
+      -74.077558,
+      40.643275
+    ],
+    "matchedLabel": "120 STUYVESANT PLACE, Staten Island, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=120+Stuyvesant+Place+Staten+Island&size=1",
+    "accepted": true
+  },
+  {
+    "id": "dmv-springfield-gardens",
+    "query": "168-35 ROCKAWAY BLVD Queens",
+    "coordinates": [
+      -73.771802,
+      40.658987
+    ],
+    "matchedLabel": "168-35 ROCKAWAY BOULEVARD, Springfield Gardens, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=168-35+ROCKAWAY+BLVD+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "dmv-richmond",
+    "query": "1775 SOUTH AVE Staten Island",
+    "coordinates": [
+      -74.19252,
+      40.60067
+    ],
+    "matchedLabel": "1775 SOUTH AVENUE, Staten Island, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=1775+SOUTH+AVE+Staten+Island&size=1",
+    "accepted": true
+  },
+  {
+    "id": "dmv-jamaica",
+    "query": "168-46 91ST AVE Queens",
+    "coordinates": [
+      -73.791654,
+      40.707158
+    ],
+    "matchedLabel": "168-46 91 AVENUE, Jamaica, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=168-46+91ST+AVE+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "dmv-lower-manhattan-greenwich-st",
+    "query": "11 GREENWICH ST Manhattan",
+    "coordinates": [
+      -74.014244,
+      40.705387
+    ],
+    "matchedLabel": "11 GREENWICH STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=11+GREENWICH+ST+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "dmv-college-point",
+    "query": "30-56 WHITESTONE EXPY Queens",
+    "coordinates": [
+      -73.837008,
+      40.77006
+    ],
+    "matchedLabel": "30-56 WHITESTONE EXPRESSWAY, College Point, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=30-56+WHITESTONE+EXPY+Queens&size=1",
+    "accepted": true
+  },
+  {
+    "id": "dmv-midtown-manhattan",
+    "query": "366 WEST 31ST ST Manhattan",
+    "coordinates": [
+      -73.997318,
+      40.751089
+    ],
+    "matchedLabel": "366 WEST 31 STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=366+WEST+31ST+ST+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "dmv-license-express",
+    "query": "145 WEST 30TH ST Manhattan",
+    "coordinates": [
+      -73.991579,
+      40.748346
+    ],
+    "matchedLabel": "145 WEST 30 STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=145+WEST+30TH+ST+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "dmv-bronx-district-office",
+    "query": "610 EXTERIOR STREET Bronx",
+    "coordinates": [
+      -73.929952,
+      40.821613
+    ],
+    "matchedLabel": "610 EXTERIOR STREET, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=610+EXTERIOR+STREET+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "dmv-brooklyn-atlantic-center",
+    "query": "625 ATLANTIC AVE Brooklyn",
+    "coordinates": [
+      -73.975513,
+      40.684289
+    ],
+    "matchedLabel": "625 ATLANTIC AVENUE, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=625+ATLANTIC+AVE+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "dmv-brooklyn-coney-island",
+    "query": "2875 W. 8TH ST Brooklyn",
+    "coordinates": [
+      -73.975589,
+      40.577893
+    ],
+    "matchedLabel": "2875 WEST 8 STREET, Brooklyn, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=2875+W.+8TH+ST+Brooklyn&size=1",
+    "accepted": true
+  },
+  {
+    "id": "dmv-bronx-license-center",
+    "query": "1350 COMMERCE AVE Bronx",
+    "coordinates": [
+      -73.840208,
+      40.836894
+    ],
+    "matchedLabel": "1350 COMMERCE AVENUE, Bronx, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=1350+COMMERCE+AVE+Bronx&size=1",
+    "accepted": true
+  },
+  {
+    "id": "dmv-harlem",
+    "query": "5 WEST 125TH ST Manhattan",
+    "coordinates": [
+      -73.942577,
+      40.807226
+    ],
+    "matchedLabel": "5 WEST 125 STREET, New York, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=5+WEST+125TH+ST+Manhattan&size=1",
+    "accepted": true
+  },
+  {
+    "id": "dmv-queens-hall-unverified",
+    "query": "65-21 Main Street Queens",
+    "coordinates": [
+      -73.824489,
+      40.737355
+    ],
+    "matchedLabel": "65-21 MAIN STREET, Flushing, NY, USA",
+    "confidence": 0.8,
+    "source": "https://geosearch.planninglabs.nyc/v2/search?text=65-21+Main+Street+Queens&size=1",
+    "accepted": true
+  }
+]
