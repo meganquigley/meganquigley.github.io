@@ -163,8 +163,8 @@ page='''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="v
 <meta property="og:image" content="https://meganquigley.github.io/assets/wic-og-minimal.png">
 <meta property="og:image:secure_url" content="https://meganquigley.github.io/assets/wic-og-minimal.png">
 <meta property="og:image:type" content="image/png">
-<meta property="og:image:width" content="1730">
-<meta property="og:image:height" content="909">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="The work of getting help, with an illustrated mother holding her newborn.">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
