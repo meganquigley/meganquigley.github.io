@@ -42,9 +42,9 @@ scene('One text. Two paths.','Finding out',[
  beat('', 'My baby is here. I’m exhausted. And now I have to figure out how to feed us both.'),
  beat('', 'I hadn’t even heard of it.',source='ny'),
  beat('', 'Same baby. Same income. Same need for food. Let’s follow two versions of my life: one where that text arrives, and one where it never does.'),
- beat('', 'That text gives me a place to start. It doesn’t get me enrolled.')])
+ beat('', 'A text can open the door. But knowing where to start is only one part of getting help.')])
 scene('From one person to the country','Participation',[
- beat(research(crowd()),'My story is only one of millions.','A wider view',source='coverage'),
+ beat(research(crowd()),'Across the country, millions of parents and young children qualify for WIC.','A wider view',source='coverage'),
  beat(research(crowd()),'Across the country, WIC reaches about 56 of every 100 eligible people. The others qualify for help they aren’t receiving.','A wider view',source='coverage'),
  beat(research(state_map(E)),'There isn’t one reason why. And the chance of getting help changes depending on where you live.','A wider view',source='coverage'),
  beat(research(state_map(E)),'In 2023, WIC reached 79.6% of eligible people in Vermont, 62.4% in New York, and 41.3% in Louisiana.','A wider view',source='coverage'),
@@ -106,7 +106,9 @@ scene('What all that work is for','Looking back',[
  beat('<div class="ending-art">'+situation(15)+'</div>','Look back at everything it took. WIC made nutritious food more affordable. But the help depended on hearing about it, enrolling, reaching a store, finding the right foods, and managing to renew.'),
  beat('<div class="ending-art">'+situation(15)+'</div>','More families could benefit if getting started came with a direct referral, staying enrolled fit around work and caregiving, and shopping meant nearby stores, clear labels, and checkout support. Each is a place to remove some of the work.'),
  beat('<div class="ending-art final-art">'+situation(15)+'</div>','Getting help should take less work.')])
-ENVIRONMENTS={0:split_stage(),3:driving_map(),4:store_environment(),5:checkout_environment(BASKET['items'])}
+# Keep the opening and population reveal on the same pinned stage.
+scenes[0]['beats'] += scenes.pop(1)['beats']
+ENVIRONMENTS={0:split_stage(),2:driving_map(),3:store_environment(),4:checkout_environment(BASKET['items'])}
 SOURCES={
 'ny':('New York WIC: applying and using benefits','https://www.health.ny.gov/prevention/nutrition/wic/how_to_apply.htm','Income eligibility is only one component of WIC certification. See also <a href="https://www.health.ny.gov/prevention/nutrition/wic/faqs.htm">New York WIC FAQs</a>, <a href="https://www.mhhc.org/our-services/mhhc-wic-program/">MHHC’s current phone appointment options</a>, and <a href="https://www.ccf.ny.gov/application/files/2617/1294/8575/WICSNAPSummerMeals04112024.pdf">New York’s benefit-expiration guidance</a>. Product illustrations are schematic.'),
 'referral':('Qualitative referral study · 2026','https://www.frontiersin.org/journals/health-services/articles/10.3389/frhs.2026.1707744/full','Ten participant interviewees recruited through a New Hampshire WIC agency; the broader study includes New Hampshire and Vermont staff. Interviews February–April 2024; 8 of 10 learned of WIC from family/friends. Not nationally representative.'),
@@ -137,20 +139,26 @@ PLAIN={
 citation_order=list(dict.fromkeys(b['source'] for scene in scenes for b in scene['beats'] if b['source']))
 parts=[]
 for i,s in enumerate(scenes):
- scene_id=[1,4,3,5,6,7,8,9,10,11,12][i]
+ scene_id=[1,3,5,6,7,8,9,10,11,12][i]
  frames=[]
  for j,b in enumerate(s['beats']):
-  source=f' <a href="#source-{b["source"]}" class="source-link" aria-label="Source {citation_order.index(b["source"])+1}">{citation_order.index(b["source"])+1}</a>' if b['source'] else ''
+  source=f'<a href="#source-{b["source"]}" class="source-link" aria-label="Source {citation_order.index(b["source"])+1}">{citation_order.index(b["source"])+1}</a>' if b['source'] else ''
   focus='research' if 'class="research"' in b['visual'] else 'ending' if 'ending-art' in b['visual'] else 'right' if b['who'].startswith('Without WIC') else 'left' if b['who'].startswith('With WIC') else 'both'
   visual=b['visual']
-  spoken='<span class="opening-transcript">A friend texts: Have you tried WIC? It helps with food for you and the baby. </span>' if i==0 and j==1 else ''
+  copy=esc(b['caption'])
+  if source:
+   lead,space,tail=copy.rpartition(' ')
+   copy=lead+space+'<span class="citation-tail">'+tail+source+'</span>'
+  caption='<p class="line">'+copy+'</p>'
+  if i==0 and j==1:
+   caption='<div class="opening-exchange"><p class="message-sender">A friend texts me</p><p class="friend-message">“Have you tried WIC? It helps with food for you and the baby.”</p><p class="maya-reply">'+copy+'</p></div>'
   if 'phone-conversation' in visual and source:
    at=visual.rfind('</p>');visual=visual[:at]+source+visual[at:];source=''
-  frames.append(f'<div class="frame focus-{focus} {"phone-frame" if "phone-conversation" in b["visual"] else ""}" data-focus="{focus}" data-beat="{j}"><div class="visual">{visual}</div><div class="caption"><p class="line">{spoken}{esc(b["caption"])}{source}</p></div></div>')
+  frames.append(f'<div class="frame focus-{focus} {"phone-frame" if "phone-conversation" in b["visual"] else ""}" data-focus="{focus}" data-beat="{j}"><div class="visual">{visual}</div><div class="caption">{caption}</div></div>')
  parts.append(f'<section class="scene {"immersive" if i in ENVIRONMENTS else ""}" id="scene-{scene_id}" data-count="{len(frames)}" data-hold="{2 if i==11 else 0}" style="--beats:{len(frames)};--hold:{2 if i==11 else 0}" aria-labelledby="title-{i+1}"><div class="sticky"><header class="scene-heading"><h2 id="title-{i+1}">{s["title"]}</h2></header>{ENVIRONMENTS.get(i, "")}<div class="frames">'+''.join(frames)+f'</div><div class="beat-progress" aria-hidden="true">'+''.join('<i></i>' for _ in frames)+'</div></div></section>')
 end='<section class="sources" id="sources"><p class="eyebrow">Behind the story</p><h2>Sources & methodology</h2><p>Narrative and dialogue written for this project. Research, calculations, prices, and map data are documented below.</p>'+''.join(f'<article id="source-{k}"><h3>{PLAIN[k][0]}</h3><p>{PLAIN[k][1]}</p><p><a href="{v[1]}">Read the original source ↗</a></p><details><summary>More detail and calculations</summary><p>{v[2]}</p></details></article>' for k,v in SOURCES.items())+'<article><h3>Artwork & approach</h3><p>Original SVG character, environment, food, and chart drawings; AI-generated home illustration; OpenStreetMap road geometry; scroll-driven movement and receipt calculations. Inspired by character continuity in The Pudding’s <a href="https://pudding.cool/2024/03/teenagers/">Teenagers</a>, conversational pacing in <a href="https://pudding.cool/2025/02/middle-school/">Middle School</a>, and transaction-to-population storytelling in <a href="https://pudding.cool/2022/12/yard-sale/">Yard Sale</a>.</p></article><p class="end-credit">A visual story by Megan Quigley</p></section>'
 end=end.replace('<a href=', '<a target="_blank" rel="noopener noreferrer" href=')
-page='''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, nofollow, noarchive"><meta name="googlebot" content="noindex, nofollow, noarchive"><meta name="theme-color" content="#f8f6f0"><title>The work of getting help — WIC</title><meta name="description" content="Follow one mother down two paths to see what WIC changes—and how much work it takes to keep getting it."><link rel="stylesheet" href="story.css?v=20260927-opening1"><script type="module" src="story.js?v=20260927-opening1"></script></head><body><main><div class="landing-track"><section class="introduction"><img class="hero-home" src="art/home-hero.jpg" width="1672" height="941" alt="Maya rests in a chair at home, cradling her newborn."><div class="hero-copy"><p class="eyebrow">A WIC story</p><h1>The work<br>of getting help</h1><p class="dek">Food assistance can change a life.<br>Getting it is another story.</p><p class="byline">By Megan Quigley</p></div><p class="scroll-cue">Scroll to begin <span aria-hidden="true">↓</span></p></section></div>'''+''.join(parts)+end+'<dialog id="source-dialog" aria-labelledby="detail-title"><button class="close-details" aria-label="Close details">Close ×</button><div class="detail-content"></div></dialog><script id="basket-data" type="application/json">'+json.dumps(BASKET['items'])+'</script></main></body></html>'
+page='''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, nofollow, noarchive"><meta name="googlebot" content="noindex, nofollow, noarchive"><meta name="theme-color" content="#f8f6f0"><title>The work of getting help — WIC</title><meta name="description" content="Follow one mother down two paths to see what WIC changes—and how much work it takes to keep getting it."><link rel="stylesheet" href="story.css?v=20260927-continuity2"><script type="module" src="story.js?v=20260927-continuity2"></script></head><body><main><div class="landing-track"><section class="introduction"><img class="hero-home" src="art/home-hero.jpg" width="1672" height="941" alt="Maya rests in a chair at home, cradling her newborn."><div class="hero-copy"><p class="eyebrow">A WIC story</p><h1>The work<br>of getting help</h1><p class="dek">Food assistance can change a life.<br>Getting it is another story.</p><p class="byline">By Megan Quigley</p></div><p class="scroll-cue">Scroll to begin <span aria-hidden="true">↓</span></p></section></div>'''+''.join(parts)+end+'<dialog id="source-dialog" aria-labelledby="detail-title"><button class="close-details" aria-label="Close details">Close ×</button><div class="detail-content"></div></dialog><script id="basket-data" type="application/json">'+json.dumps(BASKET['items'])+'</script></main></body></html>'
 (OUT/'index.html').write_text(page)
 (OUT/'evidence-metadata.json').write_text(json.dumps({k:{'title':v[0],'url':v[1],'method':v[2]} for k,v in SOURCES.items()},indent=2)+'\n')
 (OUT/'scene-manifest.json').write_text(json.dumps([{'title':s['title'],'beats':[{'caption':b['caption'],'speaker':b['who'],'source':b['source']} for b in s['beats']]} for s in scenes],indent=2)+'\n')
