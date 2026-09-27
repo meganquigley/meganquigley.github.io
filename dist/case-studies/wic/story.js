@@ -67,8 +67,14 @@ function environment(scene,current,local,progress){
 }
 function renderScene(scene,speaking){
  const frames=sceneFrames.get(scene),steps=[...scene.querySelectorAll('.story-step')];
- const first=steps[0].getBoundingClientRect(),stepHeight=Math.max(1,first.height);
- const position=clamp((innerHeight*.65-first.top)/stepHeight,0,frames.length-.00001);
+ // Read each step's actual height so a reading pause does not advance the artwork early.
+ const readingLine=innerHeight*.65;
+ let position=0;
+ for(let i=0;i<steps.length;i++){
+  const rect=steps[i].getBoundingClientRect();
+  if(rect.top>readingLine)break;
+  position=i+clamp((readingLine-rect.top)/Math.max(1,rect.height),0,.99999);
+ }
  const current=Math.floor(position),local=position-current,progress=position/frames.length;
  scene.dataset.activeBeat=current;
  const artIndex=Number(frames[current].dataset.artFrame);

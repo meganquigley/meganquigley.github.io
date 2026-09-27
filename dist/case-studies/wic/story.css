@@ -122,3 +122,6 @@ html:not(.enhanced) .opening-message{opacity:1;transform:none}
 /* A scroll-linked, geometrically matched handoff from room to population. */
 .enhanced #scene-1 .frame.crowd-bridge{visibility:visible;opacity:var(--crowd-entry,1);transition:none;pointer-events:none}
 .enhanced #scene-1 .frame.crowd-bridge .visual{visibility:visible;display:flex;inset:0;width:100%;height:100%;opacity:1;transition:none}
+
+/* Leave the completed coverage figure visible before introducing the state map. */
+.enhanced #scene-1 .story-step[data-beat="3"]{min-height:130svh}
