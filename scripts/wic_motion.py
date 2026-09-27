@@ -15,6 +15,6 @@ def crowd():
  figures=[]
  for i in range(50):
   name='mother-baby' if i==22 else f'crowd-family-{i%12}'
-  body=f'<use class="{"crowd-maya" if i==22 else "crowd-family-art"}" href="art/story-vectors.svg?v=families3#v-{name}" x="-26" y="-26" width="52" height="52"/>'
+  body=f'<use class="{"crowd-maya" if i==22 else "crowd-family-art"}" href="art/story-vectors.svg?v=families4#v-{name}" x="-26" y="-26" width="52" height="52"/>'
   figures.append(f'<g data-people="2" class="crowd-person {"receives" if i<28 else "unreached"} {"crowd-origin" if i==22 else ""}" transform="translate({(i%10)*86+63} {(i//10)*96+48})">{body}</g>')
  return '<div class="crowd-view"><svg viewBox="0 0 900 540" aria-label="Mothers with their young children: 100 people, with 56 highlighted to show roughly how many eligible people receive WIC"><g class="crowd-camera">'+''.join(figures)+'</g></svg><div class="crowd-stat"><strong>56.1%</strong><span>of eligible people receive WIC</span><small>United States · average month, 2023</small></div></div>'

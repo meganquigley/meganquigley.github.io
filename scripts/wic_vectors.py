@@ -67,7 +67,7 @@ def build_art():
   elif v%3==2:
    mother=mother.replace(f'<circle cx="157" cy="25" r="20" fill="{hair}"/>','')
   symbol(f'crowd-mother-{v}',mother)
-  group=use(f'crowd-mother-{v}') if v%2==0 else use(f'crowd-mother-{v}',-5,0,240,310)+use(f'crowd-child-{v}',173,133,134,175)
+  group=use(f'crowd-mother-{v}') if v%2==0 else use(f'crowd-mother-{v}',-5,0,240,310)+use(f'crowd-child-{v}',112,133,134,175)
   symbol(f'crowd-family-{v}',group)
  # Legacy indices refer only to these newly drawn SVG scenes.
  names=['mother-baby','mother-baby','family','family','room','storefront','storefront','kitchen','cart','groceries','phone','documents','calendar','milk','receipt','child']
@@ -88,7 +88,7 @@ def build_art():
  (OUT/'art/story-vectors.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg"><defs>'+''.join(defs)+'</defs></svg>')
 
 def external(name,cls='',label=''):
- return f'<svg class="vector {cls}" viewBox="0 0 320 320" aria-hidden="true"><use href="art/story-vectors.svg?v=families3#v-{name}"/></svg>'
+ return f'<svg class="vector {cls}" viewBox="0 0 320 320" aria-hidden="true"><use href="art/story-vectors.svg?v=families4#v-{name}"/></svg>'
 
 def store_environment():
  shelves=''
@@ -97,11 +97,11 @@ def store_environment():
   for col,(x,name,food) in enumerate([(95,'DAIRY','milk'),(255,'PANTRY','peanut'),(415,'PRODUCE','apples')]):
    x+=offset
    shelves+=f'<rect x="{x}" y="140" width="80" height="300" rx="8" fill="#b8ad92" stroke="#293833" stroke-width="3"/><text x="{x+40}" y="120" text-anchor="middle">{name}</text>'
-   for row in range(5):shelves+=f'<use href="art/story-vectors.svg?v=families3#v-{food}" x="{x+8}" y="{150+row*55}" width="64" height="50"/>'
+   for row in range(5):shelves+=f'<use href="art/story-vectors.svg?v=families4#v-{food}" x="{x+8}" y="{150+row*55}" width="64" height="50"/>'
   shelves+=f'<rect x="{offset+235}" y="540" width="130" height="38" rx="6" fill="#658695"/><text x="{offset+300}" y="608" text-anchor="middle">CHECKOUT</text>'
  body='<svg viewBox="0 0 1200 630" class="store-floor" role="img" aria-label="Two overhead grocery trips: WIC requires checking products; without WIC, Maya checks her budget"><defs><pattern id="tile" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#c8c4ad"/></pattern></defs><rect width="1200" height="630" rx="15" fill="#eee7d7"/><rect width="1200" height="630" fill="url(#tile)"/><path d="M600 0V630" stroke="#a69f8c" stroke-width="3"/><text class="floor-path-label" x="300" y="45" text-anchor="middle">✓ WITH WIC</text><text class="floor-path-label" x="900" y="45" text-anchor="middle">○ WITHOUT WIC</text>'+shelves
  body+='<path class="shopping-path with-route" d="M300 515L55 515V80H215V480H375V80H215V480H545V80H375V505H300"/><path class="shopping-path without-route" d="M900 515H655V80H815V480H1135V80H975V505H900"/>'
- for cls in ['with','without']:body+=f'<g class="shopper-{cls}"><circle r="26" fill="#f8f6f0" stroke="#293833" stroke-width="2"/><use href="art/story-vectors.svg?v=families3#v-cart" x="-25" y="-25" width="50" height="50"/></g>'
+ for cls in ['with','without']:body+=f'<g class="shopper-{cls}"><circle r="26" fill="#f8f6f0" stroke="#293833" stroke-width="2"/><use href="art/story-vectors.svg?v=families4#v-cart" x="-25" y="-25" width="50" height="50"/></g>'
  return '<div class="immersive-stage store-environment"><div class="store-labels"><span>✓ With WIC</span><span>○ Without WIC</span></div>'+body+'</svg><div class="shelf-callout"><strong>18 eggs?</strong><p>I need dozen-size cartons.</p></div></div>'
 
 def checkout_environment(items):
