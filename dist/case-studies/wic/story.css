@@ -24,3 +24,81 @@
 .crowd-stat{opacity:0;transition:opacity .15s}.crowd-view.is-wide .crowd-stat{opacity:1}
 @media(max-width:650px){.hero-home{top:20%;height:80%}.introduction:after{background:linear-gradient(#f8f6f0 0%,#f8f6f0 25%,#f8f6f000 43%)}}
 html:not(.enhanced) .split-stage{position:relative;height:60svh}html:not(.enhanced) .phone-frame .caption{display:block}
+
+
+/* Native scrolling narration, anchored illustrations. No simulated page slides. */
+.enhanced .scene{height:auto;background:var(--scene-background);isolation:isolate}
+.enhanced .sticky{position:sticky;top:0;inset-inline:0;height:100svh;visibility:visible;overflow:hidden;pointer-events:none;background:var(--scene-background)}
+.enhanced .scene:not(.is-present) .sticky{display:block}
+.enhanced .story-steps{position:relative;z-index:2;margin-top:-100svh;padding:65svh 0 15svh;pointer-events:none}
+.enhanced .story-step{min-height:85svh;display:flex;align-items:flex-start;justify-content:center;padding:0 5%;pointer-events:none}
+.enhanced .story-step .caption{position:relative;inset:auto;transform:none;opacity:1;visibility:visible;height:auto;max-height:none;min-height:0;width:min(100%,800px);margin:0;padding:24px 30px;display:block;pointer-events:auto;box-shadow:0 6px 30px #2938330a;transition:none}
+.enhanced .story-step .caption .line{font-size:clamp(18px,1.8vw,27px);line-height:1.5}
+.enhanced .frame{visibility:visible}
+.enhanced .frame .visual{opacity:0;visibility:hidden;transition:opacity 260ms ease,visibility 260ms;translate:none}
+.enhanced .frame.is-art-active .visual{opacity:1;visibility:visible}
+.enhanced .is-speaking .frame.is-art-active{pointer-events:auto}
+.enhanced .immersive-stage{opacity:1;transition:opacity 260ms ease;translate:none}
+.enhanced .has-research .immersive-stage{opacity:0;visibility:hidden}
+.enhanced #scene-1 .split-stage{translate:none}
+.room .person,.split-family,.is-speaking .phone-message:last-child{animation:none}
+.conversation-caption .phone-chat{gap:16px;max-width:520px;margin:auto}
+.conversation-caption .phone-message{font-size:clamp(17px,1.8vw,23px);padding:14px 18px}
+.enhanced .story-step .conversation-caption{background:transparent;box-shadow:none;padding:0}
+.receipt-row{opacity:1}
+.receipt-row[hidden]{display:none}
+.conveyor:after{content:'';position:absolute;top:0;bottom:0;left:50%;width:2px;background:#e4bd7c;box-shadow:0 0 12px #e4bd7c;pointer-events:none}
+/* Restore the full-bleed opening; a local scrim protects the copy. */
+.landing-track{height:100svh}
+.enhanced .introduction{position:relative;inset:auto;height:100svh;isolation:isolate}
+.hero-home{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% center}
+.introduction:after{content:'';display:block;position:absolute;inset:0;background:linear-gradient(90deg,#f8f6f0f5 0%,#f8f6f0e8 30%,#f8f6f060 52%,transparent 70%);z-index:0;pointer-events:none}
+.hero-copy{position:absolute;top:50%;left:6%;width:43%;max-width:650px;transform:translateY(-50%);z-index:1}
+.hero-copy h1{font-size:clamp(40px,5.2vw,82px);line-height:1.05;margin:18px 0 24px}
+.hero-copy .dek{font-size:clamp(17px,1.65vw,24px);line-height:1.5}
+.scroll-cue{z-index:1;bottom:5%;background:none;padding:0}
+.scroll-cue span{animation:none}
+/* A population fills the viewport, with no inset picture-frame edges. */
+.enhanced .is-crowd .frame.is-art-active .visual{inset:0;height:100%;width:100%}
+.is-crowd .research,.is-crowd .crowd-view{width:100%;height:100%;max-width:none;padding:0}
+.crowd-view{display:block}
+.crowd-view>svg{position:absolute;inset:0;width:100%;height:100%}
+.crowd-stat{position:absolute;bottom:5%;left:0;width:100%;padding:18px 5%;background:linear-gradient(transparent,var(--scene-background) 25%);min-height:110px}
+/* Center the final illustration and use the same readable text measure. */
+.enhanced .focus-ending .visual{top:12%;height:60%;align-items:center}
+.enhanced .ending-art{width:min(58vw,480px);height:min(58svh,480px)}
+.enhanced #scene-12 .story-step:nth-last-child(-n+3) .caption{max-width:760px;text-align:center}
+.enhanced #scene-12 .story-step:last-child .line{font-size:clamp(30px,4vw,52px);line-height:1.2}
+@media(max-width:650px){
+ .hero-home{inset:0;height:100%;object-position:74% center}
+ .introduction:after{background:linear-gradient(180deg,#f8f6f0fa 0%,#f8f6f0f2 27%,#f8f6f080 47%,transparent 66%)}
+ .hero-copy{top:6%;left:7%;width:86%;max-width:440px;transform:none}
+ .hero-copy h1{font-size:clamp(37px,10vw,58px);margin:12px 0 16px}
+ .hero-copy .dek{font-size:17px}.hero-copy .byline{margin-top:16px}
+ .scroll-cue{bottom:3%;left:7%;background:#f8f6f0e8;padding:6px 12px;border-radius:20px}
+ .enhanced .story-step{padding:0 6%;min-height:85svh}
+ .enhanced .story-step .caption{padding:20px 22px;border-radius:18px}
+ .enhanced .story-step .caption .line{font-size:18px;line-height:1.5}
+ .enhanced .ending-art{width:80vw;height:55svh}
+ .crowd-stat{bottom:3%;font-size:15px}.crowd-stat strong{font-size:30px}
+}
+@media(max-height:550px){
+ .hero-copy{top:50%;transform:translateY(-50%);width:48%}
+ .hero-copy h1{font-size:clamp(28px,6.5vh,40px);margin:8px 0}
+ .hero-copy .dek{font-size:14px}.hero-copy .byline{margin-top:10px}
+ .enhanced .story-step{min-height:105svh}
+ .enhanced .story-step .caption .line{font-size:17px}
+}
+@media(prefers-reduced-motion:reduce){.enhanced .frame .visual,.enhanced .immersive-stage{transition:none}}
+
+/* A message creates the two paths; labels describe awareness until approval. */
+.opening-message{position:absolute;left:3%;right:3%;bottom:4%;padding:14px 18px;border-radius:18px;background:#fbf8ef;box-shadow:0 5px 20px #29383318;opacity:var(--message,0);transform:translateY(calc((1 - var(--message,0))*24px));font-size:clamp(14px,1.5vw,20px);line-height:1.35;text-align:left}
+.opening-message small{font-weight:700;font-size:.75em}.opening-message p{margin:5px 0 0}
+.enhanced #scene-1 .story-step{min-height:65svh}
+.enhanced #scene-1 .split-stage{height:62%;top:2%}
+.single-family{height:100%;width:min(65vw,520px);display:flex;justify-content:center}.single-family .art{height:100%;width:100%}
+#source-dialog details{margin-top:22px;border-top:1px solid #29383330;padding-top:15px;font-size:.9em}#source-dialog summary{cursor:pointer;font-weight:600}#source-dialog h3{line-height:1.2}#source-dialog p{line-height:1.6}
+@media(max-width:650px){.opening-message{padding:10px;font-size:13px;bottom:0;left:-3%;right:-3%}.universe-label{font-size:10px}.single-family{width:85vw}}
+
+.enhanced .opening-transcript{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+html:not(.enhanced) .opening-message{opacity:1;transform:none}

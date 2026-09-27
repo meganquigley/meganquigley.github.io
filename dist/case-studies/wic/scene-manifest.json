@@ -1,80 +1,25 @@
 [
   {
-    "title": "A new baby",
+    "title": "One text. Two paths.",
     "beats": [
       {
-        "caption": "My baby is here. He is crying. I am exhausted.",
+        "caption": "My baby is here. I\u2019m exhausted. And now I have to figure out how to feed us both.",
         "speaker": "Maya \u00b7 both paths",
         "source": null
       },
       {
-        "caption": "Everyone says to sleep when he sleeps. Apparently that is also when I\u2019m supposed to do everything else.",
+        "caption": "I hadn\u2019t even heard of it.",
+        "speaker": "Maya \u00b7 both paths",
+        "source": "ny"
+      },
+      {
+        "caption": "Same baby. Same income. Same need for food. Let\u2019s follow two versions of my life: one where that text arrives, and one where it never does.",
         "speaker": "Maya \u00b7 both paths",
         "source": null
       },
       {
-        "caption": "Same baby. Same income. Same need for food. Now watch our lives split: in one, I get WIC. In the other, I never do.",
+        "caption": "That text gives me a place to start. It doesn\u2019t get me enrolled.",
         "speaker": "Maya \u00b7 both paths",
-        "source": null
-      }
-    ]
-  },
-  {
-    "title": "A friend checks in",
-    "beats": [
-      {
-        "caption": "A friend checks in.",
-        "speaker": "With WIC \u00b7 Maya",
-        "source": null
-      },
-      {
-        "caption": "Is that food stamps?",
-        "speaker": "With WIC \u00b7 Maya",
-        "source": null
-      },
-      {
-        "caption": "My friend explains WIC.",
-        "speaker": "With WIC \u00b7 Maya",
-        "source": "ny"
-      },
-      {
-        "caption": "Thank God she said something. WIC could help me buy food while I\u2019m breastfeeding\u2014and help feed him as he grows.",
-        "speaker": "With WIC \u00b7 Maya",
-        "source": "ny"
-      },
-      {
-        "caption": "In my other life, that text never comes. I know about food stamps. We have Medicaid. WIC never comes up.",
-        "speaker": "Without WIC \u00b7 Maya",
-        "source": "referral"
-      }
-    ]
-  },
-  {
-    "title": "Getting through the door",
-    "beats": [
-      {
-        "caption": "I call the number to apply. Before my appointment, I need to gather a few things. First: my ID.",
-        "speaker": "With WIC \u00b7 Maya",
-        "source": null
-      },
-      {
-        "caption": "Then my address and Medicaid information. Medicaid helps establish income eligibility. It doesn\u2019t enroll me in WIC.",
-        "speaker": "With WIC \u00b7 Maya",
-        "source": "ny"
-      },
-      {
-        "caption": "Now the appointment. Doing it by phone saves a trip, but I still need a stretch of time when I can talk.",
-        "speaker": "With WIC \u00b7 Maya",
-        "source": "ny"
-      },
-      {
-        "caption": "I\u2019m approved. While I\u2019m fully breastfeeding, my package includes $52 a month for produce, plus other foods. Okay. That would help.",
-        "speaker": "With WIC \u00b7 Maya",
-        "source": "rates"
-      },
-      {
-        "caption": "Meanwhile, I\u2019m buying the same kinds of food without that help. All of it comes out of my own budget.",
-        "speaker": "Without WIC \u00b7 Maya",
         "source": null
       }
     ]
@@ -83,7 +28,7 @@
     "title": "From one person to the country",
     "beats": [
       {
-        "caption": "One text helped me get through the door. But my story is only one of millions.",
+        "caption": "My story is only one of millions.",
         "speaker": "A wider view",
         "source": "coverage"
       },
@@ -93,7 +38,7 @@
         "source": "coverage"
       },
       {
-        "caption": "And the chance of getting that help changes depending on where you live.",
+        "caption": "There isn\u2019t one reason why. And the chance of getting help changes depending on where you live.",
         "speaker": "A wider view",
         "source": "coverage"
       },
@@ -103,9 +48,29 @@
         "source": "coverage"
       },
       {
-        "caption": "Those differences don\u2019t tell us why people miss out. They do show that making help available is only the beginning.",
+        "caption": "Those differences don\u2019t tell us why people miss out. For me, hearing about WIC was the first step. Getting through the door was next.",
         "speaker": "A wider view",
         "source": "coverage"
+      }
+    ]
+  },
+  {
+    "title": "Getting through the door",
+    "beats": [
+      {
+        "caption": "I call the number. Before my appointment, I gather my ID, address, and Medicaid information. Medicaid helps show I meet the income rules. It doesn\u2019t enroll me in WIC.",
+        "speaker": "Maya \u00b7 both paths",
+        "source": "ny"
+      },
+      {
+        "caption": "The appointment is by phone. That saves a trip, but I still need a stretch of time when I can talk.",
+        "speaker": "Maya \u00b7 both paths",
+        "source": "ny"
+      },
+      {
+        "caption": "I\u2019m approved. While I\u2019m fully breastfeeding, WIC includes $52 a month for produce, plus other foods. In my other life, I\u2019m still paying for food without that help.",
+        "speaker": "Maya \u00b7 both paths",
+        "source": "rates"
       }
     ]
   },
