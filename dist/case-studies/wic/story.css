@@ -129,4 +129,4 @@ html:not(.enhanced) .opening-message{opacity:1;transform:none}
 /* Keep expandable methodology quieter than source headings. */
 .sources summary{font-size:10px;line-height:1.6;cursor:pointer}.sources details{margin-top:8px}#source-dialog summary{font-size:12px}#source-dialog details p{font-size:12px;line-height:1.65}
 
-html:not(.enhanced) .map-route-right{stroke-dashoffset:0}
+html:not(.enhanced) .map-route-right{visibility:visible}

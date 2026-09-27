@@ -1,4 +1,4 @@
-import {clamp,produceTotal,checkoutAt} from './model.mjs?v=20260927-families4';
+import {clamp,produceTotal,checkoutAt,measureRoad,roadAt} from './model.mjs?v=20260927-solid-road';
 const scenes=[...document.querySelectorAll('.scene')];
 const basket=JSON.parse(document.querySelector('#basket-data').textContent);
 const reduced=matchMedia('(prefers-reduced-motion:reduce)');
@@ -33,6 +33,14 @@ function prepareStory(){
  });
 }
 const money=n=>'$'+(n/100).toFixed(2);
+const roadGeometry=new WeakMap();
+function driveRoad(path,person,progress){
+ if(!roadGeometry.has(path))roadGeometry.set(path,measureRoad(path.getAttribute('d')));
+ const state=roadAt(roadGeometry.get(path),progress);
+ path.setAttribute('d',state.d);
+ path.style.visibility='visible';
+ person.setAttribute('transform',`translate(${state.x} ${state.y})`);
+}
 function travel(path,person,p,svg=false){
  const length=path.getTotalLength(),point=path.getPointAtLength(length*clamp(p));
  if(svg){person.setAttribute('transform',`translate(${point.x} ${point.y})`);path.setAttribute('pathLength','1');path.style.strokeDasharray='1 1';path.style.strokeDashoffset=String(1-clamp(p));}
@@ -42,7 +50,7 @@ function travel(path,person,p,svg=false){
 function environment(scene,current,local,progress){
  const t=current+(reduced.matches?.95:local);
  if(scene.querySelector('.real-map')){
-  travel(scene.querySelector('.map-route-right'),scene.querySelector('.map-traveler-right'),clamp(t/2.8),true);
+  driveRoad(scene.querySelector('.map-route-right'),scene.querySelector('.map-traveler-right'),clamp(t/2.8));
  }
  if(scene.querySelector('.store-floor')){
   travel(scene.querySelector('.with-route'),scene.querySelector('.shopper-with'),clamp(t/4.8),true);

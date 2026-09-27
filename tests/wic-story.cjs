@@ -2,7 +2,7 @@ const assert=require('node:assert/strict'),fs=require('fs'),path=require('path')
 const {JSDOM}=require('jsdom'),css=require('css-tree');
 (async()=>{
  const root=path.resolve(__dirname,'../dist/case-studies/wic');
- const {beatAt,openingAt,produceTotal,checkoutAt}=await import(path.join(root,'model.mjs'));
+ const {beatAt,openingAt,produceTotal,checkoutAt,measureRoad,roadAt}=await import(path.join(root,'model.mjs'));
  for(const count of [3,4,5,6,7]){
   const height=900+(count-1)*648;
   assert.equal(beatAt(100,height,900,count),0);
@@ -16,6 +16,10 @@ const {JSDOM}=require('jsdom'),css=require('css-tree');
  assert.equal(openingAt(0,1890,900).scale,1);
  assert.equal(openingAt(-990,1890,900).words,1);
  assert.deepEqual([1,12,24,36,48,60].map(produceTotal),[52,624,936,1248,1560,1872]);
+ const corner=measureRoad('M0,0 L100,0 L100,300');
+ assert.deepEqual(roadAt(corner,.5),{d:'M0,0 L100,0 L100,100',x:100,y:100});
+ assert.deepEqual(roadAt(corner,0),{d:'M0,0',x:0,y:0});
+ assert.deepEqual(roadAt(corner,1),{d:'M0,0 L100,0 L100,300',x:100,y:300});
  const basket=JSON.parse(fs.readFileSync(path.join(root,'basket.json'))).items;
  basket.forEach(item=>assert.equal(Math.round(item.unit_cents*item.units),item.cents));
  assert.deepEqual(checkoutAt(12,basket),{count:11,total:4984,covered:4610,own:374});
@@ -35,8 +39,8 @@ const {JSDOM}=require('jsdom'),css=require('css-tree');
  assert.equal(d.querySelectorAll('nav,[data-reading-toggle],#reading-mode').length,0);
  assert.equal(d.querySelectorAll('.opening a,.introduction a').length,0);
  for(const meta of ['robots','googlebot'])assert.equal(d.querySelector(`meta[name=${meta}]`).content,'noindex, nofollow, noarchive');
- assert.deepEqual([...d.querySelectorAll('script[src]')].map(x=>x.getAttribute('src')),['story.js?v=20260927-route']);
- assert.deepEqual([...d.querySelectorAll('link[rel=stylesheet]')].map(x=>x.getAttribute('href')),['story.css?v=20260927-route']);
+ assert.deepEqual([...d.querySelectorAll('script[src]')].map(x=>x.getAttribute('src')),['story.js?v=20260927-solid-road']);
+ assert.deepEqual([...d.querySelectorAll('link[rel=stylesheet]')].map(x=>x.getAttribute('href')),['story.css?v=20260927-solid-road']);
  for(const frame of d.querySelectorAll('.frame')){
   assert.equal(frame.querySelectorAll('.caption').length,1);assert(frame.querySelector('.line,.opening-exchange').textContent.length);
   assert(frame.querySelector('.research')||frame.querySelector('.pair')||frame.querySelector('.anchors')||frame.closest('.immersive')||frame.querySelector('.ending-art')||frame.querySelector('.single-family'));
@@ -86,7 +90,7 @@ const {JSDOM}=require('jsdom'),css=require('css-tree');
   };
   w.SVGElement.prototype.getTotalLength=()=>100;
   w.SVGElement.prototype.getPointAtLength=n=>({x:n,y:n});
-  Object.assign(w,{checkoutAt,clamp:(n,l=0,h=1)=>Math.min(h,Math.max(l,n)),produceTotal});
+  Object.assign(w,{checkoutAt,clamp:(n,l=0,h=1)=>Math.min(h,Math.max(l,n)),produceTotal,measureRoad,roadAt});
   w.eval(code.replace(/^import .*?;\n/,''));
   assert(w.document.documentElement.classList.contains('enhanced'));
   assert.equal(w.document.querySelectorAll('.story-step').length,55);
@@ -104,14 +108,17 @@ const {JSDOM}=require('jsdom'),css=require('css-tree');
   }
   // The blue trail ends at Maya and rewinds with the story, rather than painting the whole route.
   const drive=w.document.querySelector('#scene-5'),routePath=drive.querySelector('.map-route-right');
+  const fullRoad=measureRoad(d.querySelector('.map-route-right').getAttribute('d'));
   for(const position of [0,.7,1.4,2.8,1.4,0]){
    drive.dataset.top=-position*765;flush();
    const progress=Math.min(1,(reduced?Math.floor(position)+.95:position)/2.8);
-   assert.equal(routePath.getAttribute('pathLength'),'1');
-   assert.equal(routePath.style.strokeDasharray,'1 1');
-   assert(Math.abs(Number(routePath.style.strokeDashoffset)-(1-progress))<.00001);
-   const traveler=drive.querySelector('.map-traveler-right').getAttribute('transform').match(/[\d.]+/g).map(Number);
-   assert(Math.abs(traveler[0]-progress*100)<.00001,'Trail and traveler share the same progress');
+   assert.equal(routePath.hasAttribute('stroke-dasharray'),false);
+   assert.equal(routePath.style.strokeDasharray,'');
+   const drawn=measureRoad(routePath.getAttribute('d'));
+   assert(Math.abs(drawn.length-fullRoad.length*progress)<.00001,'Only the traveled distance is blue');
+   const end=drawn.points.at(-1),traveler=drive.querySelector('.map-traveler-right').getAttribute('transform').match(/[-\d.]+/g).map(Number);
+   assert.deepEqual(traveler,[end.x,end.y],'Solid road ends exactly at Maya');
+   assert.deepEqual(drawn.points.slice(0,-1).map(({x,y})=>[x,y]),fullRoad.points.slice(0,drawn.points.length-1).map(({x,y})=>[x,y]),'Blue vertices form a continuous prefix of the road');
   }
   drive.dataset.top=10000;
   const checkout=w.document.querySelector('#scene-7');
