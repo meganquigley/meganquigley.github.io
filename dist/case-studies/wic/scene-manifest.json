@@ -8,32 +8,22 @@
         "source": null
       },
       {
-        "caption": "I hadn\u2019t even heard of it.",
+        "caption": "I\u2019d never even heard of it.",
         "speaker": "Maya \u00b7 both paths",
         "source": "ny"
       },
       {
-        "caption": "Same baby. Same income. Same need for food. Let\u2019s follow two versions of my life: one where that text arrives, and one where it never does.",
-        "speaker": "Maya \u00b7 both paths",
-        "source": null
-      },
-      {
-        "caption": "A text can open the door. But knowing where to start is only one part of getting help.",
-        "speaker": "Maya \u00b7 both paths",
-        "source": null
-      },
-      {
-        "caption": "Across the country, millions of parents and young children qualify for WIC.",
+        "caption": "And hearing about WIC is only the first hurdle. Across the country, WIC reaches about 56 of every 100 eligible people.",
         "speaker": "A wider view",
         "source": "coverage"
       },
       {
-        "caption": "Across the country, WIC reaches about 56 of every 100 eligible people. The others qualify for help they aren\u2019t receiving.",
+        "caption": "The others qualify for help they aren\u2019t receiving.",
         "speaker": "A wider view",
         "source": "coverage"
       },
       {
-        "caption": "There isn\u2019t one reason why. And the chance of getting help changes depending on where you live.",
+        "caption": "Finding out, applying, reaching a store, and staying enrolled can all take work. How many people receive help also varies widely by state.",
         "speaker": "A wider view",
         "source": "coverage"
       },
@@ -43,9 +33,9 @@
         "source": "coverage"
       },
       {
-        "caption": "Those differences don\u2019t tell us why people miss out. For me, hearing about WIC was the first step. Getting through the door was next.",
-        "speaker": "A wider view",
-        "source": "coverage"
+        "caption": "So, let\u2019s follow two versions of my life: one where that text arrives, and one where it never does\u2014same baby, same income, same need for food.",
+        "speaker": "Maya \u00b7 both paths",
+        "source": null
       }
     ]
   },
@@ -53,7 +43,7 @@
     "title": "Getting through the door",
     "beats": [
       {
-        "caption": "I call the number. Before my appointment, I gather my ID, address, and Medicaid information. Medicaid helps show I meet the income rules. It doesn\u2019t enroll me in WIC.",
+        "caption": "First, I need to apply. I call the number. Before my appointment, I gather my ID, address, and Medicaid information. Medicaid helps show I meet the income rules. It doesn\u2019t enroll me in WIC.",
         "speaker": "Maya \u00b7 both paths",
         "source": "ny"
       },

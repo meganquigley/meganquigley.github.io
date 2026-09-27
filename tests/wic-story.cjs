@@ -31,12 +31,12 @@ const {JSDOM}=require('jsdom'),css=require('css-tree');
  assert.equal((100*(1-254506/365738)).toFixed(1),'30.4');
  const dom=new JSDOM(fs.readFileSync(path.join(root,'index.html'),'utf8'));
  const d=dom.window.document;
- assert.equal(d.querySelectorAll('.scene').length,10);assert.equal(d.querySelectorAll('.frame').length,57);
+ assert.equal(d.querySelectorAll('.scene').length,10);assert.equal(d.querySelectorAll('.frame').length,55);
  assert.equal(d.querySelectorAll('nav,[data-reading-toggle],#reading-mode').length,0);
  assert.equal(d.querySelectorAll('.opening a,.introduction a').length,0);
  for(const meta of ['robots','googlebot'])assert.equal(d.querySelector(`meta[name=${meta}]`).content,'noindex, nofollow, noarchive');
- assert.deepEqual([...d.querySelectorAll('script[src]')].map(x=>x.getAttribute('src')),['story.js?v=20260927-continuity2']);
- assert.deepEqual([...d.querySelectorAll('link[rel=stylesheet]')].map(x=>x.getAttribute('href')),['story.css?v=20260927-continuity2']);
+ assert.deepEqual([...d.querySelectorAll('script[src]')].map(x=>x.getAttribute('src')),['story.js?v=20260927-families4']);
+ assert.deepEqual([...d.querySelectorAll('link[rel=stylesheet]')].map(x=>x.getAttribute('href')),['story.css?v=20260927-families4']);
  for(const frame of d.querySelectorAll('.frame')){
   assert.equal(frame.querySelectorAll('.caption').length,1);assert(frame.querySelector('.line,.opening-exchange').textContent.length);
   assert(frame.querySelector('.research')||frame.querySelector('.pair')||frame.querySelector('.anchors')||frame.closest('.immersive')||frame.querySelector('.ending-art')||frame.querySelector('.single-family'));
@@ -46,13 +46,17 @@ const {JSDOM}=require('jsdom'),css=require('css-tree');
  for(const el of d.querySelectorAll('[id]'))assert.equal(d.querySelectorAll(`[id="${el.id}"]`).length,1);
  const errors=[];css.parse(fs.readFileSync(path.join(root,'story.css'),'utf8'),{onParseError:e=>errors.push(e.message)});assert.deepEqual(errors,[]);
  assert.equal(d.querySelectorAll('img').length,1);
- assert.equal(d.querySelectorAll('.national-map .state-tile').length,150);
+ assert.equal(d.querySelectorAll('.national-map .state-tile').length,100);
  assert.equal(d.querySelectorAll('.scatter,.speaker').length,0);
  assert(d.querySelector('#source-dialog'));
  assert([...d.querySelectorAll('.sources a')].every(a=>a.target==='_blank' && a.rel.includes('noopener')));
  assert.equal(d.querySelectorAll('.sources details').length,10);
- assert.equal(d.querySelector('#scene-1').dataset.count,'9');
- assert(!d.querySelector('#scene-1 .split-stage').textContent.includes('With WIC'));
+ assert.equal(d.querySelector('#scene-1').dataset.count,'7');
+ assert(d.querySelector('#scene-1 .split-stage').textContent.includes('With WIC'));
+ for(const crowd of d.querySelectorAll('.crowd-camera')){assert.equal(crowd.querySelectorAll('[data-people]').length,50);assert.equal(crowd.querySelectorAll('.receives').length*2,56);}
+ assert(d.querySelector('#scene-1 .frame[data-beat="2"] .crowd-view'));
+ assert(d.querySelector('#scene-1 .frame[data-beat="4"] .national-map'));
+ assert(d.querySelector('#scene-1 .frame[data-beat="6"] .caption').textContent.includes('two versions'));
  assert.equal(d.querySelectorAll('.opening-exchange').length,1);
  assert.equal(d.querySelectorAll('.opening-message').length,0);
  assert.equal(d.querySelectorAll('.crowd-maya').length,2);
@@ -75,6 +79,7 @@ const {JSDOM}=require('jsdom'),css=require('css-tree');
   w.requestAnimationFrame=fn=>{pending.push(fn);};
   Object.defineProperty(w,'innerHeight',{value:900});
   w.Element.prototype.getBoundingClientRect=function(){
+   if(this.classList.contains('split-family'))return {top:50,width:500,height:540,bottom:590};
    const scene=this.closest('.scene'),top=Number(scene?.dataset.top??10000);
    if(this.classList.contains('story-step')){const t=top+585+Number(this.dataset.beat)*765;return {top:t,height:765,bottom:t+765};}
    const height=scene?Number(scene.dataset.count)*765+720:900;return {top,height,bottom:top+height};
@@ -84,7 +89,7 @@ const {JSDOM}=require('jsdom'),css=require('css-tree');
   Object.assign(w,{checkoutAt,clamp:(n,l=0,h=1)=>Math.min(h,Math.max(l,n)),produceTotal});
   w.eval(code.replace(/^import .*?;\n/,''));
   assert(w.document.documentElement.classList.contains('enhanced'));
-  assert.equal(w.document.querySelectorAll('.story-step').length,57);
+  assert.equal(w.document.querySelectorAll('.story-step').length,55);
   assert.equal(w.document.querySelectorAll('.frame .caption').length,0,'Narration is outside the pinned art');
   const flush=()=>{w.dispatchEvent(new w.Event('scroll'));pending.splice(0).forEach(fn=>fn());};
   for(const scene of w.document.querySelectorAll('.scene')){
@@ -106,7 +111,18 @@ const {JSDOM}=require('jsdom'),css=require('css-tree');
   }
   checkout.dataset.top=10000;
   const first=w.document.querySelector('#scene-1'),second=w.document.querySelector('#scene-3');
-  first.dataset.top=-7300;second.dataset.top=215;flush();
+  // The focal mother has identical screen coordinates before and after every zoom sample.
+  let anchor;
+  for(const position of [1.5,1.99,2.001,2.5,3.2,3.79,2.001,1.99]){
+   first.dataset.top=-position*765;flush();
+   const camera=first.querySelector('.crowd-camera'),origin=camera.querySelector('.crowd-origin');
+   const c=camera.getAttribute('transform').match(/[-\d.]+/g).map(Number),o=origin.getAttribute('transform').match(/[-\d.]+/g).map(Number);
+   const point=[c[0]+o[0]*c[2],c[1]+o[1]*c[2]];
+   assert(point.every(Number.isFinite));
+   if(anchor)point.forEach((v,i)=>assert(Math.abs(v-anchor[i])<.001,'Focal mother must remain anchored'));
+   anchor=point;
+  }
+  first.dataset.top=-5700;second.dataset.top=215;flush();
   assert.equal(w.document.querySelectorAll('.is-present').length,2);
   assert.equal(w.document.querySelectorAll('.is-speaking').length,1);
   runtime.window.close();
@@ -116,5 +132,5 @@ const {JSDOM}=require('jsdom'),css=require('css-tree');
   assert.equal(checkoutAt(item+75/140-.0001,basket).count,item);
   assert.equal(checkoutAt(item+75/140+.0001,basket).count,item+1);
  }
- dom.window.close();console.log('PASS: 57 native narrative steps; all scene jumps/reversals; reduced motion; scanner threshold and hidden receipt rows; arithmetic; sources; CSS syntax.');
+ dom.window.close();console.log('PASS: 55 native narrative steps; all scene jumps/reversals; reduced motion; scanner threshold and hidden receipt rows; arithmetic; sources; CSS syntax.');
 })().catch(e=>{console.error(e);process.exitCode=1});

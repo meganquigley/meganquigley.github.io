@@ -1,4 +1,4 @@
-import {clamp,produceTotal,checkoutAt} from './model.mjs?v=20260927-continuity2';
+import {clamp,produceTotal,checkoutAt} from './model.mjs?v=20260927-families4';
 const scenes=[...document.querySelectorAll('.scene')];
 const basket=JSON.parse(document.querySelector('#basket-data').textContent);
 const reduced=matchMedia('(prefers-reduced-motion:reduce)');
@@ -67,8 +67,14 @@ function environment(scene,current,local,progress){
 }
 function renderScene(scene,speaking){
  const frames=sceneFrames.get(scene),steps=[...scene.querySelectorAll('.story-step')];
- const first=steps[0].getBoundingClientRect(),stepHeight=Math.max(1,first.height);
- const position=clamp((innerHeight*.65-first.top)/stepHeight,0,frames.length-.00001);
+ // Read each step's actual height so a reading pause does not advance the artwork early.
+ const readingLine=innerHeight*.65;
+ let position=0;
+ for(let i=0;i<steps.length;i++){
+  const rect=steps[i].getBoundingClientRect();
+  if(rect.top>readingLine)break;
+  position=i+clamp((readingLine-rect.top)/Math.max(1,rect.height),0,.99999);
+ }
  const current=Math.floor(position),local=position-current,progress=position/frames.length;
  scene.dataset.activeBeat=current;
  const artIndex=Number(frames[current].dataset.artFrame);
@@ -76,28 +82,38 @@ function renderScene(scene,speaking){
  const frame=frames[artIndex];scene.dataset.focus=frames[current].dataset.focus;
  scene.classList.toggle('has-research',Boolean(frame.querySelector('.research')));
  scene.style.setProperty('--scene-progress',progress);
- scene.classList.toggle('is-crowd',Boolean(frame.querySelector('.crowd-view')));
+ const crowdFrame=frames.find(f=>f.querySelector('.crowd-camera'));
+ const bridging=Boolean(crowdFrame)&&position>=1.35&&position<4;
+ scene.classList.toggle('is-crowd',Boolean(frame.querySelector('.crowd-view'))||bridging);
+ if(crowdFrame)crowdFrame.classList.toggle('crowd-bridge',bridging);
  scene.classList.toggle('is-ending',frame.dataset.focus==='ending');
  if(scene.classList.contains('immersive'))environment(scene,current,local,progress);
  if(scene.querySelector('.split-stage')){
   const t=current+local;
-  const p=reduced.matches?(current===2?1:0):clamp((t-1.6)/1.1)*(1-clamp(t-3));
+  const p=reduced.matches?(current>=6?1:0):clamp((t-6)/.8);
   scene.classList.toggle('has-message',current>=1);
   scene.style.setProperty('--message',reduced.matches?(current>=1?1:0):clamp((current+local-.8)/.3));
   scene.style.setProperty('--split',p);
-  scene.style.setProperty('--room-opacity',1-clamp((t-3.2)/.7));scene.classList.toggle('is-split',p>.55);
+  const dissolve=reduced.matches?(current>=2?1:0):clamp((t-1.35)/.65);
+  scene.style.setProperty('--room-opacity',current>=6?1:1-dissolve);
+  scene.style.setProperty('--crowd-entry',current>=2?1:dissolve);scene.classList.toggle('is-split',p>.55);
  }
- if(frame.querySelector('.crowd-camera')){
-  const view=frame.querySelector('.crowd-view'),svg=view.querySelector('svg');
-  const width=svg.clientWidth||900,height=svg.clientHeight||540,columns=width<600?5:10,rows=100/columns;
-  const cellWidth=width/columns,cellHeight=(height-120)/rows,figureScale=Math.min(cellWidth/40,cellHeight/48)*.88;
+ if(crowdFrame&&(bridging||frame.querySelector('.crowd-camera'))){
+  const view=crowdFrame.querySelector('.crowd-view'),svg=view.querySelector('svg');
+  const width=svg.clientWidth||900,height=svg.clientHeight||540,columns=width<600?5:9,rows=Math.ceil(50/columns);
+  const cellWidth=width/columns,cellHeight=(height-120)/rows,figureScale=Math.min(cellWidth/54,cellHeight/54)*.88;
   svg.setAttribute('viewBox',`0 0 ${width} ${height}`);
-  view.querySelectorAll('.crowd-person').forEach((person,i)=>person.setAttribute('transform',`translate(${(i%columns+.5)*cellWidth} ${(Math.floor(i/columns)+.5)*cellHeight}) scale(${figureScale})`));
-  const crowdStart=frames.findIndex(f=>f.querySelector('.crowd-camera'));
-  const p=reduced.matches?(current===crowdStart?0:1):clamp((current+local-crowdStart-.15)/1.5);
-  const startScale=Math.min(width*.65,height*.5)/(52*figureScale),scale=startScale+(1-startScale)*p;
-  const originX=(44%columns+.5)*cellWidth,originY=(Math.floor(44/columns)+.5)*cellHeight;
-  frame.querySelector('.crowd-camera').setAttribute('transform',`translate(${(width/2-originX*startScale)*(1-p)} ${(height*.32-originY*startScale)*(1-p)}) scale(${scale})`);
+  // Match the mother inside the room SVG, including its padding and meet scaling.
+  const room=scene.querySelector('.universe-with .split-family');
+  const box=room.getBoundingClientRect(),padding=parseFloat(getComputedStyle(room).paddingTop)||0;
+  const roomSize=Math.min(box.width,box.height-padding);
+  const centerX=width/2,centerY=box.top+padding+(box.height-padding)/2;
+  const originColumn=22%columns,originRow=Math.floor(22/columns);
+  view.querySelectorAll('.crowd-person').forEach((person,i)=>person.setAttribute('transform',`translate(${centerX+(i%columns-originColumn)*cellWidth} ${centerY+(Math.floor(i/columns)-originRow)*cellHeight}) scale(${figureScale})`));
+  const zoom=clamp((position-2)/1.8),p=reduced.matches?1:zoom*zoom*(3-2*zoom);
+  const startScale=roomSize*(260/320)/(52*figureScale),scale=startScale+(1-startScale)*p;
+  // The same mother stays at the same screen coordinate for the entire pullback.
+  crowdFrame.querySelector('.crowd-camera').setAttribute('transform',`translate(${centerX*(1-scale)} ${centerY*(1-scale)}) scale(${scale})`);
   view.style.setProperty('--crowd',p);view.classList.toggle('is-wide',p>.65);
  }
  const produce=frame.querySelector('[data-months]');
