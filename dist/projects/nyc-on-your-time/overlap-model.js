@@ -1,0 +1,7 @@
+(function(root){const E=typeof module!=='undefined'?require('./engine.js'):root.ScheduleEngine;
+function repeated(start,end,days){const a=E.minutes(start),b=E.minutes(end);return days.flatMap(d=>[-10080,0,10080].map(off=>[d*1440+a+off,d*1440+b+(b<=a?1440:0)+off]));}
+function model(row,s,day){const start=day*1440,end=start+1440,clip=xs=>E.merge(xs.map(([a,b])=>[Math.max(start,a),Math.min(end,b)]));const work=E.workIntervals(s),commute=E.subtract(E.workIntervals(s,s.commute),work);const sleep=repeated(s.sleepStart,s.sleepEnd,[0,1,2,3,4,5,6]);let life=[];if(s.care)life.push(...repeated(s.careStart,s.careEnd,[0,1,2,3,4,5,6]));if(s.other)life.push(...repeated(s.otherStart,s.otherEnd,[0,1,2,3,4,5,6]));const busy=E.merge([...work,...commute,...sleep,...life]);const office=clip(E.openIntervals(row));const free=E.subtract([[start,end]],busy);const windows=[];let first=null;const duration=s.duration+s.wait;
+if(row.status!=='closed'&&row.schedule?.length)for(const [a,b] of office)for(let t=a;t+duration<=b;t++){if(!busy.some(([x,y])=>t-s.travel<y&&t+duration+s.travel>x)){windows.push([t,t+duration]);if(first===null)first=t;}}
+return {kind:row.status==='closed'?'closed':!row.schedule?.length?'unknown':windows.length?'fits':'conflict',work:clip(work),commute:clip(commute),sleep:clip(sleep),life:clip(life),free,office,windows:E.merge(windows),first};}
+const api={model,repeated};root.OverlapModel=api;if(typeof module!=='undefined')module.exports=api;
+})(typeof window==='undefined'?globalThis:window);
