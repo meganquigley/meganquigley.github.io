@@ -1,4 +1,4 @@
-import {clamp,produceTotal,checkoutAt} from './model.mjs?v=20260927-opening1';
+import {clamp,produceTotal,checkoutAt} from './model.mjs?v=20260927-continuity2';
 const scenes=[...document.querySelectorAll('.scene')];
 const basket=JSON.parse(document.querySelector('#basket-data').textContent);
 const reduced=matchMedia('(prefers-reduced-motion:reduce)');
@@ -80,10 +80,12 @@ function renderScene(scene,speaking){
  scene.classList.toggle('is-ending',frame.dataset.focus==='ending');
  if(scene.classList.contains('immersive'))environment(scene,current,local,progress);
  if(scene.querySelector('.split-stage')){
-  const p=reduced.matches?(current>=2?1:0):clamp((current+local-1.6)/1.1);
+  const t=current+local;
+  const p=reduced.matches?(current===2?1:0):clamp((t-1.6)/1.1)*(1-clamp(t-3));
   scene.classList.toggle('has-message',current>=1);
   scene.style.setProperty('--message',reduced.matches?(current>=1?1:0):clamp((current+local-.8)/.3));
-  scene.style.setProperty('--split',p);scene.classList.toggle('is-split',p>.55);
+  scene.style.setProperty('--split',p);
+  scene.style.setProperty('--room-opacity',1-clamp((t-3.2)/.7));scene.classList.toggle('is-split',p>.55);
  }
  if(frame.querySelector('.crowd-camera')){
   const view=frame.querySelector('.crowd-view'),svg=view.querySelector('svg');
@@ -91,9 +93,11 @@ function renderScene(scene,speaking){
   const cellWidth=width/columns,cellHeight=(height-120)/rows,figureScale=Math.min(cellWidth/40,cellHeight/48)*.88;
   svg.setAttribute('viewBox',`0 0 ${width} ${height}`);
   view.querySelectorAll('.crowd-person').forEach((person,i)=>person.setAttribute('transform',`translate(${(i%columns+.5)*cellWidth} ${(Math.floor(i/columns)+.5)*cellHeight}) scale(${figureScale})`));
-  const p=reduced.matches?(current===0?0:1):clamp((current+local-.15)/1.5),scale=8-7*p;
+  const crowdStart=frames.findIndex(f=>f.querySelector('.crowd-camera'));
+  const p=reduced.matches?(current===crowdStart?0:1):clamp((current+local-crowdStart-.15)/1.5);
+  const startScale=Math.min(width*.65,height*.5)/(52*figureScale),scale=startScale+(1-startScale)*p;
   const originX=(44%columns+.5)*cellWidth,originY=(Math.floor(44/columns)+.5)*cellHeight;
-  frame.querySelector('.crowd-camera').setAttribute('transform',`translate(${(width/2-originX*8)*(1-p)} ${(height*.4-originY*8)*(1-p)}) scale(${scale})`);
+  frame.querySelector('.crowd-camera').setAttribute('transform',`translate(${(width/2-originX*startScale)*(1-p)} ${(height*.32-originY*startScale)*(1-p)}) scale(${scale})`);
   view.style.setProperty('--crowd',p);view.classList.toggle('is-wide',p>.65);
  }
  const produce=frame.querySelector('[data-months]');
