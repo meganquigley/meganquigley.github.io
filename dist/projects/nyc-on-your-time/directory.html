@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive"><meta name="googlebot" content="noindex, nofollow, noarchive">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Compare NYC public-service schedules with your working hours. A source-backed explorer of the time it takes to access your city.">
+  <title>Please take a day off — NYC schedule explorer</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="data.js"></script><script defer src="engine.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#results">Skip to results</a>
+<header class="masthead"><a class="brand" href="#"><span class="mark" aria-hidden="true">↗</span> THE CITY, ON YOUR TIME</a><div class="mast-right"><a href="citywide.html">Citywide inventory & coverage ↗</a><button class="text-button" id="about">Sources & method <span aria-hidden="true">↗</span></button></div></header>
+<main>
+  <section class="hero" aria-labelledby="title">
+    <div><div class="eyebrow"><span class="dot"></span> A PUBLIC-SERVICE SCHEDULE EXPLORER</div><h1 id="title">Please take<br>a <em>day off.</em></h1><p class="intro">The office is open.<br>But you’re at work.</p><p class="dek">Compare the city’s published service hours with your week.<br class="desktop"> Find the gaps, the late openings, and the ways to avoid a trip.</p></div>
+    <div class="hero-right"><div class="stamp">OPEN TO<br>THE PUBLIC<span>MON–FRI</span></div><div class="pullquote">Public access<br>has a schedule.</div><p>Hours are facts.<br>Whether they fit your life is the question.</p></div>
+  </section>
+  <div class="coverage-strip"><span id="coverageCount"></span><span>Official-page snapshot · <span id="checked"></span></span><button id="coverageButton">What’s included? ↗</button></div>
+  <section class="workspace">
+    <aside class="controls" aria-label="Your schedule">
+      <div class="section-number">01 / YOUR WEEK</div><h2>When are you<br>at work?</h2><p class="muted">Start with 9–5, or make it yours.</p>
+      <label class="field">Try a schedule<select id="preset"><option value="standard">Monday–Friday, 9–5</option><option value="early">Monday–Friday, 8–6</option><option value="shift">Tuesday–Saturday, 10–6</option><option value="night">Monday–Friday, 10 p.m.–6 a.m.</option><option value="custom">Custom schedule</option></select></label>
+      <fieldset><legend>Workdays</legend><div class="day-buttons" id="days"></div></fieldset>
+      <div class="field-pair"><label class="field">Start<input id="workStart" type="time" value="09:00"></label><label class="field">End<input id="workEnd" type="time" value="17:00"></label></div>
+      <p class="tiny">Overnight shifts continue into the next day. Equal start and end means a 24-hour shift.</p>
+      <div class="rule"></div><label class="field">Time needed at the service<select id="duration"><option value="15">15 minutes</option><option value="30" selected>30 minutes</option><option value="60">1 hour</option><option value="90">1½ hours</option><option value="120">2 hours</option></select></label>
+      <label class="field">Travel buffer around work<select id="travel"><option value="0">No travel buffer</option><option value="15">15 minutes each way</option><option value="30" selected>30 minutes each way</option><option value="60">1 hour each way</option></select></label>
+      <p class="tiny">Your assumptions, not measured travel or waiting times. Phone and video have no travel buffer.</p>
+      <details class="break-controls"><summary>I can use a break during work</summary><label class="check"><input type="checkbox" id="breakEnabled"> Include a daily break</label><div class="field-pair"><label class="field">From<input type="time" id="breakStart" value="12:00"></label><label class="field">To<input type="time" id="breakEnd" value="13:00"></label></div><p class="tiny">Applies within daytime shifts. Travel also uses part of your break.</p></details>
+      <button class="reset" id="reset">Reset to 9–5 ↺</button>
+      <div class="aside-note"><strong>A window is a possibility.</strong><p>An open counter does not guarantee an appointment, capacity, eligibility, or a completed visit.</p></div>
+    </aside>
+    <div class="explorer">
+      <section class="finding" aria-label="Schedule comparison"><div class="section-number">02 / THE OVERLAP</div><div class="finding-line"><span id="conflictCount" class="big-number">—</span><div><h2 id="findingTitle">schedules don’t fit<br>your working week.</h2><p id="findingDescription"></p></div></div><div class="metrics" id="metrics"></div><p class="denominator" id="denominator"></p></section>
+      <section class="calendar-panel" aria-label="Selected service calendar"><div class="calendar-heading"><div><span class="eyebrow">A CLOSER LOOK</span><h3 id="calendarTitle"></h3><p id="calendarSubtitle"></p></div><button class="text-button" id="calendarDetails">View details ↗</button></div><div class="legend"><span><i class="swatch work"></i> Work + travel</span><span><i class="swatch clash"></i> Open, but conflicts</span><span><i class="swatch free"></i> Open outside work</span></div><div id="calendar" class="calendar"></div><p id="calendarNote" class="tiny"></p></section>
+      <section class="results" id="results" aria-labelledby="resultsTitle"><div class="results-heading"><div><div class="section-number">03 / EXPLORE THE SERVICES</div><h2 id="resultsTitle">Can it fit your week?</h2></div><button class="download" id="download">Download results ↓</button></div>
+        <div class="filters"><label class="search-field"><span class="sr-only">Search services and offices</span><span aria-hidden="true">⌕</span><input type="search" id="search" placeholder="Search a service, office, or address"></label><label><span class="sr-only">Category</span><select id="category"><option value="all">All services</option></select></label><label><span class="sr-only">Borough</span><select id="borough"><option value="all">All boroughs</option><option>Bronx</option><option>Brooklyn</option><option>Manhattan</option><option>Queens</option><option>Staten Island</option><option>Citywide</option></select></label></div>
+        <div class="filter-row"><div class="status-tabs" role="group" aria-label="Schedule fit"><button class="active" data-fit="all">All</button><button data-fit="conflict">Doesn’t fit</button><button data-fit="possible">Possible window</button><button data-fit="other">Exceptions / unknown</button></div><label class="check"><input type="checkbox" id="requiredOnly"> Confirmed in-person requirement</label></div>
+        <p class="result-count" id="resultCount" aria-live="polite"></p><div id="cards"></div><button id="showMore" class="show-more">Show more services</button>
+      </section>
+      <section class="context"><div class="section-number">THE QUESTION BEHIND THE HOURS</div><h2>Who can afford<br>to be available?</h2><p>This explorer measures schedule overlap. It does not measure lost wages, denied services, or staff performance. A clash with work may mean using leave, changing a shift, finding a remote alternative, or postponing a visit. Those outcomes need separate evidence.</p><p>NYC protects time off for some public-benefits and housing appointments. Paid and unpaid entitlements vary. <a href="https://www.nyc.gov/site/dca/about/paid-sick-leave-FAQs.page" target="_blank" rel="noopener">Read the city’s current guidance ↗</a></p></section>
+    </div>
+  </section>
+</main>
+<footer><span>PLEASE TAKE A DAY OFF.</span><p>Published hours. Explicit assumptions. Every record linked to its source.</p><button id="footerMethod">Read the methodology ↗</button></footer>
+<dialog id="detailDialog" aria-labelledby="detailTitle"><button class="close-dialog" aria-label="Close details">×</button><div id="detailContent"></div></dialog>
+<dialog id="methodDialog" aria-labelledby="methodTitle"><button class="close-dialog" aria-label="Close methodology">×</button><div id="methodContent"></div></dialog>
+<noscript>This explorer needs JavaScript. The complete source-backed dataset is available in <a href="data/schedules.csv">CSV format</a>.</noscript>
+</body></html>

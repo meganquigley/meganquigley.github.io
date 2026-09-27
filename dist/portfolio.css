@@ -50,3 +50,5 @@ footer{margin-top:18px;gap:20px}
 }
 
 .project .project-brand{font-family:inherit;font-size:9px;letter-spacing:.025em;margin-top:4px;color:var(--muted)}
+
+.project-preview{object-fit:cover;object-position:center;border-radius:5px;mix-blend-mode:normal;border:1px solid var(--line)}
