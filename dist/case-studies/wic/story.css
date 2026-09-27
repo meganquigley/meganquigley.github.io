@@ -111,10 +111,14 @@ html:not(.enhanced) .opening-message{opacity:1;transform:none}
 .source-link{padding:0;margin-left:.12em;position:relative;letter-spacing:0}
 .source-link:before{content:'';position:absolute;inset:-8px -5px}
 .citation-tail{white-space:nowrap}
-.enhanced #scene-1 .split-stage{opacity:var(--room-opacity,1);transition:opacity 260ms ease}
-.enhanced #scene-1.has-research .split-stage{opacity:0;visibility:hidden}
+.enhanced #scene-1 .split-stage{opacity:var(--room-opacity,1);transition:none}
+.enhanced #scene-1.has-research .split-stage{opacity:var(--room-opacity,0);visibility:visible}
 @media(prefers-reduced-motion:reduce){.enhanced #scene-1 .split-stage{transition:none}}
 
 /* Each visible family contains two people; muted families remain recognizable. */
 .crowd-person.unreached{filter:grayscale(1);opacity:calc(var(--crowd,0)*.36)}
 .crowd-person.crowd-origin{opacity:1}
+
+/* A scroll-linked, geometrically matched handoff from room to population. */
+.enhanced #scene-1 .frame.crowd-bridge{visibility:visible;opacity:var(--crowd-entry,1);transition:none;pointer-events:none}
+.enhanced #scene-1 .frame.crowd-bridge .visual{visibility:visible;display:flex;inset:0;width:100%;height:100%;opacity:1;transition:none}
