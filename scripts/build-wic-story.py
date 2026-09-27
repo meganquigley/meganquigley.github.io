@@ -160,18 +160,18 @@ page='''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="v
 <meta property="og:title" content="The work of getting help — A WIC story">
 <meta property="og:description" content="Food assistance can change a life. Getting it is another story. Follow one mother down two paths to see what WIC changes.">
 <meta property="og:url" content="https://meganquigley.github.io/case-studies/wic/">
-<meta property="og:image" content="https://meganquigley.github.io/assets/wic-og-20260927.png">
-<meta property="og:image:secure_url" content="https://meganquigley.github.io/assets/wic-og-20260927.png">
+<meta property="og:image" content="https://meganquigley.github.io/assets/wic-og-minimal.png">
+<meta property="og:image:secure_url" content="https://meganquigley.github.io/assets/wic-og-minimal.png">
 <meta property="og:image:type" content="image/png">
-<meta property="og:image:width" content="1730">
-<meta property="og:image:height" content="909">
-<meta property="og:image:alt" content="The work of getting help — a WIC story by Megan Quigley, with an illustrated mother holding her newborn.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The work of getting help, with an illustrated mother holding her newborn.">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The work of getting help — A WIC story">
 <meta name="twitter:description" content="Food assistance can change a life. Getting it is another story. Follow one mother down two paths to see what WIC changes.">
-<meta name="twitter:image" content="https://meganquigley.github.io/assets/wic-og-20260927.png">
-<meta name="twitter:image:alt" content="The work of getting help — a WIC story by Megan Quigley, with an illustrated mother holding her newborn.">
+<meta name="twitter:image" content="https://meganquigley.github.io/assets/wic-og-minimal.png">
+<meta name="twitter:image:alt" content="The work of getting help, with an illustrated mother holding her newborn.">
 </head><body><main><div class="landing-track"><section class="introduction"><img class="hero-home" src="art/home-hero.jpg" width="1672" height="941" alt="Maya rests in a chair at home, cradling her newborn."><div class="hero-copy"><p class="eyebrow">A WIC story</p><h1>The work<br>of getting help</h1><p class="dek">Food assistance can change a life.<br>Getting it is another story.</p><p class="byline">By Megan Quigley</p></div><p class="scroll-cue">Scroll to begin <span aria-hidden="true">↓</span></p></section></div>'''+''.join(parts)+end+'<dialog id="source-dialog" aria-labelledby="detail-title"><button class="close-details" aria-label="Close details">Close ×</button><div class="detail-content"></div></dialog><script id="basket-data" type="application/json">'+json.dumps(BASKET['items'])+'</script></main></body></html>'
 (OUT/'index.html').write_text(page)
 (OUT/'evidence-metadata.json').write_text(json.dumps({k:{'title':v[0],'url':v[1],'method':v[2]} for k,v in SOURCES.items()},indent=2)+'\n')
