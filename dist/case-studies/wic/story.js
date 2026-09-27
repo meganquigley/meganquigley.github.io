@@ -35,7 +35,7 @@ function prepareStory(){
 const money=n=>'$'+(n/100).toFixed(2);
 function travel(path,person,p,svg=false){
  const length=path.getTotalLength(),point=path.getPointAtLength(length*clamp(p));
- if(svg){person.setAttribute('transform',`translate(${point.x} ${point.y})`);path.style.strokeDasharray=length;path.style.strokeDashoffset=length*(1-clamp(p));}
+ if(svg){person.setAttribute('transform',`translate(${point.x} ${point.y})`);path.setAttribute('pathLength','1');path.style.strokeDasharray='1 1';path.style.strokeDashoffset=String(1-clamp(p));}
  else {person.style.left=point.x/12+'%';person.style.top=`clamp(40px, ${point.y/6.2}%, calc(100% - 65px))`;}
  return point;
 }

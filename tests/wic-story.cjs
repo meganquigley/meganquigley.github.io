@@ -35,8 +35,8 @@ const {JSDOM}=require('jsdom'),css=require('css-tree');
  assert.equal(d.querySelectorAll('nav,[data-reading-toggle],#reading-mode').length,0);
  assert.equal(d.querySelectorAll('.opening a,.introduction a').length,0);
  for(const meta of ['robots','googlebot'])assert.equal(d.querySelector(`meta[name=${meta}]`).content,'noindex, nofollow, noarchive');
- assert.deepEqual([...d.querySelectorAll('script[src]')].map(x=>x.getAttribute('src')),['story.js?v=20260927-families4']);
- assert.deepEqual([...d.querySelectorAll('link[rel=stylesheet]')].map(x=>x.getAttribute('href')),['story.css?v=20260927-families4']);
+ assert.deepEqual([...d.querySelectorAll('script[src]')].map(x=>x.getAttribute('src')),['story.js?v=20260927-route']);
+ assert.deepEqual([...d.querySelectorAll('link[rel=stylesheet]')].map(x=>x.getAttribute('href')),['story.css?v=20260927-route']);
  for(const frame of d.querySelectorAll('.frame')){
   assert.equal(frame.querySelectorAll('.caption').length,1);assert(frame.querySelector('.line,.opening-exchange').textContent.length);
   assert(frame.querySelector('.research')||frame.querySelector('.pair')||frame.querySelector('.anchors')||frame.closest('.immersive')||frame.querySelector('.ending-art')||frame.querySelector('.single-family'));
@@ -102,6 +102,18 @@ const {JSDOM}=require('jsdom'),css=require('css-tree');
    }
    scene.dataset.top=10000;
   }
+  // The blue trail ends at Maya and rewinds with the story, rather than painting the whole route.
+  const drive=w.document.querySelector('#scene-5'),routePath=drive.querySelector('.map-route-right');
+  for(const position of [0,.7,1.4,2.8,1.4,0]){
+   drive.dataset.top=-position*765;flush();
+   const progress=Math.min(1,(reduced?Math.floor(position)+.95:position)/2.8);
+   assert.equal(routePath.getAttribute('pathLength'),'1');
+   assert.equal(routePath.style.strokeDasharray,'1 1');
+   assert(Math.abs(Number(routePath.style.strokeDashoffset)-(1-progress))<.00001);
+   const traveler=drive.querySelector('.map-traveler-right').getAttribute('transform').match(/[\d.]+/g).map(Number);
+   assert(Math.abs(traveler[0]-progress*100)<.00001,'Trail and traveler share the same progress');
+  }
+  drive.dataset.top=10000;
   const checkout=w.document.querySelector('#scene-7');
   for(const clock of [0,.5,.54,1.5,1.54,2.6,0]){
    checkout.dataset.top=-(clock/3)*765;flush();

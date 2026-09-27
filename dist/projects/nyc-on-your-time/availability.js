@@ -212,7 +212,7 @@
     $('results').setAttribute('aria-labelledby','tab-custom');closeCustom();
     const selected=M.intervals([value]);states=records.map(r=>P.classify(r,selected,today));
     $('results').ariaLabel=`${value.days.map(d=>days[d]).join(', ')} · ${all?'all day':`${clock(M.minute(value.start))}–${clock(M.minute(value.end))}${M.minute(value.end)<M.minute(value.start)?' next day':''}`}`;
-    $('tab-custom').title=$('results').ariaLabel;
+    $('tab-custom').title='Your visit or appointment time: '+$('results').ariaLabel+'. These are the times you can attend, not your work hours.';
     update();
   }
   document.querySelector('.tabs').addEventListener('click',e=>{const b=e.target.closest('[data-preset]');if(b)selectPreset(b.dataset.preset);});
