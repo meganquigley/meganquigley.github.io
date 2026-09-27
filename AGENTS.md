@@ -17,3 +17,7 @@ The user has requested GitHub hosting. Do not republish to the old Sites host un
 Keep every HTML page marked `noindex, nofollow, noarchive` for robots and Googlebot until the user explicitly asks to allow indexing. Keep robots.txt crawlable so search engines can see these directives. Public access is authorized; search indexing is not. Do not add a sitemap or remove noindex during edits.
 
 Repository: `meganquigley/meganquigley.github.io`, branch `main`. Live site: https://meganquigley.github.io/. Use the connected GitHub tools for writes if local Git has no credentials.
+
+## WIC narrative voice
+
+Keep production and methodology disclaimers out of the story's dialogue and captions. They interrupt the scene, explain the authoring process, and make the reader feel outside the experience. Do not label scenes or dialogue “illustrative,” or repeatedly explain what an image or statistic does not represent. Write each claim accurately on its own; put necessary assumptions, study limitations, fictional-character context, and price provenance in compact sources and methodology at the end. Preserve a clear distinction between Maya's story and research findings through wording and visual structure.

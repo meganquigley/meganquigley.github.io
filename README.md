@@ -27,3 +27,7 @@ The homepage uses one continuous, reversible scroll cue. All three story opening
 Run `python3 scripts/build-wic-geography.py` after editing the WIC state data. It reads the existing coverage CSV and bundled Census-derived US Atlas geometry, then builds all 52 selectable jurisdictions and an accessible ranked table. California and Louisiana are the featured comparison. Small or short screens use the map and table without a pinned transition. Run the WIC geography builder before the access-story generator and Pages build.
 
 DOM regression checks: install `jsdom@26` and `css-tree@3` in a temporary directory, then run `NODE_PATH=<temporary-directory>/node_modules node tests/scrollytelling.cjs`. These test logic, keyboard selection, count integrity, reading mode, reduced motion, and CSS syntax. They do not provide layout or visual verification.
+
+## Personal portfolio preview
+
+The `new-direction` branch contains Megan’s personal landing page, styled independently in `dist/portfolio.css`. Its illustrated project links open the existing stories in new tabs. The story generator preserves this homepage. This branch is a preview; only `main` publishes to GitHub Pages. The previous site is preserved at `archive/site-before-redesign-2026-09-23`.

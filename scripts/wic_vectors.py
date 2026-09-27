@@ -1,0 +1,145 @@
+"""Original resolution-independent story drawings and immersive environments."""
+from pathlib import Path
+import json, math, re
+ROOT=Path(__file__).resolve().parents[1]
+OUT=ROOT/'dist/case-studies/wic'
+
+def svg(body,box='0 0 320 320',cls=''):
+ return f'<svg class="{cls}" viewBox="{box}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">{body}</svg>'
+def use(name,x=0,y=0,w=320,h=320):return f'<use href="#v-{name}" x="{x}" y="{y}" width="{w}" height="{h}"/>'
+def rect(x,y,w,h,fill,rx=3):return f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{rx}" fill="{fill}"/>'
+INK='#293833';CREAM='#f9f5e9';BLUE='#658695';CLAY='#c79b7e';SKIN='#f4cdb6';HAIR='#4a3b33';GREEN='#819578'
+
+def build_art():
+ defs=[]
+ def symbol(name,body,view='0 0 320 320'):
+  defs.append(f'<symbol id="v-{name}" viewBox="{view}"><g stroke="{INK}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">{body}</g></symbol>')
+ symbol('baby','<path d="M112 168Q81 259 159 285Q230 269 211 181Z" fill="'+CREAM+'"/><path d="M105 205L198 249M113 238L179 275" fill="none"/><ellipse cx="158" cy="158" rx="45" ry="47" fill="'+SKIN+'"/><path d="M119 144Q124 101 162 111Q186 101 200 137Q176 119 148 136Z" fill="'+HAIR+'"/><path d="M134 158q7 7 13 0m22 0q7 7 13 0m-33 21q10 6 19-1" fill="none"/><ellipse cx="132" cy="174" rx="8" ry="4" fill="#e5a593" stroke="none"/>')
+ symbol('child','<path d="M120 247l-7 58h32l13-56m22-2 10 58h31l-12-66" fill="'+CLAY+'"/><path d="M106 169Q157 140 210 169l18 74-25 8-6-48v70h-78v-65l-10 45-25-10Z" fill="'+CREAM+'"/><path d="M127 178v44h68v-44m-68 23v63h68v-63" fill="'+CLAY+'"/><circle cx="160" cy="117" r="53" fill="'+SKIN+'"/><path d="M109 112Q91 72 115 62Q126 38 148 52Q170 33 187 52Q214 44 216 75Q229 88 208 119l-6-31-21 2-12-16-23 17-25-6Z" fill="'+HAIR+'"/><path d="M139 123v5m40-5v5m-31 19q12 12 25-2" fill="none"/><path d="M109 305h37m42 0h36" stroke-width="7"/>')
+ # Smooth, consistent face and a purpose-drawn cradling pose.
+ head=f'<path d="M140 101v22q20 17 39 0v-22" fill="{SKIN}"/><circle cx="157" cy="25" r="20" fill="{HAIR}"/><ellipse cx="160" cy="70" rx="47" ry="52" fill="{HAIR}"/><ellipse cx="160" cy="78" rx="40" ry="43" fill="{SKIN}"/><path d="M119 68q1-48 41-47 40 1 42 47-18-6-32-28-13 22-51 28Z" fill="{HAIR}"/><path d="M137 72q5-3 10 0m26 0q5-3 10 0" fill="none" stroke-width="1.6"/><ellipse cx="143" cy="81" rx="2" ry="3" fill="{INK}" stroke="none"/><ellipse cx="177" cy="81" rx="2" ry="3" fill="{INK}" stroke="none"/><path d="M160 84l-3 9h5m-15 10q13 9 26-1" fill="none" stroke-width="1.8"/>'
+ legs=f'<path d="M118 211l-8 87h37l13-68 14 68h37l-9-87Z" fill="{CLAY}"/><path d="M109 301h40m23 0h41" stroke-width="8"/>'
+ torso=f'<path d="M134 117q26 15 52 0 27 7 35 33l13 65-27 7-12-53 7 62h-85l7-62-13 53-27-7 13-65q9-27 37-33Z" fill="{BLUE}"/>'
+ symbol('maya',legs+torso+f'<path d="M85 213l-2 17q0 17 12 17 11-1 14-25m99 0q2 25 14 25 14-1 11-18l-1-16" fill="{SKIN}"/>'+head)
+ holding_torso=f'<path d="M132 119q29 15 56 0 27 6 35 35l4 36-29 8-5-31 9 65h-85l6-65-8 32-29-8 8-40q7-28 38-32Z" fill="{BLUE}"/>'
+ symbol('mother-baby',legs+holding_torso+head+f'<path d="M87 188q-4 24 24 34l61 13q15 2 18-9 1-10-13-12l-58-14-5-8Z" fill="{SKIN}"/><path d="M198 194l2 13q-6 12-27 12-12-1-13 10 0 10 14 11 39 1 48-24l4-26Z" fill="{SKIN}"/>'+use('baby',131,79,128,146))
+ symbol('family',use('maya',-5,0,240,310)+use('child',173,133,134,175))
+ symbol('room',rect(10,13,300,285,'#e5dcc6',0)+rect(175,37,99,137,'#a8c4ca',2)+'<path d="M224 38v135m-48-68h98" stroke="'+CREAM+'" stroke-width="8"/>'+rect(20,220,270,71,'#b08c6e')+'<path d="M20 246h270m-245 0v44m85-44v44m105-44v44" stroke="#987256"/>'+rect(42,163,113,92,BLUE,25)+rect(29,188,24,71,BLUE,10)+rect(143,189,23,71,BLUE,10)+'<path d="M196 194h69l-17-73h-34Z" fill="'+CREAM+'"/><path d="M230 193v62m-18 0h37"/><path d="M31 123q-21-30 4-37 27 9 1 45m0-12q30-21 30 3-4 27-29 13" fill="'+GREEN+'"/>'+rect(20,139,34,42,CLAY,4))
+ symbol('phone',rect(79,8,164,299,INK,24)+rect(89,22,144,269,CREAM,17)+rect(136,23,51,10,INK,5)+rect(101,72,117,47,'#b5ccd1',9)+rect(130,136,88,39,'#d9e4d1',9)+rect(101,192,117,49,'#b5ccd1',9)+'<circle cx="161" cy="301" r="3" fill="'+CREAM+'"/>')
+ symbol('documents',rect(45,28,213,263,CREAM,5)+rect(60,15,211,259,'#fffaf0',4)+'<path d="M87 70h140m-140 22h140m-140 22h110m-110 32h140m-140 22h140m-140 22h93" stroke="#9caa9e"/>'+rect(107,204,186,99,BLUE,9)+'<circle cx="148" cy="239" r="17" fill="'+SKIN+'"/><path d="M124 277q0-34 24-30 27-5 28 30Z" fill="'+CREAM+'"/><path d="M192 232h73m-73 16h58m-58 17h69" stroke="'+CREAM+'"/>')
+ symbol('calendar',rect(31,34,257,256,CREAM,10)+rect(31,34,257,57,BLUE,10)+'<path d="M80 20v33m53-33v33m53-33v33m53-33v33" stroke-width="10"/>'+''.join(f'<path d="M{x} 111v147" stroke="#c4cbbb"/>' for x in [79,127,175,223])+''.join(f'<path d="M49 {y}h220" stroke="#c4cbbb"/>' for y in [111,160,209,258])+'<circle cx="198" cy="185" r="29" fill="none" stroke="#a45f48" stroke-width="5"/>')
+ symbol('eggs',rect(20,124,282,139,'#c4bea5',12)+''.join(f'<ellipse cx="{x}" cy="{y}" rx="22" ry="28" fill="#f9eed3"/>' for y in [160,220] for x in [51,94,137,180,223,266])+'<path d="M22 185h278" stroke="#a29f8b"/>')
+ symbol('bananas','<path d="M77 59q6 161 186 158-103 86-175-1-59-70-20-139Z" fill="#e6c761"/><path d="M85 61q38 142 195 100-65 99-153 45-66-48-54-129Z" fill="#ecd576"/><path d="M86 69q89 100 205 30-27 99-119 81-80-23-96-95Z" fill="#e9cf6b"/><path d="M70 78l-4-26 22-4 6 22Z" fill="'+HAIR+'"/>')
+ symbol('carrots','<path d="M70 49l-29 226q52 41 241-3L261 49Z" fill="#d6e2cd"/>'+''.join(f'<g transform="translate({x} {y}) rotate({r})"><path d="M0 0q35-12 29 11L5 108Q-8 92 0 0Z" fill="#d88a50"/><path d="M6 1L-8-24m19 26 6-32m1 34 23-22" stroke="#687e50" stroke-width="6"/></g>' for x,y,r in [(90,110,-12),(145,98,8),(202,100,17)])+rect(73,42,190,36,BLUE,0))
+ symbol('peanut',rect(72,67,180,224,'#aa7950',23)+rect(68,35,188,52,BLUE,7)+rect(74,124,176,111,CREAM,0)+'<path d="M140 151q-30 3-29 25 1 14 22 17-5 26 17 28 33-3 27-31 31-9 17-30-20-25-42-8Z" fill="'+CLAY+'"/>')
+ symbol('rice','<path d="M68 35h183l-5 48 20 204H49L73 83Z" fill="'+CREAM+'"/>'+rect(69,35,181,27,BLUE,0)+rect(62,114,191,106,BLUE,0)+''.join(f'<ellipse cx="{x}" cy="{y}" rx="3" ry="8" transform="rotate(25 {x} {y})" fill="#d8c7a3" stroke="none"/>' for x,y in [(100,241),(131,260),(181,244),(224,265),(170,275),(91,271)])+'<path d="M97 149h119m-96 25h72" stroke="'+CREAM+'" stroke-width="7"/>')
+ symbol('milk','<path d="M95 57l30-30h86l20 38v226H72V78Z" fill="'+CREAM+'"/>'+rect(98,43,40,17,BLUE,3)+rect(73,148,157,106,BLUE,0)+'<path d="M187 43h28v67h-28Z" fill="none"/><path d="M92 179q33-26 65 0 34 25 56 0" fill="none" stroke="'+CREAM+'" stroke-width="10"/>')
+ symbol('apples',''.join(f'<path d="M{x} {y}q-44-25-53 20-9 48 35 67 18-10 29 0 45-25 27-66-14-29-38-21Z" fill="#b97558"/><path d="M{x} {y}l5-20" fill="none"/>' for x,y in [(95,88),(213,85),(157,190)]))
+ symbol('grapes',''.join(f'<circle cx="{x}" cy="{y}" r="27" fill="#887587"/>' for x,y in [(110,91),(170,85),(225,102),(128,143),(191,150),(160,198),(158,248)])+'<path d="M162 70l15-39" fill="none"/>')
+ symbol('chicken',rect(20,80,282,194,CREAM,20)+'<path d="M60 137q38-70 92 0 24 59-21 90-94 21-71-90Z" fill="#d9a694"/><path d="M163 128q75-57 96 24 16 71-49 79-71-10-47-103Z" fill="#d9a694"/>')
+ symbol('pasta',rect(79,20,163,287,CLAY,4)+rect(93,90,135,137,CREAM,0)+''.join(f'<path d="M{x} 113v91" stroke="#c4a054" stroke-width="5"/>' for x in range(104,219,12)))
+ symbol('sauce',rect(78,61,167,235,'#a96750',20)+rect(78,34,167,44,BLUE,6)+rect(78,124,167,104,CREAM,0)+'<circle cx="162" cy="176" r="30" fill="#b56b4c"/>')
+ symbol('broccoli',rect(58,24,205,275,CREAM,8)+rect(58,24,205,50,BLUE,3)+''.join(f'<path d="M{x} {y+25}l-8 45h18l-3-45" fill="{GREEN}"/><circle cx="{x}" cy="{y}" r="31" fill="{GREEN}"/><circle cx="{x-20}" cy="{y+8}" r="20" fill="{GREEN}"/><circle cx="{x+20}" cy="{y+8}" r="20" fill="{GREEN}"/>' for x,y in [(124,132),(200,198)]))
+ symbol('spinach',rect(58,24,205,275,CREAM,8)+rect(58,24,205,50,BLUE,3)+''.join(f'<ellipse cx="{x}" cy="{y}" rx="25" ry="43" transform="rotate({a} {x} {y})" fill="{GREEN}"/><path d="M{x} {y-25}v60" fill="none"/>' for x,y,a in [(120,142,-30),(190,150,25),(155,211,5)]))
+ symbol('groceries',use('carrots',-18,-12,190,230)+use('bananas',126,10,170,220)+'<path d="M44 151h232l-16 156H62Z" fill="'+CLAY+'"/><path d="M90 154q-2-58 31-60h78q29 3 26 60" fill="none" stroke-width="8"/>')
+ symbol('cart','<path d="M74 77h190l-22 126H103Z" fill="#ecede5"/>'+''.join(f'<path d="M{x} 90l8 99" stroke="#81908d"/>' for x in [104,135,166,197,228])+'<path d="M78 115h178m-171 35h164m-157 31h152M69 77L54 44H21m81 160-8 30h153" fill="none"/><circle cx="121" cy="257" r="18" fill="'+INK+'"/><circle cx="226" cy="257" r="18" fill="'+INK+'"/>'+use('baby',106,43,104,120))
+ symbol('storefront',rect(19,54,282,244,CLAY,3)+rect(41,131,84,143,'#c8dcd8',0)+rect(193,131,85,143,'#c8dcd8',0)+rect(131,129,57,168,CREAM,0)+''.join(f'<path d="M{x} 70h35l13 62h-39Z" fill="{BLUE if i%2==0 else CREAM}"/>' for i,x in enumerate(range(20,287,35)))+'<path d="M155 150v110m21-44v20"/>'+rect(13,56,293,26,INK,2))
+ symbol('receipt',rect(71,22,179,277,CREAM,0)+''.join(f'<path d="M91 {y}h139" stroke="#94a099"/>' for y in range(58,260,24)))
+ symbol('kitchen',rect(15,20,288,269,'#e4dbc4',0)+rect(28,36,113,102,GREEN,4)+rect(162,36,122,102,GREEN,4)+rect(17,196,286,101,BLUE,0)+'<path d="M20 189h279m-201 21v85m131-85v85m-168-68h18m133 0h16M84 37v100m143-100v100"/><path d="M166 174q-5-47 30-43 21 4 17 31" fill="none"/>'+use('bananas',208,131,80,70))
+ symbol('birthday',rect(24,226,276,70,CLAY,12)+'<path d="M53 213q92-43 210 0v47H53Z" fill="'+CREAM+'"/><path d="M53 227q17 27 33 0 16 25 33 0 16 24 33 0 17 23 35 0 16 25 32 0 21 23 44 0" fill="none"/>'+''.join(f'<path d="M{x} 210v-34" stroke="{BLUE}" stroke-width="6"/><ellipse cx="{x}" cy="166" rx="4" ry="9" fill="#e4b562" stroke="none"/>' for x in [110,137,164,191,218]))
+ birthday_body=re.search(r'<g[^>]*>(.*)</g></symbol>',next(x for x in defs if 'id="v-birthday"' in x)).group(1)
+ for x in [110,137,164,191,218]:
+  birthday_body=birthday_body.replace(f'<path d="M{x} 210v-34" stroke="{BLUE}" stroke-width="6"/><ellipse cx="{x}" cy="166" rx="4" ry="9" fill="#e4b562" stroke="none"/>','')
+ symbol('birthday-one',birthday_body+f'<path d="M164 210v-34" stroke="{BLUE}" stroke-width="6"/><ellipse cx="164" cy="166" rx="4" ry="9" fill="#e4b562" stroke="none"/>')
+ # Family variants reuse the authored characters, with varied palettes and hair.
+ def character_body(name):
+  return re.search(r'<g[^>]*>(.*)</g></symbol>',next(x for x in defs if f'id="v-{name}"' in x)).group(1)
+ palettes=[('#f4cdb6','#4a3b33','#658695'),('#b68160','#30342e','#819578'),('#815e4c','#2e2928','#a96c56'),('#e6b58d','#654535','#887a9f'),('#c99776','#806844','#577e78'),('#f0d4c2','#a77a4b','#b1845c')]
+ for v in range(12):
+  skin,hair,shirt=palettes[v%6]
+  def recolor(body):
+   return body.replace(SKIN,skin).replace(HAIR,hair).replace(BLUE,shirt)
+  symbol(f'crowd-baby-{v}',recolor(character_body('baby')))
+  symbol(f'crowd-child-{v}',recolor(character_body('child')))
+  mother=recolor(character_body('mother-baby' if v%2==0 else 'maya')).replace('#v-baby',f'#v-crowd-baby-{v}')
+  if v%3==1:
+   mother=mother.replace(f'<circle cx="157" cy="25" r="20" fill="{hair}"/>',f'<path d="M119 48Q82 20 99 83L111 125Q97 89 121 70Z" fill="{hair}"/>')
+  elif v%3==2:
+   mother=mother.replace(f'<circle cx="157" cy="25" r="20" fill="{hair}"/>','')
+  symbol(f'crowd-mother-{v}',mother)
+  group=use(f'crowd-mother-{v}') if v%2==0 else use(f'crowd-mother-{v}',-5,0,240,310)+use(f'crowd-child-{v}',112,133,134,175)
+  symbol(f'crowd-family-{v}',group)
+ # Legacy indices refer only to these newly drawn SVG scenes.
+ names=['mother-baby','mother-baby','family','family','room','storefront','storefront','kitchen','cart','groceries','phone','documents','calendar','milk','receipt','child']
+ for i,name in enumerate(names):symbol(str(i),use(name))
+ for i in range(16):
+  backdrop='room' if i in [0,1,2,3,10] else 'kitchen' if i in [8,9,12,13] else 'storefront' if i in [4,5,6,7,14] else 'room'
+  body=f'<g opacity=".5">{use(backdrop)}</g>'
+  body+=use('mother-baby' if i<11 else 'family',30,20,260,280)
+  if i in [1,10]:body+=use('phone',183,87,70,90)
+  if i==2:body+=rect(13,238,284,60,CLAY)+use('documents',128,167,135,128)
+  if i in [5,6]:body+=use('cart',157,137,161,173)
+  if i==7:body+=use('receipt',190,120,106,150)
+  if i==8:body+=use('groceries',5,193,112,126)
+  if i==9:body+=use('calendar',210,23,100,120)
+  if i in [11,15]:
+   body=f'<g opacity=".65">{use("room")}</g><path d="M35 35Q160 80 285 35" fill="none" stroke="{INK}"/>'+''.join(f'<path d="M{x} {y}l12 24 12-19Z" fill="{BLUE if j%2 else CLAY}"/>' for j,(x,y) in enumerate([(55,43),(95,54),(140,58),(185,54),(225,43)]))+use('maya',28,75,170,220)+use('child',194,145,100,130)+use('birthday-one' if i==11 else 'birthday',45,146,250,164)
+  symbol('s'+str(i),body)
+ (OUT/'art/story-vectors.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg"><defs>'+''.join(defs)+'</defs></svg>')
+
+def external(name,cls='',label=''):
+ return f'<svg class="vector {cls}" viewBox="0 0 320 320" aria-hidden="true"><use href="art/story-vectors.svg?v=families4#v-{name}"/></svg>'
+
+def store_environment():
+ shelves=''
+ for side in range(2):
+  offset=side*600
+  for col,(x,name,food) in enumerate([(95,'DAIRY','milk'),(255,'PANTRY','peanut'),(415,'PRODUCE','apples')]):
+   x+=offset
+   shelves+=f'<rect x="{x}" y="140" width="80" height="300" rx="8" fill="#b8ad92" stroke="#293833" stroke-width="3"/><text x="{x+40}" y="120" text-anchor="middle">{name}</text>'
+   for row in range(5):shelves+=f'<use href="art/story-vectors.svg?v=families4#v-{food}" x="{x+8}" y="{150+row*55}" width="64" height="50"/>'
+  shelves+=f'<rect x="{offset+235}" y="540" width="130" height="38" rx="6" fill="#658695"/><text x="{offset+300}" y="608" text-anchor="middle">CHECKOUT</text>'
+ body='<svg viewBox="0 0 1200 630" class="store-floor" role="img" aria-label="Two overhead grocery trips: WIC requires checking products; without WIC, Maya checks her budget"><defs><pattern id="tile" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#c8c4ad"/></pattern></defs><rect width="1200" height="630" rx="15" fill="#eee7d7"/><rect width="1200" height="630" fill="url(#tile)"/><path d="M600 0V630" stroke="#a69f8c" stroke-width="3"/><text class="floor-path-label" x="300" y="45" text-anchor="middle">✓ WITH WIC</text><text class="floor-path-label" x="900" y="45" text-anchor="middle">○ WITHOUT WIC</text>'+shelves
+ body+='<path class="shopping-path with-route" d="M300 515L55 515V80H215V480H375V80H215V480H545V80H375V505H300"/><path class="shopping-path without-route" d="M900 515H655V80H815V480H1135V80H975V505H900"/>'
+ for cls in ['with','without']:body+=f'<g class="shopper-{cls}"><circle r="26" fill="#f8f6f0" stroke="#293833" stroke-width="2"/><use href="art/story-vectors.svg?v=families4#v-cart" x="-25" y="-25" width="50" height="50"/></g>'
+ return '<div class="immersive-stage store-environment"><div class="store-labels"><span>✓ With WIC</span><span>○ Without WIC</span></div>'+body+'</svg><div class="shelf-callout"><strong>18 eggs?</strong><p>I need dozen-size cartons.</p></div></div>'
+
+def checkout_environment(items):
+ products=''.join(f'<div class="belt-item" data-item="{j}">{external(i["icon"])}<span>{i["label"]}</span><b>${i["cents"]/100:.2f}</b></div>' for j,i in enumerate(items))
+ rows=''.join(f'<div class="receipt-row" data-row="{j}"><span>{i["label"]}<small>{i["quantity"]}</small></span><b>${i["cents"]/100:.2f}</b><em>{"✓ WIC" if i["covered"] else "MY MONEY"}</em></div>' for j,i in enumerate(items))
+ total=sum(i['cents'] for i in items);covered=sum(i['cents'] for i in items if i['covered'])
+ return '<div class="immersive-stage checkout-environment"><div class="checkout-machine"><div class="scanner-window"><i></i></div></div><div class="conveyor"><div class="belt-texture"></div>'+products+'</div><div class="live-receipt"><h3>My grocery bill</h3><div class="receipt-window"><div class="receipt-roll">'+rows+'</div></div><div class="receipt-total"><span>Groceries</span><b data-total>$'+f'{total/100:.2f}'+'</b></div><div class="receipt-payment"><p><span>✓ WIC pays</span><strong data-covered>$'+f'{covered/100:.2f}'+'</strong></p><p><span>I pay</span><strong data-own>$'+f'{(total-covered)/100:.2f}'+'</strong></p></div><span data-without hidden></span></div></div>'
+
+def map_environment():
+ import heapq
+ features=[]
+ for file in ['albany-roads.geojson','albany-main-roads.geojson']:
+  features+=json.loads((ROOT/'research/wic-rebuild/immersive'/file).read_text())['features']
+ def point(c):return ((c[0]+73.807)/.057*1200,(42.679-c[1])/.038*760)
+ def line(coords):return 'M'+' L'.join(f'{point(c)[0]:.2f},{point(c)[1]:.2f}' for c in coords)
+ roads=[];graph={}
+ for f in features:
+  coords=f['geometry']['coordinates']
+  parts=coords if f['geometry']['type']=='MultiLineString' else [coords]
+  for part in parts:
+   roads.append('<path d="'+line(part)+'"/>')
+   for a,b in zip(part,part[1:]):
+    a,b=tuple(round(n,6) for n in a),tuple(round(n,6) for n in b)
+    w=math.hypot((a[0]-b[0])*.74,a[1]-b[1]);graph.setdefault(a,[]).append((b,w));graph.setdefault(b,[]).append((a,w))
+ def nearest(c):return min(graph,key=lambda p:math.hypot(p[0]-c[0],p[1]-c[1]))
+ start=nearest((-73.771,42.6538));end=nearest((-73.795,42.6661))
+ todo=[(0,start)];dist={start:0};prev={}
+ while todo:
+  d,a=heapq.heappop(todo)
+  if a==end:break
+  if d>dist[a]:continue
+  for b,w in graph[a]:
+   if d+w<dist.get(b,999):dist[b]=d+w;prev[b]=a;heapq.heappush(todo,(d+w,b))
+ route=[end]
+ while route[-1]!=start:route.append(prev[route[-1]])
+ route.reverse();short=route[:max(2,len(route)//6)]
+ (OUT/'map-routes.json').write_text(json.dumps({'source':'US Census TIGERweb Transportation, layers 8 and 6','retrieved':'2026-09-24','with_wic':route,'without_wic':short,'method':'Shortest path on extracted road vertices; narrative origin and store endpoints, not a reported household trip.'},indent=2))
+ markers=''
+ for label,c,cls in [('Home',start,'home-pin'),('Nearby store',short[-1],'near-pin'),('WIC store',end,'wic-pin')]:
+  x,y=point(c);markers+=f'<g class="map-pin {cls}" transform="translate({x} {y})"><circle r="11"/><rect x="15" y="-18" width="145" height="35" rx="6"/><text x="26" y="6">{label}</text></g>'
+ return '<div class="immersive-stage map-environment"><div class="map-title"><span>ALBANY, NEW YORK</span><strong>Same neighborhood.<br>A different trip.</strong></div><svg class="real-map" viewBox="0 0 1200 760" role="img" aria-label="Albany street map showing a short nearby trip and a longer trip to use WIC"><rect width="1200" height="760" fill="#e4e8dd"/><g class="street-casing">'+''.join(roads)+'</g><g class="street-lines">'+''.join(roads)+'</g><path class="map-route map-route-left" d="'+line(short)+'"/><path class="map-route map-route-right" d="'+line(route)+'"/>'+markers+'<g class="map-traveler-left"><circle r="14"/><text y="5" text-anchor="middle">M</text></g><g class="map-traveler-right"><circle r="14"/><text y="5" text-anchor="middle">M</text></g></svg><div class="environment-legend"><span>Without WIC</span><span>With WIC</span></div><p class="map-attribution">Street geometry: U.S. Census Bureau · TIGERweb</p></div>'
