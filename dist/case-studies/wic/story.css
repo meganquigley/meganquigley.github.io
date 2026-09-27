@@ -114,3 +114,7 @@ html:not(.enhanced) .opening-message{opacity:1;transform:none}
 .enhanced #scene-1 .split-stage{opacity:var(--room-opacity,1);transition:opacity 260ms ease}
 .enhanced #scene-1.has-research .split-stage{opacity:0;visibility:hidden}
 @media(prefers-reduced-motion:reduce){.enhanced #scene-1 .split-stage{transition:none}}
+
+/* Each visible family contains two people; muted families remain recognizable. */
+.crowd-person.unreached{filter:grayscale(1);opacity:calc(var(--crowd,0)*.36)}
+.crowd-person.crowd-origin{opacity:1}
